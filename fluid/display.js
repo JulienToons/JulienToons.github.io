@@ -40,7 +40,22 @@ const Display = function(canvas) {
 
   this.drawPoint = function(x=5,y=15, r=1){
 	  this.buffer.fillStyle = "rgba(0,0,211,0.25)";
-      this.buffer.fillRect(x,y,r,r);
+      this.buffer.fillRect(x-r/2,y-r/2,r,r);
+  }
+  this.drawLine = function(points){
+	  if(points.length>0){
+		  this.drawPoint(points[0].pos[0],points[0].pos[1],40);
+		  this.buffer.beginPath();
+		  this.buffer.moveTo(points[0].pos[0],points[0].pos[1]);
+		  if(points.length>1){
+			for(let i =1;i<points.length;i++){
+				this.drawPoint(points[i].pos[0],points[i].pos[1],20);
+				this.buffer.lineTo(points[i].pos[0],points[i].pos[1]);
+			}
+			this.drawPoint(points[points.length-1].pos[0],points[points.length-1].pos[1],40);
+		  }
+		  this.buffer.stroke();
+	  }
   }
   this.drawObject = function(image, source_x, source_y, destination_x, destination_y, width, height) {
 

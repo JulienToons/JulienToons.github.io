@@ -1,8 +1,8 @@
 // NEED 2 CHANGE ALOT   //************************************************************************************!!!!!!!!!
 const Game = function() {
   this.world    = new Game.World();
-  this.update   = function() {
-    this.world.update();
+  this.update   = function(t) {
+    this.world.update(t);
   };
 };
 Game.prototype = { constructor : Game };
@@ -375,10 +375,11 @@ Game.TileSet = function(columns, tile_size) {
 };
 Game.TileSet.prototype = { constructor: Game.TileSet };
 */
-Game.World = function(point = [50,50], gravity = 2) {  //friction = 0.85
+Game.World = function(w=16000/3,h=9000/3,gravity = 2) {  //friction = 0.85
   this.gravity      = gravity;
-  this.height = 144;
-  this.width = 230;
+  this.height = h;
+  this.width = w;
+  this.points = [];
   //this.point = [];
 /* // example vars
   this.collider     = new Game.Collider();
@@ -440,9 +441,34 @@ Game.World.prototype = {
 */
   setup:function() {
 	console.log("Version Alpha 1.1a");
-    this.point = new Array();
+    this.points = new Array();
+	
+	for(let i = 0; i< 30;i++){
+		this.points[i] =new Game.Point(50+ (i*180),400);
+	}
+	
   },
 
-  update:function() {}
+  update:function(t) {
+	let tempFunction = function(t,i) {
+		let refinedTime = (t/200) + (i/3);
+		let a = Math.sin(refinedTime);
+		let d = Math.sin(i/4);
+
+		let b = 3* Math.sin(3*refinedTime+ .7);
+		let c = 2 * Math.sin((4*refinedTime) + 1.2);
+		return 50*(a+b+c+d)/3;
+	};
+	for(let i = 0; i< this.points.length;i++){
+	  let pt=this.points[i];
+	  
+	  pt.pos=[pt.baseX,pt.baseY + Math.floor(tempFunction(t,i))];
+	}
+  }
+};
+Game.Point = function(sx,sy){
+	this.baseX=sx;
+	this.baseY=sy;
+	this.pos= [sx,sy];
 };
 

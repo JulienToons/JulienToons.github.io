@@ -33,7 +33,7 @@ const Engine = function(time_step, update, render) {
     while(this.accumulated_time >= this.time_step) {
 
       this.accumulated_time -= this.time_step;
-
+//console.log(accumulated_time+" vs "+time_stamp);
       this.update(time_stamp);
 
       this.updated = true;

@@ -40,8 +40,8 @@ window.addEventListener("load", function(event) {
 
   var render = function() {
 	 display.fill("rgba(180,196,211,0.25)");
-	 display.drawPoint();//game.world.point[0],game.world.point[1]);
-	 
+	 display.drawLine(game.world.points);
+
 /*   NEED 2 ADD RENDERING //************************************************************************************!!!!!!!!!
     var frame = undefined;
 
@@ -87,13 +87,14 @@ window.addEventListener("load", function(event) {
 
   };
 
-  var update = function() {
+  var update = function(t) {
 /*  //  Temorary Debug Controls 
     if (controller.left.active ) { game.world.player.moveLeft ();                               }
     if (controller.right.active) { game.world.player.moveRight();                               }
     if (controller.up.active   ) { game.world.player.jump();      controller.up.active = false; }
 	*/
-    game.update();
+	
+    game.update(t);
     return;
     
   };
