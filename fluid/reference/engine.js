@@ -1,5 +1,4 @@
 
-
 /* I made a minor mistake the first time I wrote this engine class. Instead of calling
 window.requestAnimationFrame before I update my game logic, I called it after. This
 meant that even if I tried to stop my game loop from inside the game logic, RAF would
