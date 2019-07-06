@@ -30,7 +30,7 @@ Game.World.prototype = {
   setup:function() {
 	 
 	console.log("Version Fluid Beta 1.02");
-	if (Math.random() < .5){this.numberOfPoints = 1 + Math.floor(Math.random() * 3) }
+	if (Math.random() < 0){this.numberOfPoints = 1 + Math.floor(Math.random() * 3) }
 	
 	let oo =Math.round( this.numberOfPoints * this.oilInLiquid);
 	let ww =Math.round( this.numberOfPoints * (1-this.oilInLiquid));
@@ -80,7 +80,7 @@ Game.World.prototype = {
   update:function(t) {
 	for(let i = 0; i< this.points.length;i++){
 		for(let e = i+1; e< this.points.length;e++){
-			this.points[i].check(this.points[e],this.forceMagnitude, t);
+			this.points[i].check(this.points[e],this.forceMagnitude, t, [this.width,this.height]);
 		}
 		//console.log(`V: ${this.points[i].v}. The x: ${this.points[i].x} & y: ${this.points[i].y} & lastly the mass: ${this.points[i].m}`);
 		this.points[i].update(t, this.wallForceMagnitude, this.gravity, [this.width,this.height]);
@@ -98,8 +98,8 @@ Game.Point = function(sx= 2.0,sy = 2.0,r = 2, m=1, vel = [0,0], c = [0,237,230, 
 };
 Game.Point.prototype = {
 	constructor: Game.Point,
-	check:function(pt, k, t){
-		let dx = this.x- pt.x;
+	check:function(pt, k, t, boundaryBR = [Game.World.width, Game.World.height]){
+		let dx = Math.min(this.x- pt.x, boundaryBR[0] - this.x + pt.x, boundaryBR[0] - pt.x + this.x);
 		let dy = this.y - pt.y;
 		let d = Math.sqrt( (dx*dx) + (dy*dy));
 				//console.log("JSJSKHDIK" + d);
