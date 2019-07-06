@@ -195,7 +195,7 @@ window.addEventListener("load", function(event) {
   });
 
   alert("This is carrots\n\nGoal: Collect all 25 carrots");
-  console.log("This is my first javascript game & script and its how I learnt JavaScript. It is the only project in which I followed a youtube tutorial".);
+  console.log("This is my first javascript game & script and its how I learnt JavaScript. It is the only project in which I followed a youtube tutorial.");
   window.addEventListener("keydown", keyDownUp);
   window.addEventListener("keyup"  , keyDownUp);
   window.addEventListener("resize" , resize);
