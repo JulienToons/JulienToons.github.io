@@ -1,12 +1,5 @@
 
-
-/* I made a minor mistake the first time I wrote this engine class. Instead of calling
-window.requestAnimationFrame before I update my game logic, I called it after. This
-meant that even if I tried to stop my game loop from inside the game logic, RAF would
-still be called after I requested a stop. To fix this, I simply moved the request
-to the top of my game loop function, which is Engine.run. */
-
-const Engine = function(time_step, update, render) {
+const Engine = function(time_step, render, update) {
 
   this.accumulated_time        = 0;
   this.animation_frame_request = undefined,
@@ -35,7 +28,7 @@ const Engine = function(time_step, update, render) {
 
       this.accumulated_time -= this.time_step;
 //console.log(accumulated_time+" vs "+time_stamp);
-      this.update(time_stamp);
+      this.update(this.time_step);
 
       this.updated = true;
 
@@ -44,6 +37,7 @@ const Engine = function(time_step, update, render) {
     if (this.updated) {
 
       this.updated = false;
+	  
       this.render(time_stamp);
 
     }
