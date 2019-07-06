@@ -1,0 +1,23 @@
+
+* { box-sizing:border-box; margin:0; padding:0; }
+
+html { height:100%; width:100%; }
+
+body {
+
+  background-color:#dccdef;
+  
+  
+    align-content:center;
+  align-items:space-around;
+  display:grid;
+  justify-items:center;
+  
+  height:100%;
+  width:100%;
+
+}
+
+
+canvas { image-rendering:auto; } /*see https://developer.mozilla.org/en-US/docs/Web/CSS/image-rendering*/
+
