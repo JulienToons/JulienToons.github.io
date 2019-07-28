@@ -1,0 +1,193 @@
+
+* { box-sizing:border-box; margin:0; padding:0; }
+
+html, body{ 
+	height:100%; 
+	width:100%; 
+	/* display: grid; */
+}
+
+#topbar {
+  top: 0;
+  position:fixed;
+  left: 0;
+  z-index: 9999;
+  width: 100%;
+  height: 55px;
+  background: #010;
+  color: white;
+  font-size: 25px;
+}
+@font-face {
+  font-family: titleFamily;
+  src: url(fonts/Doodletoon_line.ttf);
+}
+#title{
+  margin: 5px 8px 5px 15px;
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 30px;  /*   should eventually change to vw*/
+  font-family: titleFamily, Arial, Helvetica, sans-serif;
+}
+#xButton{
+	color: white;
+	height:2vw;
+	width: 2vw;
+	position: absolute;
+	top: 2px;
+	right: 5px;
+	margin-left: 2px;
+	
+}
+#instructionsText{
+	margin-top: 15px;
+	vertical-align: middle;
+	margin-right: 15px;
+}
+#topbar a:not(#title){
+  /* float: right; */
+  margin: 10px 2px 10px 15px;
+  padding: 5px 10px;
+  background-color: #ddd;
+  border: none;
+  color: black;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+#topbar a:not(#title):hover{
+	background-color: #fff;
+	padding: 10px 20px;
+	margin: 5px -8px 5px 5px;
+}
+#topbar a:not(#title):active{
+	padding: 3px 6px;
+	margin: 12px 6px 12px 19px;
+	background-color: grey;
+}
+#main {
+	position:fixed;
+	top: 55px;
+	left: 300px;
+	z-index:0;
+	right: 0;
+	bottom:0;
+	margin: 5px;
+	/* background-color: blue; */
+}
+canvas{ border: 8px solid black; }
+
+#sidebar {
+  top: 55px;
+  height: 100%;
+  padding: 10px 15px 50px;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  color: white;
+  background-color: #010;
+  overflow-x: hidden; 
+}
+.sliderOutputBox{
+  margin: 10px 15px 15px 0px;
+  padding: 5px 10px;
+  background-color: #ddd;
+  border: inset solid medium;
+  color: black;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+#canvasContainer{
+	margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* transform: translate(0px, 1px); */
+}
+@font-face {
+  font-family: subtitleFamily;
+  src: url(fonts/CLANDESTINA-CAPS-ERODED-FFP.otf);
+}
+.subtitle{
+  margin: 0px 15px 10px 0px;
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 30px;  /*   should eventually change to vw*/
+  font-family: subtitleFamily, titleFamily, Arial, Helvetica, sans-serif;
+
+}
+
+.slidecontainer {
+	display: inline-block;
+
+  /* width: 100%; /* Width of the outside container */ 
+  right: 5px;
+}
+
+/* The slider itself */
+.slider {
+  -webkit-appearance: none;
+  /* width: 100%; */
+  height: 10px;
+  border-radius: 5px;   
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.slider:hover {
+  opacity: 1; 
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%; 
+  background: #4CAF50;    /*put img here like    url('contrasticon.png');*/
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #4CAF50;    /*here too */
+  cursor: pointer;
+}
+
+
+
+
+
+body {
+
+  background-color:#dccdef;
+
+}
+
+
+canvas { image-rendering:auto; } /*see https://developer.mozilla.org/en-US/docs/Web/CSS/image-rendering*/
+
+
+/* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) 
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+*/
+

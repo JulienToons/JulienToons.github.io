@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<html>
+
+  <head>
+	<!--  <meta name = "viewport" content = "user-scalable=no,width=device-width"> -->
+	
+    <link href = "fluids.css" rel = "stylesheet" type = "">
+    <title>Fluid Physics Simulator</title>
+
+	<script type = "text/javascript">
+		let sources = ["controller", "display", "game", "engine", "main"];
+		  
+		for (let index = 0; index < sources.length; index ++) {
+			let script = document.createElement("script");
+			script.setAttribute("type", "text/javascript");
+			script.setAttribute("src", String(sources[index] + ".js"));
+			document.head.appendChild(script);
+		}
+    </script>
+  </head>
+
+  <body>
+	<img src = "sprites/test.jpg" z-index="-1" width=80% height=20% top="20%" left= "10%">
+    <canvas></canvas>
+
+
+    
+  </body>
+
+</html>

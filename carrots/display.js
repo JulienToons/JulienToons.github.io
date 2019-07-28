@@ -20,15 +20,14 @@ const Display = function(canvas) {
       let destination_x =           (index % map_columns  ) * tile_size;
       let destination_y = Math.floor(index / map_columns  ) * tile_size;
 
-      this.buffer.drawImage(image, source_x, source_y, tile_size, tile_size, destination_x, destination_y, tile_size, tile_size);
+      this.context.drawImage(image, source_x, source_y, tile_size, tile_size, destination_x, destination_y, tile_size, tile_size);
 
     }
 
   };
 
   this.drawObject = function(image, source_x, source_y, destination_x, destination_y, width, height) {
-
-    this.buffer.drawImage(image, source_x, source_y, width, height, Math.round(destination_x), Math.round(destination_y), width, height);
+    this.context.drawImage(image, source_x, source_y, width, height, Math.round(destination_x), Math.round(destination_y), width, height);
 
   };
 
