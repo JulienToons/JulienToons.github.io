@@ -2,18 +2,59 @@
 	<head>
 		<link rel="stylesheet" href="styles.css">
 		<title>Julien Owhadi</title>
+		<script type = "text/javascript">	
+
+		var backNum = 0;
+		var changeList = [["resources/imgs/tempBackground.jpg", "Campus,", "5.5em", "29.5%" , "#0649a7"],
+		                  ["resources/imgs/tempBackground2.jpg","AmericanCaptain,", "8em", "29%" , "#dbd9c2"],
+						  ["resources/imgs/tempBackground3.jpg","CaptureIt,", "6em", "34.5%" , "#bc1010"],
+						  ["resources/imgs/tempBackground4.jpg","CaptureIt,", "6em", "34.5%" , "#42b724"]]; //blue,peach,red
+				
+		//Campus AmericanCaptain TeacherText SunsetText CaptureIt
+		function switchBackground(){//   NOT WORKING!!!!!!!!!!!!!!!!
+			backNum = ++backNum % changeList.length;
+		
+			let str = "url(\""+  changeList[backNum][0] + "\")";
+			//let c = document.getElementById("s");//document.getElementsByTagName("body")[0]
+			//c.style.background-image = str;
+			//document.body.background = str;
+			document.body.style.backgroundImage = str;
+			let mn = document.getElementById("myName");
+			mn.style.fontFamily  = changeList[backNum][1] +"'Saira Stencil One',Monospace, 'Times New Roman', Times, serif";
+			mn.style.fontSize = changeList[backNum][2];
+			mn.style.color = changeList[backNum][4];
+			document.getElementById("container").style.top = changeList[backNum][3];
+			let els = document.getElementsByClassName("button");
+			for(let i = 0; i<els.length;i++){
+				els[i].style.color = changeList[backNum][4];
+			}
+			
+			//body.css('background', blackList[backNum]);
+		};
+		
+		</script>
 	</head>
 	<body>
-		<div id = "nameText" class= "container">
-			<font id="myName">Julien Owhadi</font>
-			<form action="cv_julienowhadi.pdf" ><input type="submit" value="My Resume" /></form>
-			<form action="https://julientoons.github.io/carrots/" ><input type="submit" value="Carrots (js game)" /></form>
-			<form action="https://julientoons.github.io/cannon_ai/" ><input type="submit" value="Cannon Game with GUI" /></form>
-			<form action="https://julientoons.github.io/fluid/" ><input type="submit" value="Fluid Simulator" /></form>
+		<div id = "container">
+			<font id="myName">Julien OWHADI</font>
+			<div class = "table">
+				<a class = "button" href = "https://julientoons.github.io/aboutMe/">About Me</a>
+			</div>
+			<div class = "table">
+				<a class = "button" href = "cv_julienowhadi.pdf">Resume</a>
+			</div>
+			<div class = "table">
+				<a class = "button" href = "https://julientoons.github.io/projects/">Projects</a> 
+			</div>
+			<div class = "table">
+				<!-- <img id = "egg" src= "resources/imgs/egg1.png" alt ="Easter Egg"> -->
+				<a class = "button" onclick="switchBackground()">EGG<img id = "egg" src= "resources/imgs/egg1.png" alt ="Easter Egg"></a> 
+			</div>
 		</div>
 		<!--
 		<div id = "none">
 			<form action="cv_julienowhadi_v1.38.pdf" ><input type="submit" value="My Resume" /></form>
-		</div> -->
+		</div> 
+		-->
 	</body>
 </html>

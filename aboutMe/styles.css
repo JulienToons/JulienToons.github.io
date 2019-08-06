@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css?family=Saira+Stencil+One&display=swap');
+
+font {
+	color: #0649a7;
+	font-size: 2em;
+	font-family: 'Saira Stencil One',Monospace, "Times New Roman", Times, serif;
+}
+
+body{
+	background-size: cover;
+	background-image: url("imgs/backdrop.jpg");
+	background-repeat: no-repeat;
+	background-color: #110;
+	background-position: left top;
+}
+
+#container{
+	position: relative;
+	padding: 50px 50px;
+	  background-color: rgba(209, 203, 200, 0.75);
+	float: left;
+	top: 29%;
+	left: 10%;
+}

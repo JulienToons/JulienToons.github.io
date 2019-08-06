@@ -1,0 +1,29 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="styles.css">
+		<title>Julien Owhadi</title>
+		<script type = "text/javascript">	
+		var counter = 12;
+
+		document.onload = setInterval(function(){
+			//console.log(counter);
+			
+			document.getElementById("redirect").innerHTML =  "REDIRCTING TO HOMEPAGE IN "+counter;
+			if(counter<0){
+				//alert("D");
+				window.location.replace("http://julientoons.github.io");
+			}			
+			counter = counter -1;
+		},1100);
+
+		
+		</script>
+	</head>
+	<body><!-- onload="startTick()"> -->
+		<div id = "container">
+				<font >THIS PAGE IS UNDER CONSTRUCTION.</font>
+				<font id="redirect">REDIRCTING TO HOMEPAGE IN 10</font>
+		</div>
+
+	</body>
+</html>
