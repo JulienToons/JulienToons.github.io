@@ -4,7 +4,7 @@ var displayedProjects;
 var search;
 var resize;
 
-var toggleSwitches = [true, true, true, true, true, true, true, true, true, true, true, true, true, true];
+var toggleSwitches = [true, false, true, true, true, true, true, true, true, true, true, true, true, true];
 		
 function toggleSettings(){ 
 	  var x = document.getElementById("settingsContainer");
@@ -69,8 +69,10 @@ function toggleCheck(ele){
 			{
 				for(let i = 0; i<toggleSwitches.length;i++){
 					toggleSwitches[i] = false;
-					document.getElementsByClassName("toggleButton").children[0].src = "imgs/uncheckedBox.png";
+					document.getElementsByClassName("toggleButton")[i].children[0].src = "imgs/uncheckedBox.png";
 				}
+				toggleSwitches[1] = true;
+				document.getElementById("noneButtonCheck").children[0].src = "imgs/checkedBox.png";
 			}
 			break;	
 		case "allButtonCheck":
@@ -79,12 +81,19 @@ function toggleCheck(ele){
 			{
 				for(let i = 0; i<toggleSwitches.length;i++){
 					toggleSwitches[i] = true;
-					document.getElementsByClassName("toggleButton").children[0].src = "imgs/checkedBox.png";
+					document.getElementsByClassName("toggleButton")[i].children[0].src = "imgs/checkedBox.png";
 				}
+				toggleSwitches[1] = false;
+				document.getElementById("noneButtonCheck").children[0].src = "imgs/uncheckedBox.png";
 			}
 			break;
 		
 		default: console.log("error with "+ele.id);
+	}
+	
+	if(!result){
+		toggleSwitches[0] = false;
+		document.getElementsByClassName("allButtonCheck").children[0].src = "imgs/uncheckedBox.png";
 	}
 };
 
