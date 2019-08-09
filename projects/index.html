@@ -46,7 +46,7 @@
 				  <div id="searchButton" onclick="search()">
 					<img id="searchButtonImg" src = "imgs/searchImg.svg" alt = "Search?" >
 				  </div>
-				  <input type="text" placeholder="Find a project" name="search" spellcheck="true">
+				  <input type="text" placeholder="Search..." name="search" spellcheck="true">
 				  
 				  <div id="settingsButton" onclick="toggleSettings()">
 					<img id="settingsButtonImg" src = "imgs/settingsButton.png" alt = "hi">
@@ -56,6 +56,9 @@
 			  
 			</div>
 			<div id = "settingsContainer">
+				<!-- <div id="searchByTextContainer"> -->
+					<!-- <font>Search Settings:</font> -->
+				<!-- </div> -->
 				
 				<!-- <div class="toggle" > <!--   break     --> 
 					<!-- <a>|</a> -->
@@ -121,6 +124,19 @@
 					<div class="toggleButton" onclick="toggleCheck(this)" id="testButtonCheck">
 						<img src = "imgs/checkedBox.png" alt = "yes?">
 					</div>
+					<a>Awards</a>
+				</div>
+				
+				<div class="toggle" >
+					<div class="toggleButton" onclick="toggleCheck(this)" id="testButtonCheck">
+						<img src = "imgs/checkedBox.png" alt = "yes?">
+					</div>
+					<a>Other</a>
+				</div>
+				<div class="toggle" >
+					<div class="toggleButton" onclick="toggleCheck(this)" id="testButtonCheck">
+						<img src = "imgs/checkedBox.png" alt = "yes?">
+					</div>
 					<a>None</a>
 				</div>
 				<div class="toggle" >
@@ -131,9 +147,9 @@
 				</div>
 				
 				
-				<div id="searchByTextContainer">
-					<font>Search Settings:</font>
-				</div>
+				<!-- <div id="searchByTextContainer"> -->
+					<!-- <font>Search Settings:</font> -->
+				<!-- </div> -->
 			</div>
 		</div>
 		

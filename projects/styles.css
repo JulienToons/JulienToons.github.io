@@ -81,9 +81,11 @@ body {
   padding: 0 42px 0;
 
 }
+/*
 #searchByTextContainer{
 	font-family:'Saira Stencil One', Monospace, "Times New Roman", Times, serif;
 
+	vertical-align: top; 
 	float: left;
 	text-align: center;
 	background-color: #cfe;
@@ -93,7 +95,7 @@ body {
 }
 #searchByTextContainer font{
 	font-size: 19px;
-}
+}*/
 
 .toggle{
 	float: right;

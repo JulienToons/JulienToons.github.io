@@ -37,6 +37,7 @@ window.addEventListener("load", function(event) {
 		let create = function(num, tr){
 			let td = document.createElement("td");
 			tr.appendChild(td);
+			td.style.backgroundColor = displayedProjects[num].backgroundColor;
 			td.setAttribute("class","hoverableElement");
 			td.setAttribute("id","displayedProjectNum"+num);  // changes with disp project
 			
@@ -46,11 +47,13 @@ window.addEventListener("load", function(event) {
 			projectImg.setAttribute("class", "projectImage");
 			projectImg.style.width = "100%";
 			//projectImg.setAttribute("-webkit-filter", displayedProjects[num].imageFilter);
-			projectImg.setAttribute("filter", displayedProjects[num].imageFilter);
+			projectImg.style.WebkitFilter = displayedProjects[num].imageFilter;
+			projectImg.style.filter = displayedProjects[num].imageFilter;
 			td.appendChild(projectImg);
 			
 			let dateNode = document.createElement("a");
 			dateNode.setAttribute("class", "dateOfProject");
+			dateNode.style.color = displayedProjects[num].dateTextColor;
 			let d = displayedProjects[num].date;
 			dateNode.innerHTML = d.m + "/" + d.d + "/"+d.y;
 			td.appendChild(dateNode);

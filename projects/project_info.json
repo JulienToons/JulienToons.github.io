@@ -5,60 +5,79 @@
 		"state":"In Progress",
 		"date":{"m":8,"d":8,"y":8},
 		"tags":["neural","network","arduino", "ai","circuit", "hardware", "software", "artificial", "intelligence"],
+		"type":"accomplishment award project event",
 		"title":"Arduino Based Monowheel w. Neural Network",
 		"description":"Have you ever heard of a<br><a href=\"https://www.youtube.com/watch?v=qNzl6N_ScyQ\" color=\"green\">Monowheel</a>?<br>Yes? Well this one-of-a-kind mini<br>monowheel is going to be controlled<br>by a nerural network on<br>a tiny arduino<br><br>How hard is that!",
 		"img":"imgs/workInProgress.jpg",
-		"imageFilter":"sepia(100%)"
+		"imageFilter":"sepia(100%)",
+		"dateTextColor":"white",
+		"backgroundColor":"grey"
 	},
 	
 	{ 
 		"state":"Complete",
 		"date":{"m":8,"d":8,"y":8},
 		"tags":["pinnaple","arduino"],
+		"type":"accomplishment award project event",
 		"title":"example project",
 		"description":"bla bla how is your<br> life?",
 		"img":"imgs/backgroundTitleImg.jpg",
-		"imageFilter":"initial"
+		"imageFilter":"initial",
+		"dateTextColor":"white",
+		"backgroundColor":"grey"
 	}, 
 	
 	{ 
+	
 		"state":"Featured Complete",
 		"date":{"m":8,"d":8,"y":8},
 		"tags":["pinnaple","arduino"],
+		"type":"accomplishment award project event",
 		"title":"example project",
 		"description":"bla bla how is your<br> life?",
 		"img":"imgs/backgroundTitleImg.jpg",
-		"imageFilter":"grayscale(100%)"
+		"imageFilter":"grayscale(100%)",
+		"dateTextColor":"white",
+		"backgroundColor":"grey"
 	}, 
 	
 	{ 
 		"state":"Old",
 		"date":{"m":8,"d":8,"y":8},
 		"tags":["pinnaple","arduino"],
+		"type":"accomplishment award project event",
 		"title":"example project",
 		"description":"bla bla how is your<br> life?",
 		"img":"imgs/backgroundTitleImg.jpg",
-		"imageFilter":"initial"
+		"imageFilter":"initial",
+		"dateTextColor":"white",
+		"backgroundColor":"grey"
 	},
 	
 	{ 
 		"state":"Complete",
 		"date":{"m":8,"d":8,"y":8},
 		"tags":["pinnaple","arduino"],
+		"type":"accomplishment award project event",
 		"title":"example project",
 		"description":"bla bla how is your<br> life?",
 		"img":"imgs/backgroundTitleImg.jpg",
-		"imageFilter":"grayscale(100%)"
+		"imageFilter":"grayscale(100%)",
+		"dateTextColor":"white",
+		"backgroundColor":"grey"
 	}, 
 	
 	{ 
 		"state":"Old",
 		"date":{"m":8,"d":8,"y":8},
 		"tags":["pinnaple","arduino"],
+		"type":"accomplishment award project event",
 		"title":"example project",
 		"description":"bla bla how is your<br> life?",
 		"img":"imgs/backgroundTitleImg.jpg",
-		"imageFilter":"initial"
+		"imageFilter":"initial",
+		"dateTextColor":"white",
+		"backgroundColor":"grey"
 	}
   
 ]
