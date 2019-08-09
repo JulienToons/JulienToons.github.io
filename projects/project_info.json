@@ -4,11 +4,11 @@
     { 
 		"state":"In Progress",
 		"date":{"m":8,"d":8,"y":8},
-		"tags":["pinnaple","arduino"],
-		"title":"example project",
-		"description":"How is your LIFE?<br>todaay or now or now how<br>bout now?<a href=\"http://google.com\" color=\"blue\">Go Home?</a>",
-		"img":"imgs/backgroundTitleImg.jpg",
-		"imageFilter":"grayscale(100%)"
+		"tags":["neural","network","arduino", "ai","circuit", "hardware", "software", "artificial", "intelligence"],
+		"title":"Arduino Based Monowheel w. Neural Network",
+		"description":"Have you ever heard of a <a href=\"https://www.youtube.com/watch?v=qNzl6N_ScyQ\" color=\"green\">Monowheel</a>?<br>Yes? Well this one-of-a-kind mini monowheel is going<br>to be controlled by a nerural network<br>on a tiny arduino<br><br>How hard is that!",
+		"img":"imgs/workInProgress.jpg",
+		"imageFilter":"sepia(100%)"
 	},
 	
 	{ 

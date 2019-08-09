@@ -45,7 +45,7 @@ window.addEventListener("load", function(event) {
 			projectImg.setAttribute("alt", "Image would be here");
 			projectImg.setAttribute("class", "projectImage");
 			projectImg.style.width = "100%";
-			projectImg.setAttribute("-webkit-filter", displayedProjects[num].imageFilter);
+			//projectImg.setAttribute("-webkit-filter", displayedProjects[num].imageFilter);
 			projectImg.setAttribute("filter", displayedProjects[num].imageFilter);
 			td.appendChild(projectImg);
 			
