@@ -4,7 +4,7 @@
     { 
 		"state":"In Progress",
 		"date":{"m":8,"d":8,"y":8},
-		"tags":["neural","network","arduino", "ai","circuit", "hardware", "software", "artificial", "intelligence"],
+		"tags":"neural network arduino ai circuit hardware software artificial intelligence",
 		"type":"other art award project event",
 		"title":"Arduino Based Monowheel w. Neural Network",
 		"description":"Have you ever heard of a<br><a href=\"https://www.youtube.com/watch?v=qNzl6N_ScyQ\" color=\"green\">Monowheel</a>?<br>Yes? Well this one-of-a-kind<br>mini monowheel is going to<br>be controlled by a nerural<br>network on a tiny arduino<br><br>How hard is that!",
@@ -17,7 +17,7 @@
 	{ 
 		"state":"Complete",
 		"date":{"m":8,"d":8,"y":8},
-		"tags":["pinnaple","arduino"],
+		"tags":"unset",
 		"type":"accomplishment award project event",
 		"title":"example project",
 		"description":"bla bla how is your<br> life?",
@@ -31,7 +31,7 @@
 	
 		"state":"Featured Complete",
 		"date":{"m":8,"d":8,"y":8},
-		"tags":["pinnaple","arduino"],
+		"tags":"unset",
 		"type":"accomplishment award project event",
 		"title":"example project",
 		"description":"bla bla how is your<br> life?",
@@ -44,7 +44,7 @@
 	{ 
 		"state":"Old",
 		"date":{"m":8,"d":8,"y":8},
-		"tags":["pinnaple","arduino"],
+		"tags":"unset",
 		"type":"accomplishment award project event",
 		"title":"example project",
 		"description":"bla bla how is your<br> life?",
@@ -57,7 +57,7 @@
 	{ 
 		"state":"Complete",
 		"date":{"m":8,"d":8,"y":8},
-		"tags":["pinnaple","arduino"],
+		"tags":"unset",
 		"type":"accomplishment award project event",
 		"title":"example project",
 		"description":"bla bla how is your<br> life?",
@@ -65,12 +65,11 @@
 		"imageFilter":"grayscale(100%)",
 		"dateTextColor":"white",
 		"backgroundColor":"grey"
-	}, 
-	
+	}, 	
 	{ 
 		"state":"Old",
 		"date":{"m":8,"d":8,"y":8},
-		"tags":["pinnaple","arduino"],
+		"tags":"unset",
 		"type":"accomplishment award project event",
 		"title":"example project",
 		"description":"bla bla how is your<br> life?",
@@ -78,6 +77,70 @@
 		"imageFilter":"initial",
 		"dateTextColor":"white",
 		"backgroundColor":"grey"
+	},
+	
+	{ 
+		"state":"Complete",
+		"date":{"m":8,"d":8,"y":8},
+		"tags":"unset",
+		"type":"accomplishment award project event",
+		"title":"example project",
+		"description":"bla bla how is your<br> life?",
+		"img":"imgs/backgroundTitleImg.jpg",
+		"imageFilter":"grayscale(100%)",
+		"dateTextColor":"white",
+		"backgroundColor":"grey"
+	}, 	
+	{ 
+		"state":"Old",
+		"date":{"m":8,"d":8,"y":8},
+		"tags":"unset",
+		"type":"accomplishment award project event",
+		"title":"example project",
+		"description":"bla bla how is your<br> life?",
+		"img":"imgs/backgroundTitleImg.jpg",
+		"imageFilter":"initial",
+		"dateTextColor":"white",
+		"backgroundColor":"grey"
+	},
+	
+	{ 
+		"state":"Complete",
+		"date":{"m":8,"d":8,"y":8},
+		"tags":"unset",
+		"type":"accomplishment award project event",
+		"title":"example project",
+		"description":"bla bla how is your<br> life?",
+		"img":"imgs/backgroundTitleImg.jpg",
+		"imageFilter":"grayscale(100%)",
+		"dateTextColor":"white",
+		"backgroundColor":"grey"
+	}, 	
+	{ 
+		"state":"Old",
+		"date":{"m":8,"d":8,"y":8},
+		"tags":"unset",
+		"type":"accomplishment award project event",
+		"title":"example project",
+		"description":"bla bla how is your<br> life?",
+		"img":"imgs/backgroundTitleImg.jpg",
+		"imageFilter":"initial",
+		"dateTextColor":"white",
+		"backgroundColor":"grey"
+	},
+	
+	{ 
+		"state":"Complete",
+		"date":{"m":8,"d":8,"y":8},
+		"tags":"unset",
+		"type":"accomplishment award project event",
+		"title":"example project",
+		"description":"bla bla how is your<br> life?",
+		"img":"imgs/backgroundTitleImg.jpg",
+		"imageFilter":"grayscale(100%)",
+		"dateTextColor":"white",
+		"backgroundColor":"grey"
 	}
+
   
 ]
