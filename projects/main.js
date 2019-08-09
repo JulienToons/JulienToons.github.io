@@ -93,7 +93,7 @@ search = function(val) {
 
 
 	displayedProjects = [];
-	words = val.split(" ");
+	words = value.split(" ");
 	for(let i = 0; i<info.length;i++){
 		let show = true;
 		if	( // if any are true then show is false
@@ -110,13 +110,17 @@ search = function(val) {
 			show = false;
 		}
 		if(value != "" || value != "all" || value != "everything"){
-
+			let dd = info[i].date;
+			let d = " " dd.m + "" + dd.d + "" + dd.y + "   "+dd.m + "/" + dd.d + "/" + dd.y + "   "+ dd.m + "-" + dd.d + "-" + dd.y + "   "+ dd.m + " " + dd.d + " " + dd.y + "   "+ dd.m + "\\" + dd.d + "\\" + dd.y + " ";
+			d = d.toLowerCase();
+			
+			if(!(toggleSwitches[10] && d.includes(" " + value + " "))) show = false;
+		
+		
 			for(let wordCount = 0; wordCount<words.length;wordCount++){
-				let str = words[wordCount].toLowerCase();
-
-				if(
-					!(toggleSwitches[10] && info[i].date.toLowerCase().includes(str))
-				 && !(toggleSwitches[11] && info[i].description.toLowerCase().includes(str))
+				let str = words[wordCount];
+				
+				if( !(toggleSwitches[11] && info[i].description.toLowerCase().includes(str))
 				 && !(toggleSwitches[12] && info[i].title.toLowerCase().includes(str))
 				 && !(toggleSwitches[13] && info[i].tags.toLowerCase().includes(str))
 				){	 
@@ -224,7 +228,7 @@ resize = function() {
 };
 
 window.addEventListener("load", function(event) {
-	console.log("V1.0013");
+	console.log("V1.0014");
 
     let request = new XMLHttpRequest();
 	let callback = function(zone) {
