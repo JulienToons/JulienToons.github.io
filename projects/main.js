@@ -62,7 +62,7 @@ window.addEventListener("load", function(event) {
 			let overlayText = document.createElement("div");
 			overlayText.setAttribute("class", "boxOverlayText");
 			overlayText.innerHTML = displayedProjects[num].description;
-			overlayObj.appendChild(overlaytext);
+			overlayObj.appendChild(overlayText);
 			
 			let textContainer = document.createElement("div");
 			textContainer.setAttribute("class", "textContainer");
