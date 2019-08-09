@@ -18,7 +18,7 @@
 		"title":"example project",
 		"description":"bla bla how is your<br> life?",
 		"img":"imgs/backgroundTitleImg.jpg",
-		"imageFilter":""
+		"imageFilter":"initial"
 	}, 
 	
 	{ 
@@ -38,7 +38,7 @@
 		"title":"example project",
 		"description":"bla bla how is your<br> life?",
 		"img":"imgs/backgroundTitleImg.jpg",
-		"imageFilter":""
+		"imageFilter":"initial"
 	},
 	
 	{ 
@@ -58,7 +58,7 @@
 		"title":"example project",
 		"description":"bla bla how is your<br> life?",
 		"img":"imgs/backgroundTitleImg.jpg",
-		"imageFilter":""
+		"imageFilter":"initial"
 	}
   
 ]
