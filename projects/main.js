@@ -93,7 +93,7 @@ function toggleCheck(ele){
 	
 	if(!result){
 		toggleSwitches[0] = false;
-		document.getElementsByClassName("allButtonCheck").children[0].src = "imgs/uncheckedBox.png";
+		document.getElementById("allButtonCheck").children[0].src = "imgs/uncheckedBox.png";
 	}
 };
 
