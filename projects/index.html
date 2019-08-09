@@ -7,27 +7,8 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="styles.css">
-		<script src="main.js"></script>
-		<script type = "text/javascript">	 
-			function toggleSettings(){ 
-				  var x = document.getElementById("settingsContainer");
-				  if (x.style.display === "block") {
-					x.style.display = "none";
-				  } else {
-					x.style.display = "block";
-				  }
-			};
-			function toggleCheck(ele){ 
-				let el = ele.children[0];
-				  if (el.src.includes("imgs/checkedBox.png")) {
-					el.src = "imgs/uncheckedBox.png";
-				  } else {
-					el.src = "imgs/checkedBox.png";
-				  }
-
-			};
-			
-		</script>
+		<script type="text/javascript" src="main.js"></script>
+		<!-- <script type = "text/javascript"></script> -->
 	</head>
 	<body>
 		<!-- <div id="background"></div> -->
@@ -43,10 +24,10 @@
 
 			  <div class="search-container">
 				<form> <!-- action="search()">    <!--CHANGE!!!-->
-				  <div id="searchButton" onclick="search()">
+				  <div id="searchButton" onclick="search(inputElement.value)">
 					<img id="searchButtonImg" src = "imgs/searchImg.svg" alt = "Search?" >
 				  </div>
-				  <input type="text" placeholder="Search..." name="search" spellcheck="true">
+				  <input id="inputElement" type="text" placeholder="Search..." name="search" spellcheck="true">
 				  
 				  <div id="settingsButton" onclick="toggleSettings()">
 					<img id="settingsButtonImg" src = "imgs/settingsButton.png" alt = "hi">
@@ -64,44 +45,44 @@
 					<!-- <a>|</a> -->
 				<!-- </div> -->
 				<div class="toggle" >
-					<div class="toggleButton" onclick="toggleCheck(this)" id="testButtonCheck">
+					<div class="toggleButton" onclick="toggleCheck(this)" id="byTagButtonCheck">
 						<img src = "imgs/checkedBox.png" alt = "yes?">
 					</div>
 					<a>By Tag</a>
 				</div>
 				<div class="toggle" >
-					<div class="toggleButton" onclick="toggleCheck(this)" id="testButtonCheck">
+					<div class="toggleButton" onclick="toggleCheck(this)" id="byTitleButtonCheck">
 						<img src = "imgs/checkedBox.png" alt = "yes?">
 					</div>
 					<a>By Title</a>
 				</div>
 				<div class="toggle" >
-					<div class="toggleButton" onclick="toggleCheck(this)" id="testButtonCheck">
+					<div class="toggleButton" onclick="toggleCheck(this)" id="byDescriptionButtonCheck">
 						<img src = "imgs/checkedBox.png" alt = "yes?">
 					</div>
 					<a>By Description</a>
 				</div>
 				<div class="toggle" >
-					<div class="toggleButton" onclick="toggleCheck(this)" id="testButtonCheck">
+					<div class="toggleButton" onclick="toggleCheck(this)" id="byDateButtonCheck">
 						<img src = "imgs/checkedBox.png" alt = "yes?">
 					</div>
 					<a>By Date</a>
 				</div>
 				
 				<div class="toggle" >
-					<div class="toggleButton" onclick="toggleCheck(this)" id="testButtonCheck">
+					<div class="toggleButton" onclick="toggleCheck(this)" id="inProgressButtonCheck">
 						<img src = "imgs/checkedBox.png" alt = "yes?">
 					</div>
 					<a>In Progress</a>
 				</div>
 				<div class="toggle" >
-					<div class="toggleButton" onclick="toggleCheck(this)" id="testButtonCheck">
+					<div class="toggleButton" onclick="toggleCheck(this)" id="recentButtonCheck">
 						<img src = "imgs/checkedBox.png" alt = "yes?">
 					</div>
 					<a>Recent</a>
 				</div>
 				<div class="toggle" >
-					<div class="toggleButton" onclick="toggleCheck(this)" id="testButtonCheck">
+					<div class="toggleButton" onclick="toggleCheck(this)" id="oldButtonCheck">
 						<img src = "imgs/checkedBox.png" alt = "yes?">
 					</div>
 					<a>Old</a>
@@ -109,32 +90,32 @@
 				
 				
 				<div class="toggle" >
-					<div class="toggleButton" onclick="toggleCheck(this)" id="testButtonCheck">
+					<div class="toggleButton" onclick="toggleCheck(this)" id="otherButtonCheck">
 						<img src = "imgs/checkedBox.png" alt = "yes?">
 					</div>
 					<a>Other</a>
 				</div>
 				<div class="toggle" >
-					<div class="toggleButton" onclick="toggleCheck(this)" id="testButtonCheck">
+					<div class="toggleButton" onclick="toggleCheck(this)" id="artButtonCheck">
 						<img src = "imgs/checkedBox.png" alt = "yes?">
 					</div>
 					<a>Art</a>
 				</div>
 				<div class="toggle" >
-					<div class="toggleButton" onclick="toggleCheck(this)" id="testButtonCheck">
+					<div class="toggleButton" onclick="toggleCheck(this)" id="eventsButtonCheck">
 						<img src = "imgs/checkedBox.png" alt = "yes?">
 					</div>
 					<a>Events</a>
 				</div>
 				
 				<div class="toggle" >
-					<div class="toggleButton" onclick="toggleCheck(this)" id="testButtonCheck">
+					<div class="toggleButton" onclick="toggleCheck(this)" id="projectsButtonCheck">
 						<img src = "imgs/checkedBox.png" alt = "yes?">
 					</div>
 					<a>Projects</a>
 				</div>
 				<div class="toggle" >
-					<div class="toggleButton" onclick="toggleCheck(this)" id="testButtonCheck">
+					<div class="toggleButton" onclick="toggleCheck(this)" id="awardsButtonCheck">
 						<img src = "imgs/checkedBox.png" alt = "yes?">
 					</div>
 					<a>Awards</a>
@@ -142,13 +123,13 @@
 				
 				
 				<div class="toggle" >
-					<div class="toggleButton" onclick="toggleCheck(this)" id="testButtonCheck">
+					<div class="toggleButton" onclick="toggleCheck(this)" id="noneButtonCheck">
 						<img src = "imgs/checkedBox.png" alt = "yes?">
 					</div>
 					<a>None</a>
 				</div>
 				<div class="toggle" >
-					<div class="toggleButton" onclick="toggleCheck(this)" id="testButtonCheck">
+					<div class="toggleButton" onclick="toggleCheck(this)" id="allButtonCheck">
 						<img src = "imgs/checkedBox.png" alt = "yes?">
 					</div>
 					<a>All</a>
