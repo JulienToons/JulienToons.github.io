@@ -69,7 +69,7 @@ function toggleCheck(ele){
 			{
 				for(let i = 0; i<toggleSwitches.length;i++){
 					toggleSwitches[i] = false;
-					let document.getElementsByClassName("toggleButton").children[0].src = "imgs/uncheckedBox.png";
+					document.getElementsByClassName("toggleButton").children[0].src = "imgs/uncheckedBox.png";
 				}
 			}
 			break;	
