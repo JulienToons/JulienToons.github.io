@@ -4,20 +4,6 @@
 
 window.addEventListener("load", function(event) {
 
-    var requestJSON = function(url, callback) {
-
-      let request = new XMLHttpRequest();
-
-      request.addEventListener("load", function(event) {
-
-        callback(JSON.parse(this.responseText));
-
-      }, { once:true });
-
-      request.open("GET", url);
-      request.send();
-
-    };
 
   
 	var search = function() {
@@ -109,13 +95,24 @@ window.addEventListener("load", function(event) {
 	var info;
 	var displayedProjects;
 	
-	requestJSON("project_info.json", (zone) => {
 
+	
+    let request = new XMLHttpRequest();
+	let callback = function(zone) {
 		info = zone;
 		displayedProjects = zone;
-	   //resize();
+	   resize();
+    };
+    request.addEventListener("load", function(event) {
 
-    });
+		
+		callback(JSON.parse(this.responseText));
+
+    }, { once:true });
+    request.open("GET", "project_info.json");
+    request.send();
+
+	
 	
 	document.getElementById("searchButton").onclick = search();
 	
