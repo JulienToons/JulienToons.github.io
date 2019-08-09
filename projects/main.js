@@ -32,7 +32,7 @@ window.addEventListener("load", function(event) {
 			table.removeChild(table.firstChild);
 		}
 		
-		let rs = (dpl/cols);
+		
 		
 		let create = function(num, tr){
 			let td = document.createElement("td");
@@ -73,6 +73,8 @@ window.addEventListener("load", function(event) {
 			textContainer.appendChild(projectTitle);
 		};
 		
+		let rs = Math.floor(dpl/cols);
+		
 		for(let r = 0; r < rs;r++){
 			let tr = document.createElement("tr");
 			table.appendChild(tr);
@@ -83,7 +85,7 @@ window.addEventListener("load", function(event) {
 		}
 		
 		if(dpl%cols != 0){
-			for(let i = ((rs-1) * cols); i< dpl; i++){// those % at the end
+			for(let i = ((rs) * cols); i< dpl; i++){// those % at the end
 				let tr = document.createElement("tr");
 				table.appendChild(tr);
 				create(i, tr);
