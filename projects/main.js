@@ -4,7 +4,7 @@
 
 window.addEventListener("load", function(event) {
 
-
+	console.log("V1.001");
   
 	var search = function() {
 		str = "hi";//document.getElementById("searchTxt").value;
