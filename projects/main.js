@@ -120,7 +120,7 @@ search = function(val) {
 		}
 		if(value != "" || value != "all" || value != "everything"){
 			let dd = info[i].date;
-			let d = " " dd.m + "" + dd.d + "" + dd.y + "   "+dd.m + "/" + dd.d + "/" + dd.y + "   "+ dd.m + "-" + dd.d + "-" + dd.y + "   "+ dd.m + " " + dd.d + " " + dd.y + "   "+ dd.m + "\\" + dd.d + "\\" + dd.y + " ";
+			let d = " " + dd.m + "" + dd.d + "" + dd.y + "   "+dd.m + "/" + dd.d + "/" + dd.y + "   "+ dd.m + "-" + dd.d + "-" + dd.y + "   "+ dd.m + " " + dd.d + " " + dd.y + "   "+ dd.m + "\\" + dd.d + "\\" + dd.y + " ";
 			d = d.toLowerCase();
 			
 			if(!(toggleSwitches[10] && d.includes(" " + value + " "))) show = false;
