@@ -116,6 +116,6 @@ window.addEventListener("load", function(event) {
 	
 	document.getElementById("searchButton").onclick = search();
 	
-	//window.addEventListener("resize" , resize);
+	window.addEventListener("resize" , resize);
 
 });
