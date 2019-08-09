@@ -1,0 +1,202 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Julien's Projects</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="styles.css">
+		<script src="main.js"></script>
+		<script type = "text/javascript">	 
+			function toggleSettings(){ 
+				  var x = document.getElementById("settingsContainer");
+				  if (x.style.display === "block") {
+					x.style.display = "none";
+				  } else {
+					x.style.display = "block";
+				  }
+			};
+			function toggleCheck(ele){ 
+				let el = ele.children[0];
+				  if (el.src.includes("imgs/checkedBox.png")) {
+					el.src = "imgs/uncheckedBox.png";
+				  } else {
+					el.src = "imgs/checkedBox.png";
+				  }
+
+			};
+			
+		</script>
+	</head>
+	<body>
+		<!-- <div id="background"></div> -->
+		<div class="header">
+			<h1>Projects</h1>
+			<p>Julien Owhadi</p>
+		</div>
+		<div class = "stickybar">
+			<div class="navbar">
+			  <a href="https://julientoons.github.io">Home</a>
+			  <a href="https://julientoons.github.io/aboutMe">About Me</a>
+			  <a href="#contact">Contact</a> 
+
+			  <div class="search-container">
+				<form> <!-- action="search()">    <!--CHANGE!!!-->
+				  <div id="searchButton" onclick="search()">
+					<img id="searchButtonImg" src = "imgs/searchImg.svg" alt = "Search?" >
+				  </div>
+				  <input type="text" placeholder="Find a project" name="search">
+				  
+				  <div id="settingsButton" onclick="toggleSettings()">
+					<img id="settingsButtonImg" src = "imgs/settingsButton.png" alt = "hi">
+				  </div>
+				</form>
+			  </div>
+			  
+			</div>
+			<div id = "settingsContainer">
+				
+				<!-- <div class="toggle" > <!--   break     --> 
+					<!-- <a>|</a> -->
+				<!-- </div> -->
+				<div class="toggle" >
+					<div class="toggleButton" onclick="toggleCheck(this)" id="testButtonCheck">
+						<img src = "imgs/checkedBox.png" alt = "yes?">
+					</div>
+					<a>By Tag</a>
+				</div>
+				<div class="toggle" >
+					<div class="toggleButton" onclick="toggleCheck(this)" id="testButtonCheck">
+						<img src = "imgs/checkedBox.png" alt = "yes?">
+					</div>
+					<a>By Title</a>
+				</div>
+				<div class="toggle" >
+					<div class="toggleButton" onclick="toggleCheck(this)" id="testButtonCheck">
+						<img src = "imgs/checkedBox.png" alt = "yes?">
+					</div>
+					<a>By Description</a>
+				</div>
+				<div class="toggle" >
+					<div class="toggleButton" onclick="toggleCheck(this)" id="testButtonCheck">
+						<img src = "imgs/checkedBox.png" alt = "yes?">
+					</div>
+					<a>By Date</a>
+				</div>
+				
+				<div class="toggle" >
+					<div class="toggleButton" onclick="toggleCheck(this)" id="testButtonCheck">
+						<img src = "imgs/checkedBox.png" alt = "yes?">
+					</div>
+					<a>In Progress</a>
+				</div>
+				<div class="toggle" >
+					<div class="toggleButton" onclick="toggleCheck(this)" id="testButtonCheck">
+						<img src = "imgs/checkedBox.png" alt = "yes?">
+					</div>
+					<a>Recent</a>
+				</div>
+				<div class="toggle" >
+					<div class="toggleButton" onclick="toggleCheck(this)" id="testButtonCheck">
+						<img src = "imgs/checkedBox.png" alt = "yes?">
+					</div>
+					<a>Old</a>
+				</div>
+				
+				<div class="toggle" >
+					<div class="toggleButton" onclick="toggleCheck(this)" id="testButtonCheck">
+						<img src = "imgs/checkedBox.png" alt = "yes?">
+					</div>
+					<a>Events</a>
+				</div>
+				
+				<div class="toggle" >
+					<div class="toggleButton" onclick="toggleCheck(this)" id="testButtonCheck">
+						<img src = "imgs/checkedBox.png" alt = "yes?">
+					</div>
+					<a>Projects</a>
+				</div>
+				<div class="toggle" >
+					<div class="toggleButton" onclick="toggleCheck(this)" id="testButtonCheck">
+						<img src = "imgs/checkedBox.png" alt = "yes?">
+					</div>
+					<a>None</a>
+				</div>
+				<div class="toggle" >
+					<div class="toggleButton" onclick="toggleCheck(this)" id="testButtonCheck">
+						<img src = "imgs/checkedBox.png" alt = "yes?">
+					</div>
+					<a>All</a>
+				</div>
+				
+				
+				<div id="searchByTextContainer">
+					<font>Search Settings:</font>
+				</div>
+			</div>
+		</div>
+		
+		<div class = "content">
+		  <table id="project_table">
+		  
+			<tr>
+				<td class="hoverableElement" id="exampleProjectTag1">
+					<img class="projectImage"  src="imgs/backgroundTitleImg.jpg" alt="Image would be here" style="width:100%">
+					<a class ="dateOfProject">9/19/2003<a>
+					<div class="overlay" >
+						<div class="boxOverlayText">How is your LIFE?<br>todaay or now or now how<br>bout now?<a href="http://google.com" color="blue">Go Home?</a></div>
+					</div>
+					
+					<div class="textContainer">
+						<p>Example Project Arduino HTML</p>
+					</div>
+				</td>
+
+				<td class="hoverableElement" id="exampleProjectTag1">
+					<img class="projectImage"  src="imgs/backgroundTitleImg.jpg" alt="Image would be here" style="width:100%">
+					<a class ="dateOfProject">9/19/2003<a>
+					<div class="overlay" >
+						<div class="boxOverlayText">How is your LIFE?<br>todaay or now or now how<br>bout now?<a href="http://google.com" color="blue">Go Home?</a></div>
+					</div>
+					
+					<div class="textContainer">
+						<p>Example Project Arduino HTML</p>
+					</div>
+				</td>
+				
+				<td class="hoverableElement" id="exampleProjectTag1">
+					<img class="projectImage"  src="imgs/backgroundTitleImg.jpg" alt="Image would be here" style="width:100%">
+					<a class ="dateOfProject">9/19/2003<a>
+					<div class="overlay" >
+						<div class="boxOverlayText">How is your LIFE?<br>todaay or now or now how<br>bout now?<a href="http://google.com" color="blue">Go Home?</a></div>
+					</div>
+					
+					<div class="textContainer">
+						<p>Example Project Arduino HTML</p>
+					</div>
+				</td>
+				
+				<td class="hoverableElement" id="exampleProjectTag1">
+					<img  class="projectImage" src="imgs/backgroundTitleImg.jpg" alt="Image would be here" style="width:100%">
+					<a class ="dateOfProject">9/19/2003<a>
+					<div class="overlay" >
+						<div class="boxOverlayText">How is your LIFE?<br>todaay or now or now how<br>bout now?<a href="http://google.com" color="blue">Go Home?</a></div>
+					</div>
+					
+					<div class="textContainer">
+						<p>Example Project Arduino HTML</p>
+					</div>
+				</td>
+			</tr> 
+			
+					
+		  </table>
+		</div>
+		<div class="footer" id="contact">
+		  <h3>Contact Info</h3>
+		  <h5>Email: julientoons@gmail.com</h5>
+		  
+		</div>
+	</body>
+</html>

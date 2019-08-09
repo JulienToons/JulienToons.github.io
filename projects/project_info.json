@@ -1,0 +1,64 @@
+    
+[
+
+    { 
+		"state":"In Progress",
+		"date":{"m":8,"d":8,"y":8},
+		"tags":["pinnaple","arduino"],
+		"title":"example project",
+		"description":"How is your LIFE?<br>todaay or now or now how<br>bout now?<a href=\"http://google.com\" color=\"blue\">Go Home?</a>",
+		"img":"imgs/backgroundTitleImg.jpg",
+		"imageFilter":"grayscale(100%)"
+	},
+	
+	{ 
+		"state":"Complete",
+		"date":{"m":8,"d":8,"y":8},
+		"tags":["pinnaple","arduino"],
+		"title":"example project",
+		"description":"bla bla how is your<br> life?",
+		"img":"imgs/backgroundTitleImg.jpg",
+		"imageFilter":""
+	}, 
+	
+	{ 
+		"state":"Featured Complete",
+		"date":{"m":8,"d":8,"y":8},
+		"tags":["pinnaple","arduino"],
+		"title":"example project",
+		"description":"bla bla how is your<br> life?",
+		"img":"imgs/backgroundTitleImg.jpg",
+		"imageFilter":"grayscale(100%)"
+	}, 
+	
+	{ 
+		"state":"Old",
+		"date":{"m":8,"d":8,"y":8},
+		"tags":["pinnaple","arduino"],
+		"title":"example project",
+		"description":"bla bla how is your<br> life?",
+		"img":"imgs/backgroundTitleImg.jpg",
+		"imageFilter":""
+	}
+	
+		{ 
+		"state":"Complete",
+		"date":{"m":8,"d":8,"y":8},
+		"tags":["pinnaple","arduino"],
+		"title":"example project",
+		"description":"bla bla how is your<br> life?",
+		"img":"imgs/backgroundTitleImg.jpg",
+		"imageFilter":"grayscale(100%)"
+	}, 
+	
+	{ 
+		"state":"Old",
+		"date":{"m":8,"d":8,"y":8},
+		"tags":["pinnaple","arduino"],
+		"title":"example project",
+		"description":"bla bla how is your<br> life?",
+		"img":"imgs/backgroundTitleImg.jpg",
+		"imageFilter":""
+	}
+  
+]
