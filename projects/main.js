@@ -52,11 +52,11 @@ window.addEventListener("load", function(event) {
 			let dateNode = document.createElement("a");
 			dateNode.setAttribute("class", "dateOfProject");
 			let d = displayedProjects[num].date;
-			dateNode.innerHTML = d.m + "\\" + d.d + "\\"+d.y;
+			dateNode.innerHTML = d.m + "/" + d.d + "/"+d.y;
 			td.appendChild(dateNode);
 			
 			let overlayObj = document.createElement("div");
-			projectImg.setAttribute("class", "overlay");
+			overlayObj.setAttribute("class", "overlay");
 			td.appendChild(overlayObj);
 			
 			let overlayText = document.createElement("div");
