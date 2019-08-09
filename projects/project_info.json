@@ -39,9 +39,9 @@
 		"description":"bla bla how is your<br> life?",
 		"img":"imgs/backgroundTitleImg.jpg",
 		"imageFilter":""
-	}
+	},
 	
-		{ 
+	{ 
 		"state":"Complete",
 		"date":{"m":8,"d":8,"y":8},
 		"tags":["pinnaple","arduino"],
