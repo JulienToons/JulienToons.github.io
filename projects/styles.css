@@ -133,7 +133,13 @@ input[type=text] {
   top:0;
   overflow: hidden; 
   z-index:999;
+   -webkit-backface-visibility: hidden;
+
 }
+
+ 
+
+
 .navbar {
   top:0;
   overflow: hidden; 
