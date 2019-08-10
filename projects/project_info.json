@@ -26,10 +26,87 @@
 		"dateTextColor":"white",
 		"backgroundColor":"grey"
 	}, 
+	{ 
 	
+		"state":"recent",
+		"date":{"m":"-","d":"-","y":"-"},
+		"tags":"art drawing android unity games projects alot",
+		"type":"project art event",
+		"title":"Instagram Account",
+		"description":"\"Been doing gymnastics<br>since I was 2\"<br><br>Check out some<br><a href=\"https://drive.google.com/drive/folders/15JxI7BGYfzWsD4f6CrbjblAntJ-Jwopt?usp=sharing\" color=\"blue\">videos here</a>",
+		"img":"imgs/instagram.jpg",
+		"imageFilter":"initial",
+		"dateTextColor":"white",
+		"backgroundColor":"white"
+	}, 
+	{ 
+	
+		"state":"recent",
+		"date":{"m":8,"d":8,"y":2005},
+		"tags":"art drawing android unity games projects alot",
+		"type":"project art event",
+		"title":"Instagram Account",
+		"description":"My <a href=\"https://www.instagram.com/julientoons/\" color=\"red\">Instagram Account</a><br>contains several art<br>works and projects of mine,<br>including an android game",
+		"img":"imgs/instagram.jpg",
+		"imageFilter":"initial",
+		"dateTextColor":"white",
+		"backgroundColor":"white"
+	}, 
+	{ 
+	
+		"state":"recent",
+		"date":{"m":"-","d":"-","y":2018},
+		"tags":"sport pole vault vaulting polevaulting pole-vault pole-vaulting",
+		"type":"other",
+		"title":"Pole Vault",
+		"description":"I was a pole vaulter 2nd<br>semester as a freshman<br><br>My pr is 10 feet high",
+		"img":"imgs/poleVaulting.jpg",
+		"imageFilter":"initial",
+		"dateTextColor":"white",
+		"backgroundColor":"grey"
+	}, 
+	{ 
+	
+		"state":"recent",
+		"date":{"m":-,"d":-,"y":2017},
+		"tags":"java game rbat cbat snake",
+		"type":"project",
+		"title":"Java Snake Game",
+		"description":"My first game<br>made with Java",
+		"img":"imgs/snakeJavaGameImg.png",
+		"imageFilter":"initial",
+		"dateTextColor":"white",
+		"backgroundColor":"black"
+	}, 
 	{ 
 	
 		"state":"old",
+		"date":{"m":-,"d":-,"y":"-"},
+		"tags":"art profile picture pic drawing animation",
+		"type":"art",
+		"title":"Say hello!",
+		"description":"",
+		"img":"imgs/littleAnimation.gif",
+		"imageFilter":"initial",
+		"dateTextColor":"white",
+		"backgroundColor":"white"
+	}, 
+	{ 
+	
+		"state":"recent",
+		"date":{"m":"-","d":"-","y":2017},
+		"tags":"android app game unity c c#",
+		"type":"project",
+		"title":"'Heads Up' Unity Android Game",
+		"description":"",
+		"img":"imgs/cvtriviagamepic.jpg",
+		"imageFilter":"initial",
+		"dateTextColor":"white",
+		"backgroundColor":"grey"
+	}, 
+	{ 
+	
+		"state":"recent",
 		"date":{"m":8,"d":8,"y":2005},
 		"tags":"robot lego high bar highbar gymnast gym ev3 mindstorm nxt",
 		"type":"project",
@@ -40,7 +117,18 @@
 		"dateTextColor":"white",
 		"backgroundColor":"white"
 	}, 
-	
+	{ 
+		"state":"old",
+		"date":{"m":"-","d":"-","y":2017},
+		"tags":"stickman high bar highbar high-bar flip trampoline game unity c c#",
+		"type":"project",
+		"title":"Stickman Trampoline Game",
+		"description":"An old trampoline game",
+		"img":"imgs/genericDocumentImg.png",
+		"imageFilter":"initial",
+		"dateTextColor":"white",
+		"backgroundColor":"grey"
+	}, 
 	
 	
 	
