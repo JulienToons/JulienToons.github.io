@@ -252,8 +252,13 @@ div .textContainer {
   background-color: white;
   padding: .1px 0px;
   	font-family: Monospace, "Times New Roman", Times, serif;
-	
-
+	/*position:relative;  HOW DO YOU MAKE IT FLOAT DOWN!!!???
+}
+div .textContainer p{
+	text-align: center;
+	width:100%;
+	position:absolute;
+	bottom: 0px;*/
 }
 
 

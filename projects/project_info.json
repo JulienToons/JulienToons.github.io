@@ -9,7 +9,7 @@
 		"title":"Arduino Based Monowheel w. Neural Network",
 		"description":"Have you ever heard of a<br><a href=\"https://www.youtube.com/watch?v=qNzl6N_ScyQ\" color=\"green\">Monowheel</a>?<br>Yes? Well this one-of-a-kind<br>mini monowheel is going to<br>be controlled by a nerural<br>network on a tiny arduino<br><br>How hard is that!",
 		"img":"imgs/workInProgress.jpg",
-		"imageFilter":"initial",
+		"imageFilter":"sepia(100%)",
 		"dateTextColor":"black",
 		"backgroundColor":"white"
 	},
@@ -36,9 +36,9 @@
 		"title":"Robot Highbar Gymnast",
 		"description":"I built a robot<br>'gymnast' that can do<br>giants on the highbar",
 		"img":"imgs/hbgymnast.gif",
-		"imageFilter":"sepia(100%)",
+		"imageFilter":"initial",
 		"dateTextColor":"white",
-		"backgroundColor":"black"
+		"backgroundColor":"white"
 	}, 
 	
 	
