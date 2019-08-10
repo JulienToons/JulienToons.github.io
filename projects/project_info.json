@@ -20,7 +20,7 @@
 		"tags":"resume cv curriculum vitae",
 		"type":"document",
 		"title":"curriculum vitae",
-		"description":"Synonymous to <a href=\"documents/cv_julienowhadi.pdf" color=\"red\">Resume</a>",
+		"description":"Synonymous to <a href=\"documents/cv_julienowhadi.pdf\" color=\"red\">Resume</a>",
 		"img":"imgs/genericDocumentImg.png",
 		"imageFilter":"initial",
 		"dateTextColor":"white",
