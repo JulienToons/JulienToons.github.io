@@ -136,9 +136,9 @@ search = function(val) {
 		}*/
 		if	( // if any are true then show is false
 				!(
-				(info[i].type.toLowerCase().includes("awards") && toggleSwitches[2])
-			 || (info[i].type.toLowerCase().includes("projects") && toggleSwitches[3]) 
-			 || (info[i].type.toLowerCase().includes("events") && toggleSwitches[4]) 
+				(info[i].type.toLowerCase().includes("award") && toggleSwitches[2])
+			 || (info[i].type.toLowerCase().includes("project") && toggleSwitches[3]) 
+			 || (info[i].type.toLowerCase().includes("event") && toggleSwitches[4]) 
 			 || (info[i].type.toLowerCase().includes("art") && toggleSwitches[5]) 
 			 || (info[i].type.toLowerCase().includes("other") && toggleSwitches[6]) 
 			 )
