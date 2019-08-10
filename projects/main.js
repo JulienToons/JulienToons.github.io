@@ -258,7 +258,7 @@ resize = function() {
 };
 
 window.addEventListener("load", function(event) {
-	console.log("V1.0021");  //25 char max
+	console.log("V1.0022");  //25 char max
 
     let request = new XMLHttpRequest();
 	let callback = function(zone) {
