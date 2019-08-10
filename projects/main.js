@@ -142,13 +142,14 @@ search = function(val) {
 			 || (info[i].type.toLowerCase().includes("art") && toggleSwitches[5]) 
 			 || (info[i].type.toLowerCase().includes("other") && toggleSwitches[6]) 
 			 )
-			 /*
+			 
 			 ||
+			 
 			 !(
 			    (info[i].state.toLowerCase().includes("old") && toggleSwitches[7])
 			 || (info[i].state.toLowerCase().includes("recent") && toggleSwitches[8]) 
 			 || (((info[i].state.toLowerCase().includes("in progress")) || (info[i].state.toLowerCase().includes("inprogress")) || (info[i].state.toLowerCase().includes("in-progress"))) && toggleSwitches[9]) 
-			  ) */
+			  ) 
 			){
 			console.log("1");
 			show = false;
@@ -256,7 +257,7 @@ resize = function() {
 };
 
 window.addEventListener("load", function(event) {
-	console.log("V1.0017");
+	console.log("V1.0018");
 
     let request = new XMLHttpRequest();
 	let callback = function(zone) {
