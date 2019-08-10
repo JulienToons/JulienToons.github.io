@@ -106,7 +106,38 @@ search = function(val) {
 	for(let i = 0; i<info.length;i++){
 						console.log("I = "+i);
 
-		let show = true;
+		let show = false;
+		
+		if(value != "" && !value.includes("all") && !value.includes("everything")){
+							console.log("2");
+
+			let dd = info[i].date;
+			let d = " " + dd.m + "" + dd.d + "" + dd.y + "   "+dd.m + "/" + dd.d + "/" + dd.y + "   "+ dd.m + "-" + dd.d + "-" + dd.y + "   "+ dd.m + " " + dd.d + " " + dd.y + "   "+ dd.m + "\\" + dd.d + "\\" + dd.y + " ";
+			d = d.toLowerCase();
+		
+		
+			for(let wordCount = 0; wordCount<words.length;wordCount++){
+								console.log("word"+wordCount);
+
+				let str = words[wordCount];
+				
+				if( (toggleSwitches[11] && info[i].description.toLowerCase().includes(str))
+				 || (toggleSwitches[12] && info[i].title.toLowerCase().includes(str))
+				 || (toggleSwitches[13] && info[i].tags.toLowerCase().includes(str))
+				){	 
+								console.log("4");
+
+					show = true;
+				}
+			}
+			
+			if((toggleSwitches[10] && d.includes(" " + value + " "))){
+				show = true;
+								console.log("3");
+
+			}
+		}
+		
 		if	( // if any are true then show is false
 				(info[i].type.toLowerCase().includes("awards") && !toggleSwitches[2])
 			 || (info[i].type.toLowerCase().includes("projects") && !toggleSwitches[3]) 
@@ -120,35 +151,6 @@ search = function(val) {
 			){
 				console.log("1");
 			show = false;
-		}
-		if(value != "" && !value.includes("all") && !value.includes("everything")){
-							console.log("2");
-
-			let dd = info[i].date;
-			let d = " " + dd.m + "" + dd.d + "" + dd.y + "   "+dd.m + "/" + dd.d + "/" + dd.y + "   "+ dd.m + "-" + dd.d + "-" + dd.y + "   "+ dd.m + " " + dd.d + " " + dd.y + "   "+ dd.m + "\\" + dd.d + "\\" + dd.y + " ";
-			d = d.toLowerCase();
-			
-			if(!(toggleSwitches[10] && d.includes(" " + value + " "))){
-				show = false;
-								console.log("3");
-
-			}
-		
-		
-			for(let wordCount = 0; wordCount<words.length;wordCount++){
-								console.log("word"+wordCount);
-
-				let str = words[wordCount];
-				
-				if( !(toggleSwitches[11] && info[i].description.toLowerCase().includes(str))
-				 && !(toggleSwitches[12] && info[i].title.toLowerCase().includes(str))
-				 && !(toggleSwitches[13] && info[i].tags.toLowerCase().includes(str))
-				){	 
-								console.log("4");
-
-					show = false;
-				}
-			}
 		}
 		
 		if(show == true){
