@@ -30,7 +30,7 @@
 	{ 
 	
 		"state":"old",
-		"date":{"m":8,"d":8,"y":2005},    /*edit*/
+		"date":{"m":8,"d":8,"y":2005},
 		"tags":"robot lego high bar highbar gymnast gym ev3 mindstorm nxt",
 		"type":"project",
 		"title":"Robot Highbar Gymnast",
