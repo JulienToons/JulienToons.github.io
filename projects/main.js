@@ -117,7 +117,7 @@ search = function(val) {
 			let dd = info[i].date;
 			let d = " " + dd.m + "" + dd.d + "" + dd.y + "   "+dd.m + "/" + dd.d + "/" + dd.y + "   "+ dd.m + "-" + dd.d + "-" + dd.y + "   "+ dd.m + " " + dd.d + " " + dd.y + "   "+ dd.m + "\\" + dd.d + "\\" + dd.y + " ";
 			d = d.toLowerCase();
-		/*
+		
 			for(let wordCount = 0; wordCount<words.length;wordCount++){
 				console.log("word"+wordCount);
 				let str = words[wordCount];
@@ -128,12 +128,13 @@ search = function(val) {
 					console.log("4");
 					show = true;
 				}
-			}*/
+			}
 			if(toggleSwitches[10] && d.includes(" " + value + " ")){
 				show = true;
 				console.log("3");
 			}
 		}
+		else {show=true;}
 		if	( // if any are true then show is false
 				!(
 				(info[i].type.toLowerCase().includes("award") && toggleSwitches[2])
@@ -257,7 +258,7 @@ resize = function() {
 };
 
 window.addEventListener("load", function(event) {
-	console.log("V1.0019");
+	console.log("V1.0021");
 
     let request = new XMLHttpRequest();
 	let callback = function(zone) {
