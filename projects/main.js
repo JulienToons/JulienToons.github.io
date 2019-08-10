@@ -110,14 +110,14 @@ search = function(val) {
 	words = value.split(" ");
 	for(let i = 0; i<info.length;i++){
 		console.log("I = "+i);
-		let show = true; //false;
-		/*
+		let show = false; //false;
+		
 		if(value != "" && !value.includes("all") && !value.includes("everything")){
 			console.log("2");
 			let dd = info[i].date;
 			let d = " " + dd.m + "" + dd.d + "" + dd.y + "   "+dd.m + "/" + dd.d + "/" + dd.y + "   "+ dd.m + "-" + dd.d + "-" + dd.y + "   "+ dd.m + " " + dd.d + " " + dd.y + "   "+ dd.m + "\\" + dd.d + "\\" + dd.y + " ";
 			d = d.toLowerCase();
-		
+		/*
 			for(let wordCount = 0; wordCount<words.length;wordCount++){
 				console.log("word"+wordCount);
 				let str = words[wordCount];
@@ -128,12 +128,12 @@ search = function(val) {
 					console.log("4");
 					show = true;
 				}
-			}
+			}*/
 			if(toggleSwitches[10] && d.includes(" " + value + " ")){
 				show = true;
 				console.log("3");
 			}
-		}*/
+		}
 		if	( // if any are true then show is false
 				!(
 				(info[i].type.toLowerCase().includes("award") && toggleSwitches[2])
@@ -257,7 +257,7 @@ resize = function() {
 };
 
 window.addEventListener("load", function(event) {
-	console.log("V1.0018");
+	console.log("V1.0019");
 
     let request = new XMLHttpRequest();
 	let callback = function(zone) {
