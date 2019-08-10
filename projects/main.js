@@ -121,7 +121,7 @@ search = function(val) {
 				console.log("1");
 			show = false;
 		}
-		if(value != "" || value != "all" || value != "everything"){
+		if(value != "" && !value.includes("all") && !value.includes("everything")){
 							console.log("2");
 
 			let dd = info[i].date;
@@ -254,7 +254,7 @@ resize = function() {
 };
 
 window.addEventListener("load", function(event) {
-	console.log("V1.0014");
+	console.log("V1.0015");
 
     let request = new XMLHttpRequest();
 	let callback = function(zone) {
