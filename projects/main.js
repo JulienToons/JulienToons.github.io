@@ -60,7 +60,7 @@ function toggleCheck(ele){
 		case "projectsButtonCheck":
 			toggleSwitches[3]=result;
 			break;
-		case "awardsButtonCheck":
+		case "documentsButtonCheck":
 			toggleSwitches[2]=result;
 			break;
 		case "noneButtonCheck":
@@ -137,7 +137,7 @@ search = function(val) {
 		else {show=true;}
 		if	( // if any are true then show is false
 				!(
-				(info[i].type.toLowerCase().includes("award") && toggleSwitches[2])
+				(info[i].type.toLowerCase().includes("document") && toggleSwitches[2])
 			 || (info[i].type.toLowerCase().includes("project") && toggleSwitches[3]) 
 			 || (info[i].type.toLowerCase().includes("event") && toggleSwitches[4]) 
 			 || (info[i].type.toLowerCase().includes("art") && toggleSwitches[5]) 
@@ -258,7 +258,7 @@ resize = function() {
 };
 
 window.addEventListener("load", function(event) {
-	console.log("V1.0021");
+	console.log("V1.0021");  //25 char max
 
     let request = new XMLHttpRequest();
 	let callback = function(zone) {
