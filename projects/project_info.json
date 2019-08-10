@@ -15,7 +15,7 @@
 	},
 	
 	{ 
-		"state":"Complete",
+		"state":"recent",
 		"date":{"m":8,"d":8,"y":8},
 		"tags":"unset",
 		"type":"accomplishment award project event",
@@ -29,7 +29,7 @@
 	
 	{ 
 	
-		"state":"Featured Complete",
+		"state":"Featured recent",
 		"date":{"m":8,"d":8,"y":8},
 		"tags":"unset",
 		"type":"accomplishment award project event",
@@ -42,7 +42,7 @@
 	}, 
 	
 	{ 
-		"state":"Old",
+		"state":"recent",
 		"date":{"m":8,"d":8,"y":8},
 		"tags":"unset",
 		"type":"accomplishment award project event",
@@ -55,7 +55,56 @@
 	},
 	
 	{ 
-		"state":"Complete",
+		"state":"recent",
+		"date":{"m":8,"d":8,"y":8},
+		"tags":"unset",
+		"type":"accomplishment award project event",
+		"title":"example project",
+		"description":"bla bla how is your<br> life?",
+		"img":"imgs/backgroundTitleImg.jpg",
+		"imageFilter":"grayscale(100%)",
+		"dateTextColor":"white",
+		"backgroundColor":"grey"
+	}, 	
+	{ 
+		"state":"recent",
+		"date":{"m":8,"d":8,"y":8},
+		"tags":"unset",
+		"type":"accomplishment award project event",
+		"title":"example project",
+		"description":"bla bla how is your<br> life?",
+		"img":"imgs/backgroundTitleImg.jpg",
+		"imageFilter":"initial",
+		"dateTextColor":"white",
+		"backgroundColor":"grey"
+	},
+	
+	{ 
+		"state":"recent",
+		"date":{"m":8,"d":8,"y":8},
+		"tags":"unset",
+		"type":"accomplishment award project event",
+		"title":"example project",
+		"description":"bla bla how is your<br> life?",
+		"img":"imgs/backgroundTitleImg.jpg",
+		"imageFilter":"grayscale(100%)",
+		"dateTextColor":"white",
+		"backgroundColor":"grey"
+	}, 	
+	{ 
+		"state":"Old",
+		"date":{"m":8,"d":8,"y":8},
+		"tags":"unset",
+		"type":"accomplishment award project event",
+		"title":"example project",
+		"description":"bla bla how is your<br> life?",
+		"img":"imgs/backgroundTitleImg.jpg",
+		"imageFilter":"initial",
+		"dateTextColor":"white",
+		"backgroundColor":"grey"
+	},
+	{ 
+		"state":"recent",
 		"date":{"m":8,"d":8,"y":8},
 		"tags":"unset",
 		"type":"accomplishment award project event",
@@ -80,56 +129,7 @@
 	},
 	
 	{ 
-		"state":"Complete",
-		"date":{"m":8,"d":8,"y":8},
-		"tags":"unset",
-		"type":"accomplishment award project event",
-		"title":"example project",
-		"description":"bla bla how is your<br> life?",
-		"img":"imgs/backgroundTitleImg.jpg",
-		"imageFilter":"grayscale(100%)",
-		"dateTextColor":"white",
-		"backgroundColor":"grey"
-	}, 	
-	{ 
-		"state":"Old",
-		"date":{"m":8,"d":8,"y":8},
-		"tags":"unset",
-		"type":"accomplishment award project event",
-		"title":"example project",
-		"description":"bla bla how is your<br> life?",
-		"img":"imgs/backgroundTitleImg.jpg",
-		"imageFilter":"initial",
-		"dateTextColor":"white",
-		"backgroundColor":"grey"
-	},
-	{ 
-		"state":"Complete",
-		"date":{"m":8,"d":8,"y":8},
-		"tags":"unset",
-		"type":"accomplishment award project event",
-		"title":"example project",
-		"description":"bla bla how is your<br> life?",
-		"img":"imgs/backgroundTitleImg.jpg",
-		"imageFilter":"grayscale(100%)",
-		"dateTextColor":"white",
-		"backgroundColor":"grey"
-	}, 	
-	{ 
-		"state":"Old",
-		"date":{"m":8,"d":8,"y":8},
-		"tags":"unset",
-		"type":"accomplishment award project event",
-		"title":"example project",
-		"description":"bla bla how is your<br> life?",
-		"img":"imgs/backgroundTitleImg.jpg",
-		"imageFilter":"initial",
-		"dateTextColor":"white",
-		"backgroundColor":"grey"
-	},
-	
-	{ 
-		"state":"Complete",
+		"state":"recent",
 		"date":{"m":8,"d":8,"y":8},
 		"tags":"unset",
 		"type":"accomplishment award project event",
