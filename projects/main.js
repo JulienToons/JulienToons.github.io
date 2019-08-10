@@ -95,6 +95,11 @@ function toggleCheck(ele){
 		toggleSwitches[0] = false;
 		document.getElementById("allButtonCheck").children[0].src = "imgs/uncheckedBox.png";
 	}
+	else if(ele.id != "noneButtonCheck"){
+		toggleSwitches[1] = false;
+		document.getElementById("noneButtonCheck").children[0].src = "imgs/uncheckedBox.png";
+	}
+	
 };
 
 search = function(val) {
@@ -104,58 +109,53 @@ search = function(val) {
 	displayedProjects = [];
 	words = value.split(" ");
 	for(let i = 0; i<info.length;i++){
-						console.log("I = "+i);
-
+		console.log("I = "+i);
 		let show = false;
 		
 		if(value != "" && !value.includes("all") && !value.includes("everything")){
-							console.log("2");
-
+			console.log("2");
 			let dd = info[i].date;
 			let d = " " + dd.m + "" + dd.d + "" + dd.y + "   "+dd.m + "/" + dd.d + "/" + dd.y + "   "+ dd.m + "-" + dd.d + "-" + dd.y + "   "+ dd.m + " " + dd.d + " " + dd.y + "   "+ dd.m + "\\" + dd.d + "\\" + dd.y + " ";
 			d = d.toLowerCase();
 		
-		
 			for(let wordCount = 0; wordCount<words.length;wordCount++){
-								console.log("word"+wordCount);
-
+				console.log("word"+wordCount);
 				let str = words[wordCount];
-				
 				if( (toggleSwitches[11] && info[i].description.toLowerCase().includes(str))
 				 || (toggleSwitches[12] && info[i].title.toLowerCase().includes(str))
 				 || (toggleSwitches[13] && info[i].tags.toLowerCase().includes(str))
-				){	 
-								console.log("4");
-
+					){	 
+					console.log("4");
 					show = true;
 				}
 			}
-			
-			if((toggleSwitches[10] && d.includes(" " + value + " "))){
+			if(toggleSwitches[10] && d.includes(" " + value + " ")){
 				show = true;
-								console.log("3");
-
+				console.log("3");
 			}
 		}
-		
 		if	( // if any are true then show is false
-				(info[i].type.toLowerCase().includes("awards") && !toggleSwitches[2])
-			 || (info[i].type.toLowerCase().includes("projects") && !toggleSwitches[3]) 
-			 || (info[i].type.toLowerCase().includes("events") && !toggleSwitches[4]) 
-			 || (info[i].type.toLowerCase().includes("art") && !toggleSwitches[5]) 
-			 || (info[i].type.toLowerCase().includes("other") && !toggleSwitches[6]) 
+				!(
+				(info[i].type.toLowerCase().includes("awards") && toggleSwitches[2])
+			 || (info[i].type.toLowerCase().includes("projects") && toggleSwitches[3]) 
+			 || (info[i].type.toLowerCase().includes("events") && toggleSwitches[4]) 
+			 || (info[i].type.toLowerCase().includes("art") && toggleSwitches[5]) 
+			 || (info[i].type.toLowerCase().includes("other") && toggleSwitches[6]) 
+			 )
 			 
-			 || (info[i].state.toLowerCase().includes("old") && !toggleSwitches[7])
-			 || (info[i].state.toLowerCase().includes("recent") && !toggleSwitches[8]) 
-			 || (((info[i].state.toLowerCase().includes("in progress")) || (info[i].state.toLowerCase().includes("inprogress")) || (info[i].state.toLowerCase().includes("in-progress"))) && !toggleSwitches[9]) 
+			 ||
+			 !(
+			    (info[i].state.toLowerCase().includes("old") && toggleSwitches[7])
+			 || (info[i].state.toLowerCase().includes("recent") && toggleSwitches[8]) 
+			 || (((info[i].state.toLowerCase().includes("in progress")) || (info[i].state.toLowerCase().includes("inprogress")) || (info[i].state.toLowerCase().includes("in-progress"))) && toggleSwitches[9]) 
+			  )
 			){
-				console.log("1");
+			console.log("1");
 			show = false;
 		}
 		
 		if(show == true){
-							console.log("5");
-
+			console.log("5");
 			displayedProjects.push(info[i]);
 		}
 	}
@@ -256,7 +256,7 @@ resize = function() {
 };
 
 window.addEventListener("load", function(event) {
-	console.log("V1.0015");
+	console.log("V1.0016");
 
     let request = new XMLHttpRequest();
 	let callback = function(zone) {
