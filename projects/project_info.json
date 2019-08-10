@@ -68,7 +68,7 @@
 	{ 
 	
 		"state":"recent",
-		"date":{"m":-,"d":-,"y":2017},
+		"date":{"m":"-","d":"-","y":2017},
 		"tags":"java game rbat cbat snake",
 		"type":"project",
 		"title":"Java Snake Game",
@@ -81,7 +81,7 @@
 	{ 
 	
 		"state":"old",
-		"date":{"m":-,"d":-,"y":"-"},
+		"date":{"m":"-","d":"-","y":"-"},
 		"tags":"art profile picture pic drawing animation",
 		"type":"art",
 		"title":"Say hello!",
