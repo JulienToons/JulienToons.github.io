@@ -104,6 +104,8 @@ search = function(val) {
 	displayedProjects = [];
 	words = value.split(" ");
 	for(let i = 0; i<info.length;i++){
+						console.log("I = "+i);
+
 		let show = true;
 		if	( // if any are true then show is false
 				(info[i].type.toLowerCase().includes("awards") && !toggleSwitches[2])
@@ -116,29 +118,44 @@ search = function(val) {
 			 || (info[i].state.toLowerCase().includes("recent") && !toggleSwitches[8]) 
 			 || (((info[i].state.toLowerCase().includes("in progress")) || (info[i].state.toLowerCase().includes("inprogress")) || (info[i].state.toLowerCase().includes("in-progress"))) && !toggleSwitches[9]) 
 			){
+				console.log("1");
 			show = false;
 		}
 		if(value != "" || value != "all" || value != "everything"){
+							console.log("2");
+
 			let dd = info[i].date;
 			let d = " " + dd.m + "" + dd.d + "" + dd.y + "   "+dd.m + "/" + dd.d + "/" + dd.y + "   "+ dd.m + "-" + dd.d + "-" + dd.y + "   "+ dd.m + " " + dd.d + " " + dd.y + "   "+ dd.m + "\\" + dd.d + "\\" + dd.y + " ";
 			d = d.toLowerCase();
 			
-			if(!(toggleSwitches[10] && d.includes(" " + value + " "))) show = false;
+			if(!(toggleSwitches[10] && d.includes(" " + value + " "))){
+				show = false;
+								console.log("3");
+
+			}
 		
 		
 			for(let wordCount = 0; wordCount<words.length;wordCount++){
+								console.log("word"+wordCount);
+
 				let str = words[wordCount];
 				
 				if( !(toggleSwitches[11] && info[i].description.toLowerCase().includes(str))
 				 && !(toggleSwitches[12] && info[i].title.toLowerCase().includes(str))
 				 && !(toggleSwitches[13] && info[i].tags.toLowerCase().includes(str))
 				){	 
+								console.log("4");
+
 					show = false;
 				}
 			}
 		}
 		
-		if(show) displayedProjects.push(info[i]);
+		if(show == true){
+							console.log("5");
+
+			displayedProjects.push(info[i]);
+		}
 	}
 	
 	
@@ -227,9 +244,9 @@ resize = function() {
 	}
 	
 	if(dpl%cols != 0){
+		let tr = document.createElement("tr");
+		table.appendChild(tr);
 		for(let i = ((rs) * cols); i< dpl; i++){// those % at the end
-			let tr = document.createElement("tr");
-			table.appendChild(tr);
 			create(i, tr);
 		}
 	}

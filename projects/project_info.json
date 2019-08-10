@@ -103,7 +103,6 @@
 		"dateTextColor":"white",
 		"backgroundColor":"grey"
 	},
-	
 	{ 
 		"state":"Complete",
 		"date":{"m":8,"d":8,"y":8},
