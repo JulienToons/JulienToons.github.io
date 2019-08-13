@@ -202,10 +202,10 @@ partition = function (left, right) {
         i = left, 
         j = right;
     while (i <= j) {
-        while (dateToNum(displayedProjects[i]) < pivot) {
+        while (dateToNum(displayedProjects[i]) < dateToNum(pivot)) {
             i++;
         }
-        while (dateToNum(displayedProjects[j]) > pivot) {
+        while (dateToNum(displayedProjects[j]) > dateToNum(pivot)) {
             j--;
         }
         if (i <= j) {
