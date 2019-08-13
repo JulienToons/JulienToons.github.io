@@ -36,7 +36,7 @@
 		"description":"\"Been doing gymnastics<br>since I was 2\"<br><br>Check out some<br><a href=\"https://drive.google.com/drive/folders/15JxI7BGYfzWsD4f6CrbjblAntJ-Jwopt?usp=sharing\" color=\"blue\">videos here</a>",
 		"img":"imgs/instagram.jpg",
 		"imageFilter":"initial",
-		"dateTextColor":"white",
+		"dateTextColor":"black",
 		"backgroundColor":"white"
 	}, 
 	{ 
@@ -49,7 +49,7 @@
 		"description":"My <a href=\"https://www.instagram.com/julientoons/\" color=\"red\">Instagram Account</a><br>contains several art<br>works and projects of mine,<br>including an android game",
 		"img":"imgs/instagram.jpg",
 		"imageFilter":"initial",
-		"dateTextColor":"white",
+		"dateTextColor":"black",
 		"backgroundColor":"white"
 	}, 
 	{ 
