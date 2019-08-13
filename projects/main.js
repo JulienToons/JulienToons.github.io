@@ -178,14 +178,19 @@ sort = function(){
 };
 
 dateToNum = function(num){
+	let n = num.date;
 	//converts date to num in days past year 2000
 	let zero = function(num){
 		if(num == "-" || num == ""){
-			return 0;
+			return 2000;
 		}
 		else return num;
 	};
-	return;
+	
+	let calc = (zero(n.y) - 2000) * 365;
+	calc+= zero(n.d);
+	calc += zero(n.m);
+	return calc;
 };
 swap = function (leftIndex, rightIndex){
     let temp = displayedProjects[leftIndex];
@@ -337,7 +342,7 @@ resize = function() {
 
 
 window.addEventListener("load", function(event) {
-	console.log("V1.0023");  //25 char max
+	console.log("V1.0024");  //25 char max
 
     let request = new XMLHttpRequest();
 	let callback = function(zone) {
