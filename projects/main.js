@@ -173,8 +173,8 @@ search = function(val) {
 
 sort = function(){
 	//order by date
-	//shellSortByDate();
-	quickSort();
+	shellSort();
+	//quickSort();
 };
 
 compareDates = function(one, two){ // true if first is greater
@@ -270,7 +270,7 @@ shellSort = function () {
             let j = i;
             let temp = displayedProjects[i];
     
-            while (j >= increment && compareDates((displayedProjects[j-increment]) , temp)) {
+            while (j >= increment && compareDates(displayedProjects[j-increment] , temp)) {
                 displayedProjects[j] = displayedProjects[j-increment];
                 j = j - increment;
             }
