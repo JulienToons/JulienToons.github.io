@@ -348,11 +348,12 @@ resize = function(bool = false) {
 		}
 	} else { // past at bottom new at top
 		let add= dpl%cols;
-		for(let r = dpl; r > add;r--){
+		console.log("dpl: "+dpl);
+		for(let r = rs; r > 0;r--){
 			let tr = document.createElement("tr");
 			table.appendChild(tr);
 			
-			for(let i=0;i<cols;i--){
+			for(let i=cols;i>=0;i--){
 				create((r*cols) + i, tr);
 			}
 		}
@@ -371,7 +372,7 @@ resize = function(bool = false) {
 
 
 window.addEventListener("load", function(event) {
-	console.log("V1.0027");  //25 char max
+	console.log("V1.0028");  //25 char max
 
     let request = new XMLHttpRequest();
 	let callback = function(zone) {
