@@ -171,7 +171,84 @@ search = function(val) {
 	resize();
 };
 
+sort = private function(){
+	//order by date
+	//shellSortByDate();
+	quickSort();
+};
+
+dateToNum = function(num){
+	//converts date to num in days past year 2000
+	let zero = function(num){
+		if(num == "-" || num == ""){
+			return 0;
+		}
+		else return num;
+	};
+	return;
+};
+swap = private function (leftIndex, rightIndex){
+    let temp = displayedProjects[leftIndex];
+    displayedProjects[leftIndex] = displayedProjects[rightIndex];
+    displayedProjects[rightIndex] = temp;
+};
+partition = private function (left, right) {
+    let pivot = displayedProjects[Math.floor((right + left) / 2)],
+        i = left, 
+        j = right;
+    while (i <= j) {
+        while (dateToNum(displayedProjects[i]) < pivot) {
+            i++;
+        }
+        while (dateToNum(displayedProjects[j]) > pivot) {
+            j--;
+        }
+        if (i <= j) {
+            swap(i, j); 
+            i++;
+            j--;
+        }
+    }
+    return i;
+};
+quickSort = private function (left = 0, right =displayedProjects.length -1) {
+    let index;
+    if (displayedProjects.length > 1) {
+        index = partition(displayedProjects, left, right); 
+        if (left < index - 1) {
+            quickSort(displayedProjects, left, index - 1);
+        }
+        if (index < right) { 
+            quickSort(displayedProjects, index, right);
+        }
+    }
+    return displayedProjects;
+};
+
+shellSort = private function () {
+    let increment = displayedProjects.length / 2;
+    while (increment > 0) {
+        for (i = increment; i < displayedProjects.length; i++) {
+            let j = i;
+            let temp = displayedProjects[i];
+    
+            while (j >= increment && dateToNum(displayedProjects[j-increment]) > temp) {
+                displayedProjects[j] = displayedProjects[j-increment];
+                j = j - increment;
+            }
+            displayedProjects[j] = temp;
+        }
+        if (increment == 2) {
+            increment = 1;
+        } else {
+            increment = parseInt(increment*5 / 11);
+        }
+    }
+  return displayedProjects;
+}
+
 resize = function() {
+	sort();
 	
 	let w = window.innerWidth;
 	let dpl = displayedProjects.length;
@@ -257,8 +334,10 @@ resize = function() {
 	
 };
 
+
+
 window.addEventListener("load", function(event) {
-	console.log("V1.0022");  //25 char max
+	console.log("V1.0023");  //25 char max
 
     let request = new XMLHttpRequest();
 	let callback = function(zone) {
