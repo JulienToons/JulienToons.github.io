@@ -171,7 +171,7 @@ search = function(val) {
 	resize();
 };
 
-sort = private function(){
+sort = function(){
 	//order by date
 	//shellSortByDate();
 	quickSort();
@@ -187,12 +187,12 @@ dateToNum = function(num){
 	};
 	return;
 };
-swap = private function (leftIndex, rightIndex){
+swap = function (leftIndex, rightIndex){
     let temp = displayedProjects[leftIndex];
     displayedProjects[leftIndex] = displayedProjects[rightIndex];
     displayedProjects[rightIndex] = temp;
 };
-partition = private function (left, right) {
+partition = function (left, right) {
     let pivot = displayedProjects[Math.floor((right + left) / 2)],
         i = left, 
         j = right;
@@ -211,7 +211,7 @@ partition = private function (left, right) {
     }
     return i;
 };
-quickSort = private function (left = 0, right =displayedProjects.length -1) {
+quickSort = function (left = 0, right =displayedProjects.length -1) {
     let index;
     if (displayedProjects.length > 1) {
         index = partition(displayedProjects, left, right); 
@@ -225,7 +225,7 @@ quickSort = private function (left = 0, right =displayedProjects.length -1) {
     return displayedProjects;
 };
 
-shellSort = private function () {
+shellSort = function () {
     let increment = displayedProjects.length / 2;
     while (increment > 0) {
         for (i = increment; i < displayedProjects.length; i++) {
