@@ -201,7 +201,7 @@ compareDates = function(one, two){ // true if first is greater
 		return true;
 	} else { return false;}
 };
-/*compareDates = function(num){ // true if first is greater
+/*dateToNum = function(num){ // true if first is greater
 	let n = num.date;
 	//converts date to num in days past year 2000
 	let zero = function(num){
@@ -226,10 +226,10 @@ partition = function (left, right) {
         i = left, 
         j = right;
     while (i <= j) {
-        while (!compareDates(displayedProjects[i], dateToNum(pivot))) {
+        while (!compareDates(displayedProjects[i], pivot)) {
             i++;
         }
-        while (compareDates(displayedProjects[j] , dateToNum(pivot))) {
+        while (compareDates(displayedProjects[j] , pivot)) {
             j--;
         }
         if (i <= j) {
@@ -323,10 +323,11 @@ resize = function(bool = false) {
 		try {
 			let ttemp = displayedProjects[num].transform;
 			if(ttemp != null && ttemp != ""){
-				projectImg.setAttribute("transform", ttemp);
+				projectImg.style.transform = ttemp;
 			}
 		}
 		catch(error) {
+			//console.log(error);
 		}
 		projectImg.style.width = "100%";
 		//projectImg.setAttribute("-webkit-filter", displayedProjects[num].imageFilter);
