@@ -219,12 +219,12 @@ partition = function (left, right) {
 quickSort = function (left = 0, right =displayedProjects.length -1) {
     let index;
     if (displayedProjects.length > 1) {
-        index = partition(displayedProjects, left, right); 
+        index = partition(left, right); 
         if (left < index - 1) {
-            quickSort(displayedProjects, left, index - 1);
+            quickSort(left, index - 1);
         }
         if (index < right) { 
-            quickSort(displayedProjects, index, right);
+            quickSort(index, right);
         }
     }
     return displayedProjects;

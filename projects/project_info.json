@@ -88,7 +88,7 @@
 		"description":"",
 		"img":"imgs/littleAnimation.gif",
 		"imageFilter":"initial",
-		"dateTextColor":"white",
+		"dateTextColor":"black",
 		"backgroundColor":"white"
 	}, 
 	{ 
