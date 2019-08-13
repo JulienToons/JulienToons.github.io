@@ -367,7 +367,7 @@ resize = function(bool = false) {
 			table.appendChild(tr);
 			
 			for(let i=0;i<cols;i++){
-				create(dpl - ((r*cols) + i), tr);
+				create(dpl-1 - ((r*cols) + i), tr);
 			}
 		}
 		
@@ -385,7 +385,7 @@ resize = function(bool = false) {
 
 
 window.addEventListener("load", function(event) {
-	console.log("V1.0030");  //25 char max
+	console.log("V1.0031");  //25 char max
 
     let request = new XMLHttpRequest();
 	let callback = function(zone) {

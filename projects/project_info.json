@@ -1020,7 +1020,7 @@
 		"imageFilter":"initial",
 		"dateTextColor":"black",
 		"backgroundColor":"grey",
-		"transform":"rotate(270deg)"
+		"transform":"rotate(180deg)"
 	}
 	
 	
