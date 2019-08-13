@@ -177,21 +177,45 @@ sort = function(){
 	quickSort();
 };
 
-dateToNum = function(num){
+compareDates = function(one, two){ // true if first is greater
+	let n1 = one.date;
+	let n2 = two.date;
+	//converts date to num in days past year 2000
+	let zero = function(num){
+		if(num == "-" || num == "" || num== null){
+			return 0;
+		}
+		else return num;
+	};
+	if(zero(n1.y) == zero(n2.y)){
+		if(zero(n1.m) == zero(n2.m)){
+			if(zero(n1.d) == zero(n2.d) || (zero(n1.d) > zero(n2.d))){
+				return true;
+			} else { return false;}
+		}
+		else if (zero(n1.m) > zero(n2.m)){
+			return true;
+		} else { return false;}
+	}
+	else if (zero(n1.y) > zero(n2.y)){
+		return true;
+	} else { return false;}
+};
+/*compareDates = function(num){ // true if first is greater
 	let n = num.date;
 	//converts date to num in days past year 2000
 	let zero = function(num){
-		if(num == "-" || num == ""){
+		if(num == "-" || num == "" || num== null){
 			return 0;
 		}
 		else return num;
 	};
 	
 	let calc = (zero(n.y) - 2000) * 365;
-	calc+= zero(n.d);
-	calc += zero(n.m) * 30;
+	calc =  calc + zero(n.d);
+	calc = calc + (zero(n.m) * 30.5);
 	return calc;
-};
+};*/
 swap = function (leftIndex, rightIndex){
     let temp = displayedProjects[leftIndex];
     displayedProjects[leftIndex] = displayedProjects[rightIndex];
@@ -202,10 +226,10 @@ partition = function (left, right) {
         i = left, 
         j = right;
     while (i <= j) {
-        while (dateToNum(displayedProjects[i]) < dateToNum(pivot)) {
+        while (!compareDates(displayedProjects[i], dateToNum(pivot))) {
             i++;
         }
-        while (dateToNum(displayedProjects[j]) > dateToNum(pivot)) {
+        while (compareDates(displayedProjects[j] , dateToNum(pivot))) {
             j--;
         }
         if (i <= j) {
@@ -244,9 +268,9 @@ shellSort = function () {
     while (increment > 0) {
         for (i = increment; i < displayedProjects.length; i++) {
             let j = i;
-            let temp = dateToNum(displayedProjects[i]);
+            let temp = displayedProjects[i];
     
-            while (j >= increment && dateToNum(displayedProjects[j-increment]) > temp) {
+            while (j >= increment && compareDates((displayedProjects[j-increment]) , temp)) {
                 displayedProjects[j] = displayedProjects[j-increment];
                 j = j - increment;
             }
