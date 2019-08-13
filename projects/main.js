@@ -261,7 +261,7 @@ shellSort = function () {
   return displayedProjects;
 }
 
-resize = function() {
+resize = function(bool = false) {
 	//sort();
 	
 	let w = window.innerWidth;
@@ -329,21 +329,41 @@ resize = function() {
 	
 	let rs = Math.floor(dpl/cols);
 	
-	for(let r = 0; r < rs;r++){
-		let tr = document.createElement("tr");
-		table.appendChild(tr);
+	if(bool){ // past at top
+		for(let r = 0; r < rs;r++){
+			let tr = document.createElement("tr");
+			table.appendChild(tr);
+			
+			for(let i=0;i<cols;i++){
+				create((r*cols) + i, tr);
+			}
+		}
 		
-		for(let i=0;i<cols;i++){
-			create((r*cols) + i, tr);
+		if(dpl%cols != 0){
+			let tr = document.createElement("tr");
+			table.appendChild(tr);
+			for(let i = ((rs) * cols); i< dpl; i++){// those % at the end
+				create(i, tr);
+			}
 		}
-	}
-	
-	if(dpl%cols != 0){
-		let tr = document.createElement("tr");
-		table.appendChild(tr);
-		for(let i = ((rs) * cols); i< dpl; i++){// those % at the end
-			create(i, tr);
+	} else { // past at bottom new at top
+		let add= dpl%cols;
+		for(let r = (rs * cols) + add; r > add;r--){
+			let tr = document.createElement("tr");
+			table.appendChild(tr);
+			
+			for(let i=0;i<cols;i++){
+				create((r*cols) + i, tr);
+			}
 		}
+		
+		if(add != 0){
+			let tr = document.createElement("tr");
+			table.appendChild(tr);
+			for(let i = add; i> 0; i--){// those % at the end
+				create(i, tr);
+			}
+		}		
 	}
 	
 };
@@ -351,7 +371,7 @@ resize = function() {
 
 
 window.addEventListener("load", function(event) {
-	console.log("V1.0024");  //25 char max
+	console.log("V1.0025");  //25 char max
 
     let request = new XMLHttpRequest();
 	let callback = function(zone) {
