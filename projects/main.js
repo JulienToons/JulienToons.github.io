@@ -218,13 +218,22 @@ partition = function (left, right) {
 };
 quickSort = function (left = 0, right =displayedProjects.length -1) {
     let index;
-    if (displayedProjects.length > 1) {
+    // if (displayedProjects.length > 1) {
+        // index = partition(left, right); 
+        // if (left < index - 1) {
+            // quickSort(left, index - 1);
+        // }
+        // if (index < right) { 
+            // quickSort(index, right);
+        // }
+    // }
+	if (displayedProjects.length > 1) {
         index = partition(left, right); 
         if (left < index - 1) {
-            quickSort(left, index - 1);
+			quickSort(index, right);
         }
         if (index < right) { 
-            quickSort(index, right);
+            quickSort(left, index - 1);
         }
     }
     return displayedProjects;
@@ -235,7 +244,7 @@ shellSort = function () {
     while (increment > 0) {
         for (i = increment; i < displayedProjects.length; i++) {
             let j = i;
-            let temp = displayedProjects[i];
+            let temp = dateToNum(displayedProjects[i]);
     
             while (j >= increment && dateToNum(displayedProjects[j-increment]) > temp) {
                 displayedProjects[j] = displayedProjects[j-increment];
