@@ -114,29 +114,26 @@ search = function(val) {
 	displayedProjects = [];
 	words = value.split(" ");
 	for(let i = 0; i<info.length;i++){
-		//console.log("I = "+i);
+		
 		let show = false; //false;
 		
 		if(value != "" && !value.includes("all") && !value.includes("everything")){
-			//console.log("2");
+			
 			let dd = info[i].date;
 			let d = " " + dd.m + "" + dd.d + "" + dd.y + "   "+dd.m + "/" + dd.d + "/" + dd.y + "   "+ dd.m + "-" + dd.d + "-" + dd.y + "   "+ dd.m + " " + dd.d + " " + dd.y + "   "+ dd.m + "\\" + dd.d + "\\" + dd.y + " ";
 			d = d.toLowerCase();
 		
 			for(let wordCount = 0; wordCount<words.length;wordCount++){
-				//console.log("word"+wordCount);
 				let str = words[wordCount];
 				if( (toggleSwitches[11] && info[i].description.toLowerCase().includes(str))
 				 || (toggleSwitches[12] && info[i].title.toLowerCase().includes(str))
 				 || (toggleSwitches[13] && info[i].tags.toLowerCase().includes(str))
 					){	 
-					//console.log("4");
 					show = true;
 				}
 			}
 			if(toggleSwitches[10] && d.includes(" " + value + " ")){
 				show = true;
-				//console.log("3");
 			}
 		}
 		else {show=true;}
@@ -157,12 +154,10 @@ search = function(val) {
 			 || (((info[i].state.toLowerCase().includes("in progress")) || (info[i].state.toLowerCase().includes("inprogress")) || (info[i].state.toLowerCase().includes("in-progress"))) && toggleSwitches[9]) 
 			  ) 
 			){
-			//console.log("1");
 			show = false;
 		}
 		
 		if(show == true){
-			//console.log("5");
 			displayedProjects.push(info[i]);
 		}
 	}
@@ -172,8 +167,8 @@ search = function(val) {
 		alert("No match for \""+val+"\" found");
 		displayedProjectNum = info;
 	}
-	sort(toggleSwitches[14]);
-	resize();
+	sort();
+	resize(toggleSwitches[14]);
 };
 
 sort = function(){
@@ -385,7 +380,7 @@ resize = function(bool = false) {
 
 
 window.addEventListener("load", function(event) {
-	console.log("V1.0031");  //25 char max
+	console.log("V1.0032");  //25 char max
 
     let request = new XMLHttpRequest();
 	let callback = function(zone) {
