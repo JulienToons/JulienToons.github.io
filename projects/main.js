@@ -167,7 +167,7 @@ search = function(val) {
 		alert("No match for \""+val+"\" found");
 		displayedProjectNum = info;
 	}
-	
+	sort();
 	resize();
 };
 
@@ -253,7 +253,7 @@ shellSort = function () {
 }
 
 resize = function() {
-	sort();
+	//sort();
 	
 	let w = window.innerWidth;
 	let dpl = displayedProjects.length;
@@ -348,6 +348,7 @@ window.addEventListener("load", function(event) {
 	let callback = function(zone) {
 		info = zone;
 		displayedProjects = zone;
+		sort();
 	   resize();
     };
     request.addEventListener("load", function(event) {
