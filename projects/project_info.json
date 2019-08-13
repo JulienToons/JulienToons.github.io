@@ -3,7 +3,7 @@
 
     { 
 		"state":"In Progress",
-		"date":{"m":8,"d":8,"y":8},
+		"date":{"m":8,"d":8,"y":2008},
 		"tags":"neural network arduino ai circuit hardware software artificial intelligence",
 		"type":"project",
 		"title":"Arduino Based Monowheel w. Neural Network",
