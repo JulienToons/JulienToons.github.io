@@ -261,7 +261,7 @@ shellSort = function () {
   return displayedProjects;
 }
 
-resize = function(bool = false) {
+resize = function(bool = true) {
 	//sort();
 	
 	let w = window.innerWidth;
@@ -295,7 +295,9 @@ resize = function(bool = false) {
 		let projectImg = document.createElement("img");
 		projectImg.setAttribute("src", displayedProjects[num].img);
 		projectImg.setAttribute("alt", "Image would be here");
+		
 		projectImg.setAttribute("class", "projectImage");
+		
 		projectImg.style.width = "100%";
 		//projectImg.setAttribute("-webkit-filter", displayedProjects[num].imageFilter);
 		projectImg.style.WebkitFilter = displayedProjects[num].imageFilter;
