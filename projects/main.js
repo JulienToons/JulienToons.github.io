@@ -4,10 +4,10 @@ var displayedProjects;
 var search;
 var resize;
 
-var toggleSwitches = [true, false, true, true, true, true, true, true, true, true, true, true, true, true];
+var toggleSwitches = [true, false, true, true, true, true, true, true, true, true, true, true, true, true, true];
 		
 function toggleSettings(){ 
-	  var x = document.getElementById("settingsContainer");
+	  let x = document.getElementById("settingsContainer");
 	  if (x.style.display === "block") {
 		x.style.display = "none";
 	  } else {
@@ -25,8 +25,13 @@ function toggleCheck(ele){
 		result = true;
 		el.src = "imgs/checkedBox.png";
 	}
-
+	let on = true;
+	
 	switch (ele.id){
+		case "newToOldButtonCheck":
+			toggleSwitches[14]=result;
+			on = false;
+			break;
 		case "byTagButtonCheck":
 			toggleSwitches[13]=result;
 			break;
@@ -67,7 +72,7 @@ function toggleCheck(ele){
 			toggleSwitches[1]=result;
 			if(result)
 			{
-				for(let i = 0; i<toggleSwitches.length;i++){
+				for(let i = 0; i<toggleSwitches.length - 1;i++){  // -1 is for the 15th element
 					toggleSwitches[i] = false;
 					document.getElementsByClassName("toggleButton")[i].children[0].src = "imgs/uncheckedBox.png";
 				}
@@ -79,7 +84,7 @@ function toggleCheck(ele){
 			toggleSwitches[0]=result;
 			if(result)
 			{
-				for(let i = 0; i<toggleSwitches.length;i++){
+				for(let i = 0; i<toggleSwitches.length - 1;i++){
 					toggleSwitches[i] = true;
 					document.getElementsByClassName("toggleButton")[i].children[0].src = "imgs/checkedBox.png";
 				}
@@ -91,11 +96,11 @@ function toggleCheck(ele){
 		default: console.log("error with "+ele.id);
 	}
 	
-	if(!result){
+	if(!result && on){
 		toggleSwitches[0] = false;
 		document.getElementById("allButtonCheck").children[0].src = "imgs/uncheckedBox.png";
 	}
-	else if(ele.id != "noneButtonCheck"){
+	else if(ele.id != "noneButtonCheck" && on){
 		toggleSwitches[1] = false;
 		document.getElementById("noneButtonCheck").children[0].src = "imgs/uncheckedBox.png";
 	}
@@ -167,7 +172,7 @@ search = function(val) {
 		alert("No match for \""+val+"\" found");
 		displayedProjectNum = info;
 	}
-	sort();
+	sort(toggleSwitches[14]);
 	resize();
 };
 
@@ -261,7 +266,7 @@ shellSort = function () {
   return displayedProjects;
 }
 
-resize = function(bool = true) {
+resize = function(bool = false) {
 	//sort();
 	
 	let w = window.innerWidth;
@@ -295,9 +300,15 @@ resize = function(bool = true) {
 		let projectImg = document.createElement("img");
 		projectImg.setAttribute("src", displayedProjects[num].img);
 		projectImg.setAttribute("alt", "Image would be here");
-		
 		projectImg.setAttribute("class", "projectImage");
-		
+		try {
+			let ttemp = displayedProjects[num].transform;
+			if(ttemp != null && ttemp != ""){
+				projectImg.setAttribute("transform", ttemp);
+			}
+		}
+		catch(error) {
+		}
 		projectImg.style.width = "100%";
 		//projectImg.setAttribute("-webkit-filter", displayedProjects[num].imageFilter);
 		projectImg.style.WebkitFilter = displayedProjects[num].imageFilter;
@@ -351,12 +362,12 @@ resize = function(bool = true) {
 	} else { // past at bottom new at top
 		let add= dpl%cols;
 		console.log("dpl: "+dpl);
-		for(let r = rs; r > 0;r--){
+		for(let r = 0; r < rs;r++){
 			let tr = document.createElement("tr");
 			table.appendChild(tr);
 			
-			for(let i=cols;i>=0;i--){
-				create((r*cols) + i, tr);
+			for(let i=0;i<cols;i++){
+				create(dpl - ((r*cols) + i), tr);
 			}
 		}
 		
@@ -374,7 +385,7 @@ resize = function(bool = true) {
 
 
 window.addEventListener("load", function(event) {
-	console.log("V1.0028");  //25 char max
+	console.log("V1.0030");  //25 char max
 
     let request = new XMLHttpRequest();
 	let callback = function(zone) {

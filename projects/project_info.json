@@ -1019,7 +1019,8 @@
 		"img":"imgs/art/Image (73).jpg",
 		"imageFilter":"initial",
 		"dateTextColor":"black",
-		"backgroundColor":"grey"
+		"backgroundColor":"grey",
+		"transform":"rotate(270deg)"
 	}
 	
 	
