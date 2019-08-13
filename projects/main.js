@@ -109,29 +109,29 @@ search = function(val) {
 	displayedProjects = [];
 	words = value.split(" ");
 	for(let i = 0; i<info.length;i++){
-		console.log("I = "+i);
+		//console.log("I = "+i);
 		let show = false; //false;
 		
 		if(value != "" && !value.includes("all") && !value.includes("everything")){
-			console.log("2");
+			//console.log("2");
 			let dd = info[i].date;
 			let d = " " + dd.m + "" + dd.d + "" + dd.y + "   "+dd.m + "/" + dd.d + "/" + dd.y + "   "+ dd.m + "-" + dd.d + "-" + dd.y + "   "+ dd.m + " " + dd.d + " " + dd.y + "   "+ dd.m + "\\" + dd.d + "\\" + dd.y + " ";
 			d = d.toLowerCase();
 		
 			for(let wordCount = 0; wordCount<words.length;wordCount++){
-				console.log("word"+wordCount);
+				//console.log("word"+wordCount);
 				let str = words[wordCount];
 				if( (toggleSwitches[11] && info[i].description.toLowerCase().includes(str))
 				 || (toggleSwitches[12] && info[i].title.toLowerCase().includes(str))
 				 || (toggleSwitches[13] && info[i].tags.toLowerCase().includes(str))
 					){	 
-					console.log("4");
+					//console.log("4");
 					show = true;
 				}
 			}
 			if(toggleSwitches[10] && d.includes(" " + value + " ")){
 				show = true;
-				console.log("3");
+				//console.log("3");
 			}
 		}
 		else {show=true;}
@@ -152,12 +152,12 @@ search = function(val) {
 			 || (((info[i].state.toLowerCase().includes("in progress")) || (info[i].state.toLowerCase().includes("inprogress")) || (info[i].state.toLowerCase().includes("in-progress"))) && toggleSwitches[9]) 
 			  ) 
 			){
-			console.log("1");
+			//console.log("1");
 			show = false;
 		}
 		
 		if(show == true){
-			console.log("5");
+			//console.log("5");
 			displayedProjects.push(info[i]);
 		}
 	}
@@ -348,7 +348,7 @@ resize = function(bool = false) {
 		}
 	} else { // past at bottom new at top
 		let add= dpl%cols;
-		for(let r = (rs * cols) + add; r > add;r--){
+		for(let r = (rs * cols) + add - 1; r > add;r--){
 			let tr = document.createElement("tr");
 			table.appendChild(tr);
 			
@@ -371,7 +371,7 @@ resize = function(bool = false) {
 
 
 window.addEventListener("load", function(event) {
-	console.log("V1.0025");  //25 char max
+	console.log("V1.0026");  //25 char max
 
     let request = new XMLHttpRequest();
 	let callback = function(zone) {
