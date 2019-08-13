@@ -182,14 +182,14 @@ dateToNum = function(num){
 	//converts date to num in days past year 2000
 	let zero = function(num){
 		if(num == "-" || num == ""){
-			return 2000;
+			return 0;
 		}
 		else return num;
 	};
 	
 	let calc = (zero(n.y) - 2000) * 365;
 	calc+= zero(n.d);
-	calc += zero(n.m);
+	calc += zero(n.m) * 30;
 	return calc;
 };
 swap = function (leftIndex, rightIndex){
