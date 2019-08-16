@@ -182,7 +182,7 @@ sort = function(){
 	//quickSort();
 };
 
-resize = function(bool = false) {
+resize = function(bool = toggleSwitches[14]) {
 	//sort();
 	
 	let w = window.innerWidth;
