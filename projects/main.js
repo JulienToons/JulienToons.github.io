@@ -242,24 +242,24 @@ partition = function (left, right) {
 };
 quickSort = function (left = 0, right =displayedProjects.length -1) {
     let index;
-    // if (displayedProjects.length > 1) {
-        // index = partition(left, right); 
-        // if (left < index - 1) {
-            // quickSort(left, index - 1);
-        // }
-        // if (index < right) { 
-            // quickSort(index, right);
-        // }
-    // }
-	if (displayedProjects.length > 1) {
+    if (displayedProjects.length > 1) {
         index = partition(left, right); 
         if (left < index - 1) {
-			quickSort(index, right);
-        }
-        if (index < right) { 
             quickSort(left, index - 1);
         }
+        if (index < right) { 
+            quickSort(index, right);
+        }
     }
+	// if (displayedProjects.length > 1) {
+        // index = partition(left, right); 
+        // if (left < index - 1) {
+			// quickSort(index, right);
+        // }
+        // if (index < right) { 
+            // quickSort(left, index - 1);
+        // }
+    // }
     return displayedProjects;
 };
 
@@ -405,7 +405,7 @@ resize = function(bool = false) {
 
 
 window.addEventListener("load", function(event) {
-	console.log("V1.0033");  //25 char max
+	console.log("V1.0034");  //25 char max
 
     let request = new XMLHttpRequest();
 	let callback = function(zone) {
