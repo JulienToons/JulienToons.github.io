@@ -1,6 +1,8 @@
 var info;
 var displayedProjects;
-			
+
+//var sorts;		
+		
 var search;
 var resize;
 
@@ -173,126 +175,12 @@ search = function(val) {
 
 sort = function(){
 	//order by date
-	//shellSort();
-	quickSort();
-};
-
-compareDates = function(one, two){ // true if first is greater
-	let n1 = one.date;
-	let n2 = two.date;
-	let zero = function(num){
-		if(num == "-" || num == "" || num== null){
-			return 0;
-		}
-		else return num;
-	};
-	if(zero(n1.y) == zero(n2.y)){
-		if(zero(n1.m) == zero(n2.m)){
-			if(zero(n1.d) == zero(n2.d) || (zero(n1.d) > zero(n2.d))){
-				return true;
-			} else {
-				return false;
-			}
-		}
-		else if (zero(n1.m) > zero(n2.m)){
-			return true;
-		} else {
-			return false;
-		}
-	} else if (zero(n1.y) > zero(n2.y)){
-		return true;
-	} else {
-		return false;
-	}
-};
-/*dateToNum = function(num){ // true if first is greater
-	let n = num.date;
-	//converts date to num in days past year 2000
-	let zero = function(num){
-		if(num == "-" || num == "" || num== null){
-			return 0;
-		}
-		else return num;
-	};
 	
-	let calc = (zero(n.y) - 2000) * 365;
-	calc =  calc + zero(n.d);
-	calc = calc + (zero(n.m) * 30.5);
-	return calc;
-};*/
-swap = function (leftIndex, rightIndex){
-    let temp = displayedProjects[leftIndex];
-    displayedProjects[leftIndex] = displayedProjects[rightIndex];
-    displayedProjects[rightIndex] = temp;
-};
-partition = function (left, right) {
-    let pivot = displayedProjects[Math.floor((right + left) / 2)],
-        i = left, 
-        j = right;
-    while (i <= j) {
-        while (!compareDates(displayedProjects[i], pivot)) {
-            i++;
-        }
-        //while (compareDates(displayedProjects[j] , pivot)) {
-		while (true) {
-			let temppp = compareDates(displayedProjects[j] , pivot);
-			console.log("hh "+ temppp);
-			if(temppp) break;
-            j--;
-        }
-        if (i <= j) {
-            swap(i, j); 
-            i++;
-            j--;
-        }
-    }
-    return i;
-};
-quickSort = function (left = 0, right =displayedProjects.length -1) {
-    let index;
-    if (displayedProjects.length > 1) {
-		console.log("ROUND: "+ left + "  ---  "  + right);
-        index = partition(left, right); 
-        if (left < index - 1) {
-            quickSort(left, index - 1);
-        }
-        if (index < right) { 
-            quickSort(index, right);
-        }
-    }
-	// if (displayedProjects.length > 1) {
-        // index = partition(left, right); 
-        // if (left < index - 1) {
-			// quickSort(index, right);
-        // }
-        // if (index < right) { 
-            // quickSort(left, index - 1);
-        // }
-    // }
-    return displayedProjects;
-};
+	displayedProjects = sorts.shell(displayedProjects);
 
-shellSort = function () {
-    let increment = displayedProjects.length / 2;
-    while (increment > 0) {
-        for (i = increment; i < displayedProjects.length; i++) {
-            let j = i;
-            let temp = displayedProjects[i];
-    
-            while (j >= increment && compareDates(displayedProjects[j-increment] , temp)) {
-                displayedProjects[j] = displayedProjects[j-increment];
-                j = j - increment;
-            }
-            displayedProjects[j] = temp;
-        }
-        if (increment == 2) {
-            increment = 1;
-        } else {
-            increment = parseInt(increment*5 / 11);
-        }
-    }
-  return displayedProjects;
-}
+	//shellSort();
+	//quickSort();
+};
 
 resize = function(bool = false) {
 	//sort();
@@ -415,7 +303,9 @@ resize = function(bool = false) {
 
 window.addEventListener("load", function(event) {
 	console.log("V1.0034");  //25 char max
-
+	//sorts.test();
+	//sorts = new Sorts();
+	
     let request = new XMLHttpRequest();
 	let callback = function(zone) {
 		info = zone;
