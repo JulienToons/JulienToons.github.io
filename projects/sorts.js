@@ -1,13 +1,13 @@
 class sorts {
 	static compareDates(one, two){ // true if first is greater
-		let n1 = one.date;
-		let n2 = two.date;
 		let zero = function(num){
 			if(num == "-" || num == "" || num== null){
 				return 0;
 			}
 			else return num;
 		};
+		let n1 = one.date;
+		let n2 = two.date;
 		if(zero(n1.y) == zero(n2.y)){
 			if(zero(n1.m) == zero(n2.m)){
 				if(zero(n1.d) == zero(n2.d) || (zero(n1.d) > zero(n2.d))){
@@ -38,8 +38,10 @@ class sorts {
 				let j = i;
 				let temp = arr[i];
 		
-				while (j >= increment && this.compareDates(arr[j-increment] , temp)) {
+				while (j >= increment ) {
 					arr[j] = arr[j-increment];
+					console.log(j);
+					if(!this.compareDates(arr[j-increment] , temp)) break;
 					j = j - increment;
 				}
 		
