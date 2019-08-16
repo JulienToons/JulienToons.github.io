@@ -173,8 +173,8 @@ search = function(val) {
 
 sort = function(){
 	//order by date
-	shellSort();
-	//quickSort();
+	//shellSort();
+	quickSort();
 };
 
 compareDates = function(one, two){ // true if first is greater
@@ -405,7 +405,7 @@ resize = function(bool = false) {
 
 
 window.addEventListener("load", function(event) {
-	console.log("V1.0032");  //25 char max
+	console.log("V1.0033");  //25 char max
 
     let request = new XMLHttpRequest();
 	let callback = function(zone) {
