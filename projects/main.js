@@ -180,7 +180,6 @@ sort = function(){
 compareDates = function(one, two){ // true if first is greater
 	let n1 = one.date;
 	let n2 = two.date;
-	//converts date to num in days past year 2000
 	let zero = function(num){
 		if(num == "-" || num == "" || num== null){
 			return 0;
@@ -191,15 +190,20 @@ compareDates = function(one, two){ // true if first is greater
 		if(zero(n1.m) == zero(n2.m)){
 			if(zero(n1.d) == zero(n2.d) || (zero(n1.d) > zero(n2.d))){
 				return true;
-			} else { return false;}
+			} else {
+				return false;
+			}
 		}
 		else if (zero(n1.m) > zero(n2.m)){
 			return true;
-		} else { return false;}
-	}
-	else if (zero(n1.y) > zero(n2.y)){
+		} else {
+			return false;
+		}
+	} else if (zero(n1.y) > zero(n2.y)){
 		return true;
-	} else { return false;}
+	} else {
+		return false;
+	}
 };
 /*dateToNum = function(num){ // true if first is greater
 	let n = num.date;
@@ -229,7 +233,11 @@ partition = function (left, right) {
         while (!compareDates(displayedProjects[i], pivot)) {
             i++;
         }
-        while (compareDates(displayedProjects[j] , pivot)) {
+        //while (compareDates(displayedProjects[j] , pivot)) {
+		while (true) {
+			let temppp = compareDates(displayedProjects[j] , pivot);
+			console.log("hh "+ temppp);
+			if(temppp) break;
             j--;
         }
         if (i <= j) {
@@ -243,6 +251,7 @@ partition = function (left, right) {
 quickSort = function (left = 0, right =displayedProjects.length -1) {
     let index;
     if (displayedProjects.length > 1) {
+		console.log("ROUND: "+ left + "  ---  "  + right);
         index = partition(left, right); 
         if (left < index - 1) {
             quickSort(left, index - 1);
