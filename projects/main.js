@@ -8,6 +8,13 @@ var resize;
 
 var toggleSwitches = [true, false, true, true, true, true, true, true, true, true, true, true, true, true, true];
 		
+function shortcut(val){
+	let temp = toggleSwitches;
+	toggleSwitches = val;
+	search();
+	toggleSwitches = temp;
+};
+		
 function toggleSettings(){ 
 	  let x = document.getElementById("settingsContainer");
 	  if (x.style.display === "block") {
@@ -109,7 +116,7 @@ function toggleCheck(ele){
 	
 };
 
-search = function(val) {
+search = function(val ="") {
 	let value = val.toLowerCase();
 
 
@@ -259,7 +266,7 @@ resize = function(bool = toggleSwitches[14]) {
 	
 	let rs = Math.floor(dpl/cols);
 	
-	if(bool){ // past at top
+	if(!bool){ // past at top
 		for(let r = 0; r < rs;r++){
 			let tr = document.createElement("tr");
 			table.appendChild(tr);
@@ -309,9 +316,7 @@ window.addEventListener("load", function(event) {
     let request = new XMLHttpRequest();
 	let callback = function(zone) {
 		info = zone;
-		displayedProjects = zone;
-		sort();
-	   resize();
+		projectsShortcut();
     };
     request.addEventListener("load", function(event) {
 		callback(JSON.parse(this.responseText));

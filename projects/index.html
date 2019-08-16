@@ -22,6 +22,16 @@
 			  <a href="https://julientoons.github.io">Home</a>
 			  <a href="https://julientoons.github.io/aboutMe">About Me</a>
 			  <a href="#contact">Contact</a> 
+			  
+<!--         [all , none , docs, projects, events, art , other, old , recent, inProgress, byDate, byDescription, byTitle, byTag, new2old] -->
+<!-- default [true, false, true, true    , true  , true, true , true, true  , true      , true  , true         , true   , true , true   ] -->
+										<!--                         docs   proj  event  art    other -->
+			  <a onClick = "shortcut('Projects',       [true, false, false, true, false, false, false, true, true, true, false, false, false, true, true])" id = "projectsShortcut">Projects</a> 
+			  <a onClick = "shortcut('Art',            [true, false, false, false, false, true, false, true, true, true, false, false, false, true, true])" id = "artShortcut">Art</a> 
+			  <a onClick = "shortcut('Events',         [true, false, false, false, true, false, false, true, true, true, false, false, false, true, true])" id = "eventsShortcut">Events</a> 
+			  <a onClick = "shortcut('Doucuments',     [true, false, true, false, false, false, false, true, true, true, false, false, false, true, true])" id = "documentsShortcut">Documents</a> 
+			  <a onClick = "shortcut('*Other Search*', [true, false, false, false, false, false, true, true, true, true, false, false, false, true, true])" id = "otherShortcut">Other</a> 
+			  
 
 			  <div class="search-container">
 				<form> <!-- action="search()">    <!--CHANGE!!!-->
