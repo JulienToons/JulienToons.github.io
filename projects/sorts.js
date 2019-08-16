@@ -32,7 +32,7 @@ class sorts {
 		alert(this.quick([2,9,3,5,12,30,0,2,5,-3]));
 	}
 	static shell(arr) {
-		let increment = arr.length / 2;
+		let increment = Math.floor(arr.length / 2);
 		while (increment > 0) {
 			for (let i = increment; i < arr.length; i++) {
 				let j = i;
