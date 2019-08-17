@@ -8,7 +8,8 @@ var resize;
 
 var toggleSwitches = [true, false, true, true, true, true, true, true, true, true, true, true, true, true, true];
 		
-function shortcut(val){
+function shortcut(title = "Projects", val){
+	document.getElementById("page_title").innerHTML = title;
 	let temp = toggleSwitches;
 	toggleSwitches = val;
 	search();
@@ -316,7 +317,7 @@ window.addEventListener("load", function(event) {
     let request = new XMLHttpRequest();
 	let callback = function(zone) {
 		info = zone;
-		projectsShortcut();
+		shortcut("Projects",[true, false, false, true, false, false, false, true, true, true, false, false, false, true, true]);
     };
     request.addEventListener("load", function(event) {
 		callback(JSON.parse(this.responseText));
