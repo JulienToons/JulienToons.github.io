@@ -151,21 +151,21 @@ search = function(val ="") {
 			}
 		}
 		else {show=true;}
-		if	( !(
+		if	( (
 				(info[i].type.toLowerCase().includes("document") || !toggleSwitches[2])
 			 && (info[i].type.toLowerCase().includes("project") || !toggleSwitches[3]) 
 			 && (info[i].type.toLowerCase().includes("event") || !toggleSwitches[4]) 
 			 && (info[i].type.toLowerCase().includes("art") || !toggleSwitches[5]) 
 			 && (info[i].type.toLowerCase().includes("other") || !toggleSwitches[6]) 
 			 )
-			 
+			 /*
 			 ||
 			 
 			 !(
 			    (info[i].state.toLowerCase().includes("old") || !toggleSwitches[7])
 			 && (info[i].state.toLowerCase().includes("recent") || !toggleSwitches[8]) 
 			 && (((info[i].state.toLowerCase().includes("in progress")) || (info[i].state.toLowerCase().includes("inprogress")) || (info[i].state.toLowerCase().includes("in-progress"))) || !toggleSwitches[9]) 
-			  ) 
+			  ) */
 			){
 			show = false;
 		}
@@ -313,7 +313,7 @@ resize = function(bool = toggleSwitches[14]) {
 
 
 window.addEventListener("load", function(event) {
-	console.log("V1.0035");  //25 char max
+	console.log("V1.0036");  //25 char max
 	//sorts.test();
 	//sorts = new Sorts();
 	
