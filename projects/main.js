@@ -82,19 +82,23 @@ function toggleCheck(ele){
 			toggleSwitches[1]=result;
 			if(result)
 			{
-				for(let i = 0; i<toggleSwitches.length - 1;i++){  // -1 is for the 15th element
+				for(let i = 0; i<toggleSwitches.length;i++){  // -1 is for the 15th element
 					toggleSwitches[i] = false;
 					document.getElementsByClassName("toggleButton")[i].children[0].src = "imgs/uncheckedBox.png";
 				}
 				toggleSwitches[1] = true;
 				document.getElementById("noneButtonCheck").children[0].src = "imgs/checkedBox.png";
+				
+				toggleSwitches[0] = false;
+				document.getElementById("allButtonCheck").children[0].src = "imgs/uncheckedBox.png";
 			}
+			on = false;
 			break;	
 		case "allButtonCheck":
 			toggleSwitches[0]=result;
 			if(result)
 			{
-				for(let i = 0; i<toggleSwitches.length - 1;i++){
+				for(let i = 0; i<toggleSwitches.length;i++){
 					toggleSwitches[i] = true;
 					document.getElementsByClassName("toggleButton")[i].children[0].src = "imgs/checkedBox.png";
 				}
@@ -127,7 +131,7 @@ search = function(val ="") {
 		
 		let show = false; //false;
 		
-		if(value != "" && !value.includes("all") && !value.includes("everything")){
+		if(value != "" && value != null && !value.includes("all") && !value.includes("everything")){
 			
 			let dd = info[i].date;
 			let d = " " + dd.m + "" + dd.d + "" + dd.y + "   "+dd.m + "/" + dd.d + "/" + dd.y + "   "+ dd.m + "-" + dd.d + "-" + dd.y + "   "+ dd.m + " " + dd.d + " " + dd.y + "   "+ dd.m + "\\" + dd.d + "\\" + dd.y + " ";
@@ -147,21 +151,20 @@ search = function(val ="") {
 			}
 		}
 		else {show=true;}
-		if	( // if any are true then show is false
-				!(
-				(info[i].type.toLowerCase().includes("document") && toggleSwitches[2])
-			 || (info[i].type.toLowerCase().includes("project") && toggleSwitches[3]) 
-			 || (info[i].type.toLowerCase().includes("event") && toggleSwitches[4]) 
-			 || (info[i].type.toLowerCase().includes("art") && toggleSwitches[5]) 
-			 || (info[i].type.toLowerCase().includes("other") && toggleSwitches[6]) 
+		if	( !(
+				(info[i].type.toLowerCase().includes("document") || !toggleSwitches[2])
+			 && (info[i].type.toLowerCase().includes("project") || !toggleSwitches[3]) 
+			 && (info[i].type.toLowerCase().includes("event") || !toggleSwitches[4]) 
+			 && (info[i].type.toLowerCase().includes("art") || !toggleSwitches[5]) 
+			 && (info[i].type.toLowerCase().includes("other") || !toggleSwitches[6]) 
 			 )
 			 
 			 ||
 			 
 			 !(
-			    (info[i].state.toLowerCase().includes("old") && toggleSwitches[7])
-			 || (info[i].state.toLowerCase().includes("recent") && toggleSwitches[8]) 
-			 || (((info[i].state.toLowerCase().includes("in progress")) || (info[i].state.toLowerCase().includes("inprogress")) || (info[i].state.toLowerCase().includes("in-progress"))) && toggleSwitches[9]) 
+			    (info[i].state.toLowerCase().includes("old") || !toggleSwitches[7])
+			 && (info[i].state.toLowerCase().includes("recent") || !toggleSwitches[8]) 
+			 && (((info[i].state.toLowerCase().includes("in progress")) || (info[i].state.toLowerCase().includes("inprogress")) || (info[i].state.toLowerCase().includes("in-progress"))) || !toggleSwitches[9]) 
 			  ) 
 			){
 			show = false;
@@ -310,7 +313,7 @@ resize = function(bool = toggleSwitches[14]) {
 
 
 window.addEventListener("load", function(event) {
-	console.log("V1.0034");  //25 char max
+	console.log("V1.0035");  //25 char max
 	//sorts.test();
 	//sorts = new Sorts();
 	
