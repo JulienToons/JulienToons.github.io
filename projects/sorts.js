@@ -46,7 +46,7 @@ class sorts {
 		return temp;
 	}
 	static compareDates(one, two){ // true if first is greater
-		let zero = function(num, simpleBool = false){
+		/*let zero = function(num, simpleBool = false){
 			if(simpleBool){
 			
 				if(num == "-" || num == "" || num== null){
@@ -57,7 +57,9 @@ class sorts {
 			else{
 				return sorts.stn(val);
 			}
-		};
+		};*/
+		let zero = this.stn;
+		
 		let n1 = one.date; // probrably should parseInt but is too expensive
 		let n2 = two.date;
 		if(zero(n1.y) == zero(n2.y)){
