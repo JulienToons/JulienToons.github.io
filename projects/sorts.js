@@ -11,19 +11,19 @@ class sorts {
 				}
 				catch(error) {
 					try{
-						if(val.toLowerCase().includes("jan")){ temp = 1 };
-						else if(val.toLowerCase().includes("jan")){ temp = 1 };
-						else if(val.toLowerCase().includes("feb")){ temp = 2 };
-						else if(val.toLowerCase().includes("mar")){ temp = 3 };
-						else if(val.toLowerCase().includes("apr")){ temp = 4 };
-						else if(val.toLowerCase().includes("may")){ temp = 5 };
-						else if(val.toLowerCase().includes("jun")){ temp = 6 };
-						else if(val.toLowerCase().includes("jul")){ temp = 7 };
-						else if(val.toLowerCase().includes("aug")){ temp = 8 };
-						else if(val.toLowerCase().includes("sep")){ temp = 9 };
-						else if(val.toLowerCase().includes("oct")){ temp = 10 };
-						else if(val.toLowerCase().includes("nov")){ temp = 11 };
-						else if(val.toLowerCase().includes("dec")){ temp = 12 };
+						if(val.toLowerCase().includes("jan")){ temp = 1 }
+						else if(val.toLowerCase().includes("jan")){ temp = 1 }
+						else if(val.toLowerCase().includes("feb")){ temp = 2 }
+						else if(val.toLowerCase().includes("mar")){ temp = 3 }
+						else if(val.toLowerCase().includes("apr")){ temp = 4 }
+						else if(val.toLowerCase().includes("may")){ temp = 5 }
+						else if(val.toLowerCase().includes("jun")){ temp = 6 }
+						else if(val.toLowerCase().includes("jul")){ temp = 7 }
+						else if(val.toLowerCase().includes("aug")){ temp = 8 }
+						else if(val.toLowerCase().includes("sep")){ temp = 9 }
+						else if(val.toLowerCase().includes("oct")){ temp = 10 }
+						else if(val.toLowerCase().includes("nov")){ temp = 11 }
+						else if(val.toLowerCase().includes("dec")){ temp = 12 }
 						else{
 							temp = 0;
 							console.log("Errors converting string into num code 1:  " + error);
