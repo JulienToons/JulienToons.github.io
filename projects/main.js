@@ -157,7 +157,7 @@ search = function(val ="") {
 		else {show=true;}
 		console.log(info[i].type + " " );
 		if	( !(
-				(info[i].type.toLowerCase().includes("document") || !toggleSwitches[2])
+				(info[i].type.toLowerCase().includes("doc") || !toggleSwitches[2])
 			 && (info[i].type.toLowerCase().includes("project") || !toggleSwitches[3]) 
 			 && (info[i].type.toLowerCase().includes("event") || !toggleSwitches[4]) 
 			 && (info[i].type.toLowerCase().includes("art") || !toggleSwitches[5]) 
