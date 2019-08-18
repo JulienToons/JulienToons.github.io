@@ -254,7 +254,27 @@ resize = function(bool = toggleSwitches[14]) {
 		dateNode.setAttribute("class", "dateOfProject");
 		dateNode.style.color = displayedProjects[num].dateTextColor;
 		let d = displayedProjects[num].date;
-		dateNode.innerHTML = d.m + "/" + d.d + "/"+d.y;
+		let dytemp = d.y;
+		if(typeof d.y != "string" && d.y > 2000){ // i could make it be a typeof number?
+			d.y = d.y - 2000;
+		}
+		let dmtemp = d.m;
+		if(typeof dmtemp== "string" && !(dmtemp == "" || dmtemp == "-" || dmtemp == " " || dmtemp == null)){
+			if(dmtemp.toLowerCase().includes("jan")){ dmtemp = 1 };
+			else if(dmtemp.toLowerCase().includes("jan")){ dmtemp = 1 };
+			else if(dmtemp.toLowerCase().includes("feb")){ dmtemp = 2 };
+			else if(dmtemp.toLowerCase().includes("mar")){ dmtemp = 3 };
+			else if(dmtemp.toLowerCase().includes("apr")){ dmtemp = 4 };
+			else if(dmtemp.toLowerCase().includes("may")){ dmtemp = 5 };
+			else if(dmtemp.toLowerCase().includes("jun")){ dmtemp = 6 };
+			else if(dmtemp.toLowerCase().includes("jul")){ dmtemp = 7 };
+			else if(dmtemp.toLowerCase().includes("aug")){ dmtemp = 8 };
+			else if(dmtemp.toLowerCase().includes("sep")){ dmtemp = 9 };
+			else if(dmtemp.toLowerCase().includes("oct")){ dmtemp = 10 };
+			else if(dmtemp.toLowerCase().includes("nov")){ dmtemp = 11 };
+			else if(dmtemp.toLowerCase().includes("dec")){ dmtemp = 12 };
+		}
+		dateNode.innerHTML = dmtemp + "/" + d.d + "/"+dytemp; // could probrably make this better
 		td.appendChild(dateNode);
 		
 		let overlayObj = document.createElement("div");
@@ -320,7 +340,7 @@ resize = function(bool = toggleSwitches[14]) {
 
 
 window.addEventListener("load", function(event) {
-	console.log("V1.0039");  //25 char max
+	console.log("V1.0040");  //25 char max
 	//sorts.test();
 	//sorts = new Sorts();
 	

@@ -1,6 +1,19 @@
     
 [
-
+	{
+		"state":"This is an example",
+		"date":{"m":8,"d":"8","y":08},
+		"tags":"example",
+		"type":"example",
+		"title":"This is an example and a reference for my json format",
+		"description":"You should not be seeing<br> this unless you inpected!<br> the date format can be<br>\"-\" or \"\" or \"\\\"<br>or \"8\" or 2019<br>or 19",
+		"img":"imgs/workInProgress.jpg",
+		"imageFilter":"sepia(100%)",
+		"dateTextColor":"black",
+		"backgroundColor":"white"
+	},
+	
+	
     { 
 		"state":"In Progress",
 		"date":{"m":8,"d":8,"y":2008},
@@ -26,6 +39,70 @@
 		"dateTextColor":"white",
 		"backgroundColor":"grey"
 	}, 
+	
+	{ 
+		"state":"old",
+		"date":{"m":7,"d":28,"y":2018},
+		"tags":"event hackathon rover jpl java c++ arduino hackadamia",
+		"type":"event",
+		"title":"Hackademia",
+		"description":"A 16 hour intense high-<br>school hackathon involving<br>both hardware and software<br>challenges (My team<br>worked on controlling a<br>NASA rover with hand<br>gestures)",
+		"img":"imgs/hackademia.png",
+		"imageFilter":"initial",
+		"dateTextColor":"white",
+		"backgroundColor":"grey"
+	}, 
+	
+	{ 
+		"state":"recent",
+		"date":{"m":7,"d":"-","y":2019},
+		"tags":"other event events summer internship intern. caltech enzymes math",
+		"type":"event other",
+		"title":"Summer Internship 2019",
+		"description":"A summer internship at<br>Caltech in which<br>goal was to add up to<br>date math to enzyme kinetics",
+		"img":"imgs/caltech1.png",
+		"imageFilter":"initial",
+		"dateTextColor":"white",
+		"backgroundColor":"grey"
+	}, 
+	
+	{ 
+		"state":"recent",
+		"date":{"m":5,"d":"-","y":2019},
+		"tags":"project web js css html game code programming",
+		"type":"project",
+		"title":"Carrot Platformer",
+		"description":"I made <a href=\"https://julientoons.github.io/p/carrots/\" color=\"yellow\">this game</a> with<br>the hope that I would<br>'boost' my javascript skills<br> from beginner to intermediate ",
+		"img":"imgs/carrotScreenShot.png",
+		"imageFilter":"initial",
+		"dateTextColor":"white",
+		"backgroundColor":"grey"
+	}, 
+	{ 
+		"state":"recent",
+		"date":{"m":6,"d":16,"y":2019},
+		"tags":"project web js css html game code programming sim. simulator",
+		"type":"project",
+		"title":"Fluid Simulator",
+		"description":"<a href=\"https://julientoons.github.io/p/fluid/v0\" color=\"yellow\">Here</a> is the first<br>version, and <a href=\"https://julientoons.github.io/p/fluid/v2\" color=\"yellow\">here</a> is<br>the second and better<br>version",
+		"img":"imgs/fluidSimScreenShot.png",
+		"imageFilter":"initial",
+		"dateTextColor":"white",
+		"backgroundColor":"grey"
+	}, 
+	{ 
+		"state":"recent",
+		"date":{"m":7,"d":4,"y":2019},
+		"tags":"project web js css html game code programming gui cannon",
+		"type":"project",
+		"title":"Cannon Game w. GUI",
+		"description":"A cannon game in which<br>the player tries to<br>shoot down bubbles<br>*in sandbox mode*<a href=\"https://julientoons.github.io/p/cannon_ai/\" color=\"yellow\">The game</a> also has working,<br> & interactive GUI",
+		"img":"imgs/cannon_aiScreenShot.png",
+		"imageFilter":"initial",
+		"dateTextColor":"white",
+		"backgroundColor":"grey"
+	}, 
+	
 	{ 
 	
 		"state":"recent",
@@ -81,7 +158,7 @@
 	{ 
 	
 		"state":"old",
-		"date":{"m":"-","d":"-","y":"-"},
+		"date":{"m":"-","d":"-","y":"2017"},
 		"tags":"art profile picture pic drawing animation",
 		"type":"art",
 		"title":"Say hello!",
@@ -147,7 +224,7 @@
 	
 	{ 
 		"state":"old",
-		"date":{"m":"-","d":"-","y":"-"},
+		"date":{"m":10,"d":14,"y":2016},
 		"tags":"art drawing picture scan",
 		"type":"art",
 		"title":"An old drawing",
@@ -159,7 +236,7 @@
 	},
 	{ 
 		"state":"old",
-		"date":{"m":"-","d":"-","y":"-"},
+		"date":{"m":10,"d":23,"y":2016},
 		"tags":"art drawing picture scan",
 		"type":"art",
 		"title":"An old drawing",
@@ -171,7 +248,7 @@
 	},
 	{ 
 		"state":"old",
-		"date":{"m":"-","d":"-","y":"-"},
+		"date":{"m":10,"d":23,"y":2016},
 		"tags":"art drawing picture scan",
 		"type":"art",
 		"title":"An old drawing",
@@ -183,7 +260,7 @@
 	},
 	{ 
 		"state":"old",
-		"date":{"m":"-","d":"-","y":"-"},
+		"date":{"m":10,"d":"-","y":2016},
 		"tags":"art drawing picture scan",
 		"type":"art",
 		"title":"An old drawing",
@@ -195,7 +272,7 @@
 	},
 	{ 
 		"state":"old",
-		"date":{"m":"-","d":"-","y":"-"},
+		"date":{"m":12,"d":"-","y":2016},
 		"tags":"art drawing picture scan",
 		"type":"art",
 		"title":"An old drawing",
@@ -207,7 +284,7 @@
 	},
 	{ 
 		"state":"old",
-		"date":{"m":"-","d":"-","y":"-"},
+		"date":{"m":12,"d":"-","y":2016},
 		"tags":"art drawing picture scan",
 		"type":"art",
 		"title":"An old drawing",
@@ -219,7 +296,7 @@
 	},
 	{ 
 		"state":"old",
-		"date":{"m":"-","d":"-","y":"-"},
+		"date":{"m":"-","d":"-","y":2017},
 		"tags":"art drawing picture scan",
 		"type":"art",
 		"title":"An old drawing",
@@ -231,7 +308,7 @@
 	},
 	{ 
 		"state":"old",
-		"date":{"m":"-","d":"-","y":"-"},
+		"date":{"m":"-","d":"-","y":2017},
 		"tags":"art drawing picture scan",
 		"type":"art",
 		"title":"An old drawing",
@@ -243,7 +320,7 @@
 	},
 	{ 
 		"state":"old",
-		"date":{"m":"-","d":"-","y":"-"},
+		"date":{"m":"-","d":"-","y":2017},
 		"tags":"art drawing picture scan",
 		"type":"art",
 		"title":"An old drawing",
@@ -255,7 +332,7 @@
 	},
 	{ 
 		"state":"old",
-		"date":{"m":"-","d":"-","y":"-"},
+		"date":{"m":5,"d":3,"y":2017},
 		"tags":"art drawing picture scan",
 		"type":"art",
 		"title":"An old drawing",
@@ -267,7 +344,7 @@
 	},
 	{ 
 		"state":"old",
-		"date":{"m":"-","d":"-","y":"-"},
+		"date":{"m":4,"d":"-","y":2017},
 		"tags":"art drawing picture scan",
 		"type":"art",
 		"title":"An old drawing",
@@ -279,7 +356,7 @@
 	},
 	{ 
 		"state":"old",
-		"date":{"m":"-","d":"-","y":"-"},
+		"date":{"m":4,"d":18,"y":2017},
 		"tags":"art drawing picture scan",
 		"type":"art",
 		"title":"An old drawing",
@@ -291,7 +368,7 @@
 	},
 	{ 
 		"state":"old",
-		"date":{"m":"-","d":"-","y":"-"},
+		"date":{"m":4,"d":8,"y":2017},
 		"tags":"art drawing picture scan",
 		"type":"art",
 		"title":"An old drawing",
@@ -303,7 +380,7 @@
 	},
 	{ 
 		"state":"old",
-		"date":{"m":"-","d":"-","y":"-"},
+		"date":{"m":4,"d":11,"y":2017},
 		"tags":"art drawing picture scan",
 		"type":"art",
 		"title":"An old drawing",
@@ -315,7 +392,7 @@
 	},
 	{ 
 		"state":"old",
-		"date":{"m":"-","d":"-","y":"-"},
+		"date":{"m":3,"d":21,"y":2017},
 		"tags":"art drawing picture scan",
 		"type":"art",
 		"title":"An old drawing",
@@ -327,7 +404,7 @@
 	},
 	{ 
 		"state":"old",
-		"date":{"m":"-","d":"-","y":"-"},
+		"date":{"m":4,"d":3,"y":2017},
 		"tags":"art drawing picture scan",
 		"type":"art",
 		"title":"An old drawing",
@@ -339,7 +416,7 @@
 	},
 	{ 
 		"state":"old",
-		"date":{"m":"-","d":"-","y":"-"},
+		"date":{"m":3,"d":14,"y":2017},
 		"tags":"art drawing picture scan",
 		"type":"art",
 		"title":"An old drawing",
@@ -351,7 +428,7 @@
 	},
 	{ 
 		"state":"old",
-		"date":{"m":"-","d":"-","y":"-"},
+		"date":{"m":3,"d":11,"y":2017},
 		"tags":"art drawing picture scan",
 		"type":"art",
 		"title":"An old drawing",
@@ -363,7 +440,7 @@
 	},
 	{ 
 		"state":"old",
-		"date":{"m":"-","d":"-","y":"-"},
+		"date":{"m":3,"d":10,"y":2017},
 		"tags":"art drawing picture scan",
 		"type":"art",
 		"title":"An old drawing",
@@ -375,7 +452,7 @@
 	},
 	{ 
 		"state":"old",
-		"date":{"m":"-","d":"-","y":"-"},
+		"date":{"m":3,"d":1,"y":2017},
 		"tags":"art drawing picture scan",
 		"type":"art",
 		"title":"An old drawing",
@@ -387,7 +464,7 @@
 	},
 	{ 
 		"state":"old",
-		"date":{"m":"-","d":"-","y":"-"},
+		"date":{"m":2"d":14,"y":2017},
 		"tags":"art drawing picture scan",
 		"type":"art",
 		"title":"An old drawing",
@@ -399,7 +476,7 @@
 	},
 	{ 
 		"state":"old",
-		"date":{"m":"-","d":"-","y":"-"},
+		"date":{"m":2,"d":28,"y":2017},
 		"tags":"art drawing picture scan",
 		"type":"art",
 		"title":"An old drawing",
@@ -411,7 +488,7 @@
 	},
 	{ 
 		"state":"old",
-		"date":{"m":"-","d":"-","y":"-"},
+		"date":{"m":2,"d":30,"y":17},
 		"tags":"art drawing picture scan",
 		"type":"art",
 		"title":"An old drawing",
@@ -423,7 +500,7 @@
 	},
 	{ 
 		"state":"old",
-		"date":{"m":"-","d":"-","y":"-"},
+		"date":{"m":2,"d":13,"y":17},
 		"tags":"art drawing picture scan",
 		"type":"art",
 		"title":"An old drawing",
@@ -435,7 +512,7 @@
 	},
 	{ 
 		"state":"old",
-		"date":{"m":"-","d":"-","y":"-"},
+		"date":{"m":2,"d":7,"y":17},
 		"tags":"art drawing picture scan",
 		"type":"art",
 		"title":"An old drawing",
@@ -447,7 +524,7 @@
 	},
 	{ 
 		"state":"old",
-		"date":{"m":"-","d":"-","y":"-"},
+		"date":{"m":2,"d":7,"y":17},
 		"tags":"art drawing picture scan",
 		"type":"art",
 		"title":"An old drawing",
@@ -459,7 +536,7 @@
 	},
 	{ 
 		"state":"old",
-		"date":{"m":"-","d":"-","y":"-"},
+		"date":{"m":1,"d":31,"y":17},
 		"tags":"art drawing picture scan",
 		"type":"art",
 		"title":"An old drawing",
@@ -471,7 +548,7 @@
 	},
 	{ 
 		"state":"old",
-		"date":{"m":"-","d":"-","y":"-"},
+		"date":{"m":1,"d":31,"y":17},
 		"tags":"art drawing picture scan",
 		"type":"art",
 		"title":"An old drawing",
@@ -483,7 +560,7 @@
 	},
 	{ 
 		"state":"old",
-		"date":{"m":"-","d":"-","y":"-"},
+		"date":{"m":2,"d":13,"y":17},
 		"tags":"art drawing picture scan",
 		"type":"art",
 		"title":"An old drawing",
@@ -495,7 +572,7 @@
 	},
 	{ 
 		"state":"old",
-		"date":{"m":"-","d":"-","y":"-"},
+		"date":{"m":1,"d":31,"y":17},
 		"tags":"art drawing picture scan",
 		"type":"art",
 		"title":"An old drawing",
@@ -507,7 +584,7 @@
 	},
 	{ 
 		"state":"old",
-		"date":{"m":"-","d":"-","y":"-"},
+		"date":{"m":1,"d":27,"y":17},
 		"tags":"art drawing picture scan",
 		"type":"art",
 		"title":"An old drawing",
@@ -519,7 +596,7 @@
 	},
 	{ 
 		"state":"old",
-		"date":{"m":"-","d":"-","y":"-"},
+		"date":{"m":1,"d":14,"y":17},
 		"tags":"art drawing picture scan",
 		"type":"art",
 		"title":"An old drawing",
@@ -531,7 +608,7 @@
 	},
 	{ 
 		"state":"old",
-		"date":{"m":"-","d":"-","y":"-"},
+		"date":{"m":1,"d":12,"y":17},
 		"tags":"art drawing picture scan",
 		"type":"art",
 		"title":"An old drawing",
@@ -543,7 +620,7 @@
 	},
 	{ 
 		"state":"old",
-		"date":{"m":"-","d":"-","y":"-"},
+		"date":{"m":1,"d":6,"y":17},
 		"tags":"art drawing picture scan",
 		"type":"art",
 		"title":"An old drawing",
@@ -555,7 +632,7 @@
 	},
 	{ 
 		"state":"old",
-		"date":{"m":"-","d":"-","y":"-"},
+		"date":{"m":1,"d":4,"y":17},
 		"tags":"art drawing picture scan",
 		"type":"art",
 		"title":"An old drawing",
@@ -567,7 +644,7 @@
 	},
 	{ 
 		"state":"old",
-		"date":{"m":"-","d":"-","y":"-"},
+		"date":{"m":1,"d":3,"y":17},
 		"tags":"art drawing picture scan",
 		"type":"art",
 		"title":"An old drawing",
@@ -579,7 +656,7 @@
 	},
 	{ 
 		"state":"old",
-		"date":{"m":"-","d":"-","y":"-"},
+		"date":{"m":1,"d":2,"y":17},
 		"tags":"art drawing picture scan",
 		"type":"art",
 		"title":"An old drawing",
@@ -591,7 +668,7 @@
 	},
 	{ 
 		"state":"old",
-		"date":{"m":"-","d":"-","y":"-"},
+		"date":{"m":"May","d":"-","y":2017},
 		"tags":"art drawing picture scan",
 		"type":"art",
 		"title":"An old drawing",
@@ -603,7 +680,7 @@
 	},
 	{ 
 		"state":"old",
-		"date":{"m":"-","d":"-","y":"-"},
+		"date":{"m":"May","d":"-","y":2017},
 		"tags":"art drawing picture scan",
 		"type":"art",
 		"title":"An old drawing",
@@ -615,7 +692,7 @@
 	},
 	{ 
 		"state":"old",
-		"date":{"m":"-","d":"-","y":"-"},
+		"date":{"m":5,"d":13,"y":2017},
 		"tags":"art drawing picture scan",
 		"type":"art",
 		"title":"An old drawing",
@@ -627,7 +704,7 @@
 	},
 	{ 
 		"state":"old",
-		"date":{"m":"-","d":"-","y":"-"},
+		"date":{"m":5,"d":16,"y":2017},
 		"tags":"art drawing picture scan",
 		"type":"art",
 		"title":"An old drawing",
@@ -639,7 +716,7 @@
 	},
 	{ 
 		"state":"old",
-		"date":{"m":"-","d":"-","y":"-"},
+		"date":{"m":"july","d":24,"y":2017},
 		"tags":"art drawing picture scan",
 		"type":"art",
 		"title":"An old drawing",
@@ -651,7 +728,7 @@
 	},
 	{ 
 		"state":"old",
-		"date":{"m":"-","d":"-","y":"-"},
+		"date":{"m":7,"d":"-","y":2017},
 		"tags":"art drawing picture scan",
 		"type":"art",
 		"title":"An old drawing",
@@ -663,7 +740,7 @@
 	},
 	{ 
 		"state":"old",
-		"date":{"m":"-","d":"-","y":"-"},
+		"date":{"m":7,"d":"-","y":2017},
 		"tags":"art drawing picture scan",
 		"type":"art",
 		"title":"An old drawing",
@@ -675,7 +752,7 @@
 	},
 	{ 
 		"state":"old",
-		"date":{"m":"-","d":"-","y":"-"},
+		"date":{"m":7,"d":"-","y":2017},
 		"tags":"art drawing picture scan",
 		"type":"art",
 		"title":"An old drawing",
@@ -687,7 +764,7 @@
 	},
 	{ 
 		"state":"old",
-		"date":{"m":"-","d":"-","y":"-"},
+		"date":{"m":7,"d":"-","y":2017},
 		"tags":"art drawing picture scan",
 		"type":"art",
 		"title":"An old drawing",
@@ -699,7 +776,7 @@
 	},
 	{ 
 		"state":"old",
-		"date":{"m":"-","d":"-","y":"-"},
+		"date":{"m":7,"d":"-","y":2017},
 		"tags":"art drawing picture scan",
 		"type":"art",
 		"title":"An old drawing",
@@ -711,7 +788,7 @@
 	},
 	{ 
 		"state":"old",
-		"date":{"m":"-","d":"-","y":"-"},
+		"date":{"m":7,"d":"-","y":2017},
 		"tags":"art drawing picture scan",
 		"type":"art",
 		"title":"An old drawing",
@@ -723,7 +800,7 @@
 	},
 	{ 
 		"state":"old",
-		"date":{"m":"-","d":"-","y":"-"},
+		"date":{"m":7,"d":"-","y":2017},
 		"tags":"art drawing picture scan",
 		"type":"art",
 		"title":"An old drawing",
@@ -735,7 +812,7 @@
 	},
 	{ 
 		"state":"old",
-		"date":{"m":"-","d":"-","y":"-"},
+		"date":{"m":4,"d":25,"y":2017},
 		"tags":"art drawing picture scan",
 		"type":"art",
 		"title":"An old drawing",
@@ -747,7 +824,7 @@
 	},
 	{ 
 		"state":"old",
-		"date":{"m":"-","d":"-","y":"-"},
+		"date":{"m":4,"d":20,"y":2017},
 		"tags":"art drawing picture scan",
 		"type":"art",
 		"title":"An old drawing",
@@ -759,7 +836,7 @@
 	},
 	{ 
 		"state":"old",
-		"date":{"m":"-","d":"-","y":"-"},
+		"date":{"m":4,"d":"-","y":2017},
 		"tags":"art drawing picture scan",
 		"type":"art",
 		"title":"An old drawing",
@@ -771,7 +848,7 @@
 	},
 	{ 
 		"state":"old",
-		"date":{"m":"-","d":"-","y":"-"},
+		"date":{"m":"","d":"-","y":2017},
 		"tags":"art drawing picture scan",
 		"type":"art",
 		"title":"An old drawing",
@@ -783,7 +860,7 @@
 	},
 	{ 
 		"state":"old",
-		"date":{"m":"-","d":"-","y":"-"},
+		"date":{"m":"-","d":"-","y":2017},
 		"tags":"art drawing picture scan",
 		"type":"art",
 		"title":"An old drawing",
@@ -795,7 +872,7 @@
 	},
 	{ 
 		"state":"old",
-		"date":{"m":"-","d":"-","y":"-"},
+		"date":{"m":"-","d":"-","y":2017},
 		"tags":"art drawing picture scan",
 		"type":"art",
 		"title":"An old drawing",
@@ -807,7 +884,7 @@
 	},
 	{ 
 		"state":"old",
-		"date":{"m":"-","d":"-","y":"-"},
+		"date":{"m":9,"d":"-","y":2017},
 		"tags":"art drawing picture scan",
 		"type":"art",
 		"title":"An old drawing",
@@ -819,7 +896,7 @@
 	},
 	{ 
 		"state":"old",
-		"date":{"m":"-","d":"-","y":"-"},
+		"date":{"m":1,"d":"-","y":2018},
 		"tags":"art drawing picture scan",
 		"type":"art",
 		"title":"An old drawing",
@@ -831,7 +908,7 @@
 	},
 	{ 
 		"state":"old",
-		"date":{"m":"-","d":"-","y":"-"},
+		"date":{"m":3,"d":"-","y":2018},
 		"tags":"art drawing picture scan",
 		"type":"art",
 		"title":"An old drawing",
@@ -843,7 +920,7 @@
 	},
 	{ 
 		"state":"old",
-		"date":{"m":"-","d":"-","y":"-"},
+		"date":{"m":7,"d":"-","y":2017},
 		"tags":"art drawing picture scan",
 		"type":"art",
 		"title":"An old drawing",
@@ -855,7 +932,7 @@
 	},
 	{ 
 		"state":"old",
-		"date":{"m":"-","d":"-","y":"-"},
+		"date":{"m":7,"d":"-","y":2017},
 		"tags":"art drawing picture scan",
 		"type":"art",
 		"title":"An old drawing",
@@ -867,7 +944,7 @@
 	},
 	{ 
 		"state":"old",
-		"date":{"m":"-","d":"-","y":"-"},
+		"date":{"m":7,"d":"-","y":2017},
 		"tags":"art drawing picture scan",
 		"type":"art",
 		"title":"An old drawing",
@@ -879,7 +956,7 @@
 	},
 	{ 
 		"state":"old",
-		"date":{"m":"-","d":"-","y":"-"},
+		"date":{"m":7,"d":"-","y":2017},
 		"tags":"art drawing picture scan",
 		"type":"art",
 		"title":"An old drawing",
@@ -891,7 +968,7 @@
 	},
 	{ 
 		"state":"old",
-		"date":{"m":"-","d":"-","y":"-"},
+		"date":{"m":"-","d":"-","y":2018},
 		"tags":"art drawing picture scan",
 		"type":"art",
 		"title":"An old drawing",
@@ -903,7 +980,7 @@
 	},
 	{ 
 		"state":"old",
-		"date":{"m":"-","d":"-","y":"-"},
+		"date":{"m":"-","d":"-","y":2018},
 		"tags":"art drawing picture scan",
 		"type":"art",
 		"title":"An old drawing",
@@ -915,7 +992,7 @@
 	},
 	{ 
 		"state":"old",
-		"date":{"m":"-","d":"-","y":"-"},
+		"date":{"m":"-","d":"-","y":2018},
 		"tags":"art drawing picture scan",
 		"type":"art",
 		"title":"An old drawing",
@@ -927,7 +1004,7 @@
 	},
 	{ 
 		"state":"old",
-		"date":{"m":"-","d":"-","y":"-"},
+		"date":{"m":"-","d":"-","y":2016},
 		"tags":"art drawing picture scan",
 		"type":"art",
 		"title":"An old drawing",
@@ -939,7 +1016,7 @@
 	},
 	{ 
 		"state":"old",
-		"date":{"m":"-","d":"-","y":"-"},
+		"date":{"m":"-","d":"-","y":2016},
 		"tags":"art drawing picture scan",
 		"type":"art",
 		"title":"An old drawing",
@@ -951,7 +1028,7 @@
 	},
 	{ 
 		"state":"old",
-		"date":{"m":"-","d":"-","y":"-"},
+		"date":{"m":"-","d":"-","y":2016},
 		"tags":"art drawing picture scan",
 		"type":"art",
 		"title":"An old drawing",
@@ -963,7 +1040,7 @@
 	},
 	{ 
 		"state":"old",
-		"date":{"m":"-","d":"-","y":"-"},
+		"date":{"m":"-","d":"-","y":2016},
 		"tags":"art drawing picture scan",
 		"type":"art",
 		"title":"An old drawing",
@@ -975,7 +1052,7 @@
 	},
 	{ 
 		"state":"old",
-		"date":{"m":"-","d":"-","y":"-"},
+		"date":{"m":"-","d":"-","y":2016},
 		"tags":"art drawing picture scan",
 		"type":"art",
 		"title":"An old drawing",
@@ -987,7 +1064,7 @@
 	},
 	{ 
 		"state":"old",
-		"date":{"m":"-","d":"-","y":"-"},
+		"date":{"m":"-","d":"-","y":2016},
 		"tags":"art drawing picture scan",
 		"type":"art",
 		"title":"An old drawing",
@@ -999,7 +1076,7 @@
 	},
 	{ 
 		"state":"old",
-		"date":{"m":"-","d":"-","y":"-"},
+		"date":{"m":"-","d":"-","y":2016},
 		"tags":"art drawing picture scan",
 		"type":"art",
 		"title":"An old drawing",
@@ -1011,7 +1088,7 @@
 	},
 	{ 
 		"state":"old",
-		"date":{"m":"-","d":"-","y":"-"},
+		"date":{"m":"-","d":"-","y":2016},
 		"tags":"art drawing picture scan",
 		"type":"art",
 		"title":"An old drawing",

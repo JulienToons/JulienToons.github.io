@@ -1,16 +1,68 @@
 class sorts {
-	static compareDates(one, two){ // true if first is greater
-		let zero = function(num){
-			if(num == "-" || num == "" || num== null){
-				return 0;
+	static stn(val){
+		let temp;
+		if(typeof val == "string"){
+			if(val == "" || val == "-" || val == " " || val == null){
+				temp = 0;
 			}
-			else return num;
+			else{
+				try {
+					temp = parseInt(val);
+				}
+				catch(error) {
+					try{
+						if(val.toLowerCase().includes("jan")){ temp = 1 };
+						else if(val.toLowerCase().includes("jan")){ temp = 1 };
+						else if(val.toLowerCase().includes("feb")){ temp = 2 };
+						else if(val.toLowerCase().includes("mar")){ temp = 3 };
+						else if(val.toLowerCase().includes("apr")){ temp = 4 };
+						else if(val.toLowerCase().includes("may")){ temp = 5 };
+						else if(val.toLowerCase().includes("jun")){ temp = 6 };
+						else if(val.toLowerCase().includes("jul")){ temp = 7 };
+						else if(val.toLowerCase().includes("aug")){ temp = 8 };
+						else if(val.toLowerCase().includes("sep")){ temp = 9 };
+						else if(val.toLowerCase().includes("oct")){ temp = 10 };
+						else if(val.toLowerCase().includes("nov")){ temp = 11 };
+						else if(val.toLowerCase().includes("dec")){ temp = 12 };
+						else{
+							temp = 0;
+							console.log("Errors converting string into num code 1:  " + error);
+						}
+					}
+					catch(error2){
+						temp = 0;
+						console.log("Errors converting string into num:  " + error + "             Error 2: " + error2 );
+					}
+				}
+			}
+		} else {
+			temp = val;
+		}
+		
+		if(temp >= 2000){
+			temp = temp- 2000;
+		}
+		
+		return temp;
+	}
+	static compareDates(one, two){ // true if first is greater
+		let zero = function(num, simpleBool = false){
+			if(simpleBool){
+			
+				if(num == "-" || num == "" || num== null){
+					return 0;
+				}
+				else return num;
+			}
+			else{
+				return stn(val);
+			}
 		};
-		let n1 = one.date;
+		let n1 = one.date; // probrably should parseInt but is too expensive
 		let n2 = two.date;
 		if(zero(n1.y) == zero(n2.y)){
 			if(zero(n1.m) == zero(n2.m)){
-				if(zero(n1.d) == zero(n2.d) || (zero(n1.d) > zero(n2.d))){
+				if(zero(n1.d) >= zero(n2.d))){
 					return true;
 				} else {
 					return false;
