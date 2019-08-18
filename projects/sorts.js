@@ -55,7 +55,7 @@ class sorts {
 				else return num;
 			}
 			else{
-				return this.stn(val);
+				return sorts.stn(val);
 			}
 		};
 		let n1 = one.date; // probrably should parseInt but is too expensive
