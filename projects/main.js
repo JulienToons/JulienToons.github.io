@@ -120,10 +120,14 @@ function toggleCheck(ele){
 	}
 	
 };
-
+printValues = function(arr){
+	for(let i = 0; i<arr.length;i++){
+		console.log("Element " + i + ": " + arr[i]);
+	}
+};
 search = function(val ="") {
 	let value = val.toLowerCase();
-
+	//printValues(toggleSwitches);
 
 	displayedProjects = [];
 	words = value.split(" ");
@@ -151,6 +155,7 @@ search = function(val ="") {
 			}
 		}
 		else {show=true;}
+		console.log(info[i].type + " " );
 		if	( (
 				(info[i].type.toLowerCase().includes("document") || !toggleSwitches[2])
 			 && (info[i].type.toLowerCase().includes("project") || !toggleSwitches[3]) 
@@ -167,6 +172,7 @@ search = function(val ="") {
 			 && (((info[i].state.toLowerCase().includes("in progress")) || (info[i].state.toLowerCase().includes("inprogress")) || (info[i].state.toLowerCase().includes("in-progress"))) || !toggleSwitches[9]) 
 			  ) */
 			){
+				console.log("works");
 			show = false;
 		}
 		

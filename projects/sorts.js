@@ -40,7 +40,7 @@ class sorts {
 		
 				while (j >= increment ) {
 					arr[j] = arr[j-increment];
-					console.log(j);
+					//console.log(j);
 					if(!this.compareDates(arr[j-increment] , temp)) break;
 					j = j - increment;
 				}
