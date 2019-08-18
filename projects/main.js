@@ -155,7 +155,7 @@ search = function(val ="") {
 			}
 		}
 		else {show=true;}
-		console.log(info[i].type + " " );
+		//console.log(info[i].type + " " );
 		if	( !(
 				((info[i].type.toLowerCase().includes("doc.") || info[i].type.toLowerCase().includes("doc") || info[i].type.toLowerCase().includes("document") || info[i].type.toLowerCase().includes("documents")) || !toggleSwitches[2])
 			 && (info[i].type.toLowerCase().includes("project") || !toggleSwitches[3]) 
@@ -172,12 +172,12 @@ search = function(val ="") {
 			 && (((info[i].state.toLowerCase().includes("in progress")) || (info[i].state.toLowerCase().includes("inprogress")) || (info[i].state.toLowerCase().includes("in-progress"))) || !toggleSwitches[9]) 
 			  ) 
 			){
-				console.log("out! _----------");
+				//console.log("out! _----------");
 			show = false;
 		}
 		
 		if(show == true){
-			console.log("pushed");
+			//console.log("pushed");
 			displayedProjects.push(info[i]);
 		}
 	}
@@ -193,9 +193,9 @@ search = function(val ="") {
 
 sort = function(){
 	//order by date
-	
-	displayedProjects = sorts.shell(displayedProjects);
-
+	if(displayedProjects.length > 1){
+		displayedProjects = sorts.shell(displayedProjects);
+	}
 	//shellSort();
 	//quickSort();
 };
@@ -320,7 +320,7 @@ resize = function(bool = toggleSwitches[14]) {
 
 
 window.addEventListener("load", function(event) {
-	console.log("V1.0038");  //25 char max
+	console.log("V1.0039");  //25 char max
 	//sorts.test();
 	//sorts = new Sorts();
 	
