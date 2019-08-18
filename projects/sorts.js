@@ -62,7 +62,7 @@ class sorts {
 		let n2 = two.date;
 		if(zero(n1.y) == zero(n2.y)){
 			if(zero(n1.m) == zero(n2.m)){
-				if(zero(n1.d) >= zero(n2.d))){
+				if(zero(n1.d) >= zero(n2.d)){
 					return true;
 				} else {
 					return false;
