@@ -156,7 +156,7 @@ search = function(val ="") {
 		}
 		else {show=true;}
 		console.log(info[i].type + " " );
-		if	( (
+		if	( !(
 				(info[i].type.toLowerCase().includes("document") || !toggleSwitches[2])
 			 && (info[i].type.toLowerCase().includes("project") || !toggleSwitches[3]) 
 			 && (info[i].type.toLowerCase().includes("event") || !toggleSwitches[4]) 
@@ -319,7 +319,7 @@ resize = function(bool = toggleSwitches[14]) {
 
 
 window.addEventListener("load", function(event) {
-	console.log("V1.0036");  //25 char max
+	console.log("V1.0037");  //25 char max
 	//sorts.test();
 	//sorts = new Sorts();
 	
