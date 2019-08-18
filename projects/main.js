@@ -172,11 +172,12 @@ search = function(val ="") {
 			 && (((info[i].state.toLowerCase().includes("in progress")) || (info[i].state.toLowerCase().includes("inprogress")) || (info[i].state.toLowerCase().includes("in-progress"))) || !toggleSwitches[9]) 
 			  ) 
 			){
-				console.log("works");
+				console.log("out! _----------");
 			show = false;
 		}
 		
 		if(show == true){
+			console.log("pushed");
 			displayedProjects.push(info[i]);
 		}
 	}
@@ -295,7 +296,7 @@ resize = function(bool = toggleSwitches[14]) {
 		}
 	} else { // past at bottom new at top
 		let add= dpl%cols;
-		console.log("dpl: "+dpl);
+		//console.log("dpl: "+dpl);
 		for(let r = 0; r < rs;r++){
 			let tr = document.createElement("tr");
 			table.appendChild(tr);
