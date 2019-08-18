@@ -2,7 +2,7 @@
 [
 	{
 		"state":"This is an example",
-		"date":{"m":8,"d":"8","y":08},
+		"date":{"m":8,"d":"8","y":18},
 		"tags":"example",
 		"type":"example",
 		"title":"This is an example and a reference for my json format",
