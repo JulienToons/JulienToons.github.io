@@ -194,10 +194,9 @@ search = function(val ="") {
 sort = function(){
 	//order by date
 	if(displayedProjects.length > 1){
-		displayedProjects = sorts.shell(displayedProjects);
+		//displayedProjects = sorts.shell(displayedProjects);
+		displayedProjects = sorts.quick(displayedProjects);
 	}
-	//shellSort();
-	//quickSort();
 };
 
 resize = function(bool = toggleSwitches[14]) {
@@ -340,7 +339,7 @@ resize = function(bool = toggleSwitches[14]) {
 
 
 window.addEventListener("load", function(event) {
-	console.log("V1.0041");  //25 char max
+	console.log("V1.0042");  //25 char max
 	//sorts.test();
 	//sorts = new Sorts();
 	

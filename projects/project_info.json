@@ -87,7 +87,7 @@
 		"description":"<a href=\"https://julientoons.github.io/p/fluid/v0\" color=\"yellow\">Here</a> is the first<br>version, and <a href=\"https://julientoons.github.io/p/fluid/v2\" color=\"yellow\">here</a> is<br>the second and better<br>version",
 		"img":"imgs/fluidSimScreenShot.png",
 		"imageFilter":"initial",
-		"dateTextColor":"white",
+		"dateTextColor":"black",
 		"backgroundColor":"grey"
 	}, 
 	{ 
@@ -99,7 +99,7 @@
 		"description":"A cannon game in which<br>the player tries to<br>shoot down bubbles<br>*in sandbox mode*<a href=\"https://julientoons.github.io/p/cannon_ai/\" color=\"yellow\">The game</a> also has working,<br> & interactive GUI",
 		"img":"imgs/cannon_aiScreenShot.png",
 		"imageFilter":"initial",
-		"dateTextColor":"white",
+		"dateTextColor":"black",
 		"backgroundColor":"grey"
 	}, 
 	

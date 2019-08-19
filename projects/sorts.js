@@ -120,10 +120,10 @@ class sorts {
 			i       = left, //left pointer
 			j       = right; //right pointer
 		while (i <= j) {
-			while (list[i] < pivot) {
+			while (!compareDates(list[i], pivot)) {
 				i++;
 			}
-			while (list[j] > pivot) {
+			while (compareDates(list[j], pivot)) {
 				j--;
 			}
 			if (i <= j) {
@@ -138,6 +138,38 @@ class sorts {
 		let index;
 		if (list.length > 1) {
 			index = this.partition(list, left, right); //index returned from partition
+			if (left < index - 1) { //more elements on the left side of the pivot
+				this.quick(list, left, index - 1);
+			}
+			if (index < right) { //more elements on the right side of the pivot
+				this.quick(list, index, right);
+			}
+		}
+		return list;
+	}
+	static partitionArr(list, left, right) {
+		let pivot   = list[Math.floor((right + left) / 2)], //middle element
+			i       = left, //left pointer
+			j       = right; //right pointer
+		while (i <= j) {
+			while (list[i] < pivot) {
+				i++;
+			}
+			while (list[j] > pivot) {
+				j--;
+			}
+			if (i <= j) {
+				this.swap(list, i, j); //sawpping two elements
+				i++;
+				j--;
+			}
+		}
+		return i;
+	}
+	static quickArr(list, left = 0, right = list.length - 1) {
+		let index;
+		if (list.length > 1) {
+			index = this.partitionArr(list, left, right); //index returned from partition
 			if (left < index - 1) { //more elements on the left side of the pivot
 				this.quick(list, left, index - 1);
 			}
