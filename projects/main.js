@@ -157,7 +157,7 @@ search = function(val ="") {
 		else {show=true;}
 		//console.log(info[i].type + " " );
 		if	( !(
-				((info[i].type.toLowerCase().includes("doc.") || info[i].type.toLowerCase().includes("doc") || info[i].type.toLowerCase().includes("document") || info[i].type.toLowerCase().includes("documents")) || !toggleSwitches[2])
+				((info[i].type.toLowerCase().includes("doc.") || info[i].type.toLowerCase().includes("doc") || info[i].type.toLowerCase().includes("docs") || info[i].type.toLowerCase().includes("documents")) || !toggleSwitches[2])
 			 && (info[i].type.toLowerCase().includes("project") || !toggleSwitches[3]) 
 			 && (info[i].type.toLowerCase().includes("event") || !toggleSwitches[4]) 
 			 && (info[i].type.toLowerCase().includes("art") || !toggleSwitches[5]) 
@@ -194,8 +194,7 @@ search = function(val ="") {
 sort = function(){
 	//order by date
 	if(displayedProjects.length > 1){
-		//displayedProjects = sorts.shell(displayedProjects);
-		displayedProjects = sorts.quick(displayedProjects);
+		displayedProjects = sorts.shell(displayedProjects);
 	}
 };
 

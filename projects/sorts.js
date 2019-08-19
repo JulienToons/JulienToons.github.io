@@ -134,7 +134,7 @@ class sorts {
 		}
 		return i;
 	}
-	static quick(list, left = 0, right = list.length - 1) {
+	static quick(list, left = 0, right = list.length - 1) { // does not work
 		let index;
 		if (list.length > 1) {
 			index = this.partition(list, left, right); //index returned from partition
