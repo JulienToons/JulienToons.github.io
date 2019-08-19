@@ -120,10 +120,10 @@ class sorts {
 			i       = left, //left pointer
 			j       = right; //right pointer
 		while (i <= j) {
-			while (!compareDates(list[i], pivot)) {
+			while (!this.compareDates(list[i], pivot)) {
 				i++;
 			}
-			while (compareDates(list[j], pivot)) {
+			while (this.compareDates(list[j], pivot)) {
 				j--;
 			}
 			if (i <= j) {
