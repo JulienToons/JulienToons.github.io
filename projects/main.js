@@ -172,12 +172,12 @@ search = function(val ="") {
 			 && (((info[i].state.toLowerCase().indexOf("in progress")  >= 0) || (info[i].state.toLowerCase().indexOf("inprogress")  >= 0) || (info[i].state.toLowerCase().indexOf("in-progress")  >= 0)) || !toggleSwitches[9]) 
 			  ) 
 			){
-				//console.log("out! _----------");
+				console.log("out! _----------");
 			show = false;
 		}
 		
 		if(show == true){
-			//console.log("pushed");
+			console.log("pushed");
 			displayedProjects.push(info[i]);
 		}
 	}
@@ -196,6 +196,7 @@ sort = function(){
 	if(displayedProjects.length > 1){
 		displayedProjects = sorts.shell(displayedProjects);
 	}
+	console.log("jjj"+displayedProjects[0]);
 };
 
 resize = function(bool = toggleSwitches[14]) {
