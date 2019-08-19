@@ -28,7 +28,7 @@ function toggleSettings(){
 function toggleCheck(ele){ 
 	let el = ele.children[0];
 	let result;
-	if (el.src.includes("imgs/checkedBox.png")) {
+	if (el.src.includes("imgs/checkedBox.png")) {// indexOf or includes, that is my question
 		result = false;
 		el.src = "imgs/uncheckedBox.png";
 	} else {
@@ -135,7 +135,7 @@ search = function(val ="") {
 		
 		let show = false; //false;
 		
-		if(value != "" && value != null && !value.includes("all") && !value.includes("everything")){
+		if(value != "" && value != null && !(value.indexOf("all")  >= 0) && !(value.indexOf("everything") >= 0)){  // indexOf or includes?
 			
 			let dd = info[i].date;
 			let d = " " + dd.m + "" + dd.d + "" + dd.y + "   "+dd.m + "/" + dd.d + "/" + dd.y + "   "+ dd.m + "-" + dd.d + "-" + dd.y + "   "+ dd.m + " " + dd.d + " " + dd.y + "   "+ dd.m + "\\" + dd.d + "\\" + dd.y + " ";
@@ -143,33 +143,33 @@ search = function(val ="") {
 		
 			for(let wordCount = 0; wordCount<words.length;wordCount++){
 				let str = words[wordCount];
-				if( (toggleSwitches[11] && info[i].description.toLowerCase().includes(str))
-				 || (toggleSwitches[12] && info[i].title.toLowerCase().includes(str))
-				 || (toggleSwitches[13] && info[i].tags.toLowerCase().includes(str))
+				if( (toggleSwitches[11] && info[i].description.toLowerCase().indexOf(str)  >= 0)
+				 || (toggleSwitches[12] && info[i].title.toLowerCase().indexOf(str) >= 0)
+				 || (toggleSwitches[13] && info[i].tags.toLowerCase().indexOf(str) >= 0)
 					){	 
 					show = true;
 				}
 			}
-			if(toggleSwitches[10] && d.includes(" " + value + " ")){
+			if(toggleSwitches[10] && (d.indexOf(value)  >= 0 || value.indexOf((dd.y + "").trim()) >= 0)){
 				show = true;
 			}
 		}
 		else {show=true;}
 		//console.log(info[i].type + " " );
 		if	( !(
-				(info[i].type.toLowerCase().includes("doc") || !toggleSwitches[2])
-			 && (info[i].type.toLowerCase().includes("project") || !toggleSwitches[3]) 
-			 && (info[i].type.toLowerCase().includes("event") || !toggleSwitches[4]) 
-			 && (info[i].type.toLowerCase().includes("art") || !toggleSwitches[5]) 
-			 && (info[i].type.toLowerCase().includes("other") || !toggleSwitches[6]) 
+				(info[i].type.toLowerCase().indexOf("doc") >= 0 || !toggleSwitches[2])
+			 && (info[i].type.toLowerCase().indexOf("proj")  >= 0 || !toggleSwitches[3]) 
+			 && (info[i].type.toLowerCase().indexOf("event")  >= 0|| !toggleSwitches[4]) 
+			 && (info[i].type.toLowerCase().indexOf("art")  >= 0|| !toggleSwitches[5]) 
+			 && ((info[i].type.toLowerCase().indexOf("other")  >= 0 || info[i].type.toLowerCase().indexOf("othr")  >= 0)|| !toggleSwitches[6]) 
 			 )
 			 
 			 &&
 			 
 			 !(
-			    (info[i].state.toLowerCase().includes("old") || !toggleSwitches[7])
-			 && (info[i].state.toLowerCase().includes("recent") || !toggleSwitches[8]) 
-			 && (((info[i].state.toLowerCase().includes("in progress")) || (info[i].state.toLowerCase().includes("inprogress")) || (info[i].state.toLowerCase().includes("in-progress"))) || !toggleSwitches[9]) 
+			    (info[i].state.toLowerCase().indexOf("old")   >= 0|| !toggleSwitches[7])
+			 && (info[i].state.toLowerCase().indexOf("recent")  >= 0 || !toggleSwitches[8]) 
+			 && (((info[i].state.toLowerCase().indexOf("in progress")  >= 0) || (info[i].state.toLowerCase().indexOf("inprogress")  >= 0) || (info[i].state.toLowerCase().indexOf("in-progress")  >= 0)) || !toggleSwitches[9]) 
 			  ) 
 			){
 				//console.log("out! _----------");
@@ -258,19 +258,19 @@ resize = function(bool = toggleSwitches[14]) {
 		}
 		let dmtemp = d.m;
 		if(typeof dmtemp== "string" && !(dmtemp == "" || dmtemp == "-" || dmtemp == " " || dmtemp == null)){
-			if(dmtemp.toLowerCase().includes("jan")){ dmtemp = 1 }
-			else if(dmtemp.toLowerCase().includes("jan")){ dmtemp = 1 }
-			else if(dmtemp.toLowerCase().includes("feb")){ dmtemp = 2 }
-			else if(dmtemp.toLowerCase().includes("mar")){ dmtemp = 3 }
-			else if(dmtemp.toLowerCase().includes("apr")){ dmtemp = 4 }
-			else if(dmtemp.toLowerCase().includes("may")){ dmtemp = 5 }
-			else if(dmtemp.toLowerCase().includes("jun")){ dmtemp = 6 }
-			else if(dmtemp.toLowerCase().includes("jul")){ dmtemp = 7 }
-			else if(dmtemp.toLowerCase().includes("aug")){ dmtemp = 8 }
-			else if(dmtemp.toLowerCase().includes("sep")){ dmtemp = 9 }
-			else if(dmtemp.toLowerCase().includes("oct")){ dmtemp = 10 }
-			else if(dmtemp.toLowerCase().includes("nov")){ dmtemp = 11 }
-			else if(dmtemp.toLowerCase().includes("dec")){ dmtemp = 12 }
+			if(dmtemp.toLowerCase().indexOf("jan") >= 0){ dmtemp = 1 }
+			else if(dmtemp.toLowerCase().indexOf("jan") >= 0){ dmtemp = 1 }
+			else if(dmtemp.toLowerCase().indexOf("feb") >= 0){ dmtemp = 2 }
+			else if(dmtemp.toLowerCase().indexOf("mar") >= 0){ dmtemp = 3 }
+			else if(dmtemp.toLowerCase().indexOf("apr") >= 0){ dmtemp = 4 }
+			else if(dmtemp.toLowerCase().indexOf("may") >= 0){ dmtemp = 5 }
+			else if(dmtemp.toLowerCase().indexOf("jun") >= 0){ dmtemp = 6 }
+			else if(dmtemp.toLowerCase().indexOf("jul") >= 0){ dmtemp = 7 }
+			else if(dmtemp.toLowerCase().indexOf("aug") >= 0){ dmtemp = 8 }
+			else if(dmtemp.toLowerCase().indexOf("sep") >= 0){ dmtemp = 9 }
+			else if(dmtemp.toLowerCase().indexOf("oct") >= 0){ dmtemp = 10 }
+			else if(dmtemp.toLowerCase().indexOf("nov") >= 0){ dmtemp = 11 }
+			else if(dmtemp.toLowerCase().indexOf("dec") >= 0){ dmtemp = 12 }
 		}
 		dateNode.innerHTML = dmtemp + "/" + d.d + "/"+dytemp; // could probrably make this better
 		td.appendChild(dateNode);
