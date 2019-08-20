@@ -1,4 +1,4 @@
-class sorts {
+class f {
 	static stn(val){
 		let temp;
 		if(typeof val == "string"){
@@ -45,6 +45,28 @@ class sorts {
 		
 		return temp;
 	}
+	static print(o){
+		try{
+			"state":"In Progress",
+		"date":{"m":8,"d":8,"y":2019},
+		"tags":"neural network arduino ai circuit hardware software artificial intelligence",
+		"type":"project",
+		"title":"Arduino Based Monowheel w. Neural Network",
+		"description":"Have you ever heard of a<br><a href=\"https://www.youtube.com/watch?v=qNzl6N_ScyQ\" color=\"green\">Monowheel</a>?<br>Yes? Well this one-of-a-kind<br>mini monowheel is going to<br>be controlled by a nerural<br>network on a tiny arduino<br><br>How hard is that!",
+		"img":"imgs/workInProgress.jpg",
+		"imageFilter":"sepia(100%)",
+		"dateTextColor":"black",
+		"backgroundColor":"white"
+			console.log(`State : ${o.state}\nDate: ${o.date.m}/${o.date.d}/${o.date.y}\nTags: ${o.tags}\nType: ${o.type}\nTitle: ${o.title}\nDescription: ${o.description}\nImg src: ${o.img}\nimgFilter: ${o.imageFilter}\ndtc: ${o.dateTextColor}\nbackcolor: ${o.backgroundColor}\n`);
+		} catch (e){
+			console.log("wrong type");
+		}
+	}
+	static printList(l){
+		for(int t = 0; t<l.length;t++){
+			this.print(l[t]);
+		}
+	}
 	static compareDates(one, two){ // true if first is greater
 		/*let zero = function(num, simpleBool = false){
 			if(simpleBool){
@@ -55,7 +77,7 @@ class sorts {
 				else return num;
 			}
 			else{
-				return sorts.stn(val);
+				return f.stn(val);
 			}
 		};*/
 		let zero = this.stn;

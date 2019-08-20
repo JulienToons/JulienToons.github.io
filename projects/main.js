@@ -1,7 +1,6 @@
 var info;
 var displayedProjects;
-
-//var sorts;		
+	
 		
 var search;
 var resize;
@@ -126,6 +125,8 @@ printValues = function(arr){
 	}
 };
 search = function(val ="") {
+	console.log("searching for: " + val);
+	
 	let value = val.toLowerCase();
 	//printValues(toggleSwitches);
 
@@ -202,6 +203,7 @@ search = function(val ="") {
 		}
 		
 		if(show == true){
+			f.print(displayedProjects[i]);
 			//console.log("pushed");
 			//console.log("l before: "+ info.length + " is " + info[i]);
 			displayedProjects.push(info[i]);
@@ -209,6 +211,7 @@ search = function(val ="") {
 		}
 	}
 	
+	console.log("search complete");
 	
 	if(displayedProjects.length <= 0){
 		alert("No match for \""+val+"\" found");
@@ -217,14 +220,21 @@ search = function(val ="") {
 	else{
 		console.log("l = " + displayedProjects.length+ "     f = " + displayedProjects[0].backgroundColor );
 	}
+	
+	console.log("Sorting...");
 	sort();
+	f.printList(displayedProjects);
+	console.log("Sort complete");
+	console.log("Resize...");
 	resize(toggleSwitches[14]);
+	f.printList(displayedProjects);
+	console.log("Resize complete");
 };
 
 sort = function(){
 	//order by date
 	if(displayedProjects.length > 1){
-		displayedProjects = sorts.shell(displayedProjects);
+		displayedProjects = f.shell(displayedProjects);
 	}
 	console.log(displayedProjects.length + "jjj"+displayedProjects[0]);
 };
@@ -370,8 +380,8 @@ resize = function(bool = toggleSwitches[14]) {
 
 window.addEventListener("load", function(event) {
 	console.log("V1.0046");  //25 char max
-	//sorts.test();
-	//sorts = new Sorts();
+	//f.test();
+	//f = new f();
 	
     let request = new XMLHttpRequest();
 	let callback = function(zone) {
