@@ -162,7 +162,7 @@ search = function(val ="") {
 			 || (info[i].type.toLowerCase().indexOf("proj")  >= 0 && toggleSwitches[3]) 
 			 || (info[i].type.toLowerCase().indexOf("event")  >= 0 && toggleSwitches[4]) 
 			 || (info[i].type.toLowerCase().indexOf("art")  >= 0 && toggleSwitches[5]) 
-			 || ((info[i].type.toLowerCase().indexOf("other")  >= 0 && info[i].type.toLowerCase().indexOf("othr")  >= 0)|| !toggleSwitches[6]) 
+			 || ((info[i].type.toLowerCase().indexOf("other")  >= 0 || info[i].type.toLowerCase().indexOf("othr")  >= 0)&& toggleSwitches[6]) 
 			 )
 			 
 			 &&
@@ -369,7 +369,7 @@ resize = function(bool = toggleSwitches[14]) {
 
 
 window.addEventListener("load", function(event) {
-	console.log("V1.0045");  //25 char max
+	console.log("V1.0046");  //25 char max
 	//sorts.test();
 	//sorts = new Sorts();
 	
