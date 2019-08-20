@@ -16,7 +16,7 @@
 	
     { 
 		"state":"In Progress",
-		"date":{"m":8,"d":8,"y":2008},
+		"date":{"m":8,"d":8,"y":2019},
 		"tags":"neural network arduino ai circuit hardware software artificial intelligence",
 		"type":"project",
 		"title":"Arduino Based Monowheel w. Neural Network",
@@ -31,7 +31,7 @@
 		"state":"recent",
 		"date":{"m":8,"d":10,"y":2019},
 		"tags":"resume cv curriculum vitae",
-		"type":" document other",
+		"type":"doc document other",
 		"title":"curriculum vitae",
 		"description":"Synonymous to <a href=\"documents/cv_julienowhadi.pdf\" color=\"red\">Resume</a>",
 		"img":"imgs/genericDocumentImg.png",
@@ -106,10 +106,10 @@
 	{ 
 	
 		"state":"recent",
-		"date":{"m":"-","d":"-","y":"-"},
-		"tags":"art drawing android unity games projects alot",
-		"type":"project art event",
-		"title":"Instagram Account",
+		"date":{"m":"-","d":"-","y":2019},
+		"tags":"vidioes gymnastics",
+		"type":"other art event",
+		"title":"Gymnastics Videos",
 		"description":"\"Been doing gymnastics<br>since I was 2\"<br><br>Check out some<br><a href=\"https://drive.google.com/drive/folders/15JxI7BGYfzWsD4f6CrbjblAntJ-Jwopt?usp=sharing\" color=\"blue\">videos here</a>",
 		"img":"imgs/instagram.jpg",
 		"imageFilter":"initial",
@@ -119,7 +119,7 @@
 	{ 
 	
 		"state":"recent",
-		"date":{"m":8,"d":8,"y":2005},
+		"date":{"m":8,"d":8,"y":2008},
 		"tags":"art drawing android unity games projects alot",
 		"type":"project art event",
 		"title":"Instagram Account",
@@ -158,7 +158,7 @@
 	{ 
 	
 		"state":"old",
-		"date":{"m":"-","d":"-","y":"2017"},
+		"date":{"m":"-","d":"-","y":2017},
 		"tags":"art profile picture pic drawing animation",
 		"type":"art",
 		"title":"Say hello!",
@@ -184,7 +184,7 @@
 	{ 
 	
 		"state":"recent",
-		"date":{"m":8,"d":8,"y":2005},
+		"date":{"m":8,"d":8,"y":2014},
 		"tags":"robot lego high bar highbar gymnast gym ev3 mindstorm nxt",
 		"type":"project",
 		"title":"Robot Highbar Gymnast",

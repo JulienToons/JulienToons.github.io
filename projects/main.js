@@ -157,6 +157,25 @@ search = function(val ="") {
 		else {show=true;}
 		//console.log(info[i].type + " " );
 		if	( !(
+				(info[i].type.toLowerCase().indexOf("doc") >= 0 && toggleSwitches[2])
+			 || (info[i].type.toLowerCase().indexOf("proj")  >= 0 && toggleSwitches[3]) 
+			 || (info[i].type.toLowerCase().indexOf("event")  >= 0 && toggleSwitches[4]) 
+			 || (info[i].type.toLowerCase().indexOf("art")  >= 0 && toggleSwitches[5]) 
+			 || ((info[i].type.toLowerCase().indexOf("other")  >= 0 && info[i].type.toLowerCase().indexOf("othr")  >= 0)|| !toggleSwitches[6]) 
+			 )
+			 
+			 ||
+			 
+			 !(
+			    (info[i].state.toLowerCase().indexOf("old")    >= 0 && toggleSwitches[7])
+			 || (info[i].state.toLowerCase().indexOf("recent")  >= 0 && toggleSwitches[8]) 
+			 || (((info[i].state.toLowerCase().indexOf("in progress")  >= 0) || (info[i].state.toLowerCase().indexOf("inprogress")  >= 0) || (info[i].state.toLowerCase().indexOf("in-progress")  >= 0)) && toggleSwitches[9]) 
+			  ) 
+			){
+				
+				/*
+				
+				if	( !(
 				(info[i].type.toLowerCase().indexOf("doc") >= 0 || !toggleSwitches[2])
 			 && (info[i].type.toLowerCase().indexOf("proj")  >= 0 || !toggleSwitches[3]) 
 			 && (info[i].type.toLowerCase().indexOf("event")  >= 0|| !toggleSwitches[4]) 
@@ -164,15 +183,16 @@ search = function(val ="") {
 			 && ((info[i].type.toLowerCase().indexOf("other")  >= 0 || info[i].type.toLowerCase().indexOf("othr")  >= 0)|| !toggleSwitches[6]) 
 			 )
 			 
-			 &&
+			 ||
 			 
-			 !(
-			    (info[i].state.toLowerCase().indexOf("old")   >= 0|| !toggleSwitches[7])
+			 (
+			    (info[i].state.toLowerCase().indexOf("old")    >= 0 || !toggleSwitches[7])
 			 && (info[i].state.toLowerCase().indexOf("recent")  >= 0 || !toggleSwitches[8]) 
 			 && (((info[i].state.toLowerCase().indexOf("in progress")  >= 0) || (info[i].state.toLowerCase().indexOf("inprogress")  >= 0) || (info[i].state.toLowerCase().indexOf("in-progress")  >= 0)) || !toggleSwitches[9]) 
 			  ) 
 			){
-				console.log("out! _----------");
+				*/
+				//console.log("out! _----------");
 			show = false;
 		}
 		else{
@@ -180,17 +200,20 @@ search = function(val ="") {
 		}
 		
 		if(show == true){
-			console.log("pushed");
-			console.log("l before: "+ info.length + " is " + info[i]);
+			//console.log("pushed");
+			//console.log("l before: "+ info.length + " is " + info[i]);
 			displayedProjects.push(info[i]);
-			console.log("l after: "+ info.length + " is " + info[i].type);
+			//console.log("l after: "+ info.length + " is " + info[i].type);
 		}
 	}
 	
 	
 	if(displayedProjects.length <= 0){
 		alert("No match for \""+val+"\" found");
-		displayedProjectNum = info;
+		displayedProjectNum = [];
+	}
+	else{
+		console.log("l = " + displayedProjects.length+ "     f = " + displayedProjects[0].backgroundColor );
 	}
 	sort();
 	resize(toggleSwitches[14]);
