@@ -224,11 +224,12 @@ search = function(val ="") {
 	console.log("Sorting...");
 	sort();
 	//f.printList(displayedProjects);
-	console.log("Sort complete");
-	console.log("Resize...");
+	//console.log("Sort complete");
+	console.log("Loading Files & Graphics...");
 	resize(toggleSwitches[14]);
 	//f.printList(displayedProjects);
-	console.log("Resize complete");
+	//console.log("Resize complete");
+	console.log("Done");
 };
 
 sort = function(){
@@ -241,7 +242,9 @@ sort = function(){
 
 resize = function(bool) {
 	//sort();
-	if(bool = undefined){ bool = toggleSwitches[14];}
+	if(bool == undefined){
+		bool = toggleSwitches[14];
+	}
 	
 	console.log("bool is " + bool);
 	let w = window.innerWidth;
