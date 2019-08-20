@@ -7,7 +7,7 @@ class sorts {
 			}
 			else{
 				try {
-					temp = parseInt(val);
+					temp = parseInt(val,10);
 				}
 				catch(error) {
 					try{
@@ -105,7 +105,8 @@ class sorts {
 			if (increment == 2) {
 				increment = 1;
 			} else {
-				increment = parseInt(increment*5 / 11);
+				//increment = Math.floor(parseInt(increment*5 / 11));
+				increment = Math.floor(parseInt((increment*5 / 11), 10));
 			}
 		}
 	  return arr;
