@@ -81,7 +81,7 @@ function toggleCheck(ele){
 			toggleSwitches[1]=result;
 			if(result)
 			{
-				for(let i = 0; i<toggleSwitches.length;i++){  // -1 is for the 15th element
+				for(let i = 0; i<toggleSwitches.length-1;i++){  // -1 is for the 15th element
 					toggleSwitches[i] = false;
 					document.getElementsByClassName("toggleButton")[i].children[0].src = "imgs/uncheckedBox.png";
 				}
@@ -97,7 +97,7 @@ function toggleCheck(ele){
 			toggleSwitches[0]=result;
 			if(result)
 			{
-				for(let i = 0; i<toggleSwitches.length;i++){
+				for(let i = 0; i<toggleSwitches.length-1;i++){
 					toggleSwitches[i] = true;
 					document.getElementsByClassName("toggleButton")[i].children[0].src = "imgs/checkedBox.png";
 				}
@@ -236,12 +236,14 @@ sort = function(){
 	if(displayedProjects.length > 1){
 		displayedProjects = f.shell(displayedProjects);
 	}
-	console.log(displayedProjects.length + "jjj"+displayedProjects[0]);
+	//console.log(displayedProjects.length + "jjj"+displayedProjects[0]);
 };
 
-resize = function(bool = toggleSwitches[14]) {
+resize = function(bool) {
 	//sort();
+	if(bool = undefined){ bool = toggleSwitches[14];}
 	
+	console.log("bool is " + bool);
 	let w = window.innerWidth;
 	let dpl = displayedProjects.length;
 	
