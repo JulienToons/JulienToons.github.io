@@ -175,10 +175,15 @@ search = function(val ="") {
 				console.log("out! _----------");
 			show = false;
 		}
+		else{
+			console.log("in! _----------");
+		}
 		
 		if(show == true){
 			console.log("pushed");
+			console.log("l before: "+ info.length + " is " + info[i]);
 			displayedProjects.push(info[i]);
+			console.log("l after: "+ info.length + " is " + info[i].type);
 		}
 	}
 	
