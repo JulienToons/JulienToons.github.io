@@ -156,7 +156,8 @@ search = function(val ="") {
 		}
 		else {show=true;}
 		//console.log(info[i].type + " " );
-		if	( !(
+		if	( !show &&
+			(
 				(info[i].type.toLowerCase().indexOf("doc") >= 0 && toggleSwitches[2])
 			 || (info[i].type.toLowerCase().indexOf("proj")  >= 0 && toggleSwitches[3]) 
 			 || (info[i].type.toLowerCase().indexOf("event")  >= 0 && toggleSwitches[4]) 
@@ -164,9 +165,9 @@ search = function(val ="") {
 			 || ((info[i].type.toLowerCase().indexOf("other")  >= 0 && info[i].type.toLowerCase().indexOf("othr")  >= 0)|| !toggleSwitches[6]) 
 			 )
 			 
-			 ||
+			 &&
 			 
-			 !(
+			 (
 			    (info[i].state.toLowerCase().indexOf("old")    >= 0 && toggleSwitches[7])
 			 || (info[i].state.toLowerCase().indexOf("recent")  >= 0 && toggleSwitches[8]) 
 			 || (((info[i].state.toLowerCase().indexOf("in progress")  >= 0) || (info[i].state.toLowerCase().indexOf("inprogress")  >= 0) || (info[i].state.toLowerCase().indexOf("in-progress")  >= 0)) && toggleSwitches[9]) 
@@ -193,10 +194,10 @@ search = function(val ="") {
 			){
 				*/
 				//console.log("out! _----------");
-			show = false;
+			show = true;
 		}
 		else{
-			console.log("in! _----------");
+			//console.log("in! _----------");
 		}
 		
 		if(show == true){
@@ -367,7 +368,7 @@ resize = function(bool = toggleSwitches[14]) {
 
 
 window.addEventListener("load", function(event) {
-	console.log("V1.0043");  //25 char max
+	console.log("V1.0044");  //25 char max
 	//sorts.test();
 	//sorts = new Sorts();
 	
