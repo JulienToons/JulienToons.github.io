@@ -156,7 +156,7 @@ search = function(val ="") {
 		}
 		else {show=true;}
 		//console.log(info[i].type + " " );
-		if	( !show &&
+		if	( show &&
 			(
 				(info[i].type.toLowerCase().indexOf("doc") >= 0 && toggleSwitches[2])
 			 || (info[i].type.toLowerCase().indexOf("proj")  >= 0 && toggleSwitches[3]) 
@@ -197,6 +197,7 @@ search = function(val ="") {
 			show = true;
 		}
 		else{
+			show = false;
 			//console.log("in! _----------");
 		}
 		
@@ -225,7 +226,7 @@ sort = function(){
 	if(displayedProjects.length > 1){
 		displayedProjects = sorts.shell(displayedProjects);
 	}
-	console.log("jjj"+displayedProjects[0]);
+	console.log(displayedProjects.length + "jjj"+displayedProjects[0]);
 };
 
 resize = function(bool = toggleSwitches[14]) {
@@ -368,7 +369,7 @@ resize = function(bool = toggleSwitches[14]) {
 
 
 window.addEventListener("load", function(event) {
-	console.log("V1.0044");  //25 char max
+	console.log("V1.0045");  //25 char max
 	//sorts.test();
 	//sorts = new Sorts();
 	
