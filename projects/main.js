@@ -247,8 +247,10 @@ resize = function(bool = toggleSwitches[14]) {
 	
 	if(dpl <=0) return;
 	
-	let cols = 0;
-	if(w > 1500){ cols =  5;}
+	let cols;
+	if(w > 2400){ cols =  7;}
+	else if(w > 1800){ cols = 6;}
+	else if(w > 1500){ cols = 5;}
 	else if(w > 1100){ cols = 4;}
 	else if(w > 800){ cols = 3;}
 	else if(w > 520){ cols = 2;}
@@ -356,14 +358,16 @@ resize = function(bool = toggleSwitches[14]) {
 	} else { // past at bottom new at top
 	
 		let add= dpl%cols;
-		//console.log("dpl: "+dpl);
+		console.log("else version: dpl: "+dpl);
 		if(dpl > cols){
 			for(let r = 0; r < rs;r++){
 				let tr = document.createElement("tr");
 				table.appendChild(tr);
 				
 				for(let i=0;i<cols;i++){
+					console.log("a");
 					create(dpl-1 - ((r*cols) + i), tr);
+					console.log("b");
 				}
 			}
 		}
