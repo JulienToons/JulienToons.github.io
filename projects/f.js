@@ -53,7 +53,7 @@ class f {
 		}
 	}
 	static printList(l){
-		for(int t = 0; t<l.length;t++){
+		for(let t = 0; t<l.length;t++){
 			this.print(l[t]);
 		}
 	}
