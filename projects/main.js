@@ -203,7 +203,7 @@ search = function(val ="") {
 		}
 		
 		if(show == true){
-			f.print(displayedProjects[i]);
+			//f.print(displayedProjects[i]);
 			//console.log("pushed");
 			//console.log("l before: "+ info.length + " is " + info[i]);
 			displayedProjects.push(info[i]);
@@ -218,16 +218,16 @@ search = function(val ="") {
 		displayedProjectNum = [];
 	}
 	else{
-		console.log("l = " + displayedProjects.length+ "     f = " + displayedProjects[0].backgroundColor );
+		//console.log("l = " + displayedProjects.length+ "     f = " + displayedProjects[0].backgroundColor );
 	}
 	
 	console.log("Sorting...");
 	sort();
-	f.printList(displayedProjects);
+	//f.printList(displayedProjects);
 	console.log("Sort complete");
 	console.log("Resize...");
 	resize(toggleSwitches[14]);
-	f.printList(displayedProjects);
+	//f.printList(displayedProjects);
 	console.log("Resize complete");
 };
 
@@ -354,21 +354,24 @@ resize = function(bool = toggleSwitches[14]) {
 			}
 		}
 	} else { // past at bottom new at top
+	
 		let add= dpl%cols;
 		//console.log("dpl: "+dpl);
-		for(let r = 0; r < rs;r++){
-			let tr = document.createElement("tr");
-			table.appendChild(tr);
-			
-			for(let i=0;i<cols;i++){
-				create(dpl-1 - ((r*cols) + i), tr);
+		if(dpl > cols){
+			for(let r = 0; r < rs;r++){
+				let tr = document.createElement("tr");
+				table.appendChild(tr);
+				
+				for(let i=0;i<cols;i++){
+					create(dpl-1 - ((r*cols) + i), tr);
+				}
 			}
 		}
 		
 		if(add != 0){
 			let tr = document.createElement("tr");
 			table.appendChild(tr);
-			for(let i = add; i> 0; i--){// those % at the end
+			for(let i = add; i>= 0; i--){// those % at the end
 				create(i, tr);
 			}
 		}		
@@ -379,7 +382,7 @@ resize = function(bool = toggleSwitches[14]) {
 
 
 window.addEventListener("load", function(event) {
-	console.log("V1.0046");  //25 char max
+	console.log("V1.0047");  //25 char max
 	//f.test();
 	//f = new f();
 	
