@@ -380,7 +380,9 @@ resize = function(bool) {
 		if(add != 0){
 			let tr = document.createElement("tr");
 			table.appendChild(tr);
-			for(let i = add; i>= 0; i--){// those % at the end
+			console.log("add: "+add+"  dpl: "+dpl); 
+			for(let i = add; i>= 0; i=i-1;){// those % at the end
+				conosle.log("el "+i);
 				create(i, tr);
 			}
 		}		
@@ -391,7 +393,7 @@ resize = function(bool) {
 
 
 window.addEventListener("load", function(event) {
-	console.log("V1.0047");  //25 char max
+	console.log("V1.0048");  //25 char max
 	//f.test();
 	//f = new f();
 	
