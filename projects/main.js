@@ -381,7 +381,7 @@ resize = function(bool) {
 			let tr = document.createElement("tr");
 			table.appendChild(tr);
 			console.log("add: "+add+"  dpl: "+dpl); 
-			for(let i = add; i>= 0; i=i-1;){// those % at the end
+			for(let i = add; i>= 0; i=i-1){// those % at the end
 				conosle.log("el "+i);
 				create(i, tr);
 			}
@@ -400,7 +400,7 @@ window.addEventListener("load", function(event) {
     let request = new XMLHttpRequest();
 	let callback = function(zone) {
 		info = zone;
-		shortcut("Projects",[true, false, false, true, false, false, false, true, true, true, false, false, false, true, true]);
+		this.shortcut("Projects",[true, false, false, true, false, false, false, true, true, true, false, false, false, true, true]);
     };
     request.addEventListener("load", function(event) {
 		callback(JSON.parse(this.responseText));
