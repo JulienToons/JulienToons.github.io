@@ -394,6 +394,7 @@ resize = function(bool) {
 	for(let s = 0; s<cols-1;s++){
 		let td = document.createElement("td");
 		trSafe.appendChild(td);
+		td.setAttribute("class", "spacer");
 	}
 	
 };
@@ -401,7 +402,7 @@ resize = function(bool) {
 
 
 window.addEventListener("load", function(event) {
-	console.log("V1.0050");  //25 char max
+	console.log("V1.051");  //25 char max
 	//f.test();
 	//f = new f();
 	
