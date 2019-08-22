@@ -390,7 +390,7 @@ resize = function(bool) {
 	}
 	
 	let trSafe = document.createElement("tr");
-	table.appendChild(tr);
+	table.appendChild(trSafe);
 	for(let s = 0; s<cols-1;s++){
 		let td = document.createElement("td");
 		trSafe.appendChild(td);
