@@ -343,6 +343,7 @@ resize = function(bool) {
 	
 	let rs = Math.floor(dpl/cols);
 	
+	
 	if(!bool){ // past at top
 		for(let r = 0; r < rs;r++){
 			let tr = document.createElement("tr");
@@ -388,12 +389,19 @@ resize = function(bool) {
 		}		
 	}
 	
+	let trSafe = document.createElement("tr");
+	table.appendChild(tr);
+	for(let s = 0; s<cols-1;s++){
+		let td = document.createElement("td");
+		trSafe.appendChild(td);
+	}
+	
 };
 
 
 
 window.addEventListener("load", function(event) {
-	console.log("V1.0049");  //25 char max
+	console.log("V1.0050");  //25 char max
 	//f.test();
 	//f = new f();
 	
