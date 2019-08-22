@@ -360,6 +360,12 @@ resize = function(bool) {
 			for(let i = ((rs) * cols); i< dpl; i++){// those % at the end
 				create(i, tr);
 			}
+			
+			for(let i = 0; i< cols-(dpl +1); i++){// those % at the end
+				let td = document.createElement("td");
+				tr.appendChild(td);
+				td.setAttribute("class", "spacer");
+			}
 		}
 	} else { // past at bottom new at top
 	
@@ -386,23 +392,29 @@ resize = function(bool) {
 				console.log("el "+i);
 				create(i, tr);
 			}
+			
+			for(let i = 0; i< cols-(add +1); i++){// those % at the end
+				let td = document.createElement("td");
+				tr.appendChild(td);
+				td.setAttribute("class", "spacer");
+			}
 		}		
 	}
 	
-	let trSafe = document.createElement("tr");
-	table.appendChild(trSafe);
-	for(let s = 0; s<cols-1;s++){
-		let td = document.createElement("td");
-		trSafe.appendChild(td);
-		td.setAttribute("class", "spacer");
-	}
+	// let trSafe = document.createElement("tr");
+	// table.appendChild(trSafe);
+	// for(let s = 0; s<cols-1;s++){
+		// let td = document.createElement("td");
+		// trSafe.appendChild(td);
+		// td.setAttribute("class", "spacer");
+	// }
 	
 };
 
 
 
 window.addEventListener("load", function(event) {
-	console.log("V1.051");  //25 char max
+	console.log("V1.052");  //25 char max
 	//f.test();
 	//f = new f();
 	
