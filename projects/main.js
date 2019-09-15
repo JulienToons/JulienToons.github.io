@@ -371,7 +371,7 @@ resize = function(bool) {
 	
 		let add= dpl%cols;
 		console.log("else version: dpl: "+dpl);
-		if(dpl > cols || true){
+		if(true || dpl > cols){
 			for(let r = 0; r < ((add == 0)? rs: rs-1);r++){
 				let tr = document.createElement("tr");
 				table.appendChild(tr);
@@ -389,7 +389,8 @@ resize = function(bool) {
 			table.appendChild(tr);
 			console.log("add: "+add+"  dpl: "+dpl); 
 			for(let i = add; i>= 0; i=i-1){// those % at the end
-				console.log("el "+i);
+				console.log("el "+i + "is "+ displayedProjects[i]);
+				
 				create(i, tr);
 			}
 			/*
