@@ -320,7 +320,7 @@ resize = function(bool) {
 			else if(dmtemp.toLowerCase().indexOf("nov") >= 0){ dmtemp = 11 }
 			else if(dmtemp.toLowerCase().indexOf("dec") >= 0){ dmtemp = 12 }
 		}
-		dateNode.innerHTML = dmtemp + "/" + (d.d != null && d.d != undefined)? d.d: "-") + "/"+dytemp; // could probrably make this better
+		dateNode.innerHTML = dmtemp + "/" + ((d.d != null && d.d != undefined)? d.d: "-") + "/"+dytemp; // could probrably make this better
 		td.appendChild(dateNode);
 		
 		let overlayObj = document.createElement("div");
