@@ -371,7 +371,7 @@ resize = function(bool) {
 	
 		let add= dpl%cols;
 		console.log("else version: dpl: "+dpl);
-		if(dpl > cols){
+		if(dpl > cols || true){
 			for(let r = 0; r < ((add == 0)? rs: rs-1);r++){
 				let tr = document.createElement("tr");
 				table.appendChild(tr);
@@ -392,12 +392,12 @@ resize = function(bool) {
 				console.log("el "+i);
 				create(i, tr);
 			}
-			
+			/*
 			for(let i = 0; i< cols-(add +1); i++){// those % at the end
 				let td = document.createElement("td");
 				tr.appendChild(td);
 				td.setAttribute("class", "spacer");
-			}
+			}*/
 		}		
 	}
 	
