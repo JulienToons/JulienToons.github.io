@@ -300,11 +300,11 @@ resize = function(bool) {
 		dateNode.setAttribute("class", "dateOfProject");
 		dateNode.style.color = displayedProjects[num].dateTextColor;
 		let d = displayedProjects[num].date;
-		let dytemp = d.y;
+		let dytemp = d.y ? d.y : "-";
+		let dmtemp = d.m ? d.m : "-";
 		if(typeof d.y != "string" && d.y > 2000){ // i could make it be a typeof number?
 			d.y = d.y - 2000;
 		}
-		let dmtemp = d.m;
 		if(typeof dmtemp== "string" && !(dmtemp == "" || dmtemp == "-" || dmtemp == " " || dmtemp == null)){
 			if(dmtemp.toLowerCase().indexOf("jan") >= 0){ dmtemp = 1 }
 			else if(dmtemp.toLowerCase().indexOf("jan") >= 0){ dmtemp = 1 }
@@ -320,7 +320,7 @@ resize = function(bool) {
 			else if(dmtemp.toLowerCase().indexOf("nov") >= 0){ dmtemp = 11 }
 			else if(dmtemp.toLowerCase().indexOf("dec") >= 0){ dmtemp = 12 }
 		}
-		dateNode.innerHTML = dmtemp + "/" + d.d + "/"+dytemp; // could probrably make this better
+		dateNode.innerHTML = dmtemp + "/" + (d.d != null && d.d != undefined)? d.d: "-") + "/"+dytemp; // could probrably make this better
 		td.appendChild(dateNode);
 		
 		let overlayObj = document.createElement("div");
@@ -372,7 +372,7 @@ resize = function(bool) {
 		let add= dpl%cols;
 		console.log("else version: dpl: "+dpl);
 		if(dpl > cols){
-			for(let r = 0; r < rs;r++){
+			for(let r = 0; r < ((add == 0)? rs: rs-1);r++){
 				let tr = document.createElement("tr");
 				table.appendChild(tr);
 				
@@ -414,7 +414,7 @@ resize = function(bool) {
 
 
 window.addEventListener("load", function(event) {
-	console.log("V1.052");  //25 char max
+	console.log("V1.053");  //25 char max
 	//f.test();
 	//f = new f();
 	

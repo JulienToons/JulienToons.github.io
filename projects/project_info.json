@@ -11,22 +11,20 @@
 		"imageFilter":"sepia(100%)",
 		"dateTextColor":"black",
 		"backgroundColor":"white"
-	},
-	
-	
+	},	
     { 
-		"state":"In Progress",
-		"date":{"m":8,"d":8,"y":2019},
-		"tags":"neural network arduino ai circuit hardware software artificial intelligence",
-		"type":"project",
-		"title":"Arduino Based Monowheel w. Neural Network",
-		"description":"Have you ever heard of a<br><a href=\"https://www.youtube.com/watch?v=qNzl6N_ScyQ\" color=\"green\">Monowheel</a>?<br>Yes? Well this one-of-a-kind<br>mini monowheel is going to<br>be controlled by a nerural<br>network on a tiny arduino<br><br>How hard is that!",
-		"img":"imgs/workInProgress.jpg",
-		"imageFilter":"sepia(100%)",
-		"dateTextColor":"black",
+		"state":"recent old",
+		"date":{"m":,"d":,"y":2018},
+		"tags":"community service outreach fll first mentoring",
+		"type":"event other",
+		"title":"FLL Mentor",
+		"description":"Mentored students in <a href=\"http://www.firstlegoleague.org/\" color=\"blue\">FLL</a> at Roesmont Middle<br>School for a duration of about 1.5 months",
+		"img":"imgs/fll.jpg",
+		"imageFilter":"",
+		"dateTextColor":"pink",
 		"backgroundColor":"white"
 	},
-	
+
 	{ 
 		"state":"recent",
 		"date":{"m":8,"d":10,"y":2019},
@@ -34,6 +32,18 @@
 		"type":"doc document other",
 		"title":"resume",
 		"description":"<a href=\"documents/cv_julienowhadi.pdf\" color=\"red\">Resume</a>",
+		"img":"imgs/genericDocumentImg.png",
+		"imageFilter":"initial",
+		"dateTextColor":"white",
+		"backgroundColor":"grey"
+	}, 
+	{ 
+		"state":"recent other",
+		"date":{"m":4,"d":,"y":2019},
+		"tags":"tedx talk organize",
+		"type":"Event",
+		"title":"Organized TEDx Event",
+		"description":"Organized a TEDx Talk for<br>my community",
 		"img":"imgs/genericDocumentImg.png",
 		"imageFilter":"initial",
 		"dateTextColor":"white",

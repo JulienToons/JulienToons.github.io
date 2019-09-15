@@ -1,7 +1,10 @@
 class f {
 	static stn(val){
 		let temp;
-		if(typeof val == "string"){
+		if(val == null || val == undefined){
+			temp = 0;
+		}
+		else if(typeof val == "string"){
 			if(val == "" || val == "-" || val == " " || val == null){
 				temp = 0;
 			}
