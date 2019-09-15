@@ -14,7 +14,7 @@
 	},	
     { 
 		"state":"recent old",
-		"date":{"m":,"d":,"y":2018},
+		"date":{"m":"","d":"","y":2018},
 		"tags":"community service outreach fll first mentoring",
 		"type":"event other",
 		"title":"FLL Mentor",
@@ -39,7 +39,7 @@
 	}, 
 	{ 
 		"state":"recent other",
-		"date":{"m":4,"d":,"y":2019},
+		"date":{"m":4,"d":"","y":2019},
 		"tags":"tedx talk organize",
 		"type":"Event",
 		"title":"Organized TEDx Event",
