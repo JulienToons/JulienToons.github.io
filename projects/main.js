@@ -371,7 +371,11 @@ resize = function(bool) {
 	
 		let add= dpl%cols;
 		console.log("else version: dpl: "+dpl);
+		test = function(i){
+			console.log(`Here el${i} ---> ${displayedProjects[i]}`);
+		}
 		if(true || dpl > cols){
+			test(0);
 			for(let r = 0; r < ((add == 0)? rs: rs-1);r++){
 				let tr = document.createElement("tr");
 				table.appendChild(tr);
@@ -379,15 +383,17 @@ resize = function(bool) {
 				for(let i=0;i<cols;i++){
 					console.log("a");
 					create(dpl-1 - ((r*cols) + i), tr);
+					test(dpl-1 - ((r*cols) + i));
 					console.log("b");
 				}
 			}
 		}
-		
+		test(0);
 		if(add != 0){
 			let tr = document.createElement("tr");
 			table.appendChild(tr);
 			console.log("add: "+add+"  dpl: "+dpl); 
+			test(0);
 			for(let i = add; i>= 0; i=i-1){// those % at the end
 				console.log("el "+i + "is "+ displayedProjects[i]);
 				
@@ -415,7 +421,7 @@ resize = function(bool) {
 
 
 window.addEventListener("load", function(event) {
-	console.log("V1.054");  //25 char max
+	console.log("V1.055");  //25 char max
 	//f.test();
 	//f = new f();
 	
