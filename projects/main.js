@@ -370,7 +370,7 @@ resize = function(bool) {
 	}
 	else { // new at top
 		console.log("experimental resize");
-		let sub = dpl;
+		let sub = dpl-1;
 		for(let r = 0; r < rs;r++){
 			let tr = document.createElement("tr");
 			table.appendChild(tr);
@@ -448,7 +448,7 @@ resize = function(bool) {
 
 
 window.addEventListener("load", function(event) {
-	console.log("V1.056 experimental");  //25 char max
+	console.log("V1.056 experimental2");  //25 char max
 	//f.test();
 	//f = new f();
 	
