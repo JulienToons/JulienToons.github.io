@@ -367,9 +367,36 @@ resize = function(bool) {
 				td.setAttribute("class", "spacer");
 			}
 		}
-	} else { // past at bottom new at top
+	}
+	else { // new at top
+		console.log("experimental resize");
+		let sub = dpl;
+		for(let r = 0; r < rs;r++){
+			let tr = document.createElement("tr");
+			table.appendChild(tr);
+			
+			for(let i=0;i<cols;i++){
+				create(sub - ((r*cols) + i), tr);
+			}
+		}
+		
+		if(dpl%cols != 0){
+			let tr = document.createElement("tr");
+			table.appendChild(tr);
+			for(let i = ((rs) * cols); i< dpl; i++){// those % at the end
+				create(sub - i, tr);
+			}
+			
+			for(let i = 0; i< cols-(dpl +1); i++){// those % at the end
+				let td = document.createElement("td");
+				tr.appendChild(td);
+				td.setAttribute("class", "spacer");
+			}
+		}
+	}
+	if(false) { // not working one
 	
-		let add= dpl%cols;
+		let add= (dpl)%cols;
 		console.log("else version: dpl: "+dpl);
 		test = function(i){
 			console.log(`Here el${i} ---> ${displayedProjects[i]}`);
@@ -389,7 +416,7 @@ resize = function(bool) {
 			}
 		}
 		test(0);
-		if(add != 0){
+		if(add != 0){  // js error
 			let tr = document.createElement("tr");
 			table.appendChild(tr);
 			console.log("add: "+add+"  dpl: "+dpl); 
@@ -421,7 +448,7 @@ resize = function(bool) {
 
 
 window.addEventListener("load", function(event) {
-	console.log("V1.055");  //25 char max
+	console.log("V1.056 experimental");  //25 char max
 	//f.test();
 	//f = new f();
 	
