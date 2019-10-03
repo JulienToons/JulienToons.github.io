@@ -69,13 +69,13 @@ body {
   background-color: #888;
 }
 #settingsContainer{
-	color: #1ABC9C;
+	color: #ddd;
   text-decoration: none; 
   z-index:999; 
 	display: none;
   top:50;
   overflow: hidden;
-  background-color: #bfd;
+  background-color: #444;
   width: 100%;
   height: auto;
   padding: 0 42px 0;
@@ -99,8 +99,9 @@ body {
 
 .toggle{
 	float: right;
+	border-radius: 25px;
 	text-align: center;
-	background-color: #6f9;
+	background-color: #555;
 	display: inline-block;
 	padding: 4px 5px 2px;
 	margin: 6px 3px;
@@ -111,6 +112,9 @@ body {
 }
 .toggleButton img{
 	height:25px;
+    filter:	grayscale(100%); /* ----------------------------------------------------------------!!!!*/
+	filter: contrast(270);
+
 }
 .toggle a{
 	float:right;
@@ -148,25 +152,25 @@ input[type=text] {
 
 }
 
-/* Style the navigation bar links */
+
 .navbar a {
-  float: left; /* Make sure that the links stay side-by-side */
-  display: block; /* Change the display to block, for responsive reasons (see below) */
-  color: white; /* White text color */
-  text-align: center; /* Center the text */
-  padding: 14px 20px; /* Add some padding */
-  text-decoration: none; /* Remove underline */
+  float: left; 
+  display: block; 
+  color: white; 
+  text-align: center; 
+  padding: 14px 20px; 
+  text-decoration: none; 
 }
 
-/* Right-aligned link */
+
 .navbar a.right {
-  float: right; /* Float a link to the right */
+  float: right; 
 }
 
-/* Change color on hover/mouse-over */
+
 .navbar a:hover {
-  background-color: #ddd; /* Grey background color */
-  color: black; /* Black text color */
+  background-color: #ddd;
+  color: black;
 }
 
 
@@ -288,9 +292,9 @@ div .textContainer p{
 
 .footer {
 	
-  padding: 20px; /* Some padding */
-  text-align: center; /* Center text*/
-  background: #000; /* Grey background */
+  padding: 20px; 
+  text-align: center; 
+  background: #000;
   color: #fff;
   font-family: "Times New Roman", Times, serif;
 

@@ -394,54 +394,6 @@ resize = function(bool) {
 			}
 		}
 	}
-	if(false) { // not working one
-	
-		let add= (dpl)%cols;
-		console.log("else version: dpl: "+dpl);
-		test = function(i){
-			console.log(`Here el${i} ---> ${displayedProjects[i]}`);
-		}
-		if(true || dpl > cols){
-			test(0);
-			for(let r = 0; r < ((add == 0)? rs: rs-1);r++){
-				let tr = document.createElement("tr");
-				table.appendChild(tr);
-				
-				for(let i=0;i<cols;i++){
-					console.log("a");
-					create(dpl-1 - ((r*cols) + i), tr);
-					test(dpl-1 - ((r*cols) + i));
-					console.log("b");
-				}
-			}
-		}
-		test(0);
-		if(add != 0){  // js error
-			let tr = document.createElement("tr");
-			table.appendChild(tr);
-			console.log("add: "+add+"  dpl: "+dpl); 
-			test(0);
-			for(let i = add; i>= 0; i=i-1){// those % at the end
-				console.log("el "+i + "is "+ displayedProjects[i]);
-				
-				create(i, tr);
-			}
-			/*
-			for(let i = 0; i< cols-(add +1); i++){// those % at the end
-				let td = document.createElement("td");
-				tr.appendChild(td);
-				td.setAttribute("class", "spacer");
-			}*/
-		}		
-	}
-	
-	// let trSafe = document.createElement("tr");
-	// table.appendChild(trSafe);
-	// for(let s = 0; s<cols-1;s++){
-		// let td = document.createElement("td");
-		// trSafe.appendChild(td);
-		// td.setAttribute("class", "spacer");
-	// }
 	
 };
 
@@ -466,3 +418,24 @@ window.addEventListener("load", function(event) {
 	window.addEventListener("resize" , resize);
 
 });
+
+
+
+/* Extra Json:
+
+
+{ 
+		"state":"recent",
+		"date":{"m":5,"d":"-","y":2019},
+		"tags":"project web js css html game code programming",
+		"type":"project",
+		"title":"Carrot Platformer",
+		"description":"I made <a href=\"https://julientoons.github.io/p/carrots/\" color=\"yellow\">this game</a> with<br>the hope that I would<br>'boost' my javascript skills<br> from beginner to intermediate ",
+		"img":"imgs/carrotScreenShot.png",
+		"imageFilter":"initial",
+		"dateTextColor":"white",
+		"backgroundColor":"grey"
+	}, 
+	
+	
+	*/

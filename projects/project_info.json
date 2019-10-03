@@ -78,18 +78,6 @@
 	
 	{ 
 		"state":"recent",
-		"date":{"m":5,"d":"-","y":2019},
-		"tags":"project web js css html game code programming",
-		"type":"project",
-		"title":"Carrot Platformer",
-		"description":"I made <a href=\"https://julientoons.github.io/p/carrots/\" color=\"yellow\">this game</a> with<br>the hope that I would<br>'boost' my javascript skills<br> from beginner to intermediate ",
-		"img":"imgs/carrotScreenShot.png",
-		"imageFilter":"initial",
-		"dateTextColor":"white",
-		"backgroundColor":"grey"
-	}, 
-	{ 
-		"state":"recent",
 		"date":{"m":6,"d":16,"y":2019},
 		"tags":"project web js css html game code programming sim. simulator",
 		"type":"project",
