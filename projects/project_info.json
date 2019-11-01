@@ -94,7 +94,7 @@
 		"tags":"project web js css html game code programming gui cannon",
 		"type":"project",
 		"title":"Cannon Game w. GUI",
-		"description":"A cannon game in which<br>the player tries to<br>shoot down bubbles<br>*in sandbox mode*<a href=\"https://julientoons.github.io/p/cannon_ai/\" color=\"yellow\">The game</a> also has working,<br> & interactive GUI",
+		"description":"A cannon game in which<br>the player tries to<br>shoot down bubbles<br>*in sandbox mode*<a href=\"https://julientoons.github.io/p/cannon/\" color=\"yellow\">The game</a> also has working,<br> & interactive GUI",
 		"img":"imgs/cannon_aiScreenShot.png",
 		"imageFilter":"initial",
 		"dateTextColor":"black",

@@ -186,14 +186,14 @@ window.addEventListener("load", function(event) {
 	let averageBubbleRadiusSlider = createSlider("averageBubbleRadiusSlider", "Average Bubble Size: 40%", 40);  //40
 	settingsContainer.appendChild(averageBubbleRadiusSlider[0]);
 
-	
+	/*
 	let rerunButton = document.createElement("a");
 	rerunButton.setAttribute("id","rerunButton");
 	rerunButton.setAttribute("class","button");
 	rerunButton.innerHTML = "RERUN WITH<br>NEW VARIABLES";
 	rerunButton.setAttribute("margin-left", "0px");
 	settingsContainer.appendChild(rerunButton);
-	
+	*/
 		//other events
 	gravitySlider[0].oninput = function() {
 		let val = gravitySlider[1].value;
