@@ -287,7 +287,7 @@ window.addEventListener("load", function(event) {
 	resize();
   }
   document.getElementById("play").onclick = function () { };
-  rerunButton.onclick = function () { };
+  // rerunButton.onclick = function () { };
   document.getElementById("stats").onclick = function () {
 	  clearElements();
 	  statsContainer.style.display = "block";
