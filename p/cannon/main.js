@@ -334,7 +334,7 @@ window.addEventListener("load", function(event) {
 				b.innerHTML = "Speed: 1/4";
 				break;
   };}
-  document.getElementById("evolutionButton").onclick = function () {
+  /*document.getElementById("evolutionButton").onclick = function () {
 	b = document.getElementById("evolutionButton");
 	if(b.innerHTML == "Evolution: Manual"){
 		b.innerHTML = "Evolution: AUTO";
@@ -344,7 +344,7 @@ window.addEventListener("load", function(event) {
 		engine.autoTIme = false;
 		b.innerHTML = "Evolution: Manual";
 	}
-  }
+  }*/
   setInterval(function(){
 	  if(needResize == true){
 		  clearElements();
