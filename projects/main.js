@@ -375,10 +375,10 @@ resize = function(bool) {
 		overlayText.setAttribute("class", "boxOverlayText");
 		description = displayedProjects[num].description;
 		switch (description.substring(0,3).toLowerCase()){ // DO NOT USE WITH LINKS
-			case: "[F]": // fit 
+			case "[F]": // fit 
 				description = fit(description.substring(3));
 				break;
-			case: "[R]": // remove \ns then fit
+			case "[R]": // remove \ns then fit
 				description = fit(description.substring(3).replace(/\n/g, " ").replace(/<br>/g, " "));
 				break;
 		}
