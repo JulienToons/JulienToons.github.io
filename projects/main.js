@@ -240,7 +240,7 @@ sort = function(){
 	//console.log(displayedProjects.length + "jjj"+displayedProjects[0]);
 };
 // remove = function(str, stuff = "\n"){
-fit = function(str, ln = 27, breakWords = true, breaker = "\n", splitter = "-"){ // by char
+fit = function(str, ln = 27, breakWords = true, breaker = "<br>", splitter = "-"){ // by char
 	str = str.trim();
 	let lastIndex = 0, previousIndex = 0, i = 0, temp;
 	console.log("str is " + str.length + "chars long");
@@ -274,7 +274,7 @@ fit = function(str, ln = 27, breakWords = true, breaker = "\n", splitter = "-"){
 			lastIndex = previousIndex;
 			str = str.substring(0, previousIndex).concat(breaker, str.substring(previousIndex+1));
 			//i += breaker.length;
-			previousIndex = i;
+			previousIndex = i + breaker.length;
 		} else {
 			previousIndex = i;
 			i++;
