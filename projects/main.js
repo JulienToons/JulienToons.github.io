@@ -239,6 +239,50 @@ sort = function(){
 	}
 	//console.log(displayedProjects.length + "jjj"+displayedProjects[0]);
 };
+// remove = function(str, stuff = "\n"){
+fit = function(str, ln = 27, breakWords = true, breaker = "\n", splitter = "-"){ // by char
+	str = str.trim();
+	let lastIndex = 0, previousIndex = 0, i = 0, temp;
+	console.log("str is " + str.length + "chars long");
+	safetyLength = (breaker.length) * str.length;
+	while (i < str.length && i < safetyLength) {
+		temp = str.indexOf(breaker, i);
+		i = str.indexOf(" ", i);
+		if(temp >=0 && temp <= i){
+			i = temp + breaker.length;
+			lastIndex = i;
+			previousIndex = i;
+			console.log("continued");
+			continue;
+		}
+		console.log("i = " + i);
+		console.log("last is "+lastIndex+" & previous index is "+previousIndex);
+		if(i < 0){
+			console.log("CASE 1");
+			if(str.length - lastIndex > ln+4){
+				console.log("CASE 1.1");
+				str = str.substring(0, lastIndex+ln).concat(splitter, breaker, str.substring(lastIndex+ln));
+			}
+			break;
+		} else if(breakWords && i - previousIndex > ln){
+			console.log("CASE 2");
+			str = str.substring(0, previousIndex + ln).concat(splitter, breaker, str.substring(previousIndex + ln + splitter.length));
+			previousIndex = previousIndex + ln + splitter.length;
+			lastIndex = i;
+		} else if(i - lastIndex > ln){
+			console.log("CASE 3");
+			lastIndex = previousIndex;
+			str = str.substring(0, previousIndex).concat(breaker, str.substring(previousIndex+1));
+			//i += breaker.length;
+			previousIndex = i;
+		} else {
+			previousIndex = i;
+			i++;
+		}
+	}
+	return str;
+};
+console.log(fit("Hi your\nmy hat is george", 12));
 
 resize = function(bool) {
 	//sort();
@@ -329,7 +373,16 @@ resize = function(bool) {
 		
 		let overlayText = document.createElement("div");
 		overlayText.setAttribute("class", "boxOverlayText");
-		overlayText.innerHTML = displayedProjects[num].description;
+		description = displayedProjects[num].description;
+		switch (description.substring(0,3).toLowerCase()){ // DO NOT USE WITH LINKS
+			case: "[F]" // fit 
+				description = fit(description.substring(3));
+				break;
+			case: "[R]" // remove \ns then fit
+				description = fit(description.substring(3).replace(/\n/g, " ").replace(/<br>/g, " "));
+				break;
+		}
+		overlayText.innerHTML = description;
 		overlayObj.appendChild(overlayText);
 		
 		let textContainer = document.createElement("div");
