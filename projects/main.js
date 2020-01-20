@@ -27,7 +27,7 @@ function toggleSettings(){
 function toggleCheck(ele){ 
 	let el = ele.children[0];
 	let result;
-	if (el.src.includes("imgs/checkedBox.png")) {// indexOf or includes, that is my question
+	if (el.src.includes("imgs/checkedBox.png")) {
 		result = false;
 		el.src = "imgs/uncheckedBox.png";
 	} else {
@@ -119,22 +119,23 @@ function toggleCheck(ele){
 	}
 	
 };
+
 printValues = function(arr){
 	for(let i = 0; i<arr.length;i++){
 		console.log("Element " + i + ": " + arr[i]);
 	}
 };
+
 search = function(val ="") {
 	console.log("searching for: " + val);
 	
 	let value = val.toLowerCase();
-	//printValues(toggleSwitches);
 
 	displayedProjects = [];
 	words = value.split(" ");
 	for(let i = 0; i<info.length;i++){
 		
-		let show = false; //false;
+		let show = false;
 		
 		if(value != "" && value != null && !(value.indexOf("all")  >= 0) && !(value.indexOf("everything") >= 0)){  // indexOf or includes?
 			
@@ -156,7 +157,7 @@ search = function(val ="") {
 			}
 		}
 		else {show=true;}
-		//console.log(info[i].type + " " );
+		
 		if	( show &&
 			(
 				(info[i].type.toLowerCase().indexOf("doc") >= 0 && toggleSwitches[2])
@@ -174,40 +175,14 @@ search = function(val ="") {
 			 || (((info[i].state.toLowerCase().indexOf("in progress")  >= 0) || (info[i].state.toLowerCase().indexOf("inprogress")  >= 0) || (info[i].state.toLowerCase().indexOf("in-progress")  >= 0)) && toggleSwitches[9]) 
 			  ) 
 			){
-				
-				/*
-				
-				if	( !(
-				(info[i].type.toLowerCase().indexOf("doc") >= 0 || !toggleSwitches[2])
-			 && (info[i].type.toLowerCase().indexOf("proj")  >= 0 || !toggleSwitches[3]) 
-			 && (info[i].type.toLowerCase().indexOf("event")  >= 0|| !toggleSwitches[4]) 
-			 && (info[i].type.toLowerCase().indexOf("art")  >= 0|| !toggleSwitches[5]) 
-			 && ((info[i].type.toLowerCase().indexOf("other")  >= 0 || info[i].type.toLowerCase().indexOf("othr")  >= 0)|| !toggleSwitches[6]) 
-			 )
-			 
-			 ||
-			 
-			 (
-			    (info[i].state.toLowerCase().indexOf("old")    >= 0 || !toggleSwitches[7])
-			 && (info[i].state.toLowerCase().indexOf("recent")  >= 0 || !toggleSwitches[8]) 
-			 && (((info[i].state.toLowerCase().indexOf("in progress")  >= 0) || (info[i].state.toLowerCase().indexOf("inprogress")  >= 0) || (info[i].state.toLowerCase().indexOf("in-progress")  >= 0)) || !toggleSwitches[9]) 
-			  ) 
-			){
-				*/
-				//console.log("out! _----------");
 			show = true;
 		}
 		else{
 			show = false;
-			//console.log("in! _----------");
 		}
 		
 		if(show == true){
-			//f.print(displayedProjects[i]);
-			//console.log("pushed");
-			//console.log("l before: "+ info.length + " is " + info[i]);
 			displayedProjects.push(info[i]);
-			//console.log("l after: "+ info.length + " is " + info[i].type);
 		}
 	}
 	
@@ -215,20 +190,18 @@ search = function(val ="") {
 	
 	if(displayedProjects.length <= 0){
 		alert("No match for \""+val+"\" found");
-		displayedProjectNum = [];
+		// displayedProjects = [];
 	}
 	else{
-		//console.log("l = " + displayedProjects.length+ "     f = " + displayedProjects[0].backgroundColor );
+		
 	}
 	
 	console.log("Sorting...");
 	sort();
-	//f.printList(displayedProjects);
-	//console.log("Sort complete");
+	console.log("Sort complete");
 	console.log("Loading Files & Graphics...");
 	resize(toggleSwitches[14]);
-	//f.printList(displayedProjects);
-	//console.log("Resize complete");
+	console.log("Resize complete");
 	console.log("Done");
 };
 
@@ -237,9 +210,8 @@ sort = function(){
 	if(displayedProjects.length > 1){
 		displayedProjects = f.shell(displayedProjects);
 	}
-	//console.log(displayedProjects.length + "jjj"+displayedProjects[0]);
 };
-// remove = function(str, stuff = "\n"){
+
 fit = function(str, ln = 27, breakWords = true, breaker = "<br>", splitter = "-"){ // by char
 	str = str.trim();
 	let lastIndex = 0, previousIndex = 0, i = 0, temp;
@@ -273,7 +245,6 @@ fit = function(str, ln = 27, breakWords = true, breaker = "<br>", splitter = "-"
 			console.log("CASE 3");
 			lastIndex = previousIndex;
 			str = str.substring(0, previousIndex).concat(breaker, str.substring(previousIndex+1));
-			//i += breaker.length;
 			previousIndex = i + breaker.length;
 		} else {
 			previousIndex = i;
@@ -312,8 +283,6 @@ resize = function(bool) {
 		table.removeChild(table.firstChild);
 	}
 	
-	
-	
 	let create = function(num, tr){
 		let td = document.createElement("td");
 		tr.appendChild(td);
@@ -335,7 +304,6 @@ resize = function(bool) {
 			//console.log(error);
 		}
 		projectImg.style.width = "100%";
-		//projectImg.setAttribute("-webkit-filter", displayedProjects[num].imageFilter);
 		projectImg.style.WebkitFilter = displayedProjects[num].imageFilter;
 		projectImg.style.filter = displayedProjects[num].imageFilter;
 		td.appendChild(projectImg);
@@ -410,11 +378,11 @@ resize = function(bool) {
 		if(dpl%cols != 0){
 			let tr = document.createElement("tr");
 			table.appendChild(tr);
-			for(let i = ((rs) * cols); i< dpl; i++){// those % at the end
+			for(let i = ((rs) * cols); i< dpl; i++){
 				create(i, tr);
 			}
 			
-			for(let i = 0; i< cols-(dpl +1); i++){// those % at the end
+			for(let i = 0; i< cols-(dpl +1); i++){
 				let td = document.createElement("td");
 				tr.appendChild(td);
 				td.setAttribute("class", "spacer");
@@ -436,11 +404,11 @@ resize = function(bool) {
 		if(dpl%cols != 0){
 			let tr = document.createElement("tr");
 			table.appendChild(tr);
-			for(let i = ((rs) * cols); i< dpl; i++){// those % at the end
+			for(let i = ((rs) * cols); i< dpl; i++){
 				create(sub - i, tr);
 			}
 			
-			for(let i = 0; i< cols-(dpl +1); i++){// those % at the end
+			for(let i = 0; i< cols-(dpl +1); i++){
 				let td = document.createElement("td");
 				tr.appendChild(td);
 				td.setAttribute("class", "spacer");
@@ -450,17 +418,14 @@ resize = function(bool) {
 	
 };
 
-
-
 window.addEventListener("load", function(event) {
 	console.log("V1.056 experimental2");  //25 char max
-	//f.test();
-	//f = new f();
 	
     let request = new XMLHttpRequest();
 	let callback = function(zone) {
 		info = zone;
-		this.shortcut("Projects",[true, false, false, true, false, false, false, true, true, true, false, false, false, true, true]);
+		search();
+		//this.shortcut("Projects",[true, false, false, true, false, false, false, true, true, true, false, false, false, true, true]);
     };
     request.addEventListener("load", function(event) {
 		callback(JSON.parse(this.responseText));
@@ -471,24 +436,3 @@ window.addEventListener("load", function(event) {
 	window.addEventListener("resize" , resize);
 
 });
-
-
-
-/* Extra Json:
-
-
-{ 
-		"state":"recent",
-		"date":{"m":5,"d":"-","y":2019},
-		"tags":"project web js css html game code programming",
-		"type":"project",
-		"title":"Carrot Platformer",
-		"description":"I made <a href=\"https://julientoons.github.io/p/carrots/\" color=\"yellow\">this game</a> with<br>the hope that I would<br>'boost' my javascript skills<br> from beginner to intermediate ",
-		"img":"imgs/carrotScreenShot.png",
-		"imageFilter":"initial",
-		"dateTextColor":"white",
-		"backgroundColor":"grey"
-	}, 
-	
-	
-	*/
