@@ -424,7 +424,7 @@ window.addEventListener("load", function(event) {
     let request = new XMLHttpRequest();
 	let callback = function(zone) {
 		info = zone;
-		if (location.href.includes("#art"){
+		if (location.href.includes("#art")){
 			this.shortcut('Art',[true, false, false, false, false, true, false, true, true, true, false, false, false, true, true]);
 		} else {
 			search();
