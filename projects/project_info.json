@@ -1120,7 +1120,59 @@
 		"dateTextColor":"black",
 		"backgroundColor":"grey",
 		"transform":"rotate(180deg)"
+	},
+	
+	
+	
+	{ 
+		"state":"current",
+		"date":{"m":"1","d":"1","y":2020},
+		"tags":"resolution thor viking cave landscape water waterfall",
+		"type":"art",
+		"title":"Day -X",
+		"description":"[R]Its been a while",
+		"img":"imgs/art/December_2020/resolution.png",
+		"imageFilter":"initial",
+		"dateTextColor":"black",
+		"backgroundColor":"red"
+	},
+	{ 
+		"state":"current",
+		"date":{"m":"1","d":"1","y":2020},
+		"tags":"resolution cop elephant radio pencil",
+		"type":"art",
+		"title":"Day 1",
+		"description":"",
+		"img":"imgs/art/December_2020/first.jpg",
+		"imageFilter":"initial",
+		"dateTextColor":"black",
+		"backgroundColor":"white"
+	},
+	{ 
+		"state":"current",
+		"date":{"m":"1","d":"2","y":2020},
+		"tags":"resolution redbull red bull gives wings",
+		"type":"art",
+		"title":"Day 2: Red Bull",
+		"description":"[R]Red Bull Gives You WIINGS",
+		"img":"imgs/art/December_2020/redBull.jpg",
+		"imageFilter":"initial",
+		"dateTextColor":"black",
+		"backgroundColor":"white"
+	},
+	{ 
+		"state":"current",
+		"date":{"m":"1","d":"3","y":2020},
+		"tags":"resolution tylenol doctor emergency room blood iv bag",
+		"type":"art",
+		"title":"Day 3",
+		"description":"",
+		"img":"imgs/art/December_2020/tylenol.jpg",
+		"imageFilter":"initial",
+		"dateTextColor":"black",
+		"backgroundColor":"grey"
 	}
+	
 	
 	
   
