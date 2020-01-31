@@ -1125,7 +1125,7 @@
 	
 	
 	{ 
-		"state":"current",
+		"state":"recent",
 		"date":{"m":"1","d":"1","y":2020},
 		"tags":"resolution thor viking cave landscape water waterfall",
 		"type":"art",
@@ -1137,7 +1137,7 @@
 		"backgroundColor":"red"
 	},
 	{ 
-		"state":"current",
+		"state":"recent",
 		"date":{"m":"1","d":"1","y":2020},
 		"tags":"resolution cop elephant radio pencil",
 		"type":"art",
@@ -1149,7 +1149,7 @@
 		"backgroundColor":"white"
 	},
 	{ 
-		"state":"current",
+		"state":"recent",
 		"date":{"m":"1","d":"2","y":2020},
 		"tags":"resolution redbull red bull gives wings",
 		"type":"art",
@@ -1161,7 +1161,7 @@
 		"backgroundColor":"white"
 	},
 	{ 
-		"state":"current",
+		"state":"recent",
 		"date":{"m":"1","d":"3","y":2020},
 		"tags":"resolution tylenol doctor emergency room blood iv bag",
 		"type":"art",
