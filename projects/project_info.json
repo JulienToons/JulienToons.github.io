@@ -1126,7 +1126,7 @@
 	
 	{ 
 		"state":"recent",
-		"date":{"m":"1","d":"1","y":2020},
+		"date":{"m":"12","d":"31","y":2019},
 		"tags":"resolution thor viking cave landscape water waterfall",
 		"type":"art",
 		"title":"Day -X",
@@ -1134,7 +1134,7 @@
 		"img":"imgs/art/December_2020/resolution.png",
 		"imageFilter":"initial",
 		"dateTextColor":"black",
-		"backgroundColor":"red"
+		"backgroundColor":"#ff5050"
 	},
 	{ 
 		"state":"recent",
