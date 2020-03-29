@@ -1,4 +1,46 @@
+
 window.addEventListener("load", function(event) {
+	/*
+	var meterEl = document.getElementById('meter'),
+		levelEl = document.querySelector('#meter > span');
+	var meter = DecibelMeter.create('meter-id');
+	var audioSources;
+	var level = document.getElementById('db-level');
+	
+	meter.on('ready', function (meter, sources) {
+		audioSources = sources;
+		meter.connect(audioSources[0]); // connect to first source, assumes meter is ready
+	});
+	
+	
+	meter.on('sample', function (dB, percent, value) {
+		level.innerHTML = dB + ' dB'; // display current dB level
+		levelEl.style.height = (percent * 100) + '%';
+	});
+	
+	meter.on('listen', function (meter) {
+		meterEl.classList.add('active');
+	});
+	
+	// change element class when meter stops listening
+	
+	meter.on('stop-listening', function (meter) {
+		meterEl.classList.remove('active');
+		levelEl.style.height = 0;
+	});
+	
+	// clicking the meter element will toggle listening
+	
+	meterEl.addEventListener('click', function (e) {
+		if (meter.listening)
+			meter.stopListening();
+		else
+			meter.listen();
+	});*/
+
+if(false){
+	meter.listen();
+	
 	const AssetsManager = function() {
 		this.playerSprite = undefined;
 		this.bulletSprite = undefined;
@@ -171,5 +213,5 @@ window.addEventListener("load", function(event) {
 	window.addEventListener("keydown", keyDownUp);
 	window.addEventListener("keyup"  , keyDownUp);
 	window.addEventListener("resize" , resize);
-
+}
 });
