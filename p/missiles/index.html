@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+
+<html>
+
+  <head>
+	<!--  <meta name = "viewport" content = "user-scalable=no,width=device-width"> -->
+	
+    <link href = "style.css" rel = "stylesheet" type = "">
+    <title>Cannon AI</title>
+
+	<script type = "text/javascript">	
+		var needResize = false;
+		let sources = ["display", "game", "engine", "controller", "main"];
+		
+		for (let index = 0; index < sources.length; index ++) {
+			let script = document.createElement("script");
+			script.setAttribute("type", "text/javascript");
+			script.setAttribute("src", String(sources[index] + ".js"));
+			document.head.appendChild(script);
+		}
+		function closeButton(){
+		needResize = true;
+			//c = document.getElementById('sidebar');	while (c.firstChild) {c.removeChild(c.firstChild);}
+		};
+		
+    </script>
+		  
+  </head>
+
+  <body>
+  <!-- Missiles Neural Network Evolution Simulator -->
+	<div id="topbar">
+	  <a id = "title">M.N.N.E.S.</a>
+	  <a class = "button" href="https://julientoons.github.io/">Home</a>
+	  <a class = "button" id = "play">Main: Neural Network</a>
+	  <a class = "button" id = "instructions">Instructions</a>
+	  <a class = "button" id = "settings">Settings</a>
+	  
+	  <a class = "button" id = "pauseButton">Pause</a>
+	  <a class = "button" id = "timeSpeedButton">Speed: 1</a>
+	  <!-- <a class = "button" id = "evolutionButton">Evolution: manual</a>	   -->
+	 
+	  <a class = "button" id = "stats">Stats</a>
+
+	  <!-- add button for resize resolution if bugs? -->
+	</div>
+
+	<div id="sidebar">
+	
+	</div>
+	
+	<div id="main">
+		<div id = "canvasContainer" >
+			<canvas id="canvas"></canvas>
+			
+		</div>
+		
+	</div>
+	
+    
+  </body>
+
+</html> 

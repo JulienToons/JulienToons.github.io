@@ -9,9 +9,6 @@ const Engine = function(time_step, render, update) {
   this.timeFactor              =1;
   this.autoTime                =false;
   
-  this.startTime = new Date();
-  // this.framesPassed = 0;
-  
   this.updated = false;
 
   this.update = update;
@@ -25,13 +22,11 @@ const Engine = function(time_step, render, update) {
     this.time = time_stamp;
 	
 	let calculatedTimeStep = this.time_step*this.timeFactor;//*this.autoTime;
+	
 	while(this.autoTime == true){
 		//console.log("autoTime");
-		//let efficiencyRate = this.time_step * .75;
-		
-		let t = (new Date()).getTime() - this.startTime;
-		
-		this.update(t);
+		let efficiencyRate = this.time_step * .75;
+		this.update(efficiencyRate);
 	}
 	
     if (this.accumulated_time >= /*this.time_step*/ calculatedTimeStep* 3) {
@@ -44,9 +39,7 @@ const Engine = function(time_step, render, update) {
 
       this.accumulated_time -= calculatedTimeStep;//this.time_step;
 
-	  let t = (new Date()).getTime() - this.startTime;
-	  
-      this.update(t);//this.time_step);
+      this.update(calculatedTimeStep);//this.time_step);
 
       this.updated = true;
 

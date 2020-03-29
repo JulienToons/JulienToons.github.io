@@ -1,16 +1,18 @@
 
 window.addEventListener("load", function(event) {
+	
+	
   const AssetsManager = function() {
-    this.crater_img = undefined;
-	this.spike_A = undefined;
-	this.spike_B = undefined;
-	this.spike_C = undefined;
-	this.spike_D = undefined;
+
+    this.cannon_img = undefined;
+	this.bullet_img = undefined;
+	this.bubble_img = undefined;
+
   };
 
   AssetsManager.prototype = {
 
-    constructor: AssetsManager,
+    constructor: Game.AssetsManager,
 
     requestImage:function(url, callback) {
 
@@ -42,64 +44,30 @@ window.addEventListener("load", function(event) {
 
   };
   var render = function() {
-		display.clear(game.world.width, game.world.height);
-		
-		let player = game.world.player;
-		
-		display.update(game.world.width, game.world.height, player, game.world.leftBoarder, game.world.rightBoarder);
-		
-		let particles = game.world.particles;
-		for(let n =0;n< particles.length;n++){	
-			let i = particles[n];
-			display.drawRectangle(i.x,i.y,i.w,i.h,i.c);
-		}
-		
-		let holes = game.world.holes;
-		for (let n = 0; n<holes.length;n++){
-			let i = holes[n];
-			let factor = .45;
-			display.drawRectangle(i.x - (i.d * i.s * factor),i.y,i.s * factor * i.d, i.s,"#0af");
-		}
-		
-		let hazards = game.world.hazards;
-		for (let n = 0; n<hazards.length;n++){
-			let i = hazards[n];
-			switch (i.type){
-				case "spike":		
-					display.drawRectangle(i.x - (i.d * i.w),i.y,i.w * i.d, i.h,"#0af");
-					break;
-				default:
-					console.log("Error: null/no object was requested to be rendered");				
-			}
-		}
-		
-		let worldWidth = game.world.width;
-		let outlineWidth = 10;
-		display.drawRectangle(worldWidth * .025, worldWidth * .025, worldWidth * .7, worldWidth * .05, "rgba(0,0,0,.5)");
-		
-		// display.drawText("Score: 5001",20,50,"30px Verdana", [0,"red"],[1,"white"]);
-		// display.drawText("High-score: 14024",50,130,"20px Times");
-		
-		display.render();
+	  //console.log(game.world.width);
+	display.update();
+	
+	for (p in game.world.particles){
+		p.draw();
+	}
+	
+    display.render();
 
   };
   var update = function(t) {
-    if (controller.up.active) {
-		controller.up.active= false;
-		game.world.player.jump();
-	}
-	if (controller.down.active) {
-		controller.down.active= false;
-		game.world.player.smash();
-	}
-	if (controller.space.active) {
-		controller.space.active= false;
-		game.world.player.superJump();
-	}
 	
-	// game.world.cannon.down = controller.down.active;
-	// game.world.cannon.up = controller.up.active;
-	// game.world.cannon.fire = controller.space.active;
+    //if (controller.left.active) {       console.log("left");           }
+    //if (controller.right.active) {            console.log("right");                }
+	
+	// if (controller.down.active) {     console.log("down");                   }
+	// if (controller.space.active) {     console.log("space");                   }
+    // if (controller.up.active) { console.log("up");}
+	
+    //if (controller.up.active) { console.log("up");controller.up.active= false;}//game.world.player.jump();      controller.up= false; }
+	
+	game.world.cannon.down = controller.down.active;
+	game.world.cannon.up = controller.up.active;
+	game.world.cannon.fire = controller.space.active;
 	
     game.update(t);
     return;
@@ -107,7 +75,7 @@ window.addEventListener("load", function(event) {
   };
 	
  
-	/*
+	
   let clearElements = function(){
 	xButton.style.display = "none";
 	  instructionsText.style.display = "none";
@@ -207,14 +175,14 @@ window.addEventListener("load", function(event) {
 	let averageBubbleRadiusSlider = createSlider("averageBubbleRadiusSlider", "Average Bubble Size: 40%", 40);  //40
 	settingsContainer.appendChild(averageBubbleRadiusSlider[0]);
 
-	
-	// let rerunButton = document.createElement("a");
-	// rerunButton.setAttribute("id","rerunButton");
-	// rerunButton.setAttribute("class","button");
-	// rerunButton.innerHTML = "RERUN WITH<br>NEW VARIABLES";
-	// rerunButton.setAttribute("margin-left", "0px");
-	// settingsContainer.appendChild(rerunButton);
-	
+	/*
+	let rerunButton = document.createElement("a");
+	rerunButton.setAttribute("id","rerunButton");
+	rerunButton.setAttribute("class","button");
+	rerunButton.innerHTML = "RERUN WITH<br>NEW VARIABLES";
+	rerunButton.setAttribute("margin-left", "0px");
+	settingsContainer.appendChild(rerunButton);
+	*/
 		//other events
 	gravitySlider[0].oninput = function() {
 		let val = gravitySlider[1].value;
@@ -300,7 +268,6 @@ window.addEventListener("load", function(event) {
 		averageBubbleRadiusSlider[2].innerHTML = "PAverage Bubble Size: " + val + "%";
 	}	
 	  //  button onclick events
-	 
 	  
   document.getElementById("instructions").onclick = function () {
 	clearElements();
@@ -367,7 +334,7 @@ window.addEventListener("load", function(event) {
 		b.innerHTML = "Evolution: Manual";
 	}
   }*/
-  setInterval(function(){ // resize?
+  setInterval(function(){
 	  if(needResize == true){
 		  clearElements();
 		  
@@ -377,7 +344,7 @@ window.addEventListener("load", function(event) {
   }, 100);
 
   var display        = new Display(document.querySelector("canvas"));
-  var game           = new Game(400,660);
+  var game           = new Game(1000,600);
   var engine         = new Engine(1000/30, render, update);
   var controller     = new Controller();
   var assets_manager = new AssetsManager();
@@ -391,37 +358,26 @@ window.addEventListener("load", function(event) {
   display.buffer.imageSmoothingEnabled = false; //  sure??  ************************************************************************************!!!!!!!!!
 
     game.world.setup();
+/*
+	assets_manager.requestImage("imgs/cannon_02.png", (image) => {
 
-	assets_manager.requestImage("imgs/hole_01.png", (image) => {
-
-      assets_manager.crater_img = image;
+      assets_manager.cannon_img = image;
 	
-	  assets_manager.requestImage("imgs/spike A.png", (image) => {
+	  assets_manager.requestImage("imgs/bullet_01.png", (image) => {
 
-		  assets_manager.spike_A = image;
+		  assets_manager.bullet_img = image;
 		  
-		  assets_manager.requestImage("imgs/spike B.png", (image) => {
+		  assets_manager.requestImage("imgs/bubble_01.png", (image) => {
 
-			  assets_manager.spike_B = image;
-			  
-			  assets_manager.requestImage("imgs/spike C.png", (image) => {
+			  assets_manager.bubble_img = image;
 
-				  assets_manager.spike_C = image;
-				  
-				  assets_manager.requestImage("imgs/spike D.png", (image) => {
-
-					  assets_manager.spike_D = image;
-
-				  });
-
-			  });
 		  });
 
 	  });
       resize();
       engine.start();
 
-    });
+    });*/
 	
     // resize();
     // engine.start();
