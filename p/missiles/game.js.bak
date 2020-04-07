@@ -64,7 +64,64 @@ Game.Camera.prototype = {
 
 
 class f{ // static helper functions
-	static get EPSILON() { return .000001;}
+	static exists(a){
+		return a != null && a != undefined |&& isFinite(a); // foolproof
+	}
+	
+	/* needless! begone!
+	static pointer = { // my makeshift flipping pointing scapegoat which is actudally just a storage handler & an accessor for pointers
+		// maybe add security & private/protected variables later on
+		get out(){
+			
+		},
+		set in(){
+			
+		},
+		pointers: []
+	}
+	*/
+	/*static insanePointer = { // dumb idea... might continue later on
+		// just a slightly more secure version of f.pointer
+		pointers: [],
+		get out(){
+			
+		},
+		set in(){
+			
+		},
+		mode:"standard",
+		encrypt:function(value, method="standard", key = null, bounds = Infinity){ // an Integer
+			
+			method = method.toLowerCase();
+			
+			let crypt = null;
+			
+			switch method(){
+				case "standard":
+					crypt = value + 3;
+					break;
+				case "shift":
+					crypt =  key + value;
+					break;
+				case "complex":
+					crypt = value + 1; // todo
+					break;
+				default: // no encryption
+					crypt = value;
+			}
+			
+			if(!f.exists(bounds)) { 
+				crypt%=bounds;
+			}
+					
+			return crypt;
+			
+		},
+		decrypt:function(){
+			
+		}
+	}*/
+	
 	static v = class v{ // vector 2d functions
 		static normalize(v){
 			let m = this.mag(v);
@@ -141,7 +198,7 @@ class f{ // static helper functions
 			let aTmp = [a2[0] - a1[0], a2[1] - a1[0]];
 			let bTmp = [b[0] - a1[0], b[1] - a1[1]];
 			double r = Math.cross(aTmp, bTmp);
-			return Math.abs(r) < f.EPSILON;
+			return Math.abs(r) < Number.EPSILON;
 		}
 		static doBoundingBoxesIntersect(a1,a2,b1,b2){
 			let aMin = [Math.min(a1[0],a2[0]), Math.min(a1[1],a2[1])];
@@ -276,9 +333,7 @@ class f{ // static helper functions
 			}
 		}
 	}
-	static exists(a){
-		return a != Infinity && a != null && a != undefined;
-	}
+
 	static inflictResistance(obj, constant = 1){ // i forgot what this does
 		let m = -.5 * obj.density * this.v.mag(obj.v) * this.v.mag(obj.v) * obj.frontSurfaceArea;
 		obj.applyForce(this.v.multiply(this.v.normalize(obj.v), m));
@@ -373,6 +428,7 @@ class f{ // static helper functions
 	}
 	static rand(a,b=null){return this.random(a,b);}
 };
+
 
 // Generic Extendable Classes
 class Position{
@@ -530,6 +586,7 @@ class RigidBody2D extends Transform{
 	}
 	
 };
+
 class Collider2D extends RigidBody2D{
 	constructor(x = 0,y = 0,vx = 0,vy = 0, theta = 0, av=0 ,pts = f.geometry.shape.square(),circles = [],density = 1) {
 		super(x,y,vx,vy,theta, av, density);
@@ -731,6 +788,7 @@ class Collider2D extends RigidBody2D{
 		display.drawCircle(this.x + (.5 * this.r),this.y + (.5 * this.r),this.r);
     }
 }
+
 class SmoothBodyCollider extends Collider2D{ // elasticity between 2 connected points (angle and dist)
 	constructor(x = 0,y = 0, vx = 0,vy = 0, theta = 0, av=0, pts = f.geometry.shape.square(),circles = [],density = 1, springConstant = .5, rotationalSpringConstant = springConstant){
 		super(x,y, vx,vy, theta, av,pts,circles,density);
@@ -755,6 +813,55 @@ class RigidBodyCollider extends Collider2D{ // adds material properties: ex: bou
 	}
 	// add collision bounciness
 }
+
+
+
+const GameObject = function(...args) {
+	//  makeshift BS pointer scapegoat
+	this._   = { // maybe add security & private/protected variables later on
+		get out(){
+			
+		},
+		set in(){
+			
+		},
+		pointers: []
+	}
+	this.update   = function(t = 0) {
+		this.world.update();
+	};
+};
+GameObject.prototype = {
+	constructor : GameObject,
+	update:function(...args){
+		
+	}
+};
+
+class GameObject{
+	constructor(){
+		this. _ = []; // I wish I could link several variable names to the same pointer
+	}
+	private pointTo:function(index){
+		if(this.bs_pointers.length <= index){
+			this.bs_pointers.push()
+		}
+	}
+	private setPoint
+	
+	{ // Just an expandable block of code for notorious pointer declarations (get/set)
+	
+	get collider(){  }
+	set collider(a){  }
+		
+	}
+
+
+
+
+
+
+
 
 // joints[] in GameObject
 class ConnectableGameObject extends GameObject{ // not a class, instead a function or a class with the object as a variable??
