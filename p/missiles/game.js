@@ -24,10 +24,10 @@ Game.World = function(w = 100, h = 100, cw = 10, ch = 10, g = 1) { // cw := came
 Game.World.prototype = {
 
 	constructor: Game.World,
-  
+
 	setup:function() {
 		console.log("Alpha Missiles v0.01");
-	
+
 		for(let i = 0; i<20;i++){
 			particles.push(new GameObject( f.rand(-this.width,this.width),f.rand(-this.height,this.height),[],[0,0,5],f.rand(-10,10),f.rand(-10,10),0,0,1);
 		}
@@ -56,45 +56,102 @@ Game.Camera.prototype = {
 	constructor: Game.Cannon,
 	shake:function(){
 		this.shakeFrames = 12;
-	}
+	},
 	update:function(){
-		
+
 	}
 };
 
 
 class f{ // static helper functions
-	static get EPSILON() { return .000001;}
+	static exists(a){
+		return a != null && a != undefined |&& isFinite(a); // foolproof
+	}
+
+	/* needless! begone!
+	static pointer = { // my makeshift flipping pointing scapegoat which is actudally just a storage handler & an accessor for pointers
+		// maybe add security & private/protected variables later on
+		get out(){
+
+		},
+		set in(){
+
+		},
+		pointers: []
+	}
+	*/
+	/*static insanePointer = { // dumb idea... might continue later on
+		// just a slightly more secure version of f.pointer
+		pointers: [],
+		get out(){
+
+		},
+		set in(){
+
+		},
+		mode:"standard",
+		encrypt:function(value, method="standard", key = null, bounds = Infinity){ // an Integer
+
+			method = method.toLowerCase();
+
+			let crypt = null;
+
+			switch method(){
+				case "standard":
+					crypt = value + 3;
+					break;
+				case "shift":
+					crypt =  key + value;
+					break;
+				case "complex":
+					crypt = value + 1; // todo
+					break;
+				default: // no encryption
+					crypt = value;
+			}
+
+			if(!f.exists(bounds)) {
+				crypt%=bounds;
+			}
+
+			return crypt;
+
+		},
+		decrypt:function(){
+
+		}
+	}*/
+
 	static v = class v{ // vector 2d functions
 		static normalize(v){
 			let m = this.mag(v);
-			return [v[0]/m, v[1]/m];		
+			return [v[0]/m, v[1]/m];
 		}
 		static normal(theta){
 			return [Math.cos(theta), Math.sin(theta)];
 		}
-		
+
 		static multiply (v, m){ return [v[0] * m, v[1] * m];}
 		static mult (v, m){ return [v[0] * m, v[1] * m];}
-		
+
 		static mag(v){ return this.vectorDistance(v[0],v[1]);}
 		static dist(v){ return this.vectorDistance(v[0],v[1]);}
 		static distance(v){ return this.vectorDistance(v[0],v[1]);}
 		static vectorDistance(x,y){
 			return Math.sqrt((x*x)+(y*y));
 		}
-		
+
 		static add(a,b){ // 2d vectors only
 			return [a[0] + b[0], a[1] + b[1]];
 		}
 		static addition(a,b){ return this.add(a,b); }
-		
+
 		static difference(a,b){
 			return [a[0] - b[0], a[1] - b[1]];
 		}
 		static subtract(a,b){ return this.difference(a,b);}
 		static subtraction(a,b){ return this.difference(a,b);}
-		
+
 		static project(vector, b){ // v onto b
 			let mag = Math.dot(vector, b) / Math.dot(b,b);
 			let c = [b[0] * mag, b[1] * mag];
@@ -102,12 +159,12 @@ class f{ // static helper functions
 			// Math.sqrt(Math.dot(vector) - Math.dot(b));
 		}
 		static proj(v,b){ return this.project(v,b);}
-		
+
 		static projectAngle(vector, theta){
 			// theta counterclockwise from --->
 			return project(vector, [Math.cos(theta), Math.sin(theta)]);
 		}
-		
+
 		static rotate(v, theta) {
 			return [v[0] * Math.cos(theta) - v[1] * Math.sin(theta), v[0] * Math.sin(theta) + v[1] * Math.cos(theta)];
 		}
@@ -125,10 +182,10 @@ class f{ // static helper functions
 			}
 		}
 		static triangulate(points, ...args){ // unnecessary
-			
+
 		}
 		static centerOfTriangle(){
-			
+
 		}
 		static center(points){
 			let triangles = this.triangulate(points);
@@ -141,7 +198,7 @@ class f{ // static helper functions
 			let aTmp = [a2[0] - a1[0], a2[1] - a1[0]];
 			let bTmp = [b[0] - a1[0], b[1] - a1[1]];
 			double r = Math.cross(aTmp, bTmp);
-			return Math.abs(r) < f.EPSILON;
+			return Math.abs(r) < Number.EPSILON;
 		}
 		static doBoundingBoxesIntersect(a1,a2,b1,b2){
 			let aMin = [Math.min(a1[0],a2[0]), Math.min(a1[1],a2[1])];
@@ -185,13 +242,13 @@ class f{ // static helper functions
 			return doBoundingBoxesIntersect(box1, box2)
 					&& lineSegmentTouchesOrCrossesLine(a, b)
 					&& lineSegmentTouchesOrCrossesLine(b, a);*/
-			
+
 			let v1 = [p1[0]-p2[0], q1[1]-p2[1]]; // oa
 			let v2 = [q1[0]-p2[0], q1[1]-p2[1]]; // ob
 			let v3 = [q2[0]-p2[0], q2[1]-p2[1]]; // om
 			let v4 = [q2[0]-p1[0], q2[1]-p1[1]]; // am
 			let v5 = [q1[0]-p1[0], q1[1]-p1[1]]; // ab
-			
+
 			// Calculate point M' = M mirrored by AB
 			let abLengthSq = v5[0] * v5[0] + v5[1] * v5[1]; // AB • AB
 			let abDam = v5[0] * v4[0] + v5[1] * v4[1]; // AB • AM
@@ -211,7 +268,7 @@ class f{ // static helper functions
 					// inefficient but rarely called on
 					// let rectAB = [Math.min(p1[0], q1[0]), Math.max(p1[1],q1[1]), Math.max(p1[0],q1[0]), Math.min(p1[1],q1[1])];
 					// let rectOM = [Math.min(p2[0], q2[0]), Math.max(p2[1],q2[1]), Math.max(p2[0],q2[0]), Math.min(p2[1],q2[1])];
-					
+
 					//return rectAB.intersect(rectOM);
 					return this.doBoundingBoxesIntersect(p1,q1,p2,q2);
 				}
@@ -222,7 +279,7 @@ class f{ // static helper functions
 			let crossV1V3 = v1[0]*v3[1] - v1[1]*v3[0];
 			let crossV3V2 = v3[0]*v2[1] - v3[1]*v2[0];
 			return (crossV1V3 < 0) == (crossV3V2 < 0);
-			
+
 		}
 		static circleIntersectsCircle(a,b){// [x,y,r],[x,y,r]
 			return Math.abs(f.v.mag(f.v.sub(b,a))) < Math.max(a[2],b[2]);
@@ -231,22 +288,22 @@ class f{ // static helper functions
 			let ab = f.v.mag(f.v.sub(a,b));
 			let bc = f.v.mag(f.v.sub(c,b));
 			let ca = f.v.mag(f.v.sub(a,c));
-			
+
 			let slope = (b[0] - a[0]) / (b[1] - a[1]); // flipped across y=x
 			if( c[1] >= (slope * c[0]) + a[1] - (a[0] * slope) ){
 				return f.v.mag(f.v.sub(c,a)) <= c[2];
 			} else if( c[1] <= (slope * c[0]) + b[1] - (b[0] * slope) ){
 				return f.v.mag(f.v.sub(c,b)) <= c[2];
-			} else { 
+			} else {
 				return ca * Math.sqrt(1 - ((Math.pow(ca,2) + Math.pow(bc,2) - Math.pow(ab,2)) / (2 * ca * bc)) );
 			}
 		}
 		static lineIntersectsCircle(...args){
 			return circleIntersectsLine(...args);
 		}
-		
+
 		static shape = class shape{
-		
+
 			static image(img){
 				return this.img(img);
 			}
@@ -254,14 +311,14 @@ class f{ // static helper functions
 				// createPointsAndOrOrCirclesFromImage
 				return [];
 			}
-			
+
 			static square(r = 1){ // max dist from center to point
 				return this.polygon(4,r);
 			}
 			static strictSquare(d = 1){ // min dist from center to middle of a line
 				return this.strictPolygon(4,d);
 			}
-			
+
 			static poly(pts = 3, r = 1){ return this.polygon(pts,r); }
 			static polygon(pts = 3, r = 1){ // max dist from center to point
 				let points = [];
@@ -276,9 +333,7 @@ class f{ // static helper functions
 			}
 		}
 	}
-	static exists(a){
-		return a != Infinity && a != null && a != undefined;
-	}
+
 	static inflictResistance(obj, constant = 1){ // i forgot what this does
 		let m = -.5 * obj.density * this.v.mag(obj.v) * this.v.mag(obj.v) * obj.frontSurfaceArea;
 		obj.applyForce(this.v.multiply(this.v.normalize(obj.v), m));
@@ -286,7 +341,7 @@ class f{ // static helper functions
 	static inflictGravitationalForce(a,b,g = 1,ww = Infinity, wh = Infinity, wx = 0, wy = 0){ // g = gravitational constant
 		let d = dis(a,b, ww,wh,wx,wy);
 		let f =  g * a.m * b.m / (d * d);
-		
+
 		b.applyForce((a.x - b.x) * f/ d, (a.y - b.y) * f/d);
 		a.applyForce((b.x - a.x) * f/ d, (b.y - a.y) * f/d);
 	}
@@ -312,28 +367,28 @@ class f{ // static helper functions
 	}
 	static distance(a,b,ww = Infinity, wh = Infinity, wx = 0, wy = 0){return dis(a,b,ww,wh,wx,wy);}
 	static dist(a,b,ww = Infinity, wh = Infinity, wx = 0, wy = 0){return dis(a,b,ww,wh,wx,wy);}
-	
+
 	static col(a,b){f.elasticCollision(a,b);} // need collison with forces
 	static indirectCollision(a,b){// with rotation but not points?
-		
+
 	}
 	static elasticCollision(a,b){ // change to nextVelocity
 		let tempX = (a.m * a.vx) + (b.m * b.vx) - (a.m * a.vx)
 		tempX = tempX/b.m;
 		tempX = f.KE(a.m,a.vx) + f.KE(b.m,b.vx) - f.KE(b.m,tempX);
 		tempX = 2 * Math.sqrt(.5 * tempX) / a.m;
-		
+
 		let tempY = (a.m * a.vy) + (b.m * b.vy) - (a.m * a.vy)
 		tempY = tempY/b.m;
 		tempY = f.KE(a.m,a.vy) + f.KE(b.m,b.vy) - f.KE(b.m,tempY);
 		tempY = 2 * Math.sqrt(.5 * tempY) / a.m;
-		
+
 		let tempX2 = f.KE(a.m,a.vx) + f.KE(b.m,b.vx) - f.KE(b.m,tempX);
 		tempX2 = 2 * Math.sqrt(.5 * tempX) / a.m;
-		
+
 		let tempY2 = f.KE(a.m,a.vy) + f.KE(b.m,b.vy) - f.KE(b.m,tempY);
 		tempY2 = 2 * Math.sqrt(.5 * tempY) / a.m;
-		
+
 		a.vx = tempX;
 		a.vy = tempY;
 		b.vx = tempX2;
@@ -345,7 +400,7 @@ class f{ // static helper functions
 
 		a.vx = (a.m * a.vx) + (b.m * b.vx) - (b.m * tempVx);
 		a.vy = (a.m * a.vy) + (b.m * b.vy) - (b.m * tempVy);
-		
+
 		b.vx = tempVx;
 		b.vy = tempVy;
 	}
@@ -357,7 +412,7 @@ class f{ // static helper functions
 		var v2 = f.v.rotate(b.v, theta);
 		var u1 = f.v.rotate([v1[0] * (m1 - m2)/(m1 + m2) + v2[0] * 2 * m2/(m1 + m2), v1[1]], -theta);
 		var u2 = f.v.rotate([v2[0] * (m2 - m1)/(m1 + m2) + v1[0] * 2 * m1/(m1 + m2), v2[1]], -theta);
-		
+
 		a.vx = u1[0];
 		a.vy = u1[1];
 		b.vx = u2[0];
@@ -373,6 +428,7 @@ class f{ // static helper functions
 	}
 	static rand(a,b=null){return this.random(a,b);}
 };
+
 
 // Generic Extendable Classes
 class Position{
@@ -442,16 +498,16 @@ class RigidBody2D extends Transform{
 	constructor(x = 0,y = 0, vx = 0,vy = 0, theta = 0, av=0, density = 1) {
 		super(x,y,vx,vy,theta, av);
 		this.density = density;
-		
+
 		this.forces = [];
-		
+
 		this.centerOfMass = this.calculateCenterOfMass();
 	}
 	get com(){ return this.centerOfMass;}
 	get rcom(){ return f.v.sub(this.centerOfMass, this.pos);}
 	get relativeCenterOfMass() { return this.rcom;}
-	
-	
+
+
 	calculateRelativeCenterOfMass(){
 		return [0,0];
 	}
@@ -465,16 +521,16 @@ class RigidBody2D extends Transform{
 		return this.density * 1;  // for simplicity
 	}
 	get mass(){ return m;}
-	
+
 	worldPoint(pt){ // convert geometry point into world coordinates
 		if(typeof pt == Number){
 			pt = this.points[pt];
 		}
 		return f.v.add(this.pos, f.v.rotate(pt, this.theta));
 	}
-	
+
 	toWorldPoint(pt){ return this.worldPoint(pt);}
-	
+
 	applyAcceleration(ax,ay){
 		applyForce(ax * this.mass, ay * this.mass);
 	}
@@ -528,19 +584,19 @@ class RigidBody2D extends Transform{
 	postUpdate(){
 		this.forces.clear();
 	}
-	
+
 };
 
 class Collider2D extends RigidBody2D{
 	constructor(x = 0,y = 0,vx = 0,vy = 0, theta = 0, av=0 ,pts = f.geometry.shape.square(),circles = [],density = 1) {
 		super(x,y,vx,vy,theta, av, density);
-		
+
 		this.pts = pts;
 		this.circles = circles;
-		
+
 		this.nextVx = vx;
 		this.nextVy = vy;
-		
+
 		this.maxColliderDist = this.calculateMaxColliderDist();
 	}
 	collide(obj){
@@ -553,9 +609,9 @@ class Collider2D extends RigidBody2D{
 		// and apply to whole class
 	}
 	calculateCenterOfMass(){
-		
+
 	}
-	
+
 	claculateMaxColliderDist(){
 		let maxColliderDist = 0;
 		for (circle in this.circles){
@@ -600,7 +656,7 @@ class Collider2D extends RigidBody2D{
 			}
 		}
 		else return false;
-		
+
 		return intersections >= 1; // 1 for strict edge inclusion, 2 for not included
 	}
 	inside(obj){
@@ -613,7 +669,7 @@ class Collider2D extends RigidBody2D{
 		if(this.inside(obj) || obj.inside(this)){
 			return true;
 		}
-		
+
 		// check line:line
 		if(mode){ // by checking point enclosure
 			for(let i = 0; i < obj.points.length; i++){
@@ -640,7 +696,7 @@ class Collider2D extends RigidBody2D{
 				}
 			}
 		}
-		
+
 		// check circle:circle
 		for(let i = 0; i < this.circles.length; i++){
 			for(let c = 0; c < obj.circles.length; c++){
@@ -656,7 +712,7 @@ class Collider2D extends RigidBody2D{
 				}
 			}
 		}
-		
+
 		// check circle:line
 		for(let i = 0; i < this.points.length; i++){
 			let i2 = (i < this.points.length - 1)? i + 1: i - this.points.length;
@@ -674,13 +730,13 @@ class Collider2D extends RigidBody2D{
 				}
 			}
 		}
-		
+
 		return false;
 	}
 	get area(){
 		return 5;
 	}
-	
+
 	worldCircle(c){
 		if(typeof pt == Number){
 			c = this.circles[c];
@@ -691,7 +747,7 @@ class Collider2D extends RigidBody2D{
 	toWorldCircle(c){
 		return this.worldCircle(c);
 	}
-	
+
 	get volume(){ return Math.PI * (4/3) * Math.power(this.r, 3);}
 	get r(){ return Math.sqrt(this.area / Math.PI);} // imaginary + auxiliary radius formation
 	get radius(){ return Math.sqrt(this.area / Math.PI);}
@@ -700,17 +756,17 @@ class Collider2D extends RigidBody2D{
 	get surfaceArea(){ return this.sa;}
 	get frontSurfaceArea(){ return this.sa;} // for wind resistenc f(v)
 	get m(){ return this.density * this.volume;}
-	
+
 	update(){
 		this.vx = this.nextVx;
 		this.vy = this.nextVy;
-		
+
 		super.update();
 	}
 	postUpdate(ww = Infinity,wh = Infinity, wcenterx = 0, wcentery = 0){
 		// polish
 		super.update(); // standard discrete updates
-		
+
 		// TODO: change so that the edges are not allowed outside of the boundaries instead of the center
 		if (this.x < wcenterx - ww/2){
 			this.x = wcenterx - ww/2;
@@ -727,7 +783,7 @@ class Collider2D extends RigidBody2D{
 	}
     draw (display) {
 		// draw
-		
+
 		// let ctx = display.ctx;
 		display.drawCircle(this.x + (.5 * this.r),this.y + (.5 * this.r),this.r);
     }
@@ -758,23 +814,72 @@ class RigidBodyCollider extends Collider2D{ // adds material properties: ex: bou
 	// add collision bounciness
 }
 
+
+
+const GameObject = function(...args) {
+	//  makeshift flipping BS pointer scapegoat
+	this._   = {
+		get out(){
+
+		},
+		set in(){
+
+		},
+		pointers: []
+	}
+	this.update   = function(t = 0) {
+		this.world.update();
+	};
+};
+GameObject.prototype = {
+	constructor : GameObject,
+	update:function(...args){
+
+	}
+};
+
+class GameObject{
+	constructor(){
+		this. _ = []; // I wish I could link several variable names to the same pointer
+	}
+	private pointTo:function(index){
+		if(this.bs_pointers.length <= index){
+			this.bs_pointers.push()
+		}
+	}
+	private setPoint
+
+	{ // Just an expandable block of code for notorious pointer declarations (get/set)
+
+	get collider(){  }
+	set collider(a){  }
+
+	}
+
+
+
+
+
+
+
+
 // joints[] in GameObject
 class ConnectableGameObject extends GameObject{ // not a class, instead a function or a class with the object as a variable??
 	constructor(x = 0,y = 0,pts = [], circles = [],vx = 0,vy = 0, theta = 0, av=0, density = 1, attachedJoint = null, tempDist = 1, thisOffX=0, thisOffY=0, attOffX=0, attOffY=0, relativeAngle = 0,breakForce = Infinity, breakTorque = Infinity, springConstant = Infinity, rotationalSpringConstant = 0, rotational_coefficient_of_friction = 0) {
 		super(x,y,pts,circles,vx,vy,theta,av,density,collider);
 		this.attachedJoint = attachedJoint;
 		this.distanceToJoint = tempDist;
-		
+
 		this.breakForce = breakForce;
 		this.breakTorque = breakTorque;
-		
+
 		this.springConstant = springConstant;
 		this.rotationalSpringConstant = rotationalSpringConstant;
-		
+
 		this.rotational_coefficient_of_friction = rotational_coefficient_of_friction;
-		
+
 		this.relativeAngle = relativeAngle; // counter clockwise from -->
-		
+
 		this.pivotXOffset = attOffX;
 		this.pivotYOffset = attOffY;
 		this.thisXOffset = thisOffX;
@@ -811,9 +916,9 @@ class ConnectableGameObject extends GameObject{ // not a class, instead a functi
 	applyTorque = this.addTorque;
 	preUpdate(ww = Infinity,wh = Infinity, wcenterx = 0, wcentery = 0){
 		super.preUpdate();
-		
+
 		let tempForceValues = this.forces;
-		
+
 		if(this.connected){
 			if( ! f.exists(this.springConstant)){
 				if(this.distanceToJoint > this.distanceVector(this.attachedJoint, this)){
@@ -834,13 +939,13 @@ class ConnectableGameObject extends GameObject{ // not a class, instead a functi
 				}
 			}
 			else{
-				
+
 			}
 		}
 		if(this.connected){
 			if(f.exists(this.rotational_coefficient_of_friction)){
 				let tempTorque2 = f.v.mag(f.v.multiply(f.v.project([tempForceValues[0],tempForceValues[1]], this.distanceVector[0], this.distanceVector[1]) , this.rotational_coefficient_of_friction));
-				
+
 				if(Math.abs(tempForceValues[2]) < Math.abs(tempTorque2)){
 					this.applyTorque(-tempForceValues[2]);
 				} else {
@@ -850,11 +955,11 @@ class ConnectableGameObject extends GameObject{ // not a class, instead a functi
 		}
 	}
 	update() {
-	// collide, addforces, applyforces and dv, dp	
+	// collide, addforces, applyforces and dv, dp
 		if(f.v.vectorDistance(ax,ay) > this.maxForce){
 			this.attachedJoint = null;
 		}
-		
+
 		super.update();
 	}
 	postUpdate(ww = Infinity,wh = Infinity, wcenterx = 0, wcentery = 0){
@@ -868,7 +973,7 @@ class ConnectableGameObject extends GameObject{ // not a class, instead a functi
 				// fixed (distance)
 				this.pos = f.v.project([this.x,this.y], this.distanceVector);
 			}
-			
+
 		}
 		super.postUpdate(ww,wh,wcenterx,wcentery);
 	}
@@ -894,4 +999,3 @@ private class Particle extends StrictTransform{
 		return (this.a <= 0);
 	}
 };
-
