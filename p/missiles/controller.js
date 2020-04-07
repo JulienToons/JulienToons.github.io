@@ -1,116 +1,42 @@
-/*const Controller = function() {
+const Controller = function () {
 
-  this.left  = false;
-  this.right = false;
-  this.up    = false;
-  this.down  = false;
-
-  this.keyDownUp = function(type, key_code) {
-
-    if(type == "keydown"){
-
-		switch(key_code) {
-		  
-		  case 37: this.left = true;  break;
-		  case 38: this.up = true;    break;
-		  case 39: this.right = true; break;
-		  case 40: this.down = true;   
-
-		}
-	} else if(type == "keyup"){
-
-		switch(key_code) {
-
-		  case 37: this.left = false;  break;
-		  case 38: this.up = false;    break;
-		  case 39: this.right = false; break;
-		  case 40: this.down = false;   
-
-		}
-	}
-
-  };
-
-};
-
-Controller.prototype = {
-
-  constructor : Controller
-
-};*/
-
-// Controller.ButtonInput = function() {
-
-  // this.active = this.down = false;
-
-// };
-
-// Controller.ButtonInput.prototype = {
-
-  // constructor : Controller.ButtonInput,
-
-  // getInput : function(down) {
-
-    // if (this.down != down) this.active = down;
-    // this.down = down;
-
-  // }
-
-//};
+  this.left = new Controller.ButtonInput();
+  this.right = new Controller.ButtonInput();
+  this.up = new Controller.ButtonInput();
+  this.down = new Controller.ButtonInput();
+  this.space = new Controller.ButtonInput();
 
 
-const Controller = function() {
-
-  //this.left  = new Controller.ButtonInput();
-  //this.right = new Controller.ButtonInput();
-  this.up    = new Controller.ButtonInput();
-  this.down    = new Controller.ButtonInput();
-  this.space    = new Controller.ButtonInput();
-
-  this.keyDownUp = function(type, key_code) {
-
+  this.keyDownUp = function (type, key_code) {
     var down = (type == "keydown") ? true : false;
 
-    switch(key_code) {
+    switch (key_code) {
+      case 32: this.space.getInput(down); break;
+      case 37: this.left.getInput(down); break;
+      case 38: this.up.getInput(down); break;
+      case 39: this.right.getInput(down); break;
+      case 40: this.down.getInput(down); break;
 
-      // case 37: this.left.getInput(down);  break;
-      // case 38: this.up.getInput(down);    break;
-	  // case 37: this.left.getInput(down);  break;
-	  	  
-	  case 32: this.space.getInput(down);  break;
-	  //case 37: this.left.getInput(down);  break;
-      case 38: this.up.getInput(down);    break;
-      //case 39: this.right.getInput(down); break;
-	  case 40: this.down.getInput(down); 
-
-
+      case 65: this.left.getInput(down); break;
+      case 68: this.right.getInput(down);
     }
-
   };
 
 };
 
 Controller.prototype = {
-
-  constructor : Controller
-
+  constructor: Controller
 };
 
-Controller.ButtonInput = function() {
-
+Controller.ButtonInput = function () {
   this.active = this.down = false;
-
 };
 
 Controller.ButtonInput.prototype = {
+  constructor: Controller.ButtonInput,
 
-  constructor : Controller.ButtonInput,
-
-  getInput : function(down) {
-
+  getInput: function (down) {
     if (this.down != down) this.active = down;
     this.down = down;
-
   }
-
 };
