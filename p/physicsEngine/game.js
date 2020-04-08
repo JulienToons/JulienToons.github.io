@@ -67,7 +67,7 @@ class GameObject{ // with rudimentary physics & colliders
 	constructor(col,id = null,type = null){
 		this.col = col;
 		this.connections = [];
-		
+
 		this.id = id;
 		this.type = type;
 	}
@@ -86,8 +86,9 @@ class GameObject{ // with rudimentary physics & colliders
 
 
 class f{ // static helper functions
+	static get epsilon(){ return .001; }
 	static exists(a){
-		return a != null && a != undefined |&& isFinite(a); // foolproof
+		return a != null && a != undefined && isFinite(a); // foolproof
 	}
 	static toDeg(a){
 		return a * 180 /Math.PI;
@@ -234,12 +235,12 @@ class f{ // static helper functions
 
 			return crypt;
 
-		},
+		}
 		static isPointOnLine(a1,a2, b) {
 			let aTmp = [a2[0] - a1[0], a2[1] - a1[0]];
 			let bTmp = [b[0] - a1[0], b[1] - a1[1]];
-			double r = Math.cross(aTmp, bTmp);
-			return Math.abs(r) < Number.EPSILON;
+			let r = Math.cross(aTmp, bTmp);
+			return Math.abs(r) < f.EPSILON;
 		}
 		static doBoundingBoxesIntersect(a1,a2,b1,b2){
 			let aMin = [Math.min(a1[0],a2[0]), Math.min(a1[1],a2[1])];
@@ -248,12 +249,12 @@ class f{ // static helper functions
 			let bMax = [Math.max(b1[0],b2[0]), Math.max(a1[1],b2[1])];
 			return (aMin[0] <= bMax[0] && aMax[0] >= bMin[0] && aMin[0] <= bMax[1] && aMax[1] >= bMin[1]);
 		}
-		public boolean isPointRightOfLine(a1,a2,b) {
+		static isPointRightOfLine(a1,a2,b) {
 			let aTmp = [a2[0] - a1[0], a2[1] - a1[0]];
 			let bTmp = [b[0] - a1[0], b[1] - a1[1]];
 			return Math.cross(aTmp, bTmp) < 0;
 		}
-		public boolean lineSegmentTouchesOrCrossesLine(a,b) { // a and b are lines
+		static lineSegmentTouchesOrCrossesLine(a,b) { // a and b are lines
 			return isPointOnLine(a[0],a[1], b[0])
 					|| isPointOnLine(a[0],a[1], b[1])
 					|| (isPointRightOfLine(a[0],a[1], b[0]) != isPointRightOfLine(a[0],a[1], b[1])); // != is actually ^ in java
@@ -818,7 +819,7 @@ class Collider2D extends RigidBody2D{
 
 		// let ctx = display.ctx;
 		display.drawCircle(this.x + (.5 * this.r),this.y + (.5 * this.r),this.r);
-    }
+    
   }
 }
 
@@ -953,7 +954,7 @@ class ConnectableGameObject extends GameObject{ // not a class, instead a functi
 		if(this.connected){
 			if(f.exists(this.rotationalSpringConstant) || f.exists(this.rotational_coefficient_of_friction)){
 				// relative (aka: super fixed w. rotation)
-				this.pos = f.v.add(f.v.add(f.v.rotate([this.thisOffX, this.thisOffY], this.theta), f.v.rotate([this.pivotXOffset, this.pivotYOffset],this.attachedJoint.theta)), this.attachedJoint.pos))
+				this.pos = f.v.add(f.v.add(f.v.rotate([this.thisOffX, this.thisOffY], this.theta), f.v.rotate([this.pivotXOffset, this.pivotYOffset],this.attachedJoint.theta)), this.attachedJoint.pos);
 			}
 			else if(!f.exists(this.springConstant)){
 				// fixed (distance)
