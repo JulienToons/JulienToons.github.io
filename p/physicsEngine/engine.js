@@ -1,5 +1,3 @@
-
-
 const Engine = function (time_step, render, update) {
 
   this.accumulated_time = 0;

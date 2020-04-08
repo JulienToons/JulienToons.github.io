@@ -1,9 +1,7 @@
-
-
 const Display = function (canvas, container) {
 
-  this.buffer = document.createElement("canvas").getContext("2d"),
-    this.context = canvas.getContext("2d");
+  this.buffer = document.createElement("canvas").getContext("2d");
+  this.context = canvas.getContext("2d");
   this.TO_RADIANS = Math.PI / 180;
 
   this.drawRectangle = function (x, y, color = null, width = 1, height = 1) {
@@ -34,21 +32,8 @@ const Display = function (canvas, container) {
     else { this.buffer.stroke(); }
 
   };
-  this.update = function () {
-    /*this.drawRectangle(0, 0, "#dfdeee",width, height);
-    this.drawRectangle(0, height-29, "#654321",width, 31);
-	
-	
-    let cx = cannon.x;
-    let cy = cannon.y;
-	
-    //power bar
-    let yhh = 13;
-    this.drawRectangle(cx-25, cy+yhh, "#806030", 45, 16);
-    let borderThickness = 2;
-    this.drawRectangle(cx-25+borderThickness, cy+yhh+borderThickness, "#654321", 45-(2*borderThickness), 16-(2*borderThickness));
-    this.drawRectangle(cx-25+borderThickness, cy+yhh+borderThickness, "#00ff00", cannon.power * (45-(2*borderThickness)), (16-(2*borderThickness)));
-*/
+  this.update = function (w,h) {
+    this.drawRectangle(0,0,"#5bb",w,h);
   };
   this.drawObject = function (image, x, y, size) {
     this.drawRectangle(x, y);
@@ -57,19 +42,26 @@ const Display = function (canvas, container) {
     catch (e) { console.log("Bubble failed to load"); }
   };
 
-  this.drawCannon = function (image, x, y, size, r) {
-    let rotation = 45 - r;
-    this.buffer.translate(x, y);
-    this.buffer.rotate(rotation * this.TO_RADIANS);
-    this.buffer.drawImage(image, -26, -37, size, size);
-    //this.drawRectangle(0,0, "#00ff00", 5, 5);
+	this.drawObject = function(image, x,y,w,h=w){
+		this.drawRectangle(x,y);
+		try{ this.buffer.drawImage(image, x,y,w, h);}
+		catch(e){ console.log("Img failed to load: "+e);}
+	};
+	  
+	this.drawImg = function(image, x, y, ox, oy, width, height, r, spread) {
+    // NEED TO FIX ROTATION
+		// this.drawRectangle(x,y,"#000",50,40);
+		let rotation = r;
+		this.buffer.translate(x,y);
+		this.buffer.rotate(rotation * this.TO_RADIANS);
+		// this.drawRectangle(0,0,"#eee", 20, 20);
+		this.buffer.drawImage(image, ox, oy, width, height);
+		this.buffer.rotate(-rotation * this.TO_RADIANS);
+		this.buffer.translate(-x,-y);
+	};
 
-    this.buffer.rotate(-rotation * this.TO_RADIANS);
-    this.buffer.translate(-x, -y);
-  };
 
-
-  this.resize = function (w, h, height_width_ratio) {
+  this.resize = function (w, h, height_width_ratio = h/w) {
     let temp = document.getElementById("main");
     let sb = document.getElementById("sidebar");
     let l = sb.offsetWidth + 0;
@@ -94,6 +86,18 @@ const Display = function (canvas, container) {
       this.context.canvas.width = height / height_width_ratio;
     }
     this.context.imageSmoothingEnabled = true;// ****************too
+  
+    /*
+    if (h / w > height_width_ratio) {
+			this.context.canvas.height = w * height_width_ratio;
+			this.context.canvas.width  = w;
+		} else {
+			this.context.canvas.height = h;
+			this.context.canvas.width  = h / height_width_ratio;
+		}
+		this.context.imageSmoothingEnabled = true;// ****************too
+	};
+    */
   };
 };
 

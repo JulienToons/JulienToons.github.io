@@ -7,74 +7,103 @@ const Game = function (w, h) {
 Game.prototype = { constructor: Game };
 
 
-Game.World = function (w = 100, h = 100, cw = 10, ch = 10, g = 1) { // cw := camera width // world goes around 0 <=> maxlen (-w/2 to w/2)
+Game.World = function (w = 1000, h = 1000, cs=.2) {
   this.height = h;
   this.width = w;
-  this.camera = new Camera(0, 0, cw, ch);
+  this.camera = cs; // temp store size then set to camera class instance
   this.gravity = g;
 
-  this.balls = []
-
-  this.players = []; // player contains string and hammer
-  this.user = null;
-
-  this.particles = [];
-
+	this.objects = [];
+  this.user = null; // player contains string and hammer
 };
 Game.World.prototype = {
 
 	constructor: Game.World,
 
 	setup:function() {
-		console.log("Alpha Missiles v0.01");
+		console.log("Julien Owhadi's Physics Engine vALPHA 1.1");
+		this.camera = new Game.Camera(0,0,this.camera);
 
-		for(let i = 0; i<20;i++){
-			particles.push(new GameObject( f.rand(-this.width,this.width),f.rand(-this.height,this.height),[],[0,0,5],f.rand(-10,10),f.rand(-10,10),0,0,1);
-		}
+		let boundingSafetyVar = 40;
+		// this.me = new Player(f.rand(boundingSafetyVar,this.width),f.rand(boundingSafetyVar,this.height),1,1);
+
 	},
 
-  setup: function () {
-    console.log("Alpha Missiles v0.01");
-
-    for (let i = 0; i < 20; i++) {
-      particles.push(new GameObject(f.rand(-this.width, this.width), f.rand(-this.height, this.height), [], [0, 0, 5], f.rand(-10, 10), f.rand(-10, 10), 0, 0, 1);
-    }
-  },
-
   update: function () {
-    for (i in this.particles) {
-      i.preUpdate();
-      i.update();
-      i.postUpdate(this.width, this.height, 0, 0);
-    }
-    this.camera.update();
+		this.camera.update(this.me);
+		this.me.update();
+		for(let i = 0; i < this.objects.length; i++){
+			this.objects[i].update();
+		}
   }
 };
-Game.Camera = function (xx, yy) {
-  this.x = xx;
-  this.y = yy;
-  this.x_offset = 0;
-  this.y_offset = 0;
-  this.theta = 0;
-  this.following = null;
-  this.shakeFrames = 0;
-  // add shake animations
+
+Game.Camera = function(xx,yy,cs = .3){
+	this.scale = cs;
+	this.x = xx;
+	this.y = yy;
+	this.x_offset = 0;
+	this.y_offset = 0;
+	this.theta = 0;
+	this.following = null;
+	this.shakeFrames = 0;
+	this.lerpFactor = .4;
+	this.snapDistance = 2;
+	// add shake animations with theta
 };
 Game.Camera.prototype = {
-	constructor: Game.Cannon,
+	constructor: Game.Camera,
 	shake:function(){
 		this.shakeFrames = 12;
 	},
-	update:function(){
-
+	update:function(player){
+		// lerp function (aka slowly moves to player's pos as if connected by a smooth spring
+		this.x = (Math.abs(this.x - player.x) <= this.snapDistance)?   (player.x) + (this.lerpFactor * (this.x - player.x))  :  player.x;
+		this.y = (Math.abs(this.x - player.x) <= this.snapDistance)?  (player.y) + (this.lerpFactor * (this.y - player.y))  :  player.y;
 	}
 };
+
+class GameObject{ // with rudimentary physics & colliders
+	constructor(col,id = null,type = null){
+		this.col = col;
+		this.connections = [];
+		
+		this.id = id;
+		this.type = type;
+	}
+
+	set collider(v){ this.col = v; }
+	get collider(){ return this.col; }
+	set transform(v){ this.col = v; }
+	get transform(){ return this.col; }
+
+	addConnection(){
+		this.connections.push(/* */);
+	}
+	set joints(v){ this.connections = v; }
+	get joints(){ return this.connections; }
+}
 
 
 class f{ // static helper functions
 	static exists(a){
 		return a != null && a != undefined |&& isFinite(a); // foolproof
 	}
+	static toDeg(a){
+		return a * 180 /Math.PI;
+	}
+	static toRad(a){
+		return a * Math.PI / 180;
+	}
+	static random(a,b = null){
+		if(f.exists(b)){
+			return a + Math.random() * (b-a);
+		}
+		else {
+			return a*Math.random();
+		}
+	}
+	static rand(a,b=null){return this.random(a,b);}
 
 	/* needless! begone!
 	static pointer = { // my makeshift flipping pointing scapegoat which is actudally just a storage handler & an accessor for pointers
@@ -180,6 +209,7 @@ class f{ // static helper functions
 			return this.rotate([x,y],t);
 		}
 	}
+
 	static geometry = class geometry{
 		static lineContainsPoint(pt1,pt2,pt3, mode = true){
 			// extend vert/hor ray through pt3 and check if it passes through the line (pt1,pt2)
@@ -205,9 +235,6 @@ class f{ // static helper functions
 			return crypt;
 
 		},
-		decrypt:function(){
-
-		}
 		static isPointOnLine(a1,a2, b) {
 			let aTmp = [a2[0] - a1[0], a2[1] - a1[0]];
 			let bTmp = [b[0] - a1[0], b[1] - a1[1]];
@@ -362,12 +389,6 @@ class f{ // static helper functions
 	static inflictBuoyantForce(a, density = 1, gravity = 1){
 		a.applyForce(0, - a.voulume * density * gravity);
 	}
-	static toDeg(a){
-		return a * 180 /Math.PI;
-	}
-	static toRad(a){
-		return a * Math.PI / 180;
-	}
 	static KE(mass, velocity){ // kinetic energy
 		return .5 * mass * velocity * velocity;
 	}
@@ -432,15 +453,6 @@ class f{ // static helper functions
 		b.vx = u2[0];
 		b.vy = u2[1];
 	}
-	static random(a,b = null){
-		if(f.exists(b)){
-			return a + Math.random(b-a);
-		}
-		else {
-			return Math.random(a);
-		}
-	}
-	static rand(a,b=null){return this.random(a,b);}
 };
 
 
@@ -487,7 +499,7 @@ class Transform extends StrictTransform {
   }
   update() {
     super.update();
-    theta += omega;
+    this.theta += omega;
   }
   get av() {
     return this.angularVelocity;
@@ -500,7 +512,13 @@ class Transform extends StrictTransform {
   }
   set theta(t) {
     this.angle = t;
-  }
+	}
+	get angleInDeg(){ 
+		return f.toDeg(this.theta);
+	};
+	set angleInDeg(t){ 
+		this.theta =  f.toRad(t);
+	};
   get omega() {
     return this.angularVelocity;
   }
@@ -781,7 +799,7 @@ class Collider2D extends RigidBody2D{
 		// polish
 		super.update(); // standard discrete updates
 
-		// TODO: change so that the edges are not allowed outside of the boundaries instead of the center
+		// INCONSISTENT <= TODO: change so that the edges are not allowed outside of the boundaries instead of the center
 		if (this.x < wcenterx - ww/2){
 			this.x = wcenterx - ww/2;
 		}
@@ -795,194 +813,12 @@ class Collider2D extends RigidBody2D{
 			this.y = wcentery + wh/2;
 		}
 	}
-    draw (display) {
+  draw (display) {
 		// draw
 
 		// let ctx = display.ctx;
 		display.drawCircle(this.x + (.5 * this.r),this.y + (.5 * this.r),this.r);
     }
-  }
-  calculateRelativeCenterOfMass() {
-    // and apply to whole class
-  }
-  calculateCenterOfMass() {
-
-  }
-
-  claculateMaxColliderDist() {
-    let maxColliderDist = 0;
-    for (circle in this.circles) {
-      if (f.v.mag(circle) + circle[2] > maxColliderDist) {
-        maxColliderDist = f.v.mag(circle) + circle[2];
-      }
-    }
-    for (point in this.points) {
-      if (f.v.mag(point) > maxColliderDist) {
-        maxColliderDist = f.v.mag(point);
-      }
-    }
-    this.maxColliderDist = maxColliderDist;
-    return maxColliderDist;
-  }
-  quickContains(obj) {
-    return (this.maxColliderDist + obj.maxColliderDist > f.v.mag(f.v.subtract(obj.pos, this.pos)));
-  }
-  containsPoint(pos) {
-    for (circle in this.circles) {
-      if (f.v.mag(f.v.difference(f.v.add(this.pos, [circle[0], circle[1]]), pos)) < circle[2]) {
-        return true;
-      }
-    }
-    // check if in poly
-    let intersections = 0;
-    for (let i = 0; i < this.points.length; i++) {
-      let pt1 = f.v.rotate(this.points[i], this.theta);
-      let pt2 = f.v.rotate(this.points[(i < this.points.length - 1) ? i + 1 : pts - this.points.length], this.theta);
-      if (f.geometry.lineContainsPoint(pt1, pt2, pos, true)) {
-        intersections++;
-      }
-    }
-    if (intersections >= 1) {
-      intersections = 0;
-      for (let i = 0; i < this.points.length; i++) {
-        let pt1 = f.v.rotate(this.points[i], this.theta);
-        let pt2 = f.v.rotate(this.points[(i < this.points.length - 1) ? i + 1 : pts - this.points.length], this.theta);
-        if (f.geometry.lineContainsPoint(pt1, pt2, pos, false)) {
-          intersections++;
-        }
-      }
-    }
-    else return false;
-
-    return intersections >= 1; // 1 for strict edge inclusion, 2 for not included
-  }
-  inside(obj) {
-    return this.containsPoint(obj.pos) || obj.containsPoint(this.pos); // checks if obj is completely inside this
-  }
-  contains(obj, mode = false) { // need to check for circle collisions
-    if (!this.quickContains(obj)) {
-      return false;
-    }
-    if (this.inside(obj) || obj.inside(this)) {
-      return true;
-    }
-
-    // check line:line
-    if (mode) { // by checking point enclosure
-      for (let i = 0; i < obj.points.length; i++) {
-        if (this.containsPoint(obj.worldPoint(obj.points[i]))) {
-          return true;
-        }
-      }
-      if (!bool) {
-        for (let i = 0; i < this.points.length; i++) {
-          if (obj.containsPoint(this.worldPoint(this.points[i]))) {
-            return true;
-          }
-        }
-      }
-    } else { // by checking line intersections
-      for (let i = 0; i < this.points.length; i++) {
-        let i2 = (i < this.points.length - 1) ? i + 1 : i - this.points.length;
-        for (let e = 0; i < this.points.length; e++) {
-          let e2 = (i < obj.points.length - 1) ? e + 1 : e - obj.points.length;
-          if (f.geometry.lineIntersects(this.worldPoint(this.points[i]), this.worldPoint(this.points[i2]),
-            obj.worldPoint(obj.points[e]), obj.worldPoint(obj.points[e2]))) {
-            return true;
-          }
-        }
-      }
-    }
-
-    // check circle:circle
-    for (let i = 0; i < this.circles.length; i++) {
-      for (let c = 0; c < obj.circles.length; c++) {
-        if (f.geometry.circleIntersectsCircle(obj.worldCircle(i), this.worldCircle(c))) {
-          return true;
-        }
-      }
-    }
-    for (let i = 0; i < obj.circles.length; i++) {
-      for (let c = 0; c < this.circles.length; c++) {
-        if (f.geometry.circleIntersectsCircle(this.worldCircle(i), obj.worldCircle(c))) {
-          return true;
-        }
-      }
-    }
-
-    // check circle:line
-    for (let i = 0; i < this.points.length; i++) {
-      let i2 = (i < this.points.length - 1) ? i + 1 : i - this.points.length;
-      for (let c = 0; c < obj.circles.length; c++) {
-        if (f.geometry.circleIntersectsLine(this.worldPoint[i], this.worldPoint[i2], obj.worldCircle[c])) {
-          return true;
-        }
-      }
-    }
-    for (let i = 0; i < obj.points.length; i++) {
-      let i2 = (i < obj.points.length - 1) ? i + 1 : i - obj.points.length;
-      for (let c = 0; c < this.circles.length; c++) {
-        if (f.geometry.circleIntersectsLine(obj.worldPoint[i], obj.worldPoint[i2], this.worldCircle[c])) {
-          return true;
-        }
-      }
-    }
-
-    return false;
-  }
-  get area() {
-    return 5;
-  }
-
-  worldCircle(c) {
-    if (typeof pt == Number) {
-      c = this.circles[c];
-    }
-    let tmp = this.worldPoint(c);
-    return [tmp[0], tmp[1], c[2]];
-  }
-  toWorldCircle(c) {
-    return this.worldCircle(c);
-  }
-
-  get volume() { return Math.PI * (4 / 3) * Math.power(this.r, 3); }
-  get r() { return Math.sqrt(this.area / Math.PI); } // imaginary + auxiliary radius formation
-  get radius() { return Math.sqrt(this.area / Math.PI); }
-  get A() { return this.area; }
-  get sa() { return this.A; }
-  get surfaceArea() { return this.sa; }
-  get frontSurfaceArea() { return this.sa; } // for wind resistenc f(v)
-  get m() { return this.density * this.volume; }
-
-  update() {
-    this.vx = this.nextVx;
-    this.vy = this.nextVy;
-
-    super.update();
-  }
-  postUpdate(ww = Infinity, wh = Infinity, wcenterx = 0, wcentery = 0) {
-    // polish
-    super.update(); // standard discrete updates
-
-    // TODO: change so that the edges are not allowed outside of the boundaries instead of the center
-    if (this.x < wcenterx - ww / 2) {
-      this.x = wcenterx - ww / 2;
-    }
-    if (this.x > wcenterx + ww / 2) {
-      this.x = wcenterx + ww / 2;
-    }
-    if (this.y < wcentery - wh / 2) {
-      this.y = wcentery + wh / 2;
-    }
-    if (this.y > wcentery + wh / 2) {
-      this.y = wcentery + wh / 2;
-    }
-  }
-  draw(display) {
-    // draw
-
-    // let ctx = display.ctx;
-    display.drawCircle(this.x + (.5 * this.r), this.y + (.5 * this.r), this.r);
   }
 }
 
@@ -1011,55 +847,8 @@ class RigidBodyCollider extends Collider2D { // adds material properties: ex: bo
   // add collision bounciness
 }
 
-
-
-const GameObject = function(...args) {
-	//  makeshift flipping BS pointer scapegoat
-	this._   = {
-		get out(){
-
-		},
-		set in(){
-
-		},
-		pointers: []
-	}
-	this.update   = function(t = 0) {
-		this.world.update();
-	};
-};
-GameObject.prototype = {
-	constructor : GameObject,
-	update:function(...args){
-
-	}
-};
-
-class GameObject{
-	constructor(){
-		this. _ = []; // I wish I could link several variable names to the same pointer
-	}
-	private pointTo:function(index){
-		if(this.bs_pointers.length <= index){
-			this.bs_pointers.push()
-		}
-	}
-	private setPoint
-
-	{ // Just an expandable block of code for notorious pointer declarations (get/set)
-
-	get collider(){  }
-	set collider(a){  }
-
-	}
-
-
-
-
-
-
-
-
+// IMPLEMENT BELOW AS AN ADDITION TO GAMEOBJECT var connections[]
+//class CONNECTION
 // joints[] in GameObject
 class ConnectableGameObject extends GameObject{ // not a class, instead a function or a class with the object as a variable??
 	constructor(x = 0,y = 0,pts = [], circles = [],vx = 0,vy = 0, theta = 0, av=0, density = 1, attachedJoint = null, tempDist = 1, thisOffX=0, thisOffY=0, attOffX=0, attOffY=0, relativeAngle = 0,breakForce = Infinity, breakTorque = Infinity, springConstant = Infinity, rotationalSpringConstant = 0, rotational_coefficient_of_friction = 0) {
@@ -1176,26 +965,5 @@ class ConnectableGameObject extends GameObject{ // not a class, instead a functi
 	}
 	draw(display){
 		super(display);
-	}
-};
-GameObject.prototype = {
-  constructor: GameObject,
-  update: function (...args) {
-
-private class Particle extends StrictTransform{
-	constructor(x = 0,y = 0,vx = 0,vy = 0, duration = 50, color = "#555", a = 1) {
-		super(x,y,vx,vy);
-		this.duration = duration;
-		this.framesLeft = duration;
-		this.color = color;
-		this.a = a;
-	}
-	update(){
-		super.update();
-		this.a = this.framesLeft / this.duration;
-		this.framesLeft += -1;
-	}
-	get dead(){
-		return (this.a <= 0);
 	}
 };
