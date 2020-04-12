@@ -160,6 +160,53 @@ class f{ // static helper functions
 		}
 	}*/
 
+	static setInBox(pos, ...args){ // make sure position is in game world
+		let x,y,w,h;
+		if(args.length == 2){
+			x = 0;
+			y = 0;
+			w = args[0];
+			h = args[1];
+		} else if (args.length == 4){
+			x = args[0];
+			y = args[1];
+			w = args[2];
+			h = args[3];
+		} else {
+			console.error("FAIL: setInBox function takes 3 or 5 parameters");
+			return -1;
+		}
+
+		if(!f.exists(pos.length)){
+			if (pos.x < x){
+				pos.x =x;
+			}
+			if (pos.x > x+w){
+				pos.x =x+w;
+			}
+			if (pos.y < y){
+				pos.y =y;
+			}
+			if (pos.y < y+h){
+				pos.y =y;
+			}
+		} else {
+			if (pos[0] < x){
+				pos[0] =x;
+			}
+			if (pos[0] > x+w){
+				pos[0] =x+w;
+			}
+			if (pos[1] < y){
+				pos[1] =y;
+			}
+			if (pos[1] < y+h){
+				pos[1] =y;
+			}
+			return pos;
+		}
+	}
+
 	static v = class v{ // vector 2d functions
 		static normalize(v){
 			let m = this.mag(v);
@@ -796,22 +843,12 @@ class Collider2D extends RigidBody2D{
 
 		super.update();
 	}
-	postUpdate(ww = Infinity,wh = Infinity, wcenterx = 0, wcentery = 0){
+	postUpdate(gw = null,gh=null){
 		// polish
 		super.update(); // standard discrete updates
 
-		// INCONSISTENT <= TODO: change so that the edges are not allowed outside of the boundaries instead of the center
-		if (this.x < wcenterx - ww/2){
-			this.x = wcenterx - ww/2;
-		}
-		if (this.x > wcenterx + ww/2){
-			this.x = wcenterx + ww/2;
-		}
-		if (this.y < wcentery - wh/2){
-			this.y = wcentery + wh/2;
-		}
-		if (this.y > wcentery + wh/2){
-			this.y = wcentery + wh/2;
+		if(gh != null && gw != null){
+			f.setInBox(this,w,h);
 		}
 	}
   draw (display) {
