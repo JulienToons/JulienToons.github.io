@@ -667,6 +667,9 @@ class RigidBody2D extends Transform{
 
 };
 
+// points for collider & centerPoints (for collision accuracy)
+// f.addAirResistance: drag force   =  constant * .5  * airDensity * surface area * velocity^squared
+
 class Collider2D extends RigidBody2D{
 	constructor(x = 0,y = 0,vx = 0,vy = 0, theta = 0, av=0 ,pts = f.geometry.shape.square(),circles = [],density = 1) {
 		super(x,y,vx,vy,theta, av, density);
@@ -859,6 +862,7 @@ class Collider2D extends RigidBody2D{
     
   }
 }
+
 
 class SmoothBodyCollider extends Collider2D { // elasticity between 2 connected points (angle and dist)
   constructor(x = 0, y = 0, vx = 0, vy = 0, theta = 0, av = 0, pts = f.geometry.shape.square(), circles = [], density = 1, springConstant = .5, rotationalSpringConstant = springConstant) {

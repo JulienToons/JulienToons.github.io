@@ -18,7 +18,7 @@
 		"tags":"covid-19 covid virus map geolocation web api hackathon titanhacks",
 		"type":"project",
 		"title":"Interactive CoVid-19 Map", 
-		"description":"<a href=\"http://www.firstlegoleague.org/\" color=\"blue\">Try</a> it out!",
+		"description":"<a href="https://devpost.com/software/interactive-covid-19-map" color=\"blue\">Try</a> it out!",
 		"img":"imgs/covid19map.png",
 		"imageFilter":"",
 		"dateTextColor":"white",
