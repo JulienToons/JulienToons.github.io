@@ -24,7 +24,7 @@ Game.World.prototype = {
 		console.log("Julien Owhadi's Physics Engine vALPHA 1.1");
 		this.camera = new Game.Camera(0,0,this.camera);
 
-		let boundingSafetyVar = 40;
+		// let boundingSafetyVar = 40;
 		// this.me = new Player(f.rand(boundingSafetyVar,this.width),f.rand(boundingSafetyVar,this.height),1,1);
 
 	},
@@ -71,6 +71,7 @@ class GameObject{ // with rudimentary physics & colliders
 
 		this.id = id;
 		this.type = type;
+		this.renderer = new Renderer();
 	}
 
 	set collider(v){ this.col = v; }
@@ -83,7 +84,43 @@ class GameObject{ // with rudimentary physics & colliders
 	}
 	set joints(v){ this.connections = v; }
 	get joints(){ return this.connections; }
+
+	render(display){
+		// maybe put the next line in f.js
+		// render based on vars in renderer & points on collider
+		// one or two rendered objs
+
+		// render connected gameobjects
+
+		// render connections: ie: a line, a bungy, a string, a parabola, etc.
+	}
 };
+
+// render: sfx
+class Renderer{
+	constructor(){
+		// this is abstract
+		// create individual objects for each renderer w. entirely diff. func.s
+	}
+}
+/*
+	highlights
+	shadows
+
+	glow
+	random module texture
+	moving texture
+
+	incribe render...?
+
+	Lens: transparency, color
+
+	harmonic shifts
+
+*/
+
+
+
 
 // Generic Extendable Classes
 class Position {
@@ -182,6 +219,8 @@ class RigidBody2D extends Transform{
 		return this.density * 1;  // for simplicity
 	}
 	get mass(){ return m;}
+	get area () {return 5;}
+	get inertia (){ return .4 * this.m * this.area/Math.PI;}
 
 	worldPoint(pt){ // convert geometry point into world coordinates
 		if(typeof pt == Number){
@@ -235,12 +274,13 @@ class RigidBody2D extends Transform{
 		// apply
 	}
 	update(){
-		super.update();
 		// execute with t = 1 frame
 		let forceValuesTemp = this.avgForce;
 		this.vx += forceValuesTemp[0];
 		this.vy += forceValuesTemp[1];
 		this.omega += forceValuesTemp[2];
+
+		super.update();
 	}
 	postUpdate(){
 		this.forces.clear();
@@ -248,10 +288,8 @@ class RigidBody2D extends Transform{
 
 };
 
-// points for collider & centerPoints (for collision accuracy)
-// f.addAirResistance: drag force   =  constant * .5  * airDensity * surface area * velocity^squared
-
-class Collider2D extends RigidBody2D{
+// *********************************************************************************** make above work before move on
+class Collider2D extends RigidBody2D{ // hollow colliders as cavity points??? like points[point[x,y]] then cavities[cavity[points[point[x,y]]]]
 	constructor(x = 0,y = 0,vx = 0,vy = 0, theta = 0, av=0 ,pts = f.geometry.shape.square(),circles = [],density = 1) {
 		super(x,y,vx,vy,theta, av, density);
 

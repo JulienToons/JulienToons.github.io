@@ -213,6 +213,7 @@ class f{ // static helper functions
 		}
 		static center(points, mode = false){ // true = "3d" = 3 // false = "2d" = 2
 			let triangles = this.triangulate(points);
+			// average pos of centeroftriangles of each triangle
 			for (t in triangles){
 				// center of triangle with respect to area
 				// should make one with respect to volume...
@@ -361,26 +362,43 @@ class f{ // static helper functions
 		}
 	}
 
-	static inflictResistance(obj, constant = 1){ // i forgot what this does
-		let m = -.5 * obj.density * this.v.mag(obj.v) * this.v.mag(obj.v) * obj.frontSurfaceArea;
-		obj.applyForce(this.v.multiply(this.v.normalize(obj.v), m));
-	}
-	static inflictGravitationalForce(a,b,g = 1,ww = Infinity, wh = Infinity, wx = 0, wy = 0){ // g = gravitational constant
-		let d = dis(a,b, ww,wh,wx,wy);
-		let f =  g * a.m * b.m / (d * d);
+	// special forces
+	static sf = class sf{
+		static resistance(obj, constant = 1){ // i forgot what this does:  normal force?
+			let m = -.5 * obj.density * this.v.mag(obj.v) * this.v.mag(obj.v) * obj.frontSurfaceArea;
+			obj.applyForce(this.v.multiply(this.v.normalize(obj.v), m));
+		}
 
-		b.applyForce((a.x - b.x) * f/ d, (a.y - b.y) * f/d);
-		a.applyForce((b.x - a.x) * f/ d, (b.y - a.y) * f/d);
+		static gravitational(a,b,g = 1,ww = Infinity, wh = Infinity, wx = 0, wy = 0){ // g = gravitational constant
+			let d = dis(a,b, ww,wh,wx,wy);
+			let f =  g * a.m * b.m / (d * d);
+
+			b.applyForce((a.x - b.x) * f/ d, (a.y - b.y) * f/d);
+			a.applyForce((b.x - a.x) * f/ d, (b.y - a.y) * f/d);
+		}
+		static buoyant(a, density = 1, gravity = 1){
+			a.applyForce(0, - a.voulume * density * gravity);
+		}
+		static friction(){
+
+		}
+		static normal(){
+
+		}
+		static airResistance(){
+			// drag force   =  constant * .5  * airDensity * surface area * velocity^squared
+		}
 	}
-	static inflictBuoyantForce(a, density = 1, gravity = 1){
-		a.applyForce(0, - a.voulume * density * gravity);
-	}
+
 	static KE(mass, velocity){ // kinetic energy
 		return .5 * mass * velocity * velocity;
 	}
+	/* unnecessary: inertia
 	static simpInertia(mass,area){
 		return .4 * mass * area / Math.PI;
 	}
+	*/
+	/* unnecessary dist. unless looped world: also does not work
 	static dis(a,b, ww = Infinity, wh = Infinity, wx = 0, wy = 0){ // no looped world
 		let dx = Math.min(a.x - b.x, a.x -  (b.x + (ww/2) - wx));
         let dy = Math.min(a.y - b.y, a.y - b.y);
@@ -388,7 +406,9 @@ class f{ // static helper functions
 	}
 	static distance(a,b,ww = Infinity, wh = Infinity, wx = 0, wy = 0){return dis(a,b,ww,wh,wx,wy);}
 	static dist(a,b,ww = Infinity, wh = Infinity, wx = 0, wy = 0){return dis(a,b,ww,wh,wx,wy);}
-
+	*/
+	
+	// needs work
 	static col(a,b){f.elasticCollision(a,b);} // need collison with forces
 	static indirectCollision(a,b){// with rotation but not points?
 
