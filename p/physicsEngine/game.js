@@ -1,5 +1,5 @@
-const Game = function (w, h) {
-  this.world = new Game.World(w, h);
+const Game = function (w, h, DEBUG=false) {
+  this.world = new Game.World(w, h, .2, DEBUG);
   this.update = function (t = 0) {
     this.world.update();
   };
@@ -7,7 +7,9 @@ const Game = function (w, h) {
 Game.prototype = { constructor: Game };
 
 
-Game.World = function (w = 1000, h = 1000, cs=.2) {
+Game.World = function (w = 1000, h = 1000, cs=.2,debug) {
+	const DEBUG = debug; // make all prototypes es6 classes
+
   this.height = h;
   this.width = w;
   this.camera = cs; // temp store size then set to camera class instance
@@ -23,6 +25,9 @@ Game.World.prototype = {
 	setup:function() {
 		console.log("Julien Owhadi's Physics Engine vALPHA 1.1");
 		this.camera = new Game.Camera(0,0,this.camera);
+
+		// use dictionary of gameobjects:   ids and objs
+		// https://pietschsoft.com/post/2015/09/05/javascript-basics-how-to-create-a-dictionary-with-keyvalue-pairs
 
 		// let boundingSafetyVar = 40;
 		// this.me = new Player(f.rand(boundingSafetyVar,this.width),f.rand(boundingSafetyVar,this.height),1,1);
@@ -65,12 +70,17 @@ Game.Camera.prototype = {
 
 // collection of extendable classes
 class GameObject{ // with rudimentary physics & colliders
-	constructor(col,id = null,type = null){
+	constructor(col,id = Math.round(1000000000 * Math.random()) ,type = "gameobject", quickIndex=0){
 		this.col = col;
-		this.connections = [];
+		this.connections = []; // of ids
 
 		this.id = id;
-		this.type = type;
+		this.type = type; // "gameobject, nexttype, meteorite, player, rigidbody, etc." use indexof(n)==true?
+
+		/* dont need bc I will use a dictionary with key=id
+		this.quickIndex = quickIndex;
+		this.*/
+
 		this.renderer = new Renderer();
 	}
 
@@ -79,13 +89,13 @@ class GameObject{ // with rudimentary physics & colliders
 	set transform(v){ this.col = v; }
 	get transform(){ return this.col; }
 
-	addConnection(){
-		this.connections.push(/* */);
+	addConnection(id){
+		this.connections.push(id);
 	}
 	set joints(v){ this.connections = v; }
 	get joints(){ return this.connections; }
 
-	render(display){
+	render(display, renderer){
 		// maybe put the next line in f.js
 		// render based on vars in renderer & points on collider
 		// one or two rendered objs
@@ -288,12 +298,18 @@ class RigidBody2D extends Transform{
 
 };
 
-// *********************************************************************************** make above work before move on
 class Collider2D extends RigidBody2D{ // hollow colliders as cavity points??? like points[point[x,y]] then cavities[cavity[points[point[x,y]]]]
 	constructor(x = 0,y = 0,vx = 0,vy = 0, theta = 0, av=0 ,pts = f.geometry.shape.square(),circles = [],density = 1) {
 		super(x,y,vx,vy,theta, av, density);
-
-		this.pts = pts;
+		// points can either be outer points as in pts[point[x,y]] or shapes[pts[point[x,y]] , ... cavities]
+		if(!Array.isArray( pts[0][0] )){
+			this.pts = pts;
+			this.cavities = [];
+		} else {
+			this.pts = pts[0];
+			this.pts.splice(0,1);
+			this.cavities = pts;
+		}
 		this.circles = circles;
 
 		this.nextVx = vx;
@@ -304,6 +320,7 @@ class Collider2D extends RigidBody2D{ // hollow colliders as cavity points??? li
 	collide(obj){
 		if(this.contains(obj)){
 			// elasticCollision
+			// or inelastic collision with heat & friction incorporated into it
 			// change nextVelocity & not current velocity
 		}
 	}
@@ -332,6 +349,8 @@ class Collider2D extends RigidBody2D{ // hollow colliders as cavity points??? li
 	quickContains(obj){
 		return (this.maxColliderDist + obj.maxColliderDist > f.v.mag(f.v.subtract(obj.pos, this.pos)));
 	}
+
+	// contains for cavities as well
 	containsPoint(pos){
 		for (circle in this.circles){
 			if (f.v.mag(f.v.difference(f.v.add(this.pos,[circle[0], circle[1]]), pos)) < circle[2]){
@@ -437,10 +456,11 @@ class Collider2D extends RigidBody2D{ // hollow colliders as cavity points??? li
 	}
 	get area(){
 		return 5;
+		// area of points   -   area of cavities inside points
 	}
 
 	worldCircle(c){
-		if(typeof pt == Number){
+		if(typeof pt == Number){ // pt not defined
 			c = this.circles[c];
 		}
 		let tmp = this.worldPoint(c);
@@ -501,7 +521,7 @@ class SoftBodyCollider extends Collider2D { // elasticity between point & pos
   }
   //points are rigidbodies with spring joints
 }
-class RigidBodyCollider extends Collider2D { // adds material properties: ex: bounciness via inelastic collisions
+class RigidBodyCollider extends Collider2D { // adds material properties: ex: bounciness via// inelastic collisions
   constructor(x = 0, y = 0, vx = 0, vy = 0, theta = 0, av = 0, pts = f.geometry.shape.square(), circles = [], density = 1, bounciness = 0) {
     super(x, y, vx, vy, theta, av, pts, circles, density);
   }
