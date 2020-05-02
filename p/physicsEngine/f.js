@@ -1,3 +1,17 @@
+/*
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\                 \\\             \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\    \\\\\\\\\\\\\\   \\\\\\\      \\\\\\\\      \\\\\     \\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\    \\\\\\\\\\\\\\   \\\\\   \\\   \\\\\   \\\   \\\\            \\\\\\\\\\\
+\\\\\\\\\\\    \\\\\\\\\\\\\\   \\\\   \\\\\   \\\   \\\\\   \\\     \\\\\   \\\\\\\\\
+\\\\\   \\\\    \\\\\\\\\\\\\\   \\\\   \\\\\   \\\   \\\\\   \\\   \\\\\\\   \\\\\\\\
+\\\\\   \\\\    \\\\\\\\\\\\\\\   \\\\   \\\\\   \\\   \\\\\   \\\   \\\\\\\   \\\\\\\
+\\\\\\   \\    \\\\\\\\\\\\\\\\\   \\\\\   \\\   \\\\\   \\\   \\\\   \\\\\\\   \\\\\\
+\\\\\\\\     \\\\\\\\\\\\\\\\\\\\   \\\\\\       \\\\\\\       \\\\\   \\\\\\\   \\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+*/
 
 class f{ // static helper functions
 	static get epsilon(){ return .001; }
@@ -171,7 +185,22 @@ class f{ // static helper functions
 			return this.rotate([x,y],t);
 		}
 	}
-
+  static generator = class generator{
+		// perlin noise 2d top-down proceduaral terrain generation
+		/* always default, maybe add ingame veritility later
+		constructor(...args){
+			let L = args.length;
+			let n = 1;
+			this.layers = (L>=n)? args.splice(n,L-n): [{
+				// layer content default example
+				frequency:.5;
+	
+			}];
+		}*/
+		static randomSeed(seed,...parameters){
+			return []; // mesh with cavities as well
+		}
+	};
 	static geometry = class geometry{
 		static lineContainsPoint(pt1,pt2,pt3, mode = true){
 			// extend vert/hor ray through pt3 and check if it passes through the line (pt1,pt2)
@@ -208,18 +237,83 @@ class f{ // static helper functions
 
       return triangles; // should store in var unless collider is a soft body
 		}
-		static centerOfTriangle(){
-
+		static area(points){
+			if(points.length< 3){
+				console.error("f.geometry.area function: input parameter length is "+points.length+". It should be an array with l>=3");
+				return -1;
+			}
+			else if(points.length == 3){ // quick calculate for triangles
+				let temp = points[0][0] * (points[1][1] - points[2][1]);
+				temp += points[1][0] * (points[2][1] - points[0][1]);
+				temp += points[2][0] * (points[0][1] - points[1][1]);
+				return Math.abs(  temp/2  );
+			}
+			else{ // for any polygon concave or not
+				let triangles = this.triangulate(points);
+				let tempA = 0;
+				for (t in triangles){
+					tempA+=f.geometry.area(t);
+				}
+				return tempA;
+			}
 		}
-		static center(points, mode = false){ // true = "3d" = 3 // false = "2d" = 2
-			let triangles = this.triangulate(points);
+		static centerOfMass(points){return f.geometry.COM(points);}
+		static COM(points){ // maybe artificial weights???:::     point[x,y,weight]
+			let pts,cavities;
+			if(Array.isArray( points[0][0]) && points.length == 2){ // with cavities
+				pts = points[0];
+				cavities = points[1];
+			}
+			else{
+				pts = points;
+			}
+			let triangles = this.triangulate(pts);
+			let com = [0,0];
+			let totalArea = 0;
+
 			// average pos of centeroftriangles of each triangle
 			for (t in triangles){
 				// center of triangle with respect to area
-				// should make one with respect to volume...
+				let tempA = f.geometry.area(t);
+				com = f.v.add(   f.v.add(f.v.mult(f.geometry.centerOfTriangle(t),tempA))   );
+				totalArea += tempA;
+			}
+			//cavities
+			if(cavities.length >= 3){
+				triangles = f.geometry.triangulate(cavities);
+				for (t in triangles){
+					// center of triangle with respect to area
+					let tempA = -1 * f.geometry.area(t); // negative area
+					com = f.v.add(   f.v.add(f.v.mult(f.geometry.centerOfTriangle(t),tempA))   );
+					totalArea += tempA;
+				}
 			}
 
-			return crypt;
+			return f.v.mult(com, 1/totalArea);
+
+		}
+		static centerOfTriangle(points){return [(points[0][0] + points[1][0] + points[2][0])/3, (points[0][1] + points[1][1] + points[2][1])/3];}
+		static center(points){ // for auto centerofmass = COM of mesh - COM of cavities
+// MAYBE COM IS BETTER THAN CENTER!!!!!
+			// not for weights just for standard polygons
+			let com = [0,0],pts,cavities =[];
+			if(Array.isArray( points[0][0]) && points.length == 2){ // with cavities
+				pts = points[0];
+				cavities = points[1];
+			}
+			else{
+				pts = points;
+			}
+			for (p in pts){
+				com = f.add(f.v.mult( p, 1/pts.length), com);
+			}
+			for (p in cavities){
+				com = f.add(f.v.mult( p, -1/cavities), com);
+			}
+
+
+
+			return com/totalArea;
 
 		}
 		static isPointOnLine(a1,a2, b) {

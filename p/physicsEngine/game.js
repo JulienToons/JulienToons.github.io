@@ -8,14 +8,14 @@ Game.prototype = { constructor: Game };
 
 
 Game.World = function (w = 1000, h = 1000, cs=.2,debug) {
-	const DEBUG = debug; // make all prototypes es6 classes
+	const DEBUG = (f.exists(debug.on))? debug: {on:debug,mode:" vector-visualization !mouse-world mouse-field !mouse-stats "}; 
 
   this.height = h;
   this.width = w;
   this.camera = cs; // temp store size then set to camera class instance
   this.gravity = g;
 
-	this.objects = [];
+	this.gamebjects = {}; // dictionary then list
   this.user = null; // player contains string and hammer
 };
 Game.World.prototype = {
@@ -23,7 +23,7 @@ Game.World.prototype = {
 	constructor: Game.World,
 
 	setup:function() {
-		console.log("Julien Owhadi's Physics Engine vALPHA 1.1");
+		console.log("Julien Owhadi's Physics Engine vPREALPHA 1.00001");
 		this.camera = new Game.Camera(0,0,this.camera);
 
 		// use dictionary of gameobjects:   ids and objs
@@ -384,12 +384,13 @@ class Collider2D extends RigidBody2D{ // hollow colliders as cavity points??? li
 		return this.containsPoint(obj.pos) || obj.containsPoint(this.pos); // checks if obj is completely inside this
 	}
 	contains(obj, mode = false){ // need to check for circle collisions
-		if(!this.quickContains(obj)){
+		if(!this.quickContains(obj)){ // optimization
 			return false;
 		}
+		/* cheater method: don't use
 		if(this.inside(obj) || obj.inside(this)){
 			return true;
-		}
+		}*/
 
 		// check line:line
 		if(mode){ // by checking point enclosure
