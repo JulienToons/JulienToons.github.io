@@ -1,51 +1,66 @@
-/*
-\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-\\                 \\\             \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-\\\\\\\\\    \\\\\\\\\\\\\\   \\\\\\\      \\\\\\\\      \\\\\     \\\\\\\\\\\\\\\\\\\
-\\\\\\\\\\    \\\\\\\\\\\\\\   \\\\\   \\\   \\\\\   \\\   \\\\            \\\\\\\\\\\
-\\\\\\\\\\\    \\\\\\\\\\\\\\   \\\\   \\\\\   \\\   \\\\\   \\\     \\\\\   \\\\\\\\\
-\\\\\   \\\\    \\\\\\\\\\\\\\   \\\\   \\\\\   \\\   \\\\\   \\\   \\\\\\\   \\\\\\\\
-\\\\\   \\\\    \\\\\\\\\\\\\\\   \\\\   \\\\\   \\\   \\\\\   \\\   \\\\\\\   \\\\\\\
-\\\\\\   \\    \\\\\\\\\\\\\\\\\   \\\\\   \\\   \\\\\   \\\   \\\\   \\\\\\\   \\\\\\
-\\\\\\\\     \\\\\\\\\\\\\\\\\\\\   \\\\\\       \\\\\\\       \\\\\   \\\\\\\   \\\\\
-\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-
-
+/* BY... 
+\\\ \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ \\\
+\\\ \\                 \\\             \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ \\\
+\\\ \\\\\\\\\    \\\\\\\\\\\\\\   \\\\\\\      \\\\\\\\      \\\\\     \\\\\\\\\\\\\\         \\\\\\\\ \\\
+\\\ \\\\\\\\\\    \\\\\\\\\\\\\\   \\\\\   \\\   \\\\\   \\\   \\\\            \\\\\    \\\\\   \\\\\\ \\\
+\\\ \\\\\\\\\\\    \\\\\\\\\\\\\\   \\\\   \\\\\   \\\   \\\\\   \\\     \\\\\   \\\    \\\\\\\\\\\\\\ \\\
+\\\ \\\\\   \\\\    \\\\\\\\\\\\\\   \\\\   \\\\\   \\\   \\\\\   \\\   \\\\\\\   \\\\          \\\\\\ \\\
+\\\ \\\\\   \\\\    \\\\\\\\\\\\\\\   \\\\   \\\\\   \\\   \\\\\   \\\   \\\\\\\   \\\\\\\\\\\   \\\\\ \\\
+\\\ \\\\\\   \\    \\\\\\\\\\\\\\\\\   \\\\\   \\\   \\\\\   \\\   \\\\   \\\\\\\   \\\   \\\\\   \\\\ \\\
+\\\ \\\\\\\\     \\\\\\\\\\\\\\\\\\\\   \\\\\\       \\\\\\\       \\\\\   \\\\\\\   \\\\         \\\\ \\\
+\\\ \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ \\\
+...or know how to create simple extendable prototypes with private variables with inheritance/abstract capabilities?
+Hey is anyone familiar with how to create private &/or  privileged variables in ES6 JavaScript extendable classes (with `constructors `, the `class `keyword, as well as getters & setters) without using Immediately Invoked Function Expressions (IIFEs), old function-based classes as in `var x = function(){var privateVariableName = "xyz"; return{publicvar1=5;publicvar2=1}}`, or fake private variable prefixes that do nothing like _notprivatevar or #notprivatevar?
 */
 
 class f{ // static helper functions
 	static get epsilon(){ return .001; }
-	static exists(a){
-		return a != null && a != undefined && isFinite(a); // foolproof
-	}
-	static toDeg(a){
-		return a * 180 /Math.PI;
-	}
-	static toRad(a){
-		return a * Math.PI / 180;
-	}
+static exists(a){ return a != null && a != undefined && isFinite(a);} /*foolproof*/
+	static toDeg(a){ return a * 180 /Math.PI;	}
+	static toRad(a){ return a * Math.PI / 180; }
 	static random(a,b = null){
 		if(f.exists(b)){
-			return a + Math.random() * (b-a);
+			return Math.min(a,b) + Math.random() * (Math.max(b,a) - Math.min(b,a));
 		}
 		else {
 			return a*Math.random();
 		}
 	}
 	static rand(a,b=null){return this.random(a,b);}
-
-	/* needless! begone!
-	static pointer = { // my makeshift flipping pointing scapegoat which is actudally just a storage handler & an accessor for pointers
-		// maybe add security & private/protected variables later on
-		get out(){
-
-		},
-		set in(){
-
-		},
-		pointers: []
+	static strToArr(str, key = (str.includes(" "))? " ":","){
+		let i = 0;
+		let arr = [];
+		for(i=0;str.substr(i).includes(key) && (i=str.substr(i).indexOf(key))>=0;i=str.substr(i+1).indexOf(key)){
+			let temp = str.substr(i,str.indexOf(key));
+			if(temp == " ") { continue; }
+			arr.push(temp);
+		}
 	}
-	
+	// useful? idk
+	static pointer(...args){
+		let temp = 	{ // my makeshift flipping pointing scapegoat which is actudally just a storage handler & an accessor for pointers
+			// maybe add security & private/protected variables later on
+			get out(key){
+
+			},
+			set inout(key,val){
+
+			},
+			get all(){
+
+			}n 
+			add:function(...args){
+				create dic with rand keys for each
+				return keys
+			}
+			keyasinbelow:val,
+			Math.round(Math.random,12)+n:variablevalue,
+			pointers: []
+		}
+		temp.add(...args);
+		return temp;
+	}
+	/*
 	static insanePointer = { // dumb idea... might continue later on
 		// just a slightly more secure version of f.pointer
 		pointers: [],
@@ -200,6 +215,8 @@ class f{ // static helper functions
 		static randomSeed(seed,...parameters){
 			return []; // mesh with cavities as well
 		}
+
+		// mode for bouncy sides
 	};
 	static geometry = class geometry{
 		static lineContainsPoint(pt1,pt2,pt3, mode = true){
@@ -504,6 +521,9 @@ class f{ // static helper functions
 	
 	// needs work
 	static col(a,b){f.elasticCollision(a,b);} // need collison with forces
+	// major problem use Impulse = m*v= Momentum = F*t
+	// impulse sticky:stop 2 move in same direction; slow down; split diff directions       & ke conserve?
+	// stick & use aprings if net move together
 	static indirectCollision(a,b){// with rotation but not points?
 
 	}

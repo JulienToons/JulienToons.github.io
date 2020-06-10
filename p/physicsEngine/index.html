@@ -11,6 +11,8 @@
     <script type="text/javascript">
         var needResize = false;
         let sources = ["display", "game", "engine", "controller", "main"];
+        let classes = ["camera", "Rigidbody2D", "f", "position", "RigidBody2D"];
+        sources.splice(0,0,classes);
 
         for (let index = 0; index < sources.length; index++) {
             let script = document.createElement("script");
