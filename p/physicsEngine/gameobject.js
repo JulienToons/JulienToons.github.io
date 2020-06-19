@@ -12,6 +12,7 @@ class GameObject{ // with rudimentary physics & colliders
     this.collider=undefined;
     this.renderer=undefined;
 
+		// joints
 		this.connections = []; //OBJ  <<?<< of ids or //objects// this to that connection (only one is neccessary)
 
 		this.tags; // multiple ex: enemy, spike, etc.
@@ -33,7 +34,10 @@ class GameObject{ // with rudimentary physics & colliders
 	get col(){ return this.collider; }
 
 	get connectionType(connector){
-// spring, rotational spring, etc
+		return connector.type;
+	}
+	get connectionInfo(connector){
+		return connector.info;
 	}
 	get connectionTypes(){
 		return this.connections.map(x => connectionType(x))

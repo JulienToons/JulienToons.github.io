@@ -1,11 +1,13 @@
 class RigidBody2D{
-	constructor(density = 1, transform=new Transform(), collider = {area:1,volume:1,vol:1,integralDistanceSquared:0.66}) {
+	constructor(density = 1, charge = 0, transform=new Transform(), collider = {area:1,volume:1,vol:1,integralDistanceSquared:0.66, relativeCenterOfMass:[0,0]}) {
 		this.density = density;
 		this.transform = transform;
 		this.collider = collider;
 		this.forces = [];
+		this.charge = charge; // add electric fields and magnetic fields
 	}
 	get col(){return this.collider;}
+	get rcom(){ return this.collider.relativeCenterOfMass;}
 	get d(){
 		return this.density;
 	}
