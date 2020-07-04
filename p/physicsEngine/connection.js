@@ -3,8 +3,19 @@
 // connection acts as a joint
 // purely custom joints
 // maybe not a component of a gameobj?
+// magnetic wire forces!!!!
+
+// CHANGE transform to base.transform
+
+// use real constants!!!! 1m = 1pixel
+
+// ADD MOTORS! for rotation only
 class Connection{ // not a class, instead a function or a class with the object as a variable??
-	constructor(transform, rigidbody,attachedObj = null, tempDist = 1, supposedPosition = [0,0], thisOffX=0, thisOffY=0, attOffX=0, attOffY=0, linearBoundary = [0,Infinity], rotationalBoundary = [-Infinity,Infinity], relativeAngle = 0,breakForce = Infinity, breakTorque = Infinity, breakSpin = Infinity, springConstant = Infinity, rotationalSpringConstant = 0, spinSpringConstant = 0, spring_coefficient_of_friction = 0, rotational_coefficient_of_friction = 0, spin_coefficient_of_friction = 0, color = null) {
+	constructor(base,attachedObj = null, tempDist = 1, supposedPosition = [0,0], thisOffX=0, thisOffY=0, attOffX=0, attOffY=0,
+							linearBoundary = [0,Infinity], rotationalBoundary = [-Infinity,Infinity], relativeAngle = 0,breakForce = Infinity,
+							breakTorque = Infinity, breakSpin = Infinity, springConstant = Infinity, rotationalSpringConstant = 0, spinSpringConstant = 0,
+							spring_coefficient_of_friction = 0, rotational_coefficient_of_friction = 0, spin_coefficient_of_friction = 0, color = null,
+							motor = { torque:1, friction: 0.2 /* T_f = v^? * f * c */, on:true,update:function(){this.torque = (this.torque) - (this.firction * w);} } ) {
 		
 		this.color = color; // none or line
 		this.supposedPosition = supposedPosition; // the position of the hook relative to the pivot
@@ -12,7 +23,7 @@ class Connection{ // not a class, instead a function or a class with the object 
 		this.linearBoundary = linearBoundary; // radial boundary: magnitude dist limits
 		this.rotationalBoundary = rotationalBoundary;
 
-		/*	Types of connections & joints:
+		{/*	Types of connections & joints:
 				______________________________
 				NINE JOINT TYPES
 
@@ -58,11 +69,9 @@ class Connection{ // not a class, instead a function or a class with the object 
 				technicSliderBearing (free dist, rotation spring, spin free)
 				container (free dist, rotation free, spin free)
 
-		*/
+		*/}
 		
-		this.transform=transform; // of *this* obj
-		this.rigidbody = rigidbody; // effective, no, satisfactory, definitely
-		//this.collider =collider;
+		this.base=base;
 
 		this.attachedObj = attachedObj;
 		this.distanceToObj = tempDist;
@@ -79,7 +88,7 @@ class Connection{ // not a class, instead a function or a class with the object 
 		this.spring_coefficient_of_friction = spring_coefficient_of_friction;
 		this.spin_coefficient_of_friction = spin_coefficient_of_friction;
 
-		this.relativeAngle = relativeAngle; // counter clockwise from -->
+		this.relativeAngle = relativeAngle; // counter clockwise from o-->
 
 		// offsets from pos not the center of mass
 		this.pivotXOffset = attOffX;
@@ -256,8 +265,8 @@ class Connection{ // not a class, instead a function or a class with the object 
 	}
 
 	get connected(){
-		if(this.attachedObj != null && this.attachedObj != undefined){
-			if(typeof(this.attachedObj) == GameObject){
+		if(this.attachedObj != null && this.attachedObj != undefined && this.rigidbody != null && null != this.transform){
+			if(typeof(this.attachedObj) == GameObject && typeof(this.rigidbody) == RigidBody2D && typeof(this.transform) == Transform){
 				return true;
 			}
 			else return 1; // (1 == true) is true   but   (1 === true) is false
@@ -280,7 +289,7 @@ class Connection{ // not a class, instead a function or a class with the object 
 		// when the obj is outside of the border or this is a *fixed joint
 		// calculate the normal force
 		let avgForce = this.attachedObj.rigidbody.avgForce;
-		let normalForce = f.v.multiply( f.v.project([-avgForce[0],-avgForce[1]], this.distanceVector), this.mass);
+		let normalForce = f.v.multiply( f.v.project([-avgForce[0],-avgForce[1]], this.distanceVector), this.rigidbody.mass);
 
 		// apply normal force on both objects according to Newton's 3rd Law
 		this.rigidbody.applyForce(normalForce[0], normalForce[1]);
@@ -291,10 +300,25 @@ class Connection{ // not a class, instead a function or a class with the object 
 			this.attachedObj = null;
 			let strtemp = this.type;
 			console.log("<<" + strtemp.substr(0,1).toLocaleUpperCase() + strtemp.substr(1) + ">> Connection Severed!");
+			return -1||false;
 		}
 	}
 	addNormalForce = this.applyNormalForce;
 
+	applyMagneticField(obj){
+		// to the rest of this's connections
+		// to every other obj's connections
+		// to all objs other than base & attachedobj
+		if(typeof(obj) == Connection){
+			// wire to wire
+		} else if (typeof(obj) == GameObject){
+			// wire to obj
+		} else {
+			console.error("Parameter obj in applyMagneticField(obj) should be of type Connection or GameObject. Instead it is registered as a(n) "+typeof(obj));
+		}
+	}
+
+	// &below: what is distanceVector??? redo this with all variables
 	preUpdate(ww = Infinity,wh = Infinity, wcenterx = 0, wcentery = 0){
 		// no collider just rigidbody elastic physics
 		
@@ -348,7 +372,7 @@ class Connection{ // not a class, instead a function or a class with the object 
 		if(this.connected){
 			if(f.exists(this.rotationalSpringConstant) || f.exists(this.rotational_coefficient_of_friction)){
 				// relative (aka: super fixed w. rotation)
-				this.pos = f.v.add(f.v.add(f.v.rotate([this.thisOffX, this.thisOffY], this.theta), f.v.rotate([this.pivotXOffset, this.pivotYOffset],this.attachedObj.theta)), this.attachedObj.pos);
+				this.pos = f.v.add(f.v.add(f.v.rotate([this.thisOffX, this.thisOffY], this.transform.theta), f.v.rotate([this.pivotXOffset, this.pivotYOffset],this.attachedObj.theta)), this.attachedObj.pos);
 			}
 			else if(!f.exists(this.springConstant)){
 				// fixed (distance)
@@ -362,3 +386,6 @@ class Connection{ // not a class, instead a function or a class with the object 
 		// draw a line with this.color if this.color != null
 	}
 };
+
+// plus magnetic properties 
+// make wire by free space plus magnetism plus color

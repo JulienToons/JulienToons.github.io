@@ -1,9 +1,8 @@
 /*
 Class Tree: Position, StrictTransform, Transform
-COMPLETE: no
-TODO: fake private vars should be made private by either pointers or keys
-EXTRA: acceleration & lockAcceleration
-
+COMPLETE: yes
+Wishlist: fake private vars should be made private by either pointers or keys
+Rework: added super position
 */
 class Position {
   constructor(x, y, lockx = false, locky=false) {
@@ -49,7 +48,7 @@ class StrictTransform extends Position {
     this.vy = v[1];
   }
   get vector() { return this.v(); }
-  set vector(v) { this.v(v); }
+  set vector(v) { this.v = v; }
 
   update() {
     this.x += this.vx;
@@ -103,3 +102,71 @@ class Transform extends StrictTransform {
     this.angularVelocity = x;
   }
 };
+class SuperTransform extends Transform{ // allows for temporary (next variables)
+  constructor(x = 0, y = 0, vx = 0, vy = 0, theta = 0, av = 0) {
+    super(x, y, vx, vy, theta,av);
+    this.nx=x;
+    this.ny=y;
+    this.nvx=vx
+    this.nvy=vy;
+    this.nangle=theta;
+    this.nav=av;
+  }
+  update(){
+    super.update();
+    this.x=this.nx;
+    this.y=this.ny;
+    this.nvx=this.xy;
+    this.angle=this.nangle;
+    this.av=this.nav;
+  }
+  get nPos() { return [this.nx, this.ny]; }
+  set nPos(pos) {
+    this.nx = pos[0];
+    this.ny = pos[1];
+  }
+  get nposition() { return [this.px, this.py]; }
+  set nposition(pos) {
+    this.nx = pos[0];
+    this.ny = pos[1];
+  }
+  get nextpos() { return [this.px, this.py]; }
+  set nextpos(pos) {
+    this.px = pos[0];
+    this.py = pos[1];
+  }
+  get nextposition() { return [this.px, this.py]; }
+  set nextposition(pos) {
+    this.px = pos[0];
+    this.py = pos[1];
+  }
+  get nv() { return [this.nvx, this.nvy]; }
+  set nv(v) {
+    this.nvx = v[0];
+    this.nvy = v[1];
+  }
+  get nvector() { return this.nv(); }
+  set nvector(v) { this.nv(v); }
+
+  get nangularVelocity(){ return this.nav;} // private implementation for locking mechanisms
+  set nangularVelocity(a){ this.nav=a;}
+
+  get ntheta() {
+    return this.nangle;
+  }
+  set ntheta(t) {
+    this.nangle = t;
+	}
+	get nangleInDeg(){ 
+		return f.toDeg(this.ntheta);
+	};
+	set nangleInDeg(t){ 
+		this.ntheta =  f.toRad(t);
+	};
+  get nomega() {
+    return this.nav;
+  }
+  set nomega(x) {
+    this.nav = x;
+  }
+}

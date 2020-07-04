@@ -1,10 +1,16 @@
 class RigidBody2D{
 	constructor(density = 1, charge = 0, transform=new Transform(), collider = {area:1,volume:1,vol:1,integralDistanceSquared:0.66, relativeCenterOfMass:[0,0]}) {
+		// Initialize Variables
 		this.density = density;
 		this.transform = transform;
 		this.collider = collider;
 		this.forces = [];
-		this.charge = charge; // add electric fields and magnetic fields
+		this.charge = charge;
+
+		// REQUIREMENTS
+		if(typeof(transform) != SuperTransform){
+			console.error("Rigidbody2D components REQUIRE 'Transform's of type 'SuperTransform'");
+		}
 	}
 	get col(){return this.collider;}
 	get rcom(){ return this.collider.relativeCenterOfMass;}
@@ -83,13 +89,13 @@ class RigidBody2D{
 		postUpdate();
 	}
 	preUpdate(){
-		// apply
+		// none
 	}
 	update(time /*in frames*/ = 1){
 		let forceValuesTemp = this.avgForce;
-		this.vx += forceValuesTemp[0] * time;
-		this.vy += forceValuesTemp[1] * time;
-		this.omega += forceValuesTemp[2] * time;
+		this.transform.nvx += forceValuesTemp[0] * time;
+		this.transform.nvy += forceValuesTemp[1] * time;
+		this.transform.nomega += forceValuesTemp[2] * time;
 	}
 	postUpdate(){
 		this.forces.clear();

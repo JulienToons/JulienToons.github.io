@@ -23,7 +23,14 @@ class Collider2D { // hollow colliders as cavity points??? like points[point[x,y
 		this.relativeCenterOfMass = this.calculateRelativeCenterOfMass();
 		
 		this.integralDistanceSquared = this.calculateIntegralDistanceSquared();
+
+		this._electricCenterOfMass = null;
 	}
+	get electricCenterOfMass(){
+		return (_electricCenterOfMass == null)? this.com:this._electricCenterOfMass;
+	}
+	set electricCenterOfMass(v){ this._electricCenterOfMass = v;}
+
 	get rcom(){ return this.relativeCenterOfMass;}
 	get com(){ return this.centerOfMass;}
 	get centerOfMass(){

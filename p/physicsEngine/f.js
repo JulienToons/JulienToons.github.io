@@ -14,10 +14,38 @@ Hey is anyone familiar with how to create private &/or  privileged variables in 
 */
 
 class f{ // static helper functions
-	static get epsilon(){ return .001; }
-static exists(a){ return a != null && a != undefined && isFinite(a);} /*foolproof*/
-	static toDeg(a){ return a * 180 /Math.PI;	}
-	static toRad(a){ return a * Math.PI / 180; }
+	static c = class c{
+		static get epsilon(){ return .001; }
+		static get pixelsToMeters(){ return 3; } // more like units to meters because canvas' 'pixels' are scalable to real viewport atomic pixels
+		static get metersToPixels(){ return 1/f.c.pixelsToMeters; }
+		static get metersToUnits(){ return 1/f.c.pixelsToMeters; }
+		static get unitsToPixels(){ return f.c.pixelsToMeters; }
+		static get coulombsToCharge(){ return 1;} // 1 e = 1.60 * 10^-19 C
+		static get chargeToCoulombs(){ return 1/f.c.coulombsToCharge;}
+
+		// _ in metric units
+		static get _g(){ return 9.8; } // acceleration due to gravity
+		static get _G(){ return 6.67* Math.pow(0.1,11);	} // Gravitational Constant
+		static get _K(){ return 9 * Math.pow(10,9);	} // coulomb's constant
+		static get _Mc(){ return Math.pow(0.1 , 7);	} // magnetic constant
+		static get _x(){ return 1;	}
+		static get _y(){ return 1;	}
+		static get _z(){ return 1;	}
+
+		// in game units
+		static get g(){ return f.c._g * f.c.metersToPixels; } // acceleration due to gravity
+		static get G(){ return f.c._G * Math.pow(f.c.metersToPixels,3);	} // Gravitational Constant
+		static get K(){ return f.c._K * Math.pow(f.c.metersToPixels,2) * f.c.chargeToCoulombs;	} // coulomb's constant
+		static get Mc(){ return f.c._Mc  * f.c.chargeToCoulombs;	} // magnetic constant
+		
+		
+		
+
+		static toDeg(a){ return a * 180 /Math.PI;	}
+		static toRad(a){ return a * Math.PI / 180; }
+	}
+	static exists(a){ return a != null && a != undefined && isFinite(a);} /*foolproof*/
+
 	static random(a,b = null){
 		if(f.exists(b)){
 			return Math.min(a,b) + Math.random() * (Math.max(b,a) - Math.min(b,a));
@@ -175,6 +203,9 @@ static exists(a){ return a != null && a != undefined && isFinite(a);} /*foolproo
 		static addition(a,b){ return this.add(a,b); }
 
 		static difference(a,b){
+			return [a[0] - b[0], a[1] - b[1]];
+		}
+		static diff(a,b){
 			return [a[0] - b[0], a[1] - b[1]];
 		}
 		static subtract(a,b){ return this.difference(a,b);}
@@ -337,7 +368,7 @@ static exists(a){ return a != null && a != undefined && isFinite(a);} /*foolproo
 			let aTmp = [a2[0] - a1[0], a2[1] - a1[0]];
 			let bTmp = [b[0] - a1[0], b[1] - a1[1]];
 			let r = Math.cross(aTmp, bTmp);
-			return Math.abs(r) < f.EPSILON;
+			return Math.abs(r) < f.c.epsilon;
 		}
 		static doBoundingBoxesIntersect(a1,a2,b1,b2){
 			let aMin = [Math.min(a1[0],a2[0]), Math.min(a1[1],a2[1])];
@@ -498,6 +529,29 @@ static exists(a){ return a != null && a != undefined && isFinite(a);} /*foolproo
 		}
 		static airResistance(){
 			// drag force   =  constant * .5  * airDensity * surface area * velocity^squared
+			
+		}
+		static applyFields(one, object, G = 1, E=1){ // one way (changes this obj vars) (need to replicate twice due to Newton's 3rd law)
+			// global constants?
+			// object is type RigidBody2D
+
+			let qualifier = 0.1, f;
+			if(!(object.m == 0 || one.m == 0 || G * object.m * one.m < qualifier)){ // gravitational
+				let tdiff = f.v.subtract(one.object.collider.com,one.collider.com);
+				f = - G *  object.m * one.m/ (Math.pow(f.v.mag(tdiff)),2); // use rigidbody.collider or collider????? via gameobject===typeof(object)???
+				one.applyForce(f.v.multiply(f.v.normalize(tdiff),f));
+				// apply force to this
+			}
+			qualifier = 0.2;
+			if(!( object.charge==0||one.charge==0|| E * object.charge * one.charge < qualifier)){ // electric
+				let tdiff = f.v.subtract(one.object.collider.electricCenterOfMass,one.collider.electricCenterOfMass);
+				f = E * object.charge * one.charge/(Math.pow(f.v.mag(tdiff)),2);
+				one.applyForce(f.v.multiply(f.v.normalize(tdiff),f));
+			}
+			qualifier = 0.2;
+			if(false){ // magnetic
+				// only with collider/connection physical properties
+			}
 		}
 	}
 

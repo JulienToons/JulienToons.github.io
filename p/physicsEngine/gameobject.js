@@ -2,18 +2,19 @@
 Class Tree: GameObject
 COMPLETE: no
 TODO: renderer
-EXTRA: 
+EXTRA: audio manager
 */
 
 class GameObject{ // with rudimentary physics & colliders
-	constructor(id = Math.round(1000000000 * Math.random()) ,type = "gameobject", quickIndex=0){
-    this.transform=undefined;
-    this.rigidbody=undefined;
-    this.collider=undefined;
-    this.renderer=undefined;
+	constructor(id = Math.round(1000000000 * Math.random()) ,type = "gameobject", quickIndex=0, transform=undefined,rigidbody=undefined,collider=undefined,renderer=undefined,audio=undefined,...connections){
+    this.transform=transform;
+    this.rigidbody=rigidbody;
+    this.collider=collider;
+		this.renderer=renderer;
+		this.audio=audio;
 
 		// joints
-		this.connections = []; //OBJ  <<?<< of ids or //objects// this to that connection (only one is neccessary)
+		this.connections = connections; //OBJ  <<?<< of ids or //objects// this to that connection (only one is neccessary)
 
 		this.tags; // multiple ex: enemy, spike, etc.
 		this.layer = 0;
@@ -55,6 +56,16 @@ class GameObject{ // with rudimentary physics & colliders
 			c.base = this;
 			// pivot obj rigidbody
 		}
+	}
+
+	preupdate(){
+
+	}
+	update(){
+
+	}
+	postupdate(){
+		this.transform.update();
 	}
 
 	render(display, renderer){
