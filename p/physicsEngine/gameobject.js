@@ -5,6 +5,7 @@ TODO: renderer
 EXTRA: audio manager
 */
 
+// dont forget (a ?? b)
 class GameObject{ // with rudimentary physics & colliders
 	constructor(id = Math.round(1000000000 * Math.random()) ,type = "gameobject", quickIndex=0, transform=undefined,rigidbody=undefined,collider=undefined,renderer=undefined,audio=undefined,...connections){
     this.transform=transform;
@@ -29,6 +30,9 @@ class GameObject{ // with rudimentary physics & colliders
 			obj: this,
 			id:this.id // only use if id is secured
 		};
+	}
+	get physicsComponents(){
+		return [this.transform, this.rigidbody, this.collider];
 	}
 	// set setRenderer(r){ this.render = r; }
 	set col(v){ this.collider = v; }
@@ -58,15 +62,15 @@ class GameObject{ // with rudimentary physics & colliders
 		}
 	}
 
-	preupdate(){
+	// updates are ordered by double value
+	// OR DO UPDATES BY: preupdate() returns delay amount relative to preupdate?
+	get updateChain(){
+		let chain = [];
+		let c = this.physicsComponents.map(x => x.updateChain);
+		for (i in c){ chain.push(...i); }
+		return chain;
+	}
 
-	}
-	update(){
-
-	}
-	postupdate(){
-		this.transform.update();
-	}
 
 	render(display, renderer){
 		// maybe put the next line in f.js or display.js or main.js.diplay()?

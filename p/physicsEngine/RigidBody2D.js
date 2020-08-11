@@ -1,5 +1,7 @@
 class RigidBody2D{
-	constructor(density = 1, charge = 0, transform=new Transform(), collider = {area:1,volume:1,vol:1,integralDistanceSquared:0.66, relativeCenterOfMass:[0,0]}) {
+	constructor( transform=new Transform(),density = 1, charge = 0, collider=undefined) {
+// I will use default values aka var b = undefined ?? 12; instead of collider = {area:1,volume:1,vol:1,integralDistanceSquared:0.66, relativeCenterOfMass:[0,0]}
+
 		// Initialize Variables
 		this.density = density;
 		this.transform = transform;
@@ -13,15 +15,15 @@ class RigidBody2D{
 		}
 	}
 	get col(){return this.collider;}
-	get rcom(){ return this.collider.relativeCenterOfMass;}
+	get rcom(){ return this.collider.relativeCenterOfMass ?? [0,0];}
 	get d(){
 		return this.density;
 	}
 	get m(){
-		return this.density * this.collider.volume;
+		return this.density * (this.collider.volume ?? 1);
 	}
 	get mass(){ return m;}
-	get inertia (){ return this.m * this.collider.integralDistanceSquared;}
+	get inertia (){ return this.m * (this.collider.integralDistanceSquared ?? 0.66);}
 
 	worldPoint(pt){ // convert geometry point into world coordinates
 		if(typeof pt == Number){
@@ -82,6 +84,27 @@ class RigidBody2D{
 			alpha += ((force.fx * force.ox) + (-force.fy * force.oy)) / this.inertia;
 		}
 		return [ax,ay,alpha];
+	}
+	get prediction(time = 1){ // uses next values
+		let forceValuesTemp = this.avgForce;
+		let vx = this.transform.nvx + (forceValuesTemp[0] * time),
+		    vy = this.transform.nvy + (forceValuesTemp[1] * time),
+		    nomega = this.transform.nomega + (forceValuesTemp[2] * time);
+		return {
+			x: this.transform.nx,
+			y: this.transform.nx,
+			theta: this.transform.nangle,
+			vx: vx,
+			vy: vy,
+			omega: nomega
+		}
+	}
+	get updateChain(){
+		return [
+			[-1, this.preUpdate],
+			[0, this.update],
+			[1, this.postUpdate]
+		];
 	}
 	fullUpdate(){
 		preUpdate();

@@ -24,7 +24,7 @@ Camera = function(xx,yy,cs = .3, renderer = null){
 	this.renderer = renderer; // render every gameobject in camera with their own render plus the camera's renderer
 };
 Camera.prototype = {
-	constructor: Game.Camera,
+	constructor: Camera,
 	shake:function(...args){
 		if(!this.shaking(2)){
 			this.posTimeline = [[this.x,this.y,-0.000001]];

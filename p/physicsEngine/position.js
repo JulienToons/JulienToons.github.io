@@ -112,11 +112,15 @@ class SuperTransform extends Transform{ // allows for temporary (next variables)
     this.nangle=theta;
     this.nav=av;
   }
+  get updateChain(){
+    return [[0.5, this.update]];
+  }
   update(){
     super.update();
     this.x=this.nx;
     this.y=this.ny;
-    this.nvx=this.xy;
+    this.vx= this.nvx;
+    this.vy = this.nvy;
     this.angle=this.nangle;
     this.av=this.nav;
   }
@@ -125,20 +129,20 @@ class SuperTransform extends Transform{ // allows for temporary (next variables)
     this.nx = pos[0];
     this.ny = pos[1];
   }
-  get nposition() { return [this.px, this.py]; }
+  get nposition() { return [this.nx, this.ny]; }
   set nposition(pos) {
     this.nx = pos[0];
     this.ny = pos[1];
   }
-  get nextpos() { return [this.px, this.py]; }
+  get nextpos() { return [this.nx, this.ny]; }
   set nextpos(pos) {
-    this.px = pos[0];
-    this.py = pos[1];
+    this.nx = pos[0];
+    this.ny = pos[1];
   }
-  get nextposition() { return [this.px, this.py]; }
+  get nextposition() { return [this.nx, this.ny]; }
   set nextposition(pos) {
-    this.px = pos[0];
-    this.py = pos[1];
+    this.nx = pos[0];
+    this.ny = pos[1];
   }
   get nv() { return [this.nvx, this.nvy]; }
   set nv(v) {
@@ -168,5 +172,13 @@ class SuperTransform extends Transform{ // allows for temporary (next variables)
   }
   set nomega(x) {
     this.nav = x;
+  }
+  reset(){
+    this.nx=this.x;
+    this.ny=this.y;
+    this.nvx=this.vx
+    this.nvy=this.vy;
+    this.nangle=this.angle;
+    this.nav=this.av;
   }
 }

@@ -14,5 +14,6 @@ var className = (function(nm){
   }
 })();
 
+var a = undefined ?? 100;
 
 //or this._varname = null; for private class var

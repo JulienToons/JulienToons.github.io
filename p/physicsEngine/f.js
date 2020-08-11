@@ -179,6 +179,23 @@ class f{ // static helper functions
 	}
 
 	static v = class v{ // vector 2d functions
+		static vectorFromPolar(d,a){ return [d*Math.cos(a),d*Math.sin(a)];}
+		static angle(v){
+			return (v[0] < 0)? (  (v[1] < 0)? 
+													a
+												:
+													b
+											):(  (v[1] < 0)?
+													a
+												:
+													b											
+											);
+			
+			Math.tan(v[1]/v[0]) :
+						 ()? :
+						 ()? :
+						     ;
+		}
 		static normalize(v){
 			let m = this.mag(v);
 			return [v[0]/m, v[1]/m];
