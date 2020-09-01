@@ -106,11 +106,6 @@ class RigidBody2D{
 			[1, this.postUpdate]
 		];
 	}
-	fullUpdate(){
-		preUpdate();
-		update();
-		postUpdate();
-	}
 	preUpdate(){
 		// none
 	}

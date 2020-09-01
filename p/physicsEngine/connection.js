@@ -56,8 +56,6 @@ class Connection{ // not a class, instead a function or a class with the object 
 				}
 			},
 			chaos:0 ?? {
-				strength:0, // [0,1]
-				folds:2, // the number of multiplied random values (for spontaneous outbursts of chaos)
 				progressive: false ?? 5 ?? 0, // memorory span in frames
 			} // random chaotic additions/multiplications of variable contemperary values
 		};
@@ -148,9 +146,14 @@ class Connection{ // not a class, instead a function or a class with the object 
 
 		this.chaos = { // I think I am going to like this
 			strength: attributes.chaos.strength ?? ( (typeof(attributes.chaos)==Number)? attributes.chaos : attributes.chaos.value ?? 0 ),
-			folds: attributes.chaos ?? 0, // 0 ~= no folds (just on erandom value)
+			constants: {
+				add_mult_fold: attributes.chaos.add_mult_fold ?? attributes.chaos.constants.add_mult_fold ?? .7,
+				sqrt_exp_fold: attributes.chaos.sqrt_exp_fold ?? attributes.chaos.constants.sqrt_exp_fold ?? 2
+			},
+			inherited_strength: attributes.chaos.inherited_strength ?? 0, // amplifier; must be >= 0
+			folding_operation: attributes.chaos.folding_operation ?? this.defaultChaosFoldingOperation1 ?? this.defaultChaosFoldingOperation2, // mem1 * (c)   + (1-c) * (mem2 * (c)  + ...)
 			progressive: attributes.chaos.progressive ?? 0, // 0 ~= no memory
-			operation: attributes.chaos.operation ?? ((variable,randval) => variable*randval)// when applied to variables
+			apply_operation: attributes.chaos.operation ?? this.defaultChaosApplyOperation// when applied to variables
 			// HERE IS WHERE IS MISS PHYTHON LAMBDA FUNCTIONS :\
 		}; this.chaos.memory = (Number != typeof(attributes.chaos.progressive))? []: (new Array( attributes.chaos.progressive ) ).filter(() => this.chaos.strength * Math.random()); // something like this randomization function
 	}
@@ -349,15 +352,38 @@ class Connection{ // not a class, instead a function or a class with the object 
 		return f.v.subtract(this.pivotPos - this.hookPos);
 	}
 
+	// put defaults somewhere else for temp
+	defaultChaosFoldingOperation1(){ // add
+		let chaos_stamp = 0;
+		let c = this.chaos.constants.add_mult_fold;
+		for (let i =0; i < this.chaos.memory.length; i++) { chaos_stamp += this.chaos.memory[i] * c * Math.pow((1-c), i); }
+		return chaos_stamp;
+	}
+	defaultChaosFoldingOperation1(){ // mult
+		let chaos_stamp = 1;
+		for (let i =0; i < this.chaos.memory.length; i++) { chaos_stamp *= Math.pow(this.chaos.memory[i], Math.pow(1/this.chaos.constants.sqrt_exp_fold,i)); }
+		return chaos_stamp;
+	}
+	defaultChaosApplyOperation(value=1){
+		let chaos_stamp = this.chaos.folding_operation();
 
-	_applyLinearSpringForce(){
-		daa
-
+		let val = value + (value * this.chaos.inherited_strength * chaos_stamp) + (this.chaos.strength * chaos_stamp);
+		return val;
+	}
+	applyChaos(...eg){ return this.chaos.operation(eg);}
+	
+	stepChaos(){
+		if(this.chaos.progressive == false || this.chaos.progressive <= 0){ return; }
+		
+		this.chaos.memory.push(Math.random());
+		if (this.chaos.memory.length < this.chaos.progressive){ this.chaos.memorysplice(0,this.chaos.progressive - this.chaos.memory.length); }
 	}
 
 
-
-
+	
+	_applyLinearSpringForce(){
+		let force;
+	}
 
 	applyNormalForce(){ // CAUTION: Apply between pre and reg update
 		// when the obj is outside of the border or this is a *fixed joint
@@ -418,7 +444,8 @@ The plan:
 			[-0.5 , function(){       // Apply F_n if needed              # 5
 				// put code here
 			}],
-			[1 , this.postUpdate]      // reposition                      # 6
+			[1 , this.postUpdate],      // reposition                      # 6
+			[2,this.stepChaos]
 		];
 	}
 

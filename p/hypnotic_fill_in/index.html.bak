@@ -1,0 +1,83 @@
+<html>
+	<head>
+		<script>
+		
+		// '<span style="color:#FF0000"><strong> hi </strong></span>';
+function getRandomColor() {
+  var letters = '2334445555555666677788899AABCDE';
+  var color = '#';
+  for (var i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * letters.length)];
+  }
+  return color;
+}
+function bzaz(txt){
+return `<span style='font-weight: bold;color:${getRandomColor()};'> ${txt} <\/span>`;
+}
+		
+		
+let MODE = 0;
+Name = ["Friend" , "Joe", bzaz("Name")];
+Occupation = ["counselor" , "florist", bzaz("Occupation")]; 
+Action_A = ["read" , "grow", bzaz("Action_A")];
+Action_A_2 = ["press the button", "grow", bzaz("Action_A_2")];
+Action_A_ing = ["reading" , "growing", bzaz("Action_A_ing")];
+Object_A = ["essays" , "flowers", bzaz("Object_A")];
+Object_B = ["CV" , "tomato", bzaz("Object_B")]; // odd
+Object_B_pl = ["CVs" , "tomatoes", bzaz("Object_B_pl")]; // odd
+Object_B_add = ["document" , "plant", bzaz("Object_B_add")];
+Object_C = ["style" , "seed", bzaz("Object_C")]; // seed
+Object_D= ["incentive", "rootlet", bzaz("Object_D")];
+Object_E = ["motifs","cilia", bzaz("Object_E")];
+Object_F= ["accept button", "pencil", bzaz("Object_F")];
+Object_G = ["mouse","pad", bzaz("Object_G")];
+Object_H =["??","stalk", bzaz("Object_H")];
+Object_I = ["award", "leaf", bzaz("Object_I")];
+Object_I_pl = ["awards", "leaves", bzaz("Object_I_pl")];
+Object_J = ["notes", "hairs", bzaz("Object_J")];
+Object_K = ["finesse","cilia", bzaz("Object_K")];
+Object_L = ["paper","roots", bzaz("Object_L")];
+
+Grew_up = ["habited a house in Marseille" , "grew up on a farm in Wisconsin", bzaz("Grew_up")];
+Mood = ["eagerly", "comfortably", bzaz("Mood")];
+Mood_n = ["eager", "comfortable", bzaz("Mood_n")];
+Mood2 = ["exciting", "easy", bzaz("Mood2")];
+Talk_to = ["guide", "talk to", bzaz("Talk_to")];
+Talking = ["explaining", "talking", bzaz("Talking")]; // guiding
+Specific_A = ["One listens to the words on a page. One can feel urgency that it will become an artwork that will bring <em>fulfillment</em> by the words it uses.", "One puts a tomato seed in the ground. One can feel <em>hope<\/em> that it will grow into a tomato plant that <em>will bring satisfaction</em> by the fruit it has.", bzaz("Specific_A")];
+Specific_B = ["embellishes the qualities of the pen", "soaks up water", bzaz("Specific_B")];
+Specific_C = ["the pens that <em>bring fortitude and enrichment</em> and the reward of forming", "of the rains that <em>bring peace and comfort</em> and the joy of growing to", bzaz("Specific_C")];
+Specific_D = ["illuminates","swelling", bzaz("Specific_D")];
+Specific_E = ["destroy all walls between the author and the listener as a befriending companion","push up above the ground as a sprouting plant", bzaz("Specific_E")];
+Specific_F = ["the first joyous acceptance on the list","the first little leaflike things on the stalk", , bzaz("Specific_F")];
+Specific_G = ["the fine accomplishments","the fine little hairs", , bzaz("Specific_G")];
+
+Specific_H = ["","", bzaz("Specific_H")];
+
+Specific_I = ["","", bzaz("Specific_I")];
+Difficulty_level = ["a lot of", "not very much", bzaz("Difficulty_level")];
+Adj_A = ["trifling", "little", bzaz("Adj_A")];
+Adj_B = ["ready", "good", bzaz("Adj_B")];
+Adj_C = ["ready", "comfortable", bzaz("Adj_C")];
+Adv_A = ["quickly","slowly", bzaz("Adv_A")];
+
+
+function lama(){
+let answr = `${Name[MODE]}, I would like to talk to you. I know that you are a ${Occupation[MODE]}, that you ${Action_A[MODE]} ${Object_A[MODE]}, and I ${Grew_up[MODE]} and I liked ${Action_A_ing[MODE]} ${Object_A[MODE]}. I still do. So I would like to have you take a seat in your ${Mood2[MODE]} chair as I ${Talk_to[MODE]} you. I am going to say a lot of things to you but it won’t be about ${Object_A[MODE]} because you know more than I do about ${Object_A[MODE]}. <em>That isn’t what you want<\/em>. Now as I talk and and I can do so <em>${Mood[MODE]}<\/em>, I wish that you will <em>listen to me ${Mood[MODE]}<\/em> as I talk about the ${Object_B[MODE]} ${Object_B_add[MODE]}. That is an odd thing to talk about. It makes one <em>curious<\/em>. <em>Why talk about a ${Object_B[MODE]} ${Object_B_add[MODE]}?<\/em> ${Specific_A[MODE]} The ${Object_C[MODE]} ${Specific_B[MODE]}, <em>${Difficulty_level[MODE]} difficulty<\/em> in doing that because ${Specific_C[MODE]}  ${Object_A[MODE]} and ${Object_B_pl[MODE]}. That ${Adj_A[MODE]} ${Object_C[MODE]}, ${Name[MODE]}, ${Adv_A[MODE]} ${Specific_D[MODE]}, sends out a ${Adj_A[MODE]} ${Object_D[MODE]} with ${Object_E[MODE]} on it. Now you may not know what ${Object_E[MODE]} are, but ${Object_E[MODE]} are <em>things that work<\/em> to help the ${Object_B[MODE]} ${Object_C[MODE]} ${Action_A[MODE]}, to ${Specific_E[MODE]}, and <em>you can listen to me ${Name[MODE]}<\/em> so I will keep on ${Talking[MODE]} and you can keep on <em>listening, wondering, just wondering what you can really learn<\/em>, and here is your ${Object_F[MODE]} and your ${Object_G[MODE]} but speaking of the ${Object_B[MODE]} ${Object_B_add[MODE]}, it ${Action_A[MODE]}s so ${Adv_A[MODE]}.<em>You cannot see<\/em> it ${Action_A_2[MODE]}, <em>you cannot hear<\/em> it ${Action_A_2[MODE]}, but ${Action_A_2[MODE]} it does - ${Specific_F[MODE]}, ${Specific_G[MODE]} on the ${Object_H[MODE]}, those ${Object_J[MODE]} on the ${Object_I_pl[MODE]} too like the ${Object_K[MODE]} on the ${Object_L[MODE]}, they must make the ${Object_B[MODE]} ${Object_B_add[MODE]} <em>feel very ${Adj_B[MODE]}, very ${Mood_n[MODE]} <\/em> if you think of a ${Object_B_add[MODE]} as a feeling and then, <em>you can’t see<\/em> it ${Action_A_ing[MODE]}, <em>you can’t feel<\/em> it ${Action_A_ing[MODE]} but another ${Object_I[MODE]} appears on that ${Adj_A[MODE]} ${Object_B[MODE]} ${Object_H[MODE]} and then another.      … talking like a child Pg36-37 `;
+document.getElementById("boy").innerHTML = answr;
+return answr;
+}
+function showVarNames(){
+ let tmp = MODE;
+ MODE = Specific_A.length -1;
+ lama();
+ MODE = tmp;
+}
+		</script>
+	</head>
+	<body>
+	<p id="boy">Press the <strong>press me</strong> button to show the first part of a hypnotic speech.<br>Press the <strong>show-pub-var-names</strong> button to show the variable names associated with key words in the paragraph. To change key words, open the console and type <em>variable_name.unshift('new string')</em></p>
+	<button onclick='lama();'>Press me</button>
+	<button onclick='showVarNames();'>Show Public Variable Names</button>
+	</body>
+</html>
