@@ -1,4 +1,4 @@
-
+// no rigid, only soft bodies!!!
 class Collider2D { // hollow colliders as cavity points??? like points[point[x,y]] then cavities[cavity[points[point[x,y]]]]
 	constructor(pts = f.geometry.shape.square(),circles = [], rigidbody = null) {
 		this.rigidbody = rigidbody;

@@ -1,0 +1,191 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Julien Owhadi</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="styles.css">
+		<script type="text/javascript" src="main.js"></script>
+		<script type="text/javascript" src="f.js"></script>
+		<!-- <script type = "text/javascript"></script> -->
+	</head>
+	<body>
+		<!-- <div id="background"></div> -->
+		<div class="header">
+			<h3 id= "page_title">The more you know, the more you realize you don't know - Aristotle</h1>
+			<p>Julien Owhadi</p>
+		</div>
+		<div class = "stickybar">
+			<div class="navbar">
+			  <a href="https://julientoons.github.io">Home</a>
+			  <a href="https://julientoons.github.io/aboutMe">About Me</a>
+			  <a href="#contact">Contact</a> 
+			  
+<!--         [all , none , docs, projects, events, art , other, old , recent, inProgress, byDate, byDescription, byTitle, byTag, new2old] -->
+<!-- default [true, false, true, true    , true  , true, true , true, true  , true      , true  , true         , true   , true , true   ] -->
+										<!--                         docs   proj  event  art    other -->
+			  <a onClick = "shortcut('Projects',       [true, false, false, true, false, false, false, true, true, true, false, false, false, true, true])" id = "projectsShortcut">Projects</a> 
+			  <a onClick = "shortcut('Art',            [true, false, false, false, false, true, false, true, true, true, false, false, false, true, true])" id = "artShortcut">Art</a> 
+			  <a onClick = "shortcut('Events',         [true, false, false, false, true, false, false, true, true, true, false, false, false, true, true])" id = "eventsShortcut">Events</a> 
+			  <a onClick = "shortcut('Doucuments',     [true, false, true, false, false, false, false, true, true, true, false, false, false, true, true])" id = "documentsShortcut">Documents</a> 
+			  <a onClick = "shortcut('*Other Search*', [true, false, false, false, false, false, true, true, true, true, false, false, false, true, true])" id = "otherShortcut">Other</a> 
+			  
+
+			  <div class="search-container">
+				<form> <!-- action="search()">    <!--CHANGE!!!-->
+				  <div id="searchButton" onclick="search(inputElement.value)">
+					<img id="searchButtonImg" src = "imgs/searchImg.svg" alt = "Search?" >
+				  </div>
+				  <input id="inputElement" type="text" placeholder="Search..." name="search" spellcheck="true">
+				  
+				  <div id="settingsButton" onclick="toggleSettings()">
+					<img id="settingsButtonImg" src = "imgs/settingsButton.png" alt = "hi">
+				  </div>
+				</form>
+			  </div>
+			  
+			</div>
+			<div id = "settingsContainer">
+				<!-- <div id="searchByTextContainer"> -->
+					<!-- <font>Search Settings:</font> -->
+				<!-- </div> -->
+				
+				<!-- <div class="toggle" > <!--   break     --> 
+					<!-- <a>|</a> -->
+				<!-- </div> -->
+				<div class="toggle" >
+					<div class="toggleButton" onclick="toggleCheck(this)" id="byTagButtonCheck">
+						<img src = "imgs/checkedBox.png" alt = "yes?">
+					</div>
+					<a>By Tag</a>
+				</div>
+				<div class="toggle" >
+					<div class="toggleButton" onclick="toggleCheck(this)" id="byTitleButtonCheck">
+						<img src = "imgs/checkedBox.png" alt = "yes?">
+					</div>
+					<a>By Title</a>
+				</div>
+				<div class="toggle" >
+					<div class="toggleButton" onclick="toggleCheck(this)" id="byDescriptionButtonCheck">
+						<img src = "imgs/checkedBox.png" alt = "yes?">
+					</div>
+					<a>By Description</a>
+				</div>
+				<div class="toggle" >
+					<div class="toggleButton" onclick="toggleCheck(this)" id="byDateButtonCheck">
+						<img src = "imgs/checkedBox.png" alt = "yes?">
+					</div>
+					<a>By Date</a>
+				</div>
+				
+				<div class="toggle" >
+					<div class="toggleButton" onclick="toggleCheck(this)" id="inProgressButtonCheck">
+						<img src = "imgs/checkedBox.png" alt = "yes?">
+					</div>
+					<a>In Progress</a>
+				</div>
+				<div class="toggle" >
+					<div class="toggleButton" onclick="toggleCheck(this)" id="recentButtonCheck">
+						<img src = "imgs/checkedBox.png" alt = "yes?">
+					</div>
+					<a>Recent</a>
+				</div>
+				<div class="toggle" >
+					<div class="toggleButton" onclick="toggleCheck(this)" id="oldButtonCheck">
+						<img src = "imgs/checkedBox.png" alt = "yes?">
+					</div>
+					<a>Old</a>
+				</div>
+				
+				
+				<div class="toggle" >
+					<div class="toggleButton" onclick="toggleCheck(this)" id="otherButtonCheck">
+						<img src = "imgs/checkedBox.png" alt = "yes?">
+					</div>
+					<a>Other</a>
+				</div>
+				<div class="toggle" >
+					<div class="toggleButton" onclick="toggleCheck(this)" id="artButtonCheck">
+						<img src = "imgs/checkedBox.png" alt = "yes?">
+					</div>
+					<a>Art</a>
+				</div>
+				<div class="toggle" >
+					<div class="toggleButton" onclick="toggleCheck(this)" id="eventsButtonCheck">
+						<img src = "imgs/checkedBox.png" alt = "yes?">
+					</div>
+					<a>Events</a>
+				</div>
+				
+				<div class="toggle" >
+					<div class="toggleButton" onclick="toggleCheck(this)" id="projectsButtonCheck">
+						<img src = "imgs/checkedBox.png" alt = "yes?">
+					</div>
+					<a>Projects</a>
+				</div>
+				<div class="toggle" >
+					<div class="toggleButton" onclick="toggleCheck(this)" id="documentsButtonCheck">
+						<img src = "imgs/checkedBox.png" alt = "yes?">
+					</div>
+					<a>Documents</a>
+				</div>
+				
+				
+				<div class="toggle" >
+					<div class="toggleButton" onclick="toggleCheck(this)" id="newToOldButtonCheck">
+						<img src = "imgs/checkedBox.png" alt = "yes?">
+					</div>
+					<a>New to Old</a>
+				</div>
+				
+				<div class="toggle" >
+					<div class="toggleButton" onclick="toggleCheck(this)" id="noneButtonCheck">
+						<img src = "imgs/uncheckedBox.png" alt = "yes?">
+					</div>
+					<a>None</a>
+				</div>
+				<div class="toggle" >
+					<div class="toggleButton" onclick="toggleCheck(this)" id="allButtonCheck">
+						<img src = "imgs/checkedBox.png" alt = "yes?">
+					</div>
+					<a>All</a>
+				</div>
+				
+				
+				<!-- <div id="searchByTextContainer"> -->
+					<!-- <font>Search Settings:</font> -->
+				<!-- </div> -->
+			</div>
+		</div>
+		
+		<div class = "content">
+		  <table id="project_table">
+		  <!--      28 characters wide max-->
+			<tr>
+				<td class="hoverableElement" id="exampleProjectTag1">
+					<a class ="dateOfProject">9/19/2003<a>
+					<div class="overlay" >
+						<div class="boxOverlayText">LOADING... (takes<br>about 5 seconds)</div>
+					</div>
+					
+					<div class="textContainer">
+						<p>LOADING...</p>
+					</div>
+				</td>
+				<td class = "spacer">
+					<div>
+				</td>
+			</tr> 
+			
+					
+		  </table>
+		</div>
+		<div class="footer" id="contact">
+		  <h3>Contact Info</h3>
+		  <h5>Email: julientoons@gmail.com</h5>
+		  
+		</div>
+	</body>
+</html>

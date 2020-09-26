@@ -17,3 +17,4 @@ var className = (function(nm){
 var a = undefined ?? 100;
 
 //or this._varname = null; for private class var
+alert([2, 4].every(isComposite));  // => false (2 is prime, 4 is not)

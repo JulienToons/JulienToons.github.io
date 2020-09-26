@@ -1,0 +1,736 @@
+// categories / title special border css in css file by class=title or category
+// [[],[]]
+//  (stuff in parentheses are extra info that appears on pop-up)
+// ["/org 3*4",...] create matrix 3 columns 4 rows from els
+// use date to determine if in process or future
+// show => true, false, or after date {m,d,y}
+// link class = "HL"
+[
+	{
+		"title": "Education",
+		"subtitle": "Primary Education",
+		"el": [["<b>Crescenta Valley High School</b>"], ["<b>11<sup?th</sup></b> Grade, <b>GPA:</b> 4.21 (weighted), 3.86 (unweighted)"],["La Crescenta, CA 91214"]],
+		"startDate": {
+			"m": null,
+			"d": null,
+			"y": 2017
+		},
+		"endDate": {
+			"m": null,
+			"d": null,
+			"y": 2021
+		},
+		"extendedDescription": null,
+		"css": null,
+		"categories": ["school"],
+		"tags": "learning, school, gpa, grades, scores, location",	
+		"format": null,
+		"show":	true			
+	},
+	{
+		"title": "Education",
+		"subtitle": [["Electives"],["(2017-2020"]],
+		"el": [
+			{
+				"text":"AP Computer Science 3-4",
+				"specific-text":"AP Exam Score: 4",
+				"startDate": {
+					"m": null,
+					"d": null,
+					"y": 2017
+				},
+				"endDate": {
+					"m": null,
+					"d": null,
+					"y": 2018
+				},
+				"extendedDescription":"Java",
+				"tags":"cs/it, java, debugging, code, programming, creative, object oriented programming, oop"
+			},
+			{
+				"text":"AP Computer Science 5-6",
+				"specific-text":"+ Interns + Competitions",
+				"startDate": {
+					"m": null,
+					"d": null,
+					"y": 2017
+				},
+				"endDate": {
+					"m": null,
+					"d": null,
+					"y": 2018
+				},
+				"extendedDescription":"Period to independently gain CS skills, and experience through internships and hackathons (competitions)",
+				"tags":"cs/it, hackathons, internships, debugging, code, programming, creative"
+			},
+			{
+				"text":"AP Calculus AB",
+				"specific-text":"AP Subscore: 5",
+				"startDate": {
+					"m": null,
+					"d": null,
+					"y": 2019
+				},
+				"endDate": {
+					"m": null,
+					"d": null,
+					"y": 2020
+				},
+				"extendedDescription":null,
+				"tags":"mathematics"
+			},
+			{
+				"text":"AP Calculus BC",
+				"specific-text":"AP Score: 5",
+				"startDate": {
+					"m": null,
+					"d": null,
+					"y": 2019
+				},
+				"endDate": {
+					"m": null,
+					"d": null,
+					"y": 2020
+				},
+				"extendedDescription":"",
+				"tags":"mathematics"
+			},
+			{
+				"text":"AP Statistics",
+				"specific-text":"AP Score: 4",
+				"startDate": {
+					"m": null,
+					"d": null,
+					"y": 2019
+				},
+				"endDate": {
+					"m": null,
+					"d": null,
+					"y": 2020
+				},
+				"extendedDescription":"",
+				"tags":"mathematics"
+			},
+			{
+				"text":"AP Physics 1",
+				"specific-text":"AP Score: 4",
+				"startDate": {
+					"m": null,
+					"d": null,
+					"y": 2018
+				},
+				"endDate": {
+					"m": null,
+					"d": null,
+					"y": 2019
+				},
+				"extendedDescription":"",
+				"tags":"mathematics, physics"
+			},
+			{
+				"text":"AP Physics 2",
+				"specific-text":null,
+				"startDate": {
+					"m": null,
+					"d": null,
+					"y": 2019
+				},
+				"endDate": {
+					"m": null,
+					"d": null,
+					"y": 2020
+				},
+				"extendedDescription":"",
+				"tags":"mathematics, physics"
+			},
+			{
+				"text":"AP Physics C Mechanics",
+				"specific-text":"AP Score: 5",
+				"startDate": {
+					"m": null,
+					"d": null,
+					"y": 2019
+				},
+				"endDate": {
+					"m": null,
+					"d": null,
+					"y": 2020
+				},
+				"extendedDescription":"",
+				"tags":"mathematics, physics"
+			},
+			{
+				"text":"AP Language",
+				"specific-text":"AP Score: 4",
+				"startDate": {
+					"m": null,
+					"d": null,
+					"y": 2019
+				},
+				"endDate": {
+					"m": null,
+					"d": null,
+					"y": 2020
+				},
+				"extendedDescription":"English",
+				"tags":"english, writing, reading, literature"
+			},
+			{
+				"text":"AP Literature",
+				"specific-text":"AP Score: TBD",
+				"startDate": {
+					"m": null,
+					"d": null,
+					"y": 2020
+				},
+				"endDate": {
+					"m": null,
+					"d": null,
+					"y": 2021
+				},
+				"extendedDescription":"english",
+				"tags":"english, writing, reading, literature"
+			},
+			{
+				"text":"Linear Algebra",
+				"specific-text":null,
+				"startDate": {
+					"m": null,
+					"d": null,
+					"y": 2020
+				},
+				"endDate": {
+					"m": null,
+					"d": null,
+					"y": 2021
+				},
+				"extendedDescription":"English",
+				"tags":"mathematics, ai, anns, cnns, neural networks, artificial intelligence"
+			},
+			{
+				"text":"AP Macroeconomics",
+				"specific-text":"AP Score: TBD",
+				"startDate": {
+					"m": null,
+					"d": null,
+					"y": 2020
+				},
+				"endDate": {
+					"m": null,
+					"d": null,
+					"y": 2021
+				},
+				"extendedDescription":"AP Econ/Gov",
+				"tags":"economics, finance, history, us government"
+			},
+			{
+				"text":"AP French",
+				"specific-text":"AP Score: TBD",
+				"startDate": {
+					"m": null,
+					"d": null,
+					"y": 2020
+				},
+				"endDate": {
+					"m": null,
+					"d": null,
+					"y": 2021
+				},
+				"extendedDescription":"AP Econ/Gov",
+				"tags":"second language, french, francais"
+			},
+			{
+				"text":"AP MicroEconomics",
+				"specific-text":"AP Score: TBD",
+				"startDate": {
+					"m": null,
+					"d": null,
+					"y": 2020
+				},
+				"endDate": {
+					"m": null,
+					"d": null,
+					"y": 2021
+				},
+				"extendedDescription":"Planned Self-study",
+				"tags":"econ"
+			},
+			{
+				"text":"AP Physics C Electromagnetics",
+				"specific-text":"AP Score: TBD",
+				"startDate": {
+					"m": null,
+					"d": null,
+					"y": 2020
+				},
+				"endDate": {
+					"m": null,
+					"d": null,
+					"y": 2021
+				},
+				"extendedDescription":"Planned Self-study",
+				"tags":"physics, magnetism,"
+			},
+			{
+				"text":"AP Physcology",
+				"specific-text":"AP Score: TBD",
+				"startDate": {
+					"m": null,
+					"d": null,
+					"y": 2020
+				},
+				"endDate": {
+					"m": null,
+					"d": null,
+					"y": 2021
+				},
+				"extendedDescription":"Planned Self-study",
+				"tags":null
+			}
+		],
+		"startDate": {
+			"m": null,
+			"d": null,
+			"y": 2017
+		},
+		"endDate": {
+			"m": null,
+			"d": null,
+			"y": 2021
+		},
+		"extendedDescription": "",
+		"css": "",
+		"categories": ["school"],
+		"tags": "learning, school, gpa, grades, scores, location",	
+		"format": [["org", 3, null], "info-pop-up-objects"],
+		"show":	true
+	},
+	{
+		"title": "Education",
+		"subtitle": "Certifications",
+		"el": [
+			{
+				"text":"Linux Admin",
+				"specific-text":"AP Score: TBD",
+				"startDate": {
+					"m": null,
+					"d": null,
+					"y": 2020
+				},
+				"endDate": {
+					"m": null,
+					"d": null,
+					"y": 2021
+				},
+				"extendedDescription":"<a class='HL' href='https://www.youtube.com/watch?v=EDgkcvOoY8A&list=PLtK75qxsQaMLZSo7KL-PmiRarU7hrpnwK&index=22'>Go to course</a>",
+				"tags":"linux, ubuntu, virtualization"
+			},
+			{
+				"text":"CompTIA Newtwork +",
+				"specific-text":"Score: TBD",
+				"startDate": {
+					"m": null,
+					"d": null,
+					"y": 2020
+				},
+				"endDate": {
+					"m": null,
+					"d": null,
+					"y": 2021
+				},
+				"extendedDescription":null,
+				"tags":null
+			}
+		],
+		"startDate": {
+			"m": null,
+			"d": null,
+			"y": 2017
+		},
+		"endDate": {
+			"m": null,
+			"d": null,
+			"y": 2021
+		},
+		"extendedDescription": null,
+		"css": null,
+		"categories": ["school"],
+		"tags": "learning, school, gpa, grades, scores, location",
+		"format": [["org", 3, null], "info-pop-up-objects"],	
+		"show":	{
+			"m": 1,
+			"d": 1,
+			"y": 2021
+		}			
+	},
+
+	{
+		"title": "Language & IT Skills",
+		"subtitle": "Languages",
+		"el": ["<b>English:</b> Native speaking","<b>French:</b> Proficient"],
+		"startDate": null,
+		"endDate": null,
+		"extendedDescription": null,
+		"css": null,
+		"categories": ["language"],
+		"tags": "language, speaking, reading, writing",
+		"format": null,	
+		"show":	true
+	},
+	{
+		"title": "Language & IT Skills",
+		"subtitle": "Computer Languages and Metascripts",
+		"el": "Java, C#, Python, JavaScript, JSON, ES6, HTML, CSS, Arduino, Matlab, Linux CLI",
+		"startDate": null,
+		"endDate": null,
+		"extendedDescription": null,
+		"css": null,
+		"categories": ["programming"],
+		"tags": "website development, programming, cs/it languages",
+		"format": [["coma-to-array"],["display-with-commas"]],	
+		"show":	true
+	},
+	{
+		"title": "Language & IT Skills",
+		"subtitle": "Software",
+		"el": "Unity, Maya, Fusion 360, Cura, Illustrator, Krita, Gimp",
+		"startDate": null,
+		"endDate": null,
+		"extendedDescription": null,
+		"css": null,
+		"categories": ["programming","art"],
+		"tags": "website development, programming, cs/it languages, art",
+		"format": null,	
+		"show":	true
+	},
+
+
+	{
+		"title": "Internships & Community Service",
+		"subtitle": null,
+		"el": "Optimization of foam production",
+		"startDate": {
+			"m": 9,
+			"d": 10,
+			"y": 2019
+		},
+		"endDate": {
+			"m": 1,
+			"d": 1,
+			"y": 2020
+		},
+		"extendedDescription": ["Caltech", "Internship","Data", "Goal: to optimize the production of insulating foam by using python to analyze the x-ray images of the nucleation of bubbles"],
+		"css": null,
+		"categories": ["internships"],
+		"tags": "programming, data analytics",	
+		"format": null,
+		"show":	true			
+	},
+	{
+		"title": "Internships & Community Service",
+		"subtitle": null,
+		"el": "Equations on Enzyme Kinematics & Briggs-Haldane",
+		"startDate": {
+			"m": 7,
+			"d": 20,
+			"y": 2019
+		},
+		"endDate": {
+			"m": 8,
+			"d": 20,
+			"y": 2020
+		},
+		"extendedDescription": ["Caltech", "Mathematics", "Goal: to find an derive an equation more accurate than the Briggs-Haldane equation","Shadowed Dinakar Ramakrishnan & Robert D. Tanner and fixed some code"],
+		"css": null,
+		"categories": ["internships"],
+		"tags": "programming, chemistry, mathematics",	
+		"format": null,
+		"show":	true			
+	},
+	{
+		"title": "Internships & Community Service",
+		"subtitle": null,
+		"el": "Organized a <b>TEDx Talk</b>",
+		"startDate": {
+			"m": 4,
+			"d": 27,
+			"y": 2019
+		},
+		"endDate": null,
+		"extendedDescription": ["Co-organized a TEDx talk with a small team for my community","<a class='HL'  href='http://tedxcvhs.com/'>LINK</a>"],
+		"css": null,
+		"categories": ["events", "community service"],
+		"tags": null,	
+		"format": null,
+		"show":	true			
+	},
+	{
+		"title": "Internships & Community Service",
+		"subtitle": null,
+		"el": "<b>Mentored</b> students participating in FLL",
+		"startDate": {
+			"m": 9,
+			"d": null,
+			"y": 2018
+		},
+		"endDate": {
+			"m": 11,
+			"d": null,
+			"y": 2018
+		},
+		"extendedDescription": ["<b>Mentored</b> students participating on Rosemont Middle School's FLL robotics team"],
+		"css": null,
+		"categories": ["events", "community service"],
+		"tags": "mentoring, robotics",	
+		"format": null,
+		"show":	true			
+	},
+
+
+	{
+		"title": "Academic Awards",
+		"subtitle": null,
+		"el": "AP Scholar with distinction",
+		"startDate": null,
+		"endDate": null,
+		"extendedDescription": null,
+		"css": null,
+		"categories": null,
+		"tags": null,	
+		"format": null,
+		"show":	true			
+	},
+
+
+	{
+		"title": "Academic Workshops & Competitions",
+		"subtitle": null,
+		"el": "eHacks 2020",
+		"startDate": {
+			"m": 6,
+			"d": 27,
+			"y": 2020
+		},
+		"endDate": {
+			"m": 6,
+			"d": 28,
+			"y": 2020
+		},
+		"extendedDescription": "At this <a class='HL' href='https://www.ehacks.tech/'>virtual hackathon</a>, my team & I developed a <a  class='HL' href='https://github.com/domsoos/ehacks_2020'>client side NN</a> to analyze subject eye spots; using iridology",
+		"css": null,
+		"categories": "hackathons",
+		"tags": "hackathons, programming competitions, website development, js, python, frontend, backend, code, team, ai, cnns, anns, nn, neural networks, artificial networks",	
+		"format": null,
+		"show":	true			
+	},
+	{
+		"title": "Academic Workshops & Competitions",
+		"subtitle": null,
+		"el": "Def Hacks Virtual",
+		"startDate": {
+			"m": 6,
+			"d": 20,
+			"y": 2020
+		},
+		"endDate": {
+			"m": 6,
+			"d": 21,
+			"y": 2020
+		},
+		"extendedDescription": "At this <a class='HL' href='https://defhacks.co/hackathons/virtual'>36h university-level hackathon</a>, my team & I coded <a class='HL' href='https://devpost.com/software/add-on-x5icga'>Add On</a>",
+		"css": null,
+		"categories": "hackathons",
+		"tags": "hackathons, programming competitions, website development, js, python, frontend, backend, code, team, ai, cnns, anns, nn, neural networks, artificial networks",	
+		"format": null,
+		"show":	true			
+	},
+	{
+		"title": "Academic Workshops & Competitions",
+		"subtitle": null,
+		"el": "La Hacks 2020",
+		"startDate": {
+			"m": 5,
+			"d": 27,
+			"y": 2020
+		},
+		"endDate": {
+			"m": 5,
+			"d": 29,
+			"y": 2020
+		},
+		"extendedDescription": ["Introduced some friends to hackathons","<a class='HL' href='https://la-hacks-2020.devpost.com/'>link</a>"],
+		"css": null,
+		"categories": "hackathons",
+		"tags": "hackathons, programming competitions, website development, js, python, frontend, backend, code, team, ai, cnns, anns, nn, neural networks, artificial networks",	
+		"format": null,
+		"show":	true			
+	},
+	{
+		"title": "Academic Workshops & Competitions",
+		"subtitle": null,
+		"el": "WE ARE CODE Hack-A-Thon 2019",
+		"startDate": {
+			"m": 10,
+			"d": 12,
+			"y": 2019
+		},
+		"endDate": null,
+		"extendedDescription": "A 14h AR/VR Hackathon at USC where my team and I won 2nd Place Overall",
+		"css": null,
+		"categories": "hackathons",
+		"tags": "hackathons, programming competitions, website development, js, python, frontend, backend, code, team, ai, cnns, anns, nn, neural networks, artificial networks",	
+		"format": null,
+		"show":	true			
+	},
+	{
+		"title": "Academic Workshops & Competitions",
+		"subtitle": null,
+		"el": "Hackadamia",
+		"startDate": {
+			"m": 7,
+			"d": 28,
+			"y": 2018
+		},
+		"endDate": null,
+		"extendedDescription": "A 16 hour intense high-school hackathon where my team & I worked on controlling a NASA rover with hand gestures",
+		"css": null,
+		"categories": "hackathons",
+		"tags": "hackathons, programming competitions, website development, js, python, frontend, backend, code, team, ai, cnns, anns, nn, neural networks, artificial networks",	
+		"format": null,
+		"show":	true			
+	},
+	{
+		"title": "Academic Workshops & Competitions",
+		"subtitle": null,
+		"el": "20<sup>th</sup> Annual Invention Convention",
+		"startDate": {
+			"m": null,
+			"d": null,
+			"y": 2015
+		},
+		"endDate": null,
+		"extendedDescription": "1<sup>st</sup> place; 'The Handless Holder'",
+		"css": null,
+		"categories": "hackathons",
+		"tags": "hackathons, programming competitions, website development, js, python, frontend, backend, code, team, ai, cnns, anns, nn, neural networks, artificial networks",	
+		"format": null,
+		"show":	true			
+	},
+	{
+		"title": "Academic Workshops & Competitions",
+		"subtitle": null,
+		"el": "28<sup>th</sup> Annual Math Field Day",
+		"startDate": {
+			"m": null,
+			"d": null,
+			"y": 2015
+		},
+		"endDate": null,
+		"extendedDescription": "1<sup>st</sup> place team winner",
+		"css": null,
+		"categories": "competitions",
+		"tags": "mathematics",	
+		"format": null,
+		"show":	true			
+	},
+
+
+
+	{
+		"title": "Interests",
+		"subtitle": "Learning/ Research",
+		"el": "CNNs/MI, Programming, Physics, Neurosciences, Mathematics, History, Biology",
+		"startDate": null,
+		"endDate": null,
+		"extendedDescription": null,
+		"css": null,
+		"categories": "interests",
+		"tags": null,	
+		"format": null,
+		"show":	true			
+	},
+	{
+		"title": "Interests",
+		"subtitle": "Sports",
+		"el": [[
+				{
+					"text":"<b>Gymnastics</b>: Level 10 at Payke Gymnastics Academy competing at a regional level",
+					"startDate": {
+						"m": null,
+						"d": null,
+						"y": 2005
+					},
+					"endDate": {
+						"m": null,
+						"d": null,
+						"y": 2019
+					},
+					"extendedDescription":"My right tibia broke in 2019"
+				}
+			],[
+				{
+					"text":"<b>Pole Vaulting</b>: 2018 Personal Record Pole clearance at 10ft",
+					"startDate": {
+						"m": null,
+						"d": null,
+						"y": 2017
+					},
+					"endDate": {
+						"m": null,
+						"d": null,
+						"y": 2018
+					},
+					"extendedDescription":null
+				}, 
+				{
+					"text":"<b>Karate</b>: Black belt",
+					"startDate": {
+						"m": null,
+						"d": null,
+						"y": 2005
+					},
+					"endDate": {
+						"m": null,
+						"d": null,
+						"y": 2015
+					},
+					"extendedDescription":null
+				}
+			]
+		],
+		"startDate": null,
+		"endDate": null,
+		"extendedDescription": null,
+		"css": null,
+		"categories": "interests",
+		"tags": null,	
+		"format": [["org", 3, null], "info-pop-up-objects"],
+		"show":	true			
+	},
+	{
+		"title": "Interests",
+		"subtitle": "Clubs",
+		"el": [["<b>TEDx: co- President</b>"], ["<b>Solar Army (Seal)</b>: A program aimed at identifying catalysts for splitting water molecules with sunlight for hydrogen fuel production"], ["<b>Robotics Team</b>: competes in FRC tournaments and in the annual JPL Invention Convention Challenge"], ["<b>Math Competition Club</b> (MCC): member + advisor"]],
+		"startDate": null,
+		"endDate": null,
+		"extendedDescription": null,
+		"css": null,
+		"categories": "clubs",
+		"tags": "clubs, school",	
+		"format": null,
+		"show":	true			
+	},
+	{
+		"title": "Interests",
+		"subtitle": "Hobbies",
+		"el": "Robotics, Programming, Drawing, Gymnastics, Inventing, Reading, Math",
+		"startDate": null,
+		"endDate": null,
+		"extendedDescription": null,
+		"css": null,
+		"categories": null,
+		"tags": null,	
+		"format": null,
+		"show":	true			
+	}
+]
