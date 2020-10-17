@@ -1,4 +1,10 @@
 class f {
+	static printValues = function(arr){
+		for(let i = 0; i<arr.length;i++){
+			console.log("Element " + i + ": " + arr[i]);
+		}
+	};
+	
 	static stn(val){
 		let temp;
 		if(val == null || val == undefined){

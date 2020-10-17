@@ -1,10 +1,3 @@
-// categories / title special border css in css file by class=title or category
-// [[],[]]
-//  (stuff in parentheses are extra info that appears on pop-up)
-// ["/org 3*4",...] create matrix 3 columns 4 rows from els
-// use date to determine if in process or future
-// show => true, false, or after date {m,d,y}
-// link class = "HL"
 [
 	{
 		"title": "Education",
