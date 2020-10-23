@@ -761,6 +761,18 @@
 		"backgroundColor":"grey"
 	},
 	{ 
+		"state":"recent",
+		"date":{"m":5,"d":"-","y":2020},
+		"tags":"art drawing picture scan digital",
+		"type":"art",
+		"title":"Red Bull Kid",
+		"description":'"Red bull gives you wi-ings"',
+		"img":"imgs/art/redbullkid.png",
+		"imageFilter":"initial",
+		"dateTextColor":"black",
+		"backgroundColor":"grey"
+	},
+	{ 
 		"state":"old",
 		"date":{"m":"july","d":24,"y":2017},
 		"tags":"art drawing picture scan",
