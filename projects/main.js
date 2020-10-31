@@ -419,7 +419,7 @@ resize = function(bool) {
 };
 
 window.addEventListener("load", function(event) {
-	console.log("V3.00");  //25 char max
+	console.log("V3.02");  //25 char max
 	
     let request = new XMLHttpRequest();
 	let callback = function(zone) {
@@ -431,11 +431,10 @@ window.addEventListener("load", function(event) {
 			let temp2 = temp.substr(temp.indexOf("julientoons.github.io/projects/#") + ("julientoons.github.io/projects/#").length );
 			console.log(temp + "        ..      XXX" + temp2);
 			if(temp2.length <= 0){
-				console.log("KKKK");
-				search(temp2);
+				search();
 			}
 			else{
-				search();
+				search(temp2);
 			}
 		}
 		//this.shortcut("Projects",[true, false, false, true, false, false, false, true, true, true, false, false, false, true, true]);
