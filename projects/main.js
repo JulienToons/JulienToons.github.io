@@ -232,7 +232,7 @@ fit = function(str, ln = 27, breakWords = true, breaker = "<br>", splitter = "-"
 		if(i < 0){
 //			console.log("CASE 1");
 			if(str.length - lastIndex > ln+4){
-				console.log("CASE 1.1");
+//				console.log("CASE 1.1");
 				str = str.substring(0, lastIndex+ln).concat(splitter, breaker, str.substring(lastIndex+ln));
 			}
 			break;
@@ -429,7 +429,9 @@ window.addEventListener("load", function(event) {
 			this.shortcut('Art',[true, false, false, false, false, true, false, true, true, true, false, false, false, true, true]);
 		} else {
 			let temp2 = temp.substr(temp.indexOf("julientoons.github.io/projects/#") + ("julientoons.github.io/projects/#").length );
+			console.log(temp + "        ..      XXX" + temp2);
 			if(temp2.length <= 0){
+				console.log("KKKK");
 				search(temp2);
 			}
 			else{
