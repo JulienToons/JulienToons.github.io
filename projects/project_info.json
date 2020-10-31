@@ -71,7 +71,7 @@
 		"description":"[R]A 16 hour intense high-<br>school hackathon involving<br>both hardware and software<br>challenges (My team<br>worked on controlling a<br>NASA rover with hand<br>gestures)",
 		"img":"imgs/hackademia.png",
 		"imageFilter":"initial",
-		"dateTextColor":"white",
+		"dateTextColor":"black",
 		"backgroundColor":"grey"
 	}, 
 	

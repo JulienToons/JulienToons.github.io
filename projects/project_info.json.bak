@@ -766,7 +766,7 @@
 		"tags":"art drawing picture scan digital",
 		"type":"art",
 		"title":"Red Bull Kid",
-		"description":'"Red bull gives you wi-ings"',
+		"description":"\"Red bull gives you wi-ings\"",
 		"img":"imgs/art/redbullkid.png",
 		"imageFilter":"initial",
 		"dateTextColor":"black",

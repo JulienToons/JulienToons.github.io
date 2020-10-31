@@ -127,7 +127,7 @@ printValues = function(arr){
 };
 
 search = function(val ="") {
-	console.log("searching for: " + val);
+//	console.log("searching for: " + val);
 	
 	let value = val.toLowerCase();
 
@@ -186,7 +186,7 @@ search = function(val ="") {
 		}
 	}
 	
-	console.log("search complete");
+//	console.log("search complete");
 	
 	if(displayedProjects.length <= 0){
 		alert("No match for \""+val+"\" found");
@@ -196,13 +196,13 @@ search = function(val ="") {
 		
 	}
 	
-	console.log("Sorting...");
+//	console.log("Sorting...");
 	sort();
-	console.log("Sort complete");
-	console.log("Loading Files & Graphics...");
+//	console.log("Sort complete");
+//	console.log("Loading Files & Graphics...");
 	resize(toggleSwitches[14]);
-	console.log("Resize complete");
-	console.log("Done");
+//	console.log("Resize complete");
+//	console.log("Done");
 };
 
 sort = function(){
@@ -215,7 +215,7 @@ sort = function(){
 fit = function(str, ln = 27, breakWords = true, breaker = "<br>", splitter = "-"){ // by char
 	str = str.trim();
 	let lastIndex = 0, previousIndex = 0, i = 0, temp;
-	console.log("str is " + str.length + "chars long");
+//	console.log("str is " + str.length + "chars long");
 	safetyLength = (breaker.length) * str.length;
 	while (i < str.length && i < safetyLength) {
 		temp = str.indexOf(breaker, i);
@@ -224,25 +224,25 @@ fit = function(str, ln = 27, breakWords = true, breaker = "<br>", splitter = "-"
 			i = temp + breaker.length;
 			lastIndex = i;
 			previousIndex = i;
-			console.log("continued");
+//			console.log("continued");
 			continue;
 		}
-		console.log("i = " + i);
-		console.log("last is "+lastIndex+" & previous index is "+previousIndex);
+//		console.log("i = " + i);
+//		console.log("last is "+lastIndex+" & previous index is "+previousIndex);
 		if(i < 0){
-			console.log("CASE 1");
+//			console.log("CASE 1");
 			if(str.length - lastIndex > ln+4){
 				console.log("CASE 1.1");
 				str = str.substring(0, lastIndex+ln).concat(splitter, breaker, str.substring(lastIndex+ln));
 			}
 			break;
 		} else if(breakWords && i - previousIndex > ln){
-			console.log("CASE 2");
+//			console.log("CASE 2");
 			str = str.substring(0, previousIndex + ln).concat(splitter, breaker, str.substring(previousIndex + ln + splitter.length));
 			previousIndex = previousIndex + ln + splitter.length;
 			lastIndex = i;
 		} else if(i - lastIndex > ln){
-			console.log("CASE 3");
+	//		console.log("CASE 3");
 			lastIndex = previousIndex;
 			str = str.substring(0, previousIndex).concat(breaker, str.substring(previousIndex+1));
 			previousIndex = i + breaker.length;
@@ -253,7 +253,7 @@ fit = function(str, ln = 27, breakWords = true, breaker = "<br>", splitter = "-"
 	}
 	return str;
 };
-console.log(fit("Hi your\nmy hat is george", 12));
+//console.log(fit("Hi your\nmy hat is george", 12));
 
 resize = function(bool) {
 	//sort();
@@ -261,7 +261,7 @@ resize = function(bool) {
 		bool = toggleSwitches[14];
 	}
 	
-	console.log("bool is " + bool);
+//	console.log("bool is " + bool);
 	let w = window.innerWidth;
 	let dpl = displayedProjects.length;
 	
@@ -390,7 +390,7 @@ resize = function(bool) {
 		}
 	}
 	else { // new at top
-		console.log("experimental resize");
+//		console.log("experimental resize");
 		let sub = dpl-1;
 		for(let r = 0; r < rs;r++){
 			let tr = document.createElement("tr");
@@ -419,15 +419,22 @@ resize = function(bool) {
 };
 
 window.addEventListener("load", function(event) {
-	console.log("V2.0001");  //25 char max
+	console.log("V3.00");  //25 char max
 	
     let request = new XMLHttpRequest();
 	let callback = function(zone) {
 		info = zone;
+		let temp = location.href;
 		if (location.href.includes("#art")){
 			this.shortcut('Art',[true, false, false, false, false, true, false, true, true, true, false, false, false, true, true]);
 		} else {
-			search();
+			let temp2 = temp.substr(temp.indexOf("julientoons.github.io/projects/#") + ("julientoons.github.io/projects/#").length );
+			if(temp2.length <= 0){
+				search(temp2);
+			}
+			else{
+				search();
+			}
 		}
 		//this.shortcut("Projects",[true, false, false, true, false, false, false, true, true, true, false, false, false, true, true]);
     };
