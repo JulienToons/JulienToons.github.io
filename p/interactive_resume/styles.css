@@ -1,3 +1,11 @@
+p {
+  line-height: 18px;
+  height: 54px;
+  overflow: hidden;
+} 
+ 
+ 
+ 
  @import url('https://fonts.googleapis.com/css?family=Saira+Stencil+One&display=swap'); 
 
 body {
