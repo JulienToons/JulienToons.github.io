@@ -285,14 +285,13 @@ resize = function(bool) {
 	let _create, create = function (num, tr){
 		let td = document.createElement("td"); // box/el
 		tr.appendChild(td); 
-		_create(displayedProjects[num], td);
-	};
-
-	_create = function(current_project, td){
 		td.style.backgroundColor = current_project.backgroundColor;
 		td.setAttribute("class","hoverableElement");
 		td.setAttribute("id","displayedProjectNum"+num);  // changes with disp project
-		
+		_create(displayedProjects[num], td);
+	};
+
+	_create = function(current_project, td){		
 		let projectImg = document.createElement("img");
 		projectImg.setAttribute("src", current_project.img);
 		projectImg.setAttribute("alt", "Image would be here");
@@ -432,7 +431,7 @@ resize = function(bool) {
 };
 
 window.addEventListener("load", function(event) {
-	console.log("V3.02");  //25 char max
+	console.log("V3.03");  //25 char max
 	
     let request = new XMLHttpRequest();
 	let callback = function(zone) {
