@@ -975,7 +975,7 @@
 		"imageFilter":"initial",
 		"dateTextColor":"black",
 		"backgroundColor":"grey",
-		"rotation":90
+		"rotation":0
 	},
 	{ 
 		"state":"old",
