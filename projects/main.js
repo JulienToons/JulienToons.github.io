@@ -285,7 +285,7 @@ resize = function(bool) {
 	let _create, create = function (num, tr){
 		let td = document.createElement("td"); // box/el
 		tr.appendChild(td); 
-		td.style.backgroundColor = current_project.backgroundColor;
+		td.style.backgroundColor = displayedProjects[num].backgroundColor;
 		td.setAttribute("class","hoverableElement");
 		td.setAttribute("id","displayedProjectNum"+num);  // changes with disp project
 		_create(displayedProjects[num], td);
@@ -431,7 +431,7 @@ resize = function(bool) {
 };
 
 window.addEventListener("load", function(event) {
-	console.log("V3.03");  //25 char max
+	console.log("V3.03b");  //25 char max
 	
     let request = new XMLHttpRequest();
 	let callback = function(zone) {
