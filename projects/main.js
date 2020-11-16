@@ -430,7 +430,7 @@ window.addEventListener("load", function(event) {
 		} else {
 			let temp2 = temp.substr(temp.indexOf("julientoons.github.io/projects/#") + ("julientoons.github.io/projects/#").length );
 			console.log(temp + "        ..      XXX" + temp2);
-			if(temp2.length <= 0){
+			if(temp2.length <= 0 || temp == "julientoons.github.io/projects" || temp == "julientoons.github.io/projects/" || temp.indexOf("#") <= 0){
 				search();
 			}
 			else{
