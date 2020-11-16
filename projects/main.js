@@ -311,7 +311,7 @@ resize = function(bool) {
 		try {
 			if(typeof current_project.rotation !== 'undefined' && current_project.rotation != null && current_project.rotation != 0){
 				let foo = current_project.rotation;
-				foo = (typeof foo === String & foo.includes("rotate("))? foo : (typeof foo==='number')? (Math.abs(foo)<3.15)? `rotate(${foo})`: `rotate(${(foo*Math.PI/180)}deg)`: `rotate(${foo})`;
+				foo = (typeof foo === String && foo.includes("rotate("))? foo : (typeof foo==='number')? (Math.abs(foo)<3.15)? `rotate(${foo})`: `rotate(${(foo*Math.PI/180)}deg)`: `rotate(${foo})`;
 				projectImg.style.transform = foo;
 			}
 		}
@@ -431,7 +431,7 @@ resize = function(bool) {
 };
 
 window.addEventListener("load", function(event) {
-	console.log("V3.03c");  //25 char max
+	console.log("V3.03d");  //25 char max
 	
     let request = new XMLHttpRequest();
 	let callback = function(zone) {
