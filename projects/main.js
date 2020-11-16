@@ -282,20 +282,23 @@ resize = function(bool) {
 	while (table.firstChild) {
 		table.removeChild(table.firstChild);
 	}
-	
-	let create = function(num, tr){
-		let td = document.createElement("td");
-		tr.appendChild(td);
-		td.style.backgroundColor = displayedProjects[num].backgroundColor;
+	let _create, create = function (num, tr){
+		let td = document.createElement("td"); // box/el
+		tr.appendChild(td); 
+		_create(displayedProjects[num], td);
+	};
+
+	_create = function(current_project, td){
+		td.style.backgroundColor = current_project.backgroundColor;
 		td.setAttribute("class","hoverableElement");
 		td.setAttribute("id","displayedProjectNum"+num);  // changes with disp project
 		
 		let projectImg = document.createElement("img");
-		projectImg.setAttribute("src", displayedProjects[num].img);
+		projectImg.setAttribute("src", current_project.img);
 		projectImg.setAttribute("alt", "Image would be here");
 		projectImg.setAttribute("class", "projectImage");
 		try {
-			let ttemp = displayedProjects[num].transform;
+			let ttemp = current_project.transform;
 			if(ttemp != null && ttemp != ""){
 				projectImg.style.transform = ttemp;
 			}
@@ -304,14 +307,24 @@ resize = function(bool) {
 			//console.log(error);
 		}
 		projectImg.style.width = "100%";
-		projectImg.style.WebkitFilter = displayedProjects[num].imageFilter;
-		projectImg.style.filter = displayedProjects[num].imageFilter;
+		projectImg.style.WebkitFilter = current_project.imageFilter;
+		projectImg.style.filter = current_project.imageFilter;
+		try {
+			if(typeof current_project.rotation !== 'undefined' && current_project.rotation != null && current_project.rotation != 0){
+				let foo = current_project.rotation;
+				foo = (foo.includes("rotate("))? foo : (typeof foo==='number')? (Math.abs(foo)<3.15)? `rotate(${foo})`: `rotate(${(foo*Math.PI/180)}deg)`: `rotate(${foo})`;
+				projectImg.style.transform = foo;
+			}
+		}
+		catch(error) {
+			console.log(error);
+		}
 		td.appendChild(projectImg);
 		
 		let dateNode = document.createElement("a");
 		dateNode.setAttribute("class", "dateOfProject");
-		dateNode.style.color = displayedProjects[num].dateTextColor;
-		let d = displayedProjects[num].date;
+		dateNode.style.color = current_project.dateTextColor;
+		let d = current_project.date;
 		let dytemp = d.y ? d.y : "-";
 		let dmtemp = d.m ? d.m : "-";
 		if(typeof d.y != "string" && d.y > 2000){ // i could make it be a typeof number?
@@ -341,7 +354,7 @@ resize = function(bool) {
 		
 		let overlayText = document.createElement("div");
 		overlayText.setAttribute("class", "boxOverlayText");
-		description = displayedProjects[num].description;
+		description = current_project.description;
 		switch (description.substring(0,3).toUpperCase()){ // DO NOT USE WITH LINKS
 			case "[F]": // fit 
 				description = fit(description.substring(3));
@@ -358,7 +371,7 @@ resize = function(bool) {
 		td.appendChild(textContainer);
 		
 		let projectTitle = document.createElement("p");
-		projectTitle.innerHTML = displayedProjects[num].title;
+		projectTitle.innerHTML = current_project.title;
 		textContainer.appendChild(projectTitle);
 	};
 	
@@ -430,7 +443,7 @@ window.addEventListener("load", function(event) {
 		} else {
 			let temp2 = temp.substr(temp.indexOf("julientoons.github.io/projects/#") + ("julientoons.github.io/projects/#").length );
 			console.log(temp + "        ..      XXX" + temp2);
-			if(temp2.length <= 0 || temp == "julientoons.github.io/projects" || temp == "julientoons.github.io/projects/" || temp.indexOf("#") <= 0){
+			if(temp2.length <= 0 || temp == "julientoons.github.io/projects" || temp == "julientoons.github.io/projects/" || !temp.includes("#")){
 				search();
 			}
 			else{

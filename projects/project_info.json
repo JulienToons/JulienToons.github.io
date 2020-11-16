@@ -974,7 +974,8 @@
 		"img":"imgs/art/Image (58).jpg",
 		"imageFilter":"initial",
 		"dateTextColor":"black",
-		"backgroundColor":"grey"
+		"backgroundColor":"grey",
+		"rotation":90
 	},
 	{ 
 		"state":"old",
