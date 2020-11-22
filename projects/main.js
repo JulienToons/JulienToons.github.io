@@ -305,7 +305,6 @@ resize = function(bool) {
 		catch(error) {
 			//console.log(error);
 		}
-		projectImg.style.width = "100%";
 		projectImg.style.WebkitFilter = current_project.imageFilter;
 		projectImg.style.filter = current_project.imageFilter;
 		try {
@@ -318,6 +317,7 @@ resize = function(bool) {
 		catch(error) {
 			console.log(error);
 		}
+		projectImg.style.width = "100%";
 		td.appendChild(projectImg);
 		
 		let dateNode = document.createElement("a");
@@ -431,7 +431,7 @@ resize = function(bool) {
 };
 
 window.addEventListener("load", function(event) {
-	console.log("V3.03e");  //25 char max
+	console.log("V3.04");  //25 char max
 	
     let request = new XMLHttpRequest();
 	let callback = function(zone) {
