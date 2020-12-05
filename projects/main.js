@@ -307,7 +307,7 @@ resize = function(bool) {
 		}
 		projectImg.style.WebkitFilter = current_project.imageFilter;
 		projectImg.style.filter = current_project.imageFilter;
-		try {
+		try {  // erronouse
 			if(typeof current_project.rotation !== 'undefined' && current_project.rotation != null && current_project.rotation != 0){
 				let foo = current_project.rotation;
 				foo = (typeof foo === String && foo.includes("rotate("))? foo : (typeof foo==='number')? (Math.abs(foo)<3.15)? `rotate(${foo})`: `rotate(${foo}deg)`: `rotate(${foo})`;
